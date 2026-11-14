@@ -39,6 +39,8 @@ Raw data is downloaded, not stored in git (all under `data/`, gitignored).
     python3 -I scripts/make_annotation_batches.py && python3 -I scripts/annotation_agreement.py
     # provenance classes for the 257 no-network Misstatement/Misreference claims
     python3 -I scripts/make_provenance_batches.py
+    # LLM-annotated labels: outputs/provenance/labels_A (all 257), labels_B (44, independent); then
+    .venv/bin/python -I scripts/provenance_summary.py            # summary.json, tables in notes/provenance.md
 
 ## 3. RQ2: memory traps
 
@@ -49,10 +51,20 @@ Raw data is downloaded, not stored in git (all under `data/`, gitignored).
     RR_NONET=1 RR_TAG=-nonet .venv/bin/python -I scripts/trap_pipeline.py run sympy__sympy-13615 trap 1 deepseek/deepseek-flash
     # agent-targeted traps (django-15563, django-16100): scripts/targeted/, write-up notes/targeted-traps.md
     .venv/bin/python -I scripts/targeted/targeted.py --help
+    # trap catalog: Docker validation in the official SWE-bench images, then the breakdown by type
+    .venv/bin/python -I scripts/docker_validate_traps.py run --deadline 03:03
+    .venv/bin/python -I scripts/docker_validate_traps.py report
+    .venv/bin/python -I scripts/trap_validation_breakdown.py     # notes/trap-validation.md
 
 ## 4. RQ3: disclosure
 
     .venv/bin/python -I scripts/rq3_disclosure.py
+
+## 4b. RQ4: RecallAudit
+
+    .venv/bin/python -I scripts/recall_audit_sample.py           # items to label (data/recall_audit/batches)
+    # LLM-annotated labels go to data/recall_audit/labels/b_NN.jsonl; then
+    .venv/bin/python -I scripts/recall_audit_train.py            # metrics.json + models/recall-audit/ (notes/recall-audit.md)
 
 ## 5. Memorization probes (local MLX models)
 
@@ -62,3 +74,7 @@ Raw data is downloaded, not stored in git (all under `data/`, gitignored).
 ## 6. Figures
 
     python3 scripts/make_figures.py
+
+## 7. Release bundle
+
+    .venv/bin/python -I scripts/build_release_data.py 0.2        # release/rr-derived-data-v0.2.zip

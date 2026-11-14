@@ -1,20 +1,73 @@
 {
+ "version": "v0",
  "n_labeled": 400,
+ "label_files": [
+  "b_01.jsonl",
+  "b_02.jsonl",
+  "b_03.jsonl",
+  "b_04.jsonl"
+ ],
+ "labels": "LLM-annotated (Claude subagents); 4 of 15 sampled batches were labeled",
  "counts": {
   "train": {
    "n": 249,
-   "recall_items": 50
+   "recall_items": 50,
+   "labels": {
+    "NONE": 199,
+    "SOLUTION_RECALL": 30,
+    "KNOWLEDGE_RECALL": 20
+   },
+   "lexicon_match": {
+    "none": 140,
+    "B": 61,
+    "A": 48
+   },
+   "recall_items_by_lexicon_match": {
+    "A": 29,
+    "B": 19,
+    "none": 2
+   }
   },
   "test": {
    "n": 71,
-   "recall_items": 23
+   "recall_items": 23,
+   "labels": {
+    "NONE": 48,
+    "SOLUTION_RECALL": 12,
+    "KNOWLEDGE_RECALL": 11
+   },
+   "lexicon_match": {
+    "none": 36,
+    "B": 19,
+    "A": 16
+   },
+   "recall_items_by_lexicon_match": {
+    "A": 11,
+    "B": 10,
+    "none": 2
+   }
   },
   "ood": {
    "n": 80,
-   "recall_items": 27
+   "recall_items": 27,
+   "labels": {
+    "NONE": 53,
+    "SOLUTION_RECALL": 23,
+    "KNOWLEDGE_RECALL": 4
+   },
+   "lexicon_match": {
+    "none": 44,
+    "A": 32,
+    "B": 4
+   },
+   "recall_items_by_lexicon_match": {
+    "A": 24,
+    "B": 3
+   }
   }
  },
- "labels": "LLM-annotated (Claude subagents); 4 of 15 sampled batches were labeled",
+ "sampling_note": "items were sampled 45% from lexicon matches (A or B) and 55% from random non-matching text (scripts/recall_audit_sample.py), so lexicon hits are over-represented relative to agent text in general; recall measured on this sample overstates recall on all text",
+ "lexicon_matched_share_of_labeled": 0.45,
  "test": {
   "recallaudit": {
    "precision": 0.818,
@@ -24,16 +77,28 @@
     0.3,
     0.711
    ],
+   "n_flagged": 11,
    "auroc": 0.908
   },
-  "lexicon": {
-   "precision": 0.324,
-   "recall": 1.0,
-   "f1": 0.489,
+  "lexicon_A": {
+   "precision": 0.688,
+   "recall": 0.478,
+   "f1": 0.564,
    "f1_ci": [
-    0.349,
-    0.608
-   ]
+    0.345,
+    0.731
+   ],
+   "n_flagged": 16
+  },
+  "lexicon_any": {
+   "precision": 0.6,
+   "recall": 0.913,
+   "f1": 0.724,
+   "f1_ci": [
+    0.566,
+    0.839
+   ],
+   "n_flagged": 35
   }
  },
  "ood": {
@@ -45,16 +110,28 @@
     0.444,
     0.776
    ],
+   "n_flagged": 21,
    "auroc": 0.867
   },
-  "lexicon": {
-   "precision": 0.338,
-   "recall": 1.0,
-   "f1": 0.505,
+  "lexicon_A": {
+   "precision": 0.75,
+   "recall": 0.889,
+   "f1": 0.814,
    "f1_ci": [
-    0.384,
-    0.621
-   ]
+    0.681,
+    0.909
+   ],
+   "n_flagged": 32
+  },
+  "lexicon_any": {
+   "precision": 0.75,
+   "recall": 1.0,
+   "f1": 0.857,
+   "f1_ci": [
+    0.746,
+    0.939
+   ],
+   "n_flagged": 36
   }
  }
 }

@@ -32,8 +32,11 @@ artifact this work builds on.
   repository about twice as often as supported claims (3.6% vs 1.8%; for claims about the original code 4.0% vs
   1.1%). Checked cases include go-redis v8's `IdleTimeout` (the repo pins v9, where it is `ConnMaxIdleTime`) and names
   that first appear in the task's own upstream fix, used by agents with no network and no git history.
-- First-pass LLM provenance labels (44 of 257 claims, preliminary): propagated from an earlier faulty claim 14,
-  read-but-misread 11, unsupported 10, convention guess 5, recalled other version 4.
+- **Provenance of all 257 claims (LLM-annotated):** propagated from an earlier faulty claim 95 (37.0%),
+  read-but-misread 69 (26.8%), unsupported 35 (13.6%), convention guess 33 (12.8%), recalled from another version
+  25 (9.7%, 95% CI 6.7-14.0; 7 of them use names from the task's own upstream fix). 59.1% contradict something the
+  agent had already been shown. A second, independent LLM annotator agrees on 36 of 44 double-labeled claims
+  (Cohen's kappa 0.76); no adjudication. Details: `notes/provenance.md`, `outputs/provenance/summary.json`.
 - An LLM annotator agrees with You Wang et al.'s 773 human error-type labels on 80% of claims (Cohen's kappa 0.69;
   88% on Misstatement/Misreference vs the rest). On 600 unlabeled refuted claims from the same runs it finds 61%
   Misstatement/Misreference.
@@ -74,8 +77,12 @@ the trap and passes in the placebo), and must not be visible next to the edit. D
   yet 8 of 40 trap and placebo runs rewrote it back to the remembered `using=`. In the trap, 4 of those 5 runs hit the
   `TypeError` and fixed it; 1 submitted it and failed (trap 19/20 resolved vs placebo 20/20).
 - **Network matters more than memory:** with network on, 6 of 9 pilot runs downloaded the upstream fix.
-- **Catalog:** 18 trap/placebo pairs of all 8 types on SWE-bench Verified (`traps/catalog/`); 14 of 17 checked pass a
-  local validation (both default-value traps do not bite). Docker validation in the official images is pending.
+- **Catalog:** 18 trap/placebo pairs of all 8 types in 15 SWE-bench Verified tasks (`traps/catalog/`). **Docker
+  validation in the official SWE-bench images: 15 of 18 pairs are valid** (8 checks per pair, `--network none`;
+  `outputs/traps/validation.json`, `notes/trap-validation.md`). The 3 invalid pairs, both default-value traps (T2)
+  and one rename (T3), fail only one check: the verbatim upstream fix still passes in the trap, so the trapped fact
+  does not matter for the task's tests, and the rule rejects them automatically. Valid by effect: loud 8 of 9, quiet
+  5 of 7, flag inversions (loud by name, quiet by value) 2 of 2. The django-11149 pilot trap is also valid in Docker.
   Static coverage: 218 of 500 Verified tasks admit at least one trap on a fact the gold patch uses.
 
 ![traps](docs/figures/fig_trap_effect.png)
@@ -83,10 +90,15 @@ the trap and passes in the placebo), and must not be visible next to the edit. D
 ## RQ4: RecallAudit (model)
 
 A small open classifier that flags explicit recall of training knowledge in agent reasoning, for auditing benchmark
-runs. v0 = TF-IDF + logistic regression, trained on 249 LLM-annotated steps (no DeepSWE data in training). Held-out
-tasks: precision 0.82 vs 0.32 for the regex lexicon, AUROC 0.91; DeepSWE: precision 0.71, AUROC 0.87. Small sample,
-wide intervals: use it as a high-precision filter. Weights in the GitHub release (`recall-audit.zip`), card in
-`models/recall-audit/MODEL_CARD.md` (inside the zip), inference: `scripts/recall_audit.py`.
+runs. v0 = TF-IDF + logistic regression, trained on 249 LLM-annotated steps (400 labeled in all, 4 of the 15
+sampled batches; no DeepSWE data in training). Held-out tasks (n=71): precision 0.82, recall 0.39, F1 0.53, AUROC
+0.91, vs precision 0.69, recall 0.48, F1 0.56 for the recall lexicon (family A). DeepSWE (n=80): precision 0.71,
+recall 0.56, AUROC 0.87, and there the lexicon is better (precision 0.75, recall 0.89). So v0 does not replace the
+lexicon yet; small sample, wide intervals. **Correction:** v0.1.0 listed the lexicon at precision 0.32; that came from
+a scoring bug (the baseline flagged every item), fixed in v0.2.0. The classifier and its numbers are unchanged
+(`notes/recall-audit.md`). Weights in the GitHub release (`recall-audit-v0.zip` in v0.2.0, the same weights as
+`recall-audit.zip` in v0.1.0), card in `models/recall-audit/MODEL_CARD.md` (inside the zip), inference:
+`scripts/recall_audit.py`.
 
 ## Repository layout
 
@@ -94,7 +106,8 @@ wide intervals: use it as a high-precision filter. Weights in the GitHub release
 - `rr_traps/`: the memory-trap builder (8 trap types, each with a placebo) and `tests/` for it.
 - `traps/catalog/`: built traps: diffs for trap, placebo, carried gold/test patches and the verbatim upstream fix.
 - `outputs/`: derived results (JSON/CSV) behind every number in the paper.
-- `notes/`: write-ups per analysis with exact commands, results tables and caveats.
+- `notes/`: write-ups per analysis with exact commands, results tables and caveats (new in v0.2.0:
+  `provenance.md`, `trap-validation.md`, `recall-audit.md`).
 - `docs/`: trap design rules, figures, reproduction guide.
 
 ## Data and licenses

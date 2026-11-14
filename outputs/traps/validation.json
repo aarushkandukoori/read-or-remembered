@@ -1,0 +1,4517 @@
+{
+ "description": "Docker validation of the memory-trap catalog (traps/catalog) and the django-11149 pilot in the official SWE-bench images (pilot: its rr/ images), one fresh container per check, --platform linux/amd64 --network none, colima on Apple silicon. Checks and verdict rule: scripts/docker_validate_traps.py.",
+ "commands": [
+  ".venv/bin/python -I scripts/docker_validate_traps.py run --deadline 03:03",
+  ".venv/bin/python -I scripts/docker_validate_traps.py report"
+ ],
+ "swebench_version": "4.1.0",
+ "verdict_rule": "VALID = (a) trap_gold, (b) trap_memory, (c) placebo_memory meet their expectation and every (d) check that ran (original_gold, trap_nofix, placebo_gold) does too; original_nofix and placebo_nofix are extra sanity checks, reported but not part of the verdict",
+ "checks": {
+  "original_nofix": {
+   "task_letter": "extra",
+   "version": null,
+   "tests": "TEST",
+   "fix": null,
+   "expect": "no F2P test passes"
+  },
+  "original_gold": {
+   "task_letter": "d",
+   "version": null,
+   "tests": "TEST",
+   "fix": "GOLD",
+   "expect": "all F2P and P2P pass"
+  },
+  "trap_nofix": {
+   "task_letter": "d",
+   "version": "trap.diff",
+   "tests": "tests_trap.diff",
+   "fix": null,
+   "expect": "no F2P test passes"
+  },
+  "trap_gold": {
+   "task_letter": "a",
+   "version": "trap.diff",
+   "tests": "tests_trap.diff",
+   "fix": "gold_trap.diff",
+   "expect": "all F2P and P2P pass"
+  },
+  "trap_memory": {
+   "task_letter": "b",
+   "version": "trap.diff",
+   "tests": "tests_trap.diff",
+   "fix": "memory.diff",
+   "expect": "at least one F2P test fails"
+  },
+  "placebo_nofix": {
+   "task_letter": "extra",
+   "version": "placebo.diff",
+   "tests": "tests_placebo.diff",
+   "fix": null,
+   "expect": "no F2P test passes"
+  },
+  "placebo_gold": {
+   "task_letter": "d",
+   "version": "placebo.diff",
+   "tests": "tests_placebo.diff",
+   "fix": "gold_placebo.diff",
+   "expect": "all F2P and P2P pass"
+  },
+  "placebo_memory": {
+   "task_letter": "c",
+   "version": "placebo.diff",
+   "tests": "tests_placebo.diff",
+   "fix": "memory.diff",
+   "expect": "all F2P pass"
+  }
+ },
+ "run": {
+  "deadline": "2026-11-14 03:03",
+  "started": "2026-11-14 00:41:54",
+  "plan": [
+   "django__django-15957/T3-clear_limits",
+   "django__django-15127/T4-get_level_tags",
+   "django__django-16631/T7-salted_hmac-secret",
+   "django__django-16612/T8-get_full_path",
+   "sympy__sympy-18211/T5-solve_univariate_inequality",
+   "sympy__sympy-13877/T6-_find_reasonable_pivot",
+   "sympy__sympy-14248/T2-_keep_coeff-sign",
+   "sympy__sympy-18199/T1-mod_inverse",
+   "django__django-11149",
+   "django__django-13551/T3-get_email_field_name",
+   "django__django-14011/T3-close_all",
+   "django__django-15037/T1-get_primary_key_column",
+   "django__django-15161/T7-deconstructible-path",
+   "django__django-15252/T8-_create_project_state",
+   "django__django-16263/T2-split_having_qualify-must_group_by",
+   "sympy__sympy-12419/T4-KroneckerDelta",
+   "sympy__sympy-14248/T3-_keep_coeff",
+   "sympy__sympy-14248/T6-as_coeff_mmul",
+   "sympy__sympy-18211/T4-ConditionSet"
+  ],
+  "not_run": [],
+  "done": [
+   "django__django-15957/T3-clear_limits",
+   "django__django-15127/T4-get_level_tags",
+   "django__django-16631/T7-salted_hmac-secret",
+   "django__django-16612/T8-get_full_path",
+   "sympy__sympy-18211/T5-solve_univariate_inequality",
+   "sympy__sympy-13877/T6-_find_reasonable_pivot",
+   "sympy__sympy-14248/T2-_keep_coeff-sign",
+   "sympy__sympy-18199/T1-mod_inverse",
+   "django__django-11149",
+   "django__django-13551/T3-get_email_field_name",
+   "django__django-14011/T3-close_all",
+   "django__django-15037/T1-get_primary_key_column",
+   "django__django-15161/T7-deconstructible-path",
+   "django__django-15252/T8-_create_project_state",
+   "django__django-16263/T2-split_having_qualify-must_group_by",
+   "sympy__sympy-12419/T4-KroneckerDelta",
+   "sympy__sympy-14248/T3-_keep_coeff",
+   "sympy__sympy-14248/T6-as_coeff_mmul",
+   "sympy__sympy-18211/T4-ConditionSet"
+  ],
+  "removed_images": [
+   "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+   "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+   "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+   "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+   "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+   "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest"
+  ],
+  "skipped": [],
+  "finished": "2026-11-14 01:08:33"
+ },
+ "n_pairs": 18,
+ "verdict_counts": {
+  "VALID": 15,
+  "INVALID": 3,
+  "INCOMPLETE": 0,
+  "NOT_RUN": 0
+ },
+ "verdicts": {
+  "django__django-13551/T3-get_email_field_name": "VALID",
+  "django__django-14011/T3-close_all": "INVALID",
+  "django__django-15037/T1-get_primary_key_column": "VALID",
+  "django__django-15127/T4-get_level_tags": "VALID",
+  "django__django-15161/T7-deconstructible-path": "VALID",
+  "django__django-15252/T8-_create_project_state": "VALID",
+  "django__django-15957/T3-clear_limits": "VALID",
+  "django__django-16263/T2-split_having_qualify-must_group_by": "INVALID",
+  "django__django-16612/T8-get_full_path": "VALID",
+  "django__django-16631/T7-salted_hmac-secret": "VALID",
+  "sympy__sympy-12419/T4-KroneckerDelta": "VALID",
+  "sympy__sympy-13877/T6-_find_reasonable_pivot": "VALID",
+  "sympy__sympy-14248/T2-_keep_coeff-sign": "INVALID",
+  "sympy__sympy-14248/T3-_keep_coeff": "VALID",
+  "sympy__sympy-14248/T6-as_coeff_mmul": "VALID",
+  "sympy__sympy-18199/T1-mod_inverse": "VALID",
+  "sympy__sympy-18211/T4-ConditionSet": "VALID",
+  "sympy__sympy-18211/T5-solve_univariate_inequality": "VALID"
+ },
+ "pairs": [
+  {
+   "instance_id": "django__django-13551",
+   "trap_id": "T3-get_email_field_name",
+   "type": "T3",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 auth_tests.models.__init__ auth_tests.models.with_custom_email_field auth_tests.test_models auth_tests.test_tokens",
+   "n_F2P": 2,
+   "n_P2P": 56,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "Updating the user email address invalidates the token.",
+      "test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)"
+     ],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 10.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:01:41"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 10.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:01:51"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "Updating the user email address invalidates the token.",
+      "test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)"
+     ],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:01"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 10.0,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:11"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "Updating the user email address invalidates the token.",
+      "test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)"
+     ],
+     "p2p_passed": 50,
+     "p2p_failed": [
+      "test_10265 (auth_tests.test_tokens.TokenGeneratorTest)",
+      "test_check_token_with_nonexistent_token_and_user (auth_tests.test_tokens.TokenGeneratorTest)",
+      "test_legacy_token_validation (auth_tests.test_tokens.TokenGeneratorTest)",
+      "test_make_token (auth_tests.test_tokens.TokenGeneratorTest)",
+      "The token is valid after n seconds, but no greater.",
+      "test_token_default_hashing_algorithm (auth_tests.test_tokens.TokenGeneratorTest)"
+     ],
+     "runtime_s": 10.0,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:21"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "Updating the user email address invalidates the token.",
+      "test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)"
+     ],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:31"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:41"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 56,
+     "p2p_failed": [],
+     "runtime_s": 10.0,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+     "image_id": "sha256:6a26656fa15981ec1e6ab64a2a2f6cb7378d957b3e63385507c1728a01b619f8",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-13551/T3-get_email_field_name/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:02:51"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-14011",
+   "trap_id": "T3-close_all",
+   "type": "T3",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 django.test.testcases servers.tests",
+   "n_F2P": 17,
+   "n_P2P": 2,
+   "verdict": "INVALID",
+   "failed_checks": [
+    "trap_memory"
+   ],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_live_server_url_is_class_property (servers.tests.LiveServerAddress)",
+      "Data written to the database by a view can be read.",
+      "Fixtures are properly loaded and visible to the live server thread.",
+      "test_check_model_instance_from_subview (servers.tests.LiveServerThreadedTests)",
+      "test_view_calls_subview (servers.tests.LiveServerThreadedTests)",
+      "test_404 (servers.tests.LiveServerViews)",
+      "A HTTP 1.1 server is supposed to support keep-alive. Since our",
+      "test_environ (servers.tests.LiveServerViews)",
+      "test_keep_alive_connection_clears_previous_request_data (servers.tests.LiveServerViews)",
+      "See `test_closes_connection_without_content_length` for details. This",
+      "test_media_files (servers.tests.LiveServerViews)",
+      "LiveServerTestCase reports a 404 status code when HTTP client",
+      "Launched server serves with HTTP 1.1.",
+      "test_static_files (servers.tests.LiveServerViews)",
+      "test_view (servers.tests.LiveServerViews)",
+      "Each LiveServerTestCase binds to a unique port or fails to start a",
+      "LiveServerTestCase.port customizes the server's port."
+     ],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 2.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:15"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 17,
+     "f2p_failed": [],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 6.5,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:21"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_live_server_url_is_class_property (servers.tests.LiveServerAddress)",
+      "Data written to the database by a view can be read.",
+      "Fixtures are properly loaded and visible to the live server thread.",
+      "test_check_model_instance_from_subview (servers.tests.LiveServerThreadedTests)",
+      "test_view_calls_subview (servers.tests.LiveServerThreadedTests)",
+      "test_404 (servers.tests.LiveServerViews)",
+      "A HTTP 1.1 server is supposed to support keep-alive. Since our",
+      "test_environ (servers.tests.LiveServerViews)",
+      "test_keep_alive_connection_clears_previous_request_data (servers.tests.LiveServerViews)",
+      "See `test_closes_connection_without_content_length` for details. This",
+      "test_media_files (servers.tests.LiveServerViews)",
+      "LiveServerTestCase reports a 404 status code when HTTP client",
+      "Launched server serves with HTTP 1.1.",
+      "test_static_files (servers.tests.LiveServerViews)",
+      "test_view (servers.tests.LiveServerViews)",
+      "Each LiveServerTestCase binds to a unique port or fails to start a",
+      "LiveServerTestCase.port customizes the server's port."
+     ],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 2.2,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:24"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 17,
+     "f2p_failed": [],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 6.5,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:30"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": false,
+     "status": "ran",
+     "f2p_passed": 17,
+     "f2p_failed": [],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 6.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:37"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_live_server_url_is_class_property (servers.tests.LiveServerAddress)",
+      "Data written to the database by a view can be read.",
+      "Fixtures are properly loaded and visible to the live server thread.",
+      "test_check_model_instance_from_subview (servers.tests.LiveServerThreadedTests)",
+      "test_view_calls_subview (servers.tests.LiveServerThreadedTests)",
+      "test_404 (servers.tests.LiveServerViews)",
+      "A HTTP 1.1 server is supposed to support keep-alive. Since our",
+      "test_environ (servers.tests.LiveServerViews)",
+      "test_keep_alive_connection_clears_previous_request_data (servers.tests.LiveServerViews)",
+      "See `test_closes_connection_without_content_length` for details. This",
+      "test_media_files (servers.tests.LiveServerViews)",
+      "LiveServerTestCase reports a 404 status code when HTTP client",
+      "Launched server serves with HTTP 1.1.",
+      "test_static_files (servers.tests.LiveServerViews)",
+      "test_view (servers.tests.LiveServerViews)",
+      "Each LiveServerTestCase binds to a unique port or fails to start a",
+      "LiveServerTestCase.port customizes the server's port."
+     ],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:39"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 17,
+     "f2p_failed": [],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 6.5,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:46"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 17,
+     "f2p_failed": [],
+     "p2p_passed": 2,
+     "p2p_failed": [],
+     "runtime_s": 6.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+     "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-14011/T3-close_all/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:03:53"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-15037",
+   "trap_id": "T1-get_primary_key_column",
+   "type": "T1",
+   "loud_or_quiet": "quiet",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 inspectdb.models inspectdb.tests",
+   "n_F2P": 1,
+   "n_P2P": 14,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreign_key_to_field (inspectdb.tests.InspectDBTestCase)"
+     ],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 2.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:00"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:02"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreign_key_to_field (inspectdb.tests.InspectDBTestCase)"
+     ],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:04"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:06"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreign_key_to_field (inspectdb.tests.InspectDBTestCase)"
+     ],
+     "p2p_passed": 11,
+     "p2p_failed": [
+      "test_attribute_name_not_python_keyword (inspectdb.tests.InspectDBTestCase)",
+      "test_stealth_table_name_filter_option (inspectdb.tests.InspectDBTestCase)",
+      "inspectdb can inspect a subset of tables by passing the table names as"
+     ],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:08"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreign_key_to_field (inspectdb.tests.InspectDBTestCase)"
+     ],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:10"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:12"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 14,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+     "image_id": "sha256:4a75865ed731741f5b3c52483f71fd538bd86933d8339298279e68d87804bc13",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15037/T1-get_primary_key_column/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:14"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-15127",
+   "trap_id": "T4-get_level_tags",
+   "type": "T4",
+   "loud_or_quiet": "loud",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 messages_tests.base messages_tests.tests",
+   "n_F2P": 1,
+   "n_P2P": 1,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_override_settings_level_tags (messages_tests.tests.TestLevelTags)"
+     ],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:27"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:28"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_override_settings_level_tags (messages_tests.tests.TestLevelTags)"
+     ],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:30"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:32"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_override_settings_level_tags (messages_tests.tests.TestLevelTags)"
+     ],
+     "p2p_passed": 0,
+     "p2p_failed": [
+      "test_eq (messages_tests.tests.MessageTests)"
+     ],
+     "runtime_s": 1.5,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:33"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_override_settings_level_tags (messages_tests.tests.TestLevelTags)"
+     ],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:35"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:37"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 1,
+     "p2p_failed": [],
+     "runtime_s": 1.6,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+     "image_id": "sha256:2fbf01c7457fda0f49eef1e1c035b589ed12432ef307c368aac22af534f15fd4",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15127/T4-get_level_tags/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:38"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-15161",
+   "trap_id": "T7-deconstructible-path",
+   "type": "T7",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 expressions.tests migrations.test_writer",
+   "n_F2P": 3,
+   "n_P2P": 208,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_deconstruct (expressions.tests.ValueTests)",
+      "test_deconstruct_output_field (expressions.tests.ValueTests)",
+      "test_serialize_complex_func_index (migrations.test_writer.WriterTests)"
+     ],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:21"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:23"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_deconstruct (expressions.tests.ValueTests)",
+      "test_deconstruct_output_field (expressions.tests.ValueTests)",
+      "test_serialize_complex_func_index (migrations.test_writer.WriterTests)"
+     ],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:25"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:27"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_deconstruct (expressions.tests.ValueTests)",
+      "test_deconstruct_output_field (expressions.tests.ValueTests)",
+      "test_serialize_complex_func_index (migrations.test_writer.WriterTests)"
+     ],
+     "p2p_passed": 0,
+     "p2p_failed": [
+      "test_equal (expressions.tests.OrderByTests)",
+      "test_hash (expressions.tests.OrderByTests)",
+      "test_and (expressions.tests.CombinableTests)",
+      "test_negation (expressions.tests.CombinableTests)",
+      "test_or (expressions.tests.CombinableTests)",
+      "test_reversed_and (expressions.tests.CombinableTests)",
+      "test_reversed_or (expressions.tests.CombinableTests)",
+      "test_empty_group_by (expressions.tests.ExpressionWrapperTests)",
+      "test_non_empty_group_by (expressions.tests.ExpressionWrapperTests)",
+      "test_optimizations (expressions.tests.ExistsTests)",
+      "test_deconstruct (expressions.tests.FTests)",
+      "test_deepcopy (expressions.tests.FTests)",
+      "test_equal (expressions.tests.FTests)",
+      "test_hash (expressions.tests.FTests)",
+      "test_not_equal_Value (expressions.tests.FTests)",
+      "test_resolve_output_field (expressions.tests.CombinedExpressionTests)",
+      "test_args_kwargs_signature (migrations.test_writer.OperationWriterTests)",
+      "test_args_signature (migrations.test_writer.OperationWriterTests)",
+      "test_empty_signature (migrations.test_writer.OperationWriterTests)",
+      "test_expand_args_signature (migrations.test_writer.OperationWriterTests)",
+      "test_kwargs_signature (migrations.test_writer.OperationWriterTests)",
+      "test_multiline_args_signature (migrations.test_writer.OperationWriterTests)",
+      "test_nested_args_signature (migrations.test_writer.OperationWriterTests)",
+      "test_nested_operation_expand_args_signature (migrations.test_writer.OperationWriterTests)",
+      "test_aggregates (expressions.tests.ReprTests)",
+      "test_distinct_aggregates (expressions.tests.ReprTests)",
+      "test_expressions (expressions.tests.ReprTests)",
+      "test_filtered_aggregates (expressions.tests.ReprTests)",
+      "test_functions (expressions.tests.ReprTests)",
+      "test_month_aggregation (expressions.tests.FieldTransformTests)",
+      "test_multiple_transforms_in_values (expressions.tests.FieldTransformTests)",
+      "test_transform_in_values (expressions.tests.FieldTransformTests)",
+      "test_equal (expressions.tests.SimpleExpressionTests)",
+      "test_hash (expressions.tests.SimpleExpressionTests)",
+      "test_compile_unresolved (expressions.tests.ValueTests)",
+      "test_equal (expressions.tests.ValueTests)",
+      "test_equal_output_field (expressions.tests.ValueTests)",
+      "test_hash (expressions.tests.ValueTests)",
+      "test_output_field_decimalfield (expressions.tests.ValueTests)",
+      "The output field for a given Value doesn't get cleaned & validated,",
+      "test_raise_empty_expressionlist (expressions.tests.ValueTests)",
+      "test_repr (expressions.tests.ValueTests)",
+      "test_resolve_output_field (expressions.tests.ValueTests)",
+      "test_resolve_output_field_failure (expressions.tests.ValueTests)",
+      "test_update_TimeField_using_Value (expressions.tests.ValueTests)",
+      "test_update_UUIDField_using_Value (expressions.tests.ValueTests)",
+      "Complex expressions of different connection types are possible.",
+      "test_decimal_expression (expressions.tests.ExpressionsNumericTests)",
+      "We can fill a value in all objects with an other value of the",
+      "test_filter_decimal_expression (expressions.tests.ExpressionsNumericTests)",
+      "We can filter for objects, where a value is not equals the value",
+      "We can increment a value of all objects in a query set.",
+      "test_F_reuse (expressions.tests.ExpressionsTests)",
+      "Special characters (e.g. %, _ and \\) stored in database are",
+      "This tests that SQL injection isn't possible using compilation of",
+      "test_expressions_in_lookups_join_choice (expressions.tests.IterableLookupInnerExpressionsTests)",
+      "test_in_lookup_allows_F_expressions_and_expressions_for_datetimes (expressions.tests.IterableLookupInnerExpressionsTests)",
+      "test_in_lookup_allows_F_expressions_and_expressions_for_integers (expressions.tests.IterableLookupInnerExpressionsTests)",
+      "test_range_lookup_allows_F_expressions_and_expressions_for_integers (expressions.tests.IterableLookupInnerExpressionsTests)",
+      "test_range_lookup_namedtuple (expressions.tests.IterableLookupInnerExpressionsTests)",
+      "test_lefthand_addition (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_and (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_left_shift_operator (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_or (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_right_shift_operator (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_xor (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_xor_null (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_bitwise_xor_right_null (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_division (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_modulo (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_modulo_null (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_multiplication (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_power (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_subtraction (expressions.tests.ExpressionOperatorTests)",
+      "test_lefthand_transformed_field_bitwise_or (expressions.tests.ExpressionOperatorTests)",
+      "test_right_hand_addition (expressions.tests.ExpressionOperatorTests)",
+      "test_right_hand_division (expressions.tests.ExpressionOperatorTests)",
+      "test_right_hand_modulo (expressions.tests.ExpressionOperatorTests)",
+      "test_right_hand_multiplication (expressions.tests.ExpressionOperatorTests)",
+      "test_right_hand_subtraction (expressions.tests.ExpressionOperatorTests)",
+      "test_righthand_power (expressions.tests.ExpressionOperatorTests)",
+      "test_date_case_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_date_comparison (expressions.tests.FTimeDeltaTests)",
+      "test_date_minus_duration (expressions.tests.FTimeDeltaTests)",
+      "test_date_subquery_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_date_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_datetime_subquery_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_datetime_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_datetime_subtraction_microseconds (expressions.tests.FTimeDeltaTests)",
+      "test_delta_add (expressions.tests.FTimeDeltaTests)",
+      "test_delta_subtract (expressions.tests.FTimeDeltaTests)",
+      "test_delta_update (expressions.tests.FTimeDeltaTests)",
+      "test_duration_expressions (expressions.tests.FTimeDeltaTests)",
+      "test_duration_with_datetime (expressions.tests.FTimeDeltaTests)",
+      "test_duration_with_datetime_microseconds (expressions.tests.FTimeDeltaTests)",
+      "test_durationfield_add (expressions.tests.FTimeDeltaTests)",
+      "test_durationfield_multiply_divide (expressions.tests.FTimeDeltaTests)",
+      "test_exclude (expressions.tests.FTimeDeltaTests)",
+      "test_invalid_operator (expressions.tests.FTimeDeltaTests)",
+      "test_mixed_comparisons2 (expressions.tests.FTimeDeltaTests)",
+      "test_multiple_query_compilation (expressions.tests.FTimeDeltaTests)",
+      "test_negative_timedelta_update (expressions.tests.FTimeDeltaTests)",
+      "test_query_clone (expressions.tests.FTimeDeltaTests)",
+      "test_time_subquery_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_time_subtraction (expressions.tests.FTimeDeltaTests)",
+      "test_aggregate_rawsql_annotation (expressions.tests.BasicExpressionsTests)",
+      "test_aggregate_subquery_annotation (expressions.tests.BasicExpressionsTests)",
+      "test_annotate_values_aggregate (expressions.tests.BasicExpressionsTests)",
+      "test_annotate_values_count (expressions.tests.BasicExpressionsTests)",
+      "test_annotate_values_filter (expressions.tests.BasicExpressionsTests)",
+      "test_annotation_with_nested_outerref (expressions.tests.BasicExpressionsTests)",
+      "test_annotation_with_outerref (expressions.tests.BasicExpressionsTests)",
+      "test_annotations_within_subquery (expressions.tests.BasicExpressionsTests)",
+      "test_arithmetic (expressions.tests.BasicExpressionsTests)",
+      "test_boolean_expression_combined (expressions.tests.BasicExpressionsTests)",
+      "test_boolean_expression_combined_with_empty_Q (expressions.tests.BasicExpressionsTests)",
+      "test_boolean_expression_in_Q (expressions.tests.BasicExpressionsTests)",
+      "test_case_in_filter_if_boolean_output_field (expressions.tests.BasicExpressionsTests)",
+      "test_exist_single_field_output_field (expressions.tests.BasicExpressionsTests)",
+      "test_exists_in_filter (expressions.tests.BasicExpressionsTests)",
+      "test_explicit_output_field (expressions.tests.BasicExpressionsTests)",
+      "test_filter_inter_attribute (expressions.tests.BasicExpressionsTests)",
+      "test_filter_with_join (expressions.tests.BasicExpressionsTests)",
+      "test_filtering_on_annotate_that_uses_q (expressions.tests.BasicExpressionsTests)",
+      "test_filtering_on_q_that_is_boolean (expressions.tests.BasicExpressionsTests)",
+      "test_filtering_on_rawsql_that_is_boolean (expressions.tests.BasicExpressionsTests)",
+      "test_in_subquery (expressions.tests.BasicExpressionsTests)",
+      "test_incorrect_field_in_F_expression (expressions.tests.BasicExpressionsTests)",
+      "test_incorrect_joined_field_in_F_expression (expressions.tests.BasicExpressionsTests)",
+      "test_nested_outerref_with_function (expressions.tests.BasicExpressionsTests)",
+      "test_nested_subquery (expressions.tests.BasicExpressionsTests)",
+      "test_nested_subquery_join_outer_ref (expressions.tests.BasicExpressionsTests)",
+      "test_nested_subquery_outer_ref_2 (expressions.tests.BasicExpressionsTests)",
+      "test_nested_subquery_outer_ref_with_autofield (expressions.tests.BasicExpressionsTests)",
+      "test_new_object_create (expressions.tests.BasicExpressionsTests)",
+      "test_new_object_save (expressions.tests.BasicExpressionsTests)",
+      "test_object_create_with_aggregate (expressions.tests.BasicExpressionsTests)",
+      "test_object_update (expressions.tests.BasicExpressionsTests)",
+      "test_object_update_fk (expressions.tests.BasicExpressionsTests)",
+      "test_object_update_unsaved_objects (expressions.tests.BasicExpressionsTests)",
+      "test_order_by_exists (expressions.tests.BasicExpressionsTests)",
+      "test_order_by_multiline_sql (expressions.tests.BasicExpressionsTests)",
+      "test_order_of_operations (expressions.tests.BasicExpressionsTests)",
+      "test_outerref (expressions.tests.BasicExpressionsTests)",
+      "test_outerref_mixed_case_table_name (expressions.tests.BasicExpressionsTests)",
+      "test_outerref_with_operator (expressions.tests.BasicExpressionsTests)",
+      "test_parenthesis_priority (expressions.tests.BasicExpressionsTests)",
+      "test_pickle_expression (expressions.tests.BasicExpressionsTests)",
+      "test_subquery (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_eq (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_filter_by_aggregate (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_filter_by_lazy (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_group_by_outerref_in_filter (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_in_filter (expressions.tests.BasicExpressionsTests)",
+      "test_subquery_references_joined_table_twice (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_11722_iexact_lookup (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_16731_startswith_lookup (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_18375_chained_filters (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_18375_join_reuse (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_18375_kwarg_ordering (expressions.tests.BasicExpressionsTests)",
+      "test_ticket_18375_kwarg_ordering_2 (expressions.tests.BasicExpressionsTests)",
+      "test_update (expressions.tests.BasicExpressionsTests)",
+      "test_update_inherited_field_value (expressions.tests.BasicExpressionsTests)",
+      "test_update_with_fk (expressions.tests.BasicExpressionsTests)",
+      "test_update_with_none (expressions.tests.BasicExpressionsTests)",
+      "test_uuid_pk_subquery (expressions.tests.BasicExpressionsTests)",
+      "test_custom_operation (migrations.test_writer.WriterTests)",
+      "test_deconstruct_class_arguments (migrations.test_writer.WriterTests)",
+      "Test comments at top of file.",
+      "test_migration_path (migrations.test_writer.WriterTests)",
+      "django.db.models shouldn't be imported if unused.",
+      "test_register_non_serializer (migrations.test_writer.WriterTests)",
+      "test_register_serializer (migrations.test_writer.WriterTests)",
+      "test_serialize_builtin_types (migrations.test_writer.WriterTests)",
+      "test_serialize_builtins (migrations.test_writer.WriterTests)",
+      "test_serialize_choices (migrations.test_writer.WriterTests)",
+      "Ticket #22943: Test serialization of class-based validators, including",
+      "test_serialize_collections (migrations.test_writer.WriterTests)",
+      "Make sure compiled regex can be serialized.",
+      "test_serialize_constants (migrations.test_writer.WriterTests)",
+      "test_serialize_datetime (migrations.test_writer.WriterTests)",
+      "Ticket #22679: makemigrations generates invalid code for (an empty",
+      "test_serialize_enums (migrations.test_writer.WriterTests)",
+      "test_serialize_fields (migrations.test_writer.WriterTests)",
+      "test_serialize_frozensets (migrations.test_writer.WriterTests)",
+      "test_serialize_functions (migrations.test_writer.WriterTests)",
+      "test_serialize_functools_partial (migrations.test_writer.WriterTests)",
+      "test_serialize_functools_partialmethod (migrations.test_writer.WriterTests)",
+      "test_serialize_iterators (migrations.test_writer.WriterTests)",
+      "test_serialize_lazy_objects (migrations.test_writer.WriterTests)",
+      "A reference in a local scope can't be serialized.",
+      "test_serialize_managers (migrations.test_writer.WriterTests)",
+      "test_serialize_multiline_strings (migrations.test_writer.WriterTests)",
+      "test_serialize_nested_class (migrations.test_writer.WriterTests)",
+      "test_serialize_numbers (migrations.test_writer.WriterTests)",
+      "test_serialize_path_like (migrations.test_writer.WriterTests)",
+      "test_serialize_pathlib (migrations.test_writer.WriterTests)",
+      "test_serialize_range (migrations.test_writer.WriterTests)",
+      "test_serialize_set (migrations.test_writer.WriterTests)",
+      "test_serialize_settings (migrations.test_writer.WriterTests)",
+      "test_serialize_strings (migrations.test_writer.WriterTests)",
+      "test_serialize_timedelta (migrations.test_writer.WriterTests)",
+      "test_serialize_type_model (migrations.test_writer.WriterTests)",
+      "test_serialize_type_none (migrations.test_writer.WriterTests)",
+      "An unbound method used within a class body can be serialized.",
+      "test_serialize_uuid (migrations.test_writer.WriterTests)",
+      "Tests serializing a simple migration.",
+      "#24155 - Tests ordering of imports."
+     ],
+     "runtime_s": 1.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:28"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_deconstruct (expressions.tests.ValueTests)",
+      "test_deconstruct_output_field (expressions.tests.ValueTests)",
+      "test_serialize_complex_func_index (migrations.test_writer.WriterTests)"
+     ],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:30"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 2.0,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:32"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 208,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+     "image_id": "sha256:e5dc48b0c810feeed9bcc4a979bcc60fbe662d85a24d9c2a6573d5a28bbc012f",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15161/T7-deconstructible-path/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:34"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-15252",
+   "trap_id": "T8-_create_project_state",
+   "type": "T8",
+   "loud_or_quiet": "loud by name (old keyword raises TypeError), quiet by value (positional flags)",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 backends.base.test_creation migrations.test_executor",
+   "n_F2P": 2,
+   "n_P2P": 34,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)",
+      "The django_migrations table is not created if there are no migrations"
+     ],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:04:58"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:01"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)",
+      "The django_migrations table is not created if there are no migrations"
+     ],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:03"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:05"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)",
+      "The django_migrations table is not created if there are no migrations"
+     ],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:08"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)",
+      "The django_migrations table is not created if there are no migrations"
+     ],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:10"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:13"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 34,
+     "p2p_failed": [],
+     "runtime_s": 2.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+     "image_id": "sha256:98b640f30877340d9f3fb681e6613c99b9661f33e294023d4d9ce697ecd128e7",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15252/T8-_create_project_state/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:15"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-15957",
+   "trap_id": "T3-clear_limits",
+   "type": "T3",
+   "loud_or_quiet": "loud",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 prefetch_related.tests",
+   "n_F2P": 4,
+   "n_P2P": 89,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreignkey_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_forward (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_reverse_ordering (prefetch_related.tests.PrefetchLimitTests)"
+     ],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 3.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:03"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 4,
+     "f2p_failed": [],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:06"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreignkey_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_forward (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_reverse_ordering (prefetch_related.tests.PrefetchLimitTests)"
+     ],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.2,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:08"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 4,
+     "f2p_failed": [],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:11"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreignkey_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_forward (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_reverse_ordering (prefetch_related.tests.PrefetchLimitTests)"
+     ],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.2,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:13"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_foreignkey_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_forward (prefetch_related.tests.PrefetchLimitTests)",
+      "test_m2m_reverse (prefetch_related.tests.PrefetchLimitTests)",
+      "test_reverse_ordering (prefetch_related.tests.PrefetchLimitTests)"
+     ],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:16"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 4,
+     "f2p_failed": [],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:18"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 4,
+     "f2p_failed": [],
+     "p2p_passed": 89,
+     "p2p_failed": [],
+     "runtime_s": 2.2,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+     "image_id": "sha256:0bd385831cbdab9d5b49d502708eeb831c290b856a8bd7b49ad889945b96452b",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-15957/T3-clear_limits/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:42:20"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-16263",
+   "trap_id": "T2-split_having_qualify-must_group_by",
+   "type": "T2",
+   "loud_or_quiet": "quiet",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 aggregation.tests",
+   "n_F2P": 3,
+   "n_P2P": 100,
+   "verdict": "INVALID",
+   "failed_checks": [
+    "trap_memory"
+   ],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_non_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unreferenced_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unused_aliased_aggregate_pruned (aggregation.tests.AggregateAnnotationPruningTests)"
+     ],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 2.0,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:23"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:25"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_non_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unreferenced_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unused_aliased_aggregate_pruned (aggregation.tests.AggregateAnnotationPruningTests)"
+     ],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:27"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:28"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": false,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:30"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_non_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unreferenced_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+      "test_unused_aliased_aggregate_pruned (aggregation.tests.AggregateAnnotationPruningTests)"
+     ],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:32"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:34"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 3,
+     "f2p_failed": [],
+     "p2p_passed": 100,
+     "p2p_failed": [],
+     "runtime_s": 1.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+     "image_id": "sha256:82700a720fd444baafe5b0a83a16784dad712f8da1dc2c2b7070a5c6650e0739",
+     "applied": [
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16263/T2-split_having_qualify-must_group_by/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:36"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-16612",
+   "trap_id": "T8-get_full_path",
+   "type": "T8",
+   "loud_or_quiet": "loud by name (old keyword raises TypeError), quiet by value (positional flags)",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 admin_views.tests",
+   "n_F2P": 2,
+   "n_P2P": 335,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_missing_slash_append_slash_true_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_query_string)",
+      "test_missing_slash_append_slash_true_script_name_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name_query_string)"
+     ],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 18.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:58"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 17.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:44:16"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_missing_slash_append_slash_true_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_query_string)",
+      "test_missing_slash_append_slash_true_script_name_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name_query_string)"
+     ],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 18.2,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:44:34"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 17.3,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:44:51"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_missing_slash_append_slash_true_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_query_string)",
+      "test_missing_slash_append_slash_true_script_name_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name_query_string)"
+     ],
+     "p2p_passed": 331,
+     "p2p_failed": [
+      "test_missing_slash_append_slash_true (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true)",
+      "test_missing_slash_append_slash_true_force_script_name (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_force_script_name)",
+      "test_missing_slash_append_slash_true_script_name (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name)",
+      "If you leave off the trailing slash, app should redirect and add it."
+     ],
+     "runtime_s": 17.7,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:45:09"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_missing_slash_append_slash_true_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_query_string)",
+      "test_missing_slash_append_slash_true_script_name_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name_query_string)"
+     ],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 17.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:45:26"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 17.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:45:44"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 335,
+     "p2p_failed": [],
+     "runtime_s": 19.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+     "image_id": "sha256:d636fb686b7fabddbc66210cd743e5853b92d23c3c84039dd5163d9ded1c6bbe",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16612/T8-get_full_path/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:03"
+    }
+   }
+  },
+  {
+   "instance_id": "django__django-16631",
+   "trap_id": "T7-salted_hmac-secret",
+   "type": "T7",
+   "loud_or_quiet": "loud",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+   "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 auth_tests.test_basic",
+   "n_F2P": 1,
+   "n_P2P": 12,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_get_user_fallback_secret (auth_tests.test_basic.TestGetUser.test_get_user_fallback_secret)"
+     ],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 2.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/_task/original_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:03"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 2.1,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/_task/original_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:05"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_get_user_fallback_secret (auth_tests.test_basic.TestGetUser.test_get_user_fallback_secret)"
+     ],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/trap_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:07"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/trap_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:09"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_get_user_fallback_secret (auth_tests.test_basic.TestGetUser.test_get_user_fallback_secret)"
+     ],
+     "p2p_passed": 11,
+     "p2p_failed": [
+      "test_get_user (auth_tests.test_basic.TestGetUser.test_get_user)"
+     ],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/trap_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:11"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_get_user_fallback_secret (auth_tests.test_basic.TestGetUser.test_get_user_fallback_secret)"
+     ],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/placebo_nofix.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:13"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 1.8,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/placebo_gold.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:15"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 12,
+     "p2p_failed": [],
+     "runtime_s": 1.9,
+     "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+     "image_id": "sha256:89047cc950b66cc6a18c11d97f528877c313bc9e2a415931777140a8c0e2df20",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/django__django-16631/T7-salted_hmac-secret/placebo_memory.log",
+     "package_file": "/testbed/django/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:43:17"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-12419",
+   "trap_id": "T4-KroneckerDelta",
+   "type": "T4",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/matrices/expressions/tests/test_matexpr.py",
+   "n_F2P": 1,
+   "n_P2P": 25,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_Identity"
+     ],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:42"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:45"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_Identity"
+     ],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:47"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:50"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_Identity"
+     ],
+     "p2p_passed": 0,
+     "p2p_failed": [
+      "test_shape",
+      "test_matexpr",
+      "test_subs",
+      "test_ZeroMatrix",
+      "test_ZeroMatrix_doit",
+      "test_Identity_doit",
+      "test_addition",
+      "test_multiplication",
+      "test_MatPow",
+      "test_MatrixSymbol",
+      "test_dense_conversion",
+      "test_free_symbols",
+      "test_zero_matmul",
+      "test_matadd_simplify",
+      "test_matmul_simplify",
+      "test_invariants",
+      "test_indexing",
+      "test_single_indexing",
+      "test_MatrixElement_commutative",
+      "test_MatrixSymbol_determinant",
+      "test_MatrixElement_diff",
+      "test_MatrixElement_doit",
+      "test_identity_powers",
+      "test_Zero_power",
+      "test_matrixelement_diff"
+     ],
+     "runtime_s": 1.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/trap_memory.log",
+     "package_file": null,
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:51"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_Identity"
+     ],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:54"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:56"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 25,
+     "p2p_failed": [],
+     "runtime_s": 2.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+     "image_id": "sha256:f78a02916b66645a5325eb515192081890cfc77a103202d5b611d3b2d4b77893",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-12419/T4-KroneckerDelta/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:05:59"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-13877",
+   "trap_id": "T6-_find_reasonable_pivot",
+   "type": "T6",
+   "loud_or_quiet": "quiet",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/matrices/tests/test_matrices.py",
+   "n_F2P": 1,
+   "n_P2P": 110,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_determinant"
+     ],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 12.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:47:23"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 12.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:47:35"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_determinant"
+     ],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 11.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:47:47"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 11.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:47:58"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_determinant"
+     ],
+     "p2p_passed": 109,
+     "p2p_failed": [
+      "test_casoratian"
+     ],
+     "runtime_s": 11.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:09"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_determinant"
+     ],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 11.3,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:20"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 11.7,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:32"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 110,
+     "p2p_failed": [],
+     "runtime_s": 11.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+     "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-13877/T6-_find_reasonable_pivot/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:43"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-14248",
+   "trap_id": "T2-_keep_coeff-sign",
+   "type": "T2",
+   "loud_or_quiet": "quiet",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/printing/pretty/tests/test_pretty.py sympy/printing/tests/test_ccode.py sympy/printing/tests/test_fcode.py sympy/printing/tests/test_jscode.py sympy/printing/tests/test_julia.py sympy/printing/tests/test_latex.py sympy/printing/tests/test_octave.py sympy/printing/tests/test_rcode.py sympy/printing/tests/test_str.py",
+   "n_F2P": 2,
+   "n_P2P": 433,
+   "verdict": "INVALID",
+   "failed_checks": [
+    "trap_memory"
+   ],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:58"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:08"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 10.7,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:18"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:28"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": false,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:38"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 10.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:48"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:58"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T2-_keep_coeff-sign/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:50:07"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-14248",
+   "trap_id": "T3-_keep_coeff",
+   "type": "T3",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/printing/pretty/tests/test_pretty.py sympy/printing/tests/test_ccode.py sympy/printing/tests/test_fcode.py sympy/printing/tests/test_jscode.py sympy/printing/tests/test_julia.py sympy/printing/tests/test_latex.py sympy/printing/tests/test_octave.py sympy/printing/tests/test_rcode.py sympy/printing/tests/test_str.py",
+   "n_F2P": 2,
+   "n_P2P": 433,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:58"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:08"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:09"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:18"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [
+      "test_MatrixElement_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:27"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:36"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:45"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T3-_keep_coeff/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:06:55"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-14248",
+   "trap_id": "T6-as_coeff_mmul",
+   "type": "T6",
+   "loud_or_quiet": "quiet",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/printing/pretty/tests/test_pretty.py sympy/printing/tests/test_ccode.py sympy/printing/tests/test_fcode.py sympy/printing/tests/test_jscode.py sympy/printing/tests/test_julia.py sympy/printing/tests/test_latex.py sympy/printing/tests/test_octave.py sympy/printing/tests/test_rcode.py sympy/printing/tests/test_str.py",
+   "n_F2P": 2,
+   "n_P2P": 433,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:48:58"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:49:08"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:04"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:13"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [
+      "test_MatrixElement_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:22"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_MatrixElement_printing",
+      "test_MatrixSymbol_printing"
+     ],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:32"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:41"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 2,
+     "f2p_failed": [],
+     "p2p_passed": 433,
+     "p2p_failed": [],
+     "runtime_s": 9.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+     "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-14248/T6-as_coeff_mmul/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:50"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-18199",
+   "trap_id": "T1-mod_inverse",
+   "type": "T1",
+   "loud_or_quiet": "quiet",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/ntheory/tests/test_residue.py sympy/solvers/tests/test_solveset.py",
+   "n_F2P": 1,
+   "n_P2P": 113,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_solve_modular"
+     ],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 70.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:51:22"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 67.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:52:29"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_solve_modular"
+     ],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 67.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:53:37"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 69.7,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:54:46"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_solve_modular"
+     ],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 66.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:55:53"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_solve_modular"
+     ],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 65.9,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:56:59"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 73.3,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:58:12"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 113,
+     "p2p_failed": [],
+     "runtime_s": 74.8,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+     "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18199/T1-mod_inverse/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:59:27"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-18211",
+   "trap_id": "T4-ConditionSet",
+   "type": "T4",
+   "loud_or_quiet": "loud",
+   "priority": 3,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/core/tests/test_relational.py",
+   "n_F2P": 1,
+   "n_P2P": 54,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:11"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.8,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:19"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:07:58"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.3,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:08:05"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 53,
+     "p2p_failed": [
+      "test_univariate_relational_as_set"
+     ],
+     "runtime_s": 6.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:08:12"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.0,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:08:19"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.2,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:08:26"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T4-ConditionSet/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 01:08:33"
+    }
+   }
+  },
+  {
+   "instance_id": "sympy__sympy-18211",
+   "trap_id": "T5-solve_univariate_inequality",
+   "type": "T5",
+   "loud_or_quiet": "quiet",
+   "priority": 1,
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+   "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/core/tests/test_relational.py",
+   "n_F2P": 1,
+   "n_P2P": 54,
+   "verdict": "VALID",
+   "failed_checks": [],
+   "extra_checks_failed": [],
+   "checks": {
+    "original_nofix": {
+     "check": "original_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "test_patch.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/_task/original_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:11"
+    },
+    "original_gold": {
+     "check": "original_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.8,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "test_patch.diff",
+      "gold.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/_task/original_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:19"
+    },
+    "trap_nofix": {
+     "check": "trap_nofix",
+     "letter": "d",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.3,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/trap_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:26"
+    },
+    "trap_gold": {
+     "check": "trap_gold",
+     "letter": "a",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.7,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "gold_trap.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/trap_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:34"
+    },
+    "trap_memory": {
+     "check": "trap_memory",
+     "letter": "b",
+     "expect_text": "at least one F2P test fails",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.5,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "trap.diff",
+      "tests_trap.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/trap_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:42"
+    },
+    "placebo_nofix": {
+     "check": "placebo_nofix",
+     "letter": "extra",
+     "expect_text": "no F2P test passes",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 0,
+     "f2p_failed": [
+      "test_issue_18188"
+     ],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 7.6,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/placebo_nofix.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:49"
+    },
+    "placebo_gold": {
+     "check": "placebo_gold",
+     "letter": "d",
+     "expect_text": "all F2P and P2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 8.4,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "gold_placebo.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/placebo_gold.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:46:58"
+    },
+    "placebo_memory": {
+     "check": "placebo_memory",
+     "letter": "c",
+     "expect_text": "all F2P pass",
+     "ok": true,
+     "status": "ran",
+     "f2p_passed": 1,
+     "f2p_failed": [],
+     "p2p_passed": 54,
+     "p2p_failed": [],
+     "runtime_s": 8.1,
+     "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18211:latest",
+     "image_id": "sha256:5b03a01d5871b1f8148add41dcd69240b064ed3df13b8347a6e2baa10b20da86",
+     "applied": [
+      "placebo.diff",
+      "tests_placebo.diff",
+      "memory.diff"
+     ],
+     "log": "work/trap_validation/logs/sympy__sympy-18211/T5-solve_univariate_inequality/placebo_memory.log",
+     "package_file": "/testbed/sympy/__init__.py",
+     "exec_exit": 0,
+     "finished": "2026-11-14 00:47:06"
+    }
+   }
+  }
+ ],
+ "pilot": {
+  "instance_id": "django__django-11149",
+  "trap": "T1 argument order: get_permission_codename(action, opts) -> (opts, action)",
+  "images": "rr/django-11149:{original,trap,placebo}",
+  "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 admin_inlines.models admin_inlines.tests",
+  "n_F2P": 2,
+  "n_P2P": 46,
+  "verdict": "VALID",
+  "failed_checks": [],
+  "note": "placebo.memory.diff is byte-identical to placebo.gold.diff and original.memory.diff to original.gold.diff, so original_memory is not a separate check",
+  "checks": {
+   "original_nofix": {
+    "check": "original_nofix",
+    "letter": "extra",
+    "expect_text": "no F2P test passes",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 0,
+    "f2p_failed": [
+     "test_inline_add_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)"
+    ],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.5,
+    "image": "rr/django-11149:original",
+    "image_id": "sha256:dee92fce11cf8484c8b55bd8aadb71846e746f7f4566c5ca4045573cda953996",
+    "applied": [
+     "test_patch.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/original_nofix.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 00:59:38"
+   },
+   "original_gold": {
+    "check": "original_gold",
+    "letter": "d",
+    "expect_text": "all F2P and P2P pass",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 2,
+    "f2p_failed": [],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.4,
+    "image": "rr/django-11149:original",
+    "image_id": "sha256:dee92fce11cf8484c8b55bd8aadb71846e746f7f4566c5ca4045573cda953996",
+    "applied": [
+     "test_patch.diff",
+     "original.gold.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/original_gold.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 00:59:48"
+   },
+   "trap_nofix": {
+    "check": "trap_nofix",
+    "letter": "d",
+    "expect_text": "no F2P test passes",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 0,
+    "f2p_failed": [
+     "test_inline_add_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)"
+    ],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.4,
+    "image": "rr/django-11149:trap",
+    "image_id": "sha256:45738e38364497e4fa6553198a16aecdeeab22a030e8857715ed18991e21f4a5",
+    "applied": [
+     "test_patch.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/trap_nofix.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 00:59:59"
+   },
+   "trap_gold": {
+    "check": "trap_gold",
+    "letter": "a",
+    "expect_text": "all F2P and P2P pass",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 2,
+    "f2p_failed": [],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 11.4,
+    "image": "rr/django-11149:trap",
+    "image_id": "sha256:45738e38364497e4fa6553198a16aecdeeab22a030e8857715ed18991e21f4a5",
+    "applied": [
+     "test_patch.diff",
+     "trap.gold.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/trap_gold.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 01:00:10"
+   },
+   "trap_memory": {
+    "check": "trap_memory",
+    "letter": "b",
+    "expect_text": "at least one F2P test fails",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 0,
+    "f2p_failed": [
+     "test_inline_add_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)"
+    ],
+    "p2p_passed": 37,
+    "p2p_failed": [
+     "test_inline_add_m2m_add_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_add_m2m_noperm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_add_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_change_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_noperm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_editable_pk (admin_inlines.tests.TestInline)",
+     "test_inline_nonauto_noneditable_inherited_pk (admin_inlines.tests.TestInline)",
+     "test_inline_nonauto_noneditable_pk (admin_inlines.tests.TestInline)",
+     "Autogenerated many-to-many inlines are displayed correctly (#13407)"
+    ],
+    "runtime_s": 10.6,
+    "image": "rr/django-11149:trap",
+    "image_id": "sha256:45738e38364497e4fa6553198a16aecdeeab22a030e8857715ed18991e21f4a5",
+    "applied": [
+     "test_patch.diff",
+     "trap.memory.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/trap_memory.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 01:00:21"
+   },
+   "placebo_nofix": {
+    "check": "placebo_nofix",
+    "letter": "extra",
+    "expect_text": "no F2P test passes",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 0,
+    "f2p_failed": [
+     "test_inline_add_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)",
+     "test_inline_change_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions)"
+    ],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.3,
+    "image": "rr/django-11149:placebo",
+    "image_id": "sha256:060a996b01e0bf1110ff97fdcd371bad427585fc5802499ed8d198b3e7ff1267",
+    "applied": [
+     "test_patch.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/placebo_nofix.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 01:00:31"
+   },
+   "placebo_gold": {
+    "check": "placebo_gold",
+    "letter": "d",
+    "expect_text": "all F2P and P2P pass",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 2,
+    "f2p_failed": [],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.2,
+    "image": "rr/django-11149:placebo",
+    "image_id": "sha256:060a996b01e0bf1110ff97fdcd371bad427585fc5802499ed8d198b3e7ff1267",
+    "applied": [
+     "test_patch.diff",
+     "placebo.gold.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/placebo_gold.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 01:00:41"
+   },
+   "placebo_memory": {
+    "check": "placebo_memory",
+    "letter": "c",
+    "expect_text": "all F2P pass",
+    "ok": true,
+    "status": "ran",
+    "f2p_passed": 2,
+    "f2p_failed": [],
+    "p2p_passed": 46,
+    "p2p_failed": [],
+    "runtime_s": 10.4,
+    "image": "rr/django-11149:placebo",
+    "image_id": "sha256:060a996b01e0bf1110ff97fdcd371bad427585fc5802499ed8d198b3e7ff1267",
+    "applied": [
+     "test_patch.diff",
+     "placebo.memory.diff"
+    ],
+    "log": "work/trap_validation/logs/pilots/django__django-11149/placebo_memory.log",
+    "package_file": "/testbed/django/__init__.py",
+    "exec_exit": 0,
+    "finished": "2026-11-14 01:00:52"
+   }
+  }
+ },
+ "image_pulls": [
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15957:latest",
+   "ok": true,
+   "seconds": 5,
+   "vm_bytes_added": 276901888,
+   "mac_free_before": 45940883456,
+   "vm_free_before": 46003036160,
+   "df_h_before": "/dev/disk3s5   460Gi   385Gi    43Gi    91%    3.5M  449M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:42:00"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15127:latest",
+   "ok": true,
+   "seconds": 4,
+   "vm_bytes_added": 260923392,
+   "mac_free_before": 44579860480,
+   "vm_free_before": 46003130368,
+   "df_h_before": "/dev/disk3s5   460Gi   386Gi    42Gi    91%    3.5M  435M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:42:25"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16631:latest",
+   "ok": true,
+   "seconds": 22,
+   "vm_bytes_added": 2311475200,
+   "mac_free_before": 44366094336,
+   "vm_free_before": 46003130368,
+   "df_h_before": "/dev/disk3s5   460Gi   386Gi    41Gi    91%    3.5M  433M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:43:01"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16612:latest",
+   "ok": true,
+   "seconds": 22,
+   "vm_bytes_added": 2307121152,
+   "mac_free_before": 42220539904,
+   "vm_free_before": 45999534080,
+   "df_h_before": "/dev/disk3s5   460Gi   388Gi    39Gi    91%    3.5M  412M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:43:39"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+   "ok": true,
+   "seconds": 3,
+   "vm_bytes_added": 146817024,
+   "mac_free_before": 39288496128,
+   "vm_free_before": 45999534080,
+   "df_h_before": "/dev/disk3s5   460Gi   389Gi    37Gi    92%    3.5M  384M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:47:10"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+   "ok": true,
+   "seconds": 4,
+   "vm_bytes_added": 147034112,
+   "mac_free_before": 38148616192,
+   "vm_free_before": 45999616000,
+   "df_h_before": "/dev/disk3s5   460Gi   390Gi    36Gi    92%    3.5M  373M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:48:48"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+   "ok": true,
+   "seconds": 4,
+   "vm_bytes_added": 180428800,
+   "mac_free_before": 38104633344,
+   "vm_free_before": 45851111424,
+   "df_h_before": "/dev/disk3s5   460Gi   390Gi    35Gi    92%    3.5M  372M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 00:50:12"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-13551:latest",
+   "ok": true,
+   "seconds": 38,
+   "vm_bytes_added": 4098084864,
+   "mac_free_before": 37169725440,
+   "vm_free_before": 45856014336,
+   "df_h_before": "/dev/disk3s5   460Gi   390Gi    35Gi    92%    3.5M  363M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:01:30"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+   "ok": true,
+   "seconds": 19,
+   "vm_bytes_added": 2159910912,
+   "mac_free_before": 33951252480,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   393Gi    32Gi    93%    3.5M  332M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:03:12"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15037:latest",
+   "ok": true,
+   "seconds": 5,
+   "vm_bytes_added": 261021696,
+   "mac_free_before": 32207863808,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   395Gi    30Gi    93%    3.5M  315M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:03:58"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15161:latest",
+   "ok": true,
+   "seconds": 4,
+   "vm_bytes_added": 263950336,
+   "mac_free_before": 32053301248,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   395Gi    30Gi    93%    3.5M  313M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:04:19"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-15252:latest",
+   "ok": true,
+   "seconds": 20,
+   "vm_bytes_added": 2227851264,
+   "mac_free_before": 31923490816,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   395Gi    30Gi    94%    3.5M  312M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:04:55"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.django_1776_django-16263:latest",
+   "ok": true,
+   "seconds": 5,
+   "vm_bytes_added": 273281024,
+   "mac_free_before": 30190043136,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   397Gi    28Gi    94%    3.5M  295M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:05:21"
+  },
+  {
+   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12419:latest",
+   "ok": true,
+   "seconds": 3,
+   "vm_bytes_added": 125984768,
+   "mac_free_before": 30069137408,
+   "vm_free_before": 45855952896,
+   "df_h_before": "/dev/disk3s5   460Gi   397Gi    28Gi    94%    3.5M  294M    1%   /System/Volumes/Data",
+   "when": "2026-11-14 01:05:40"
+  }
+ ],
+ "pulled_bytes_vm": 15040786432
+}

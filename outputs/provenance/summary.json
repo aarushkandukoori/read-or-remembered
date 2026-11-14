@@ -1,0 +1,1147 @@
+{
+ "command": ".venv/bin/python -I scripts/provenance_summary.py",
+ "labels": "LLM-annotated (Claude Opus 5.5 subagents); annotator A on all claims, B independent on a subset",
+ "coverage": {
+  "n_claims": 257,
+  "n_labeled_A": 257,
+  "missing_A": [],
+  "missing_A_by_batch": {},
+  "n_labeled_B": 44,
+  "B_batches": [
+   "p_00",
+   "p_01"
+  ],
+  "labels_not_in_batches": [],
+  "problems_A": [],
+  "problems_B": []
+ },
+ "all": {
+  "n": 257,
+  "classes": {
+   "Propagated": {
+    "count": 95,
+    "share": 0.36965,
+    "wilson95": [
+     0.312958,
+     0.430182
+    ]
+   },
+   "Recalled-other-version": {
+    "count": 25,
+    "share": 0.097276,
+    "wilson95": [
+     0.066759,
+     0.139656
+    ]
+   },
+   "Convention-guess": {
+    "count": 33,
+    "share": 0.128405,
+    "wilson95": [
+     0.092911,
+     0.174844
+    ]
+   },
+   "Read-but-misread": {
+    "count": 69,
+    "share": 0.268482,
+    "wilson95": [
+     0.218002,
+     0.325782
+    ]
+   },
+   "Unsupported": {
+    "count": 35,
+    "share": 0.136187,
+    "wilson95": [
+     0.099577,
+     0.183512
+    ]
+   }
+  }
+ },
+ "by_model": {
+  "deepseek-v32": {
+   "n": 112,
+   "classes": {
+    "Propagated": {
+     "count": 36,
+     "share": 0.321429,
+     "wilson95": [
+      0.242097,
+      0.412604
+     ]
+    },
+    "Recalled-other-version": {
+     "count": 14,
+     "share": 0.125,
+     "wilson95": [
+      0.07594,
+      0.198932
+     ]
+    },
+    "Convention-guess": {
+     "count": 17,
+     "share": 0.151786,
+     "wilson95": [
+      0.096979,
+      0.229688
+     ]
+    },
+    "Read-but-misread": {
+     "count": 31,
+     "share": 0.276786,
+     "wilson95": [
+      0.202377,
+      0.366
+     ]
+    },
+    "Unsupported": {
+     "count": 14,
+     "share": 0.125,
+     "wilson95": [
+      0.07594,
+      0.198932
+     ]
+    }
+   }
+  },
+  "flash": {
+   "n": 145,
+   "classes": {
+    "Propagated": {
+     "count": 59,
+     "share": 0.406897,
+     "wilson95": [
+      0.33034,
+      0.488259
+     ]
+    },
+    "Recalled-other-version": {
+     "count": 11,
+     "share": 0.075862,
+     "wilson95": [
+      0.042885,
+      0.130733
+     ]
+    },
+    "Convention-guess": {
+     "count": 16,
+     "share": 0.110345,
+     "wilson95": [
+      0.069071,
+      0.171733
+     ]
+    },
+    "Read-but-misread": {
+     "count": 38,
+     "share": 0.262069,
+     "wilson95": [
+      0.197294,
+      0.339126
+     ]
+    },
+    "Unsupported": {
+     "count": 21,
+     "share": 0.144828,
+     "wilson95": [
+      0.096717,
+      0.211272
+     ]
+    }
+   }
+  }
+ },
+ "by_error_form": {
+  "Misstatement": {
+   "n": 216,
+   "classes": {
+    "Propagated": {
+     "count": 78,
+     "share": 0.361111,
+     "wilson95": [
+      0.299998,
+      0.427079
+     ]
+    },
+    "Recalled-other-version": {
+     "count": 22,
+     "share": 0.101852,
+     "wilson95": [
+      0.068227,
+      0.149392
+     ]
+    },
+    "Convention-guess": {
+     "count": 19,
+     "share": 0.087963,
+     "wilson95": [
+      0.057035,
+      0.133291
+     ]
+    },
+    "Read-but-misread": {
+     "count": 63,
+     "share": 0.291667,
+     "wilson95": [
+      0.235112,
+      0.355502
+     ]
+    },
+    "Unsupported": {
+     "count": 34,
+     "share": 0.157407,
+     "wilson95": [
+      0.114881,
+      0.211907
+     ]
+    }
+   }
+  },
+  "Misreference": {
+   "n": 41,
+   "classes": {
+    "Propagated": {
+     "count": 17,
+     "share": 0.414634,
+     "wilson95": [
+      0.277563,
+      0.566332
+     ]
+    },
+    "Recalled-other-version": {
+     "count": 3,
+     "share": 0.073171,
+     "wilson95": [
+      0.025197,
+      0.194277
+     ]
+    },
+    "Convention-guess": {
+     "count": 14,
+     "share": 0.341463,
+     "wilson95": [
+      0.215586,
+      0.494504
+     ]
+    },
+    "Read-but-misread": {
+     "count": 6,
+     "share": 0.146341,
+     "wilson95": [
+      0.068842,
+      0.284438
+     ]
+    },
+    "Unsupported": {
+     "count": 1,
+     "share": 0.02439,
+     "wilson95": [
+      0.004318,
+      0.125953
+     ]
+    }
+   }
+  }
+ },
+ "flags": {
+  "contradicted_by_prior_output": {
+   "count": 152,
+   "n": 257,
+   "share": 0.59144,
+   "wilson95": [
+    0.530422,
+    0.649764
+   ]
+  },
+  "named_before_seen": {
+   "count": 38,
+   "n": 257,
+   "share": 0.14786,
+   "wilson95": [
+    0.109658,
+    0.196434
+   ]
+  },
+  "hedged": {
+   "count": 103,
+   "n": 257,
+   "share": 0.400778,
+   "wilson95": [
+    0.342749,
+    0.46173
+   ]
+  },
+  "uses_upstream_fix": {
+   "count": 19,
+   "n": 257,
+   "share": 0.07393,
+   "wilson95": [
+    0.047837,
+    0.112573
+   ]
+  },
+  "channel": {
+   "hidden_reasoning": 257
+  },
+  "confidence": {
+   "medium": 127,
+   "high": 74,
+   "low": 56
+  }
+ },
+ "flags_by_class": {
+  "Propagated": {
+   "contradicted_by_prior_output": {
+    "count": 59,
+    "n": 95,
+    "share": 0.621053,
+    "wilson95": [
+     0.520592,
+     0.712103
+    ]
+   },
+   "named_before_seen": {
+    "count": 21,
+    "n": 95,
+    "share": 0.221053,
+    "wilson95": [
+     0.149372,
+     0.314416
+    ]
+   },
+   "hedged": {
+    "count": 49,
+    "n": 95,
+    "share": 0.515789,
+    "wilson95": [
+     0.41665,
+     0.613701
+    ]
+   },
+   "uses_upstream_fix": {
+    "count": 7,
+    "n": 95,
+    "share": 0.073684,
+    "wilson95": [
+     0.036149,
+     0.144358
+    ]
+   },
+   "channel": {
+    "hidden_reasoning": 95
+   },
+   "confidence": {
+    "high": 55,
+    "medium": 38,
+    "low": 2
+   }
+  },
+  "Recalled-other-version": {
+   "contradicted_by_prior_output": {
+    "count": 15,
+    "n": 25,
+    "share": 0.6,
+    "wilson95": [
+     0.407391,
+     0.765969
+    ]
+   },
+   "named_before_seen": {
+    "count": 2,
+    "n": 25,
+    "share": 0.08,
+    "wilson95": [
+     0.02222,
+     0.249665
+    ]
+   },
+   "hedged": {
+    "count": 12,
+    "n": 25,
+    "share": 0.48,
+    "wilson95": [
+     0.30031,
+     0.665018
+    ]
+   },
+   "uses_upstream_fix": {
+    "count": 7,
+    "n": 25,
+    "share": 0.28,
+    "wilson95": [
+     0.142837,
+     0.47577
+    ]
+   },
+   "channel": {
+    "hidden_reasoning": 25
+   },
+   "confidence": {
+    "low": 13,
+    "medium": 8,
+    "high": 4
+   }
+  },
+  "Convention-guess": {
+   "contradicted_by_prior_output": {
+    "count": 9,
+    "n": 33,
+    "share": 0.272727,
+    "wilson95": [
+     0.150673,
+     0.442179
+    ]
+   },
+   "named_before_seen": {
+    "count": 10,
+    "n": 33,
+    "share": 0.30303,
+    "wilson95": [
+     0.173753,
+     0.473385
+    ]
+   },
+   "hedged": {
+    "count": 18,
+    "n": 33,
+    "share": 0.545455,
+    "wilson95": [
+     0.379857,
+     0.701573
+    ]
+   },
+   "uses_upstream_fix": {
+    "count": 3,
+    "n": 33,
+    "share": 0.090909,
+    "wilson95": [
+     0.031403,
+     0.235729
+    ]
+   },
+   "channel": {
+    "hidden_reasoning": 33
+   },
+   "confidence": {
+    "medium": 22,
+    "low": 11
+   }
+  },
+  "Read-but-misread": {
+   "contradicted_by_prior_output": {
+    "count": 69,
+    "n": 69,
+    "share": 1.0,
+    "wilson95": [
+     0.947261,
+     1.0
+    ]
+   },
+   "named_before_seen": {
+    "count": 2,
+    "n": 69,
+    "share": 0.028986,
+    "wilson95": [
+     0.007985,
+     0.099668
+    ]
+   },
+   "hedged": {
+    "count": 12,
+    "n": 69,
+    "share": 0.173913,
+    "wilson95": [
+     0.102383,
+     0.279838
+    ]
+   },
+   "uses_upstream_fix": {
+    "count": 1,
+    "n": 69,
+    "share": 0.014493,
+    "wilson95": [
+     0.002563,
+     0.077633
+    ]
+   },
+   "channel": {
+    "hidden_reasoning": 69
+   },
+   "confidence": {
+    "medium": 28,
+    "low": 26,
+    "high": 15
+   }
+  },
+  "Unsupported": {
+   "contradicted_by_prior_output": {
+    "count": 0,
+    "n": 35,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.098904
+    ]
+   },
+   "named_before_seen": {
+    "count": 3,
+    "n": 35,
+    "share": 0.085714,
+    "wilson95": [
+     0.029582,
+     0.223796
+    ]
+   },
+   "hedged": {
+    "count": 12,
+    "n": 35,
+    "share": 0.342857,
+    "wilson95": [
+     0.208315,
+     0.508484
+    ]
+   },
+   "uses_upstream_fix": {
+    "count": 1,
+    "n": 35,
+    "share": 0.028571,
+    "wilson95": [
+     0.005061,
+     0.145334
+    ]
+   },
+   "channel": {
+    "hidden_reasoning": 35
+   },
+   "confidence": {
+    "medium": 31,
+    "low": 4
+   }
+  }
+ },
+ "flags_by_error_form_and_class": {
+  "Misstatement": {
+   "Propagated": {
+    "contradicted_by_prior_output": {
+     "count": 47,
+     "n": 78,
+     "share": 0.602564,
+     "wilson95": [
+      0.491617,
+      0.703883
+     ]
+    },
+    "named_before_seen": {
+     "count": 7,
+     "n": 78,
+     "share": 0.089744,
+     "wilson95": [
+      0.044152,
+      0.173849
+     ]
+    },
+    "hedged": {
+     "count": 35,
+     "n": 78,
+     "share": 0.448718,
+     "wilson95": [
+      0.343342,
+      0.558908
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 5,
+     "n": 78,
+     "share": 0.064103,
+     "wilson95": [
+      0.027689,
+      0.141438
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 78
+    },
+    "confidence": {
+     "high": 45,
+     "medium": 31,
+     "low": 2
+    }
+   },
+   "Recalled-other-version": {
+    "contradicted_by_prior_output": {
+     "count": 14,
+     "n": 22,
+     "share": 0.636364,
+     "wilson95": [
+      0.429513,
+      0.80267
+     ]
+    },
+    "named_before_seen": {
+     "count": 1,
+     "n": 22,
+     "share": 0.045455,
+     "wilson95": [
+      0.008069,
+      0.217985
+     ]
+    },
+    "hedged": {
+     "count": 12,
+     "n": 22,
+     "share": 0.545455,
+     "wilson95": [
+      0.346595,
+      0.7308
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 6,
+     "n": 22,
+     "share": 0.272727,
+     "wilson95": [
+      0.131506,
+      0.481521
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 22
+    },
+    "confidence": {
+     "low": 11,
+     "medium": 8,
+     "high": 3
+    }
+   },
+   "Convention-guess": {
+    "contradicted_by_prior_output": {
+     "count": 4,
+     "n": 19,
+     "share": 0.210526,
+     "wilson95": [
+      0.085075,
+      0.433347
+     ]
+    },
+    "named_before_seen": {
+     "count": 1,
+     "n": 19,
+     "share": 0.052632,
+     "wilson95": [
+      0.009352,
+      0.246392
+     ]
+    },
+    "hedged": {
+     "count": 11,
+     "n": 19,
+     "share": 0.578947,
+     "wilson95": [
+      0.362756,
+      0.768584
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 1,
+     "n": 19,
+     "share": 0.052632,
+     "wilson95": [
+      0.009352,
+      0.246392
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 19
+    },
+    "confidence": {
+     "medium": 11,
+     "low": 8
+    }
+   },
+   "Read-but-misread": {
+    "contradicted_by_prior_output": {
+     "count": 63,
+     "n": 63,
+     "share": 1.0,
+     "wilson95": [
+      0.942527,
+      1.0
+     ]
+    },
+    "named_before_seen": {
+     "count": 2,
+     "n": 63,
+     "share": 0.031746,
+     "wilson95": [
+      0.008749,
+      0.108567
+     ]
+    },
+    "hedged": {
+     "count": 12,
+     "n": 63,
+     "share": 0.190476,
+     "wilson95": [
+      0.112461,
+      0.30407
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 1,
+     "n": 63,
+     "share": 0.015873,
+     "wilson95": [
+      0.002807,
+      0.084587
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 63
+    },
+    "confidence": {
+     "medium": 27,
+     "low": 23,
+     "high": 13
+    }
+   },
+   "Unsupported": {
+    "contradicted_by_prior_output": {
+     "count": 0,
+     "n": 34,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.101518
+     ]
+    },
+    "named_before_seen": {
+     "count": 3,
+     "n": 34,
+     "share": 0.088235,
+     "wilson95": [
+      0.030465,
+      0.229608
+     ]
+    },
+    "hedged": {
+     "count": 11,
+     "n": 34,
+     "share": 0.323529,
+     "wilson95": [
+      0.191315,
+      0.491574
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 1,
+     "n": 34,
+     "share": 0.029412,
+     "wilson95": [
+      0.005211,
+      0.149159
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 34
+    },
+    "confidence": {
+     "medium": 30,
+     "low": 4
+    }
+   }
+  },
+  "Misreference": {
+   "Propagated": {
+    "contradicted_by_prior_output": {
+     "count": 12,
+     "n": 17,
+     "share": 0.705882,
+     "wilson95": [
+      0.468665,
+      0.867202
+     ]
+    },
+    "named_before_seen": {
+     "count": 14,
+     "n": 17,
+     "share": 0.823529,
+     "wilson95": [
+      0.589701,
+      0.93809
+     ]
+    },
+    "hedged": {
+     "count": 14,
+     "n": 17,
+     "share": 0.823529,
+     "wilson95": [
+      0.589701,
+      0.93809
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 2,
+     "n": 17,
+     "share": 0.117647,
+     "wilson95": [
+      0.032879,
+      0.343368
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 17
+    },
+    "confidence": {
+     "high": 10,
+     "medium": 7
+    }
+   },
+   "Recalled-other-version": {
+    "contradicted_by_prior_output": {
+     "count": 1,
+     "n": 3,
+     "share": 0.333333,
+     "wilson95": [
+      0.06149,
+      0.792345
+     ]
+    },
+    "named_before_seen": {
+     "count": 1,
+     "n": 3,
+     "share": 0.333333,
+     "wilson95": [
+      0.06149,
+      0.792345
+     ]
+    },
+    "hedged": {
+     "count": 0,
+     "n": 3,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.561506
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 1,
+     "n": 3,
+     "share": 0.333333,
+     "wilson95": [
+      0.06149,
+      0.792345
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 3
+    },
+    "confidence": {
+     "low": 2,
+     "high": 1
+    }
+   },
+   "Convention-guess": {
+    "contradicted_by_prior_output": {
+     "count": 5,
+     "n": 14,
+     "share": 0.357143,
+     "wilson95": [
+      0.163445,
+      0.61236
+     ]
+    },
+    "named_before_seen": {
+     "count": 9,
+     "n": 14,
+     "share": 0.642857,
+     "wilson95": [
+      0.38764,
+      0.836555
+     ]
+    },
+    "hedged": {
+     "count": 7,
+     "n": 14,
+     "share": 0.5,
+     "wilson95": [
+      0.267989,
+      0.732011
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 2,
+     "n": 14,
+     "share": 0.142857,
+     "wilson95": [
+      0.040093,
+      0.399419
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 14
+    },
+    "confidence": {
+     "medium": 11,
+     "low": 3
+    }
+   },
+   "Read-but-misread": {
+    "contradicted_by_prior_output": {
+     "count": 6,
+     "n": 6,
+     "share": 1.0,
+     "wilson95": [
+      0.609657,
+      1.0
+     ]
+    },
+    "named_before_seen": {
+     "count": 0,
+     "n": 6,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.390343
+     ]
+    },
+    "hedged": {
+     "count": 0,
+     "n": 6,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.390343
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 0,
+     "n": 6,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.390343
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 6
+    },
+    "confidence": {
+     "low": 3,
+     "high": 2,
+     "medium": 1
+    }
+   },
+   "Unsupported": {
+    "contradicted_by_prior_output": {
+     "count": 0,
+     "n": 1,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.793457
+     ]
+    },
+    "named_before_seen": {
+     "count": 0,
+     "n": 1,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.793457
+     ]
+    },
+    "hedged": {
+     "count": 1,
+     "n": 1,
+     "share": 1.0,
+     "wilson95": [
+      0.206543,
+      1.0
+     ]
+    },
+    "uses_upstream_fix": {
+     "count": 0,
+     "n": 1,
+     "share": 0.0,
+     "wilson95": [
+      0.0,
+      0.793457
+     ]
+    },
+    "channel": {
+     "hidden_reasoning": 1
+    },
+    "confidence": {
+     "medium": 1
+    }
+   }
+  }
+ },
+ "crosstab_class_x_evidence_seen_before": {
+  "Propagated": {
+   "all": 42,
+   "some": 37,
+   "none": 1,
+   "no_repo_evidence": 15
+  },
+  "Recalled-other-version": {
+   "all": 13,
+   "some": 8,
+   "none": 2,
+   "no_repo_evidence": 2
+  },
+  "Convention-guess": {
+   "all": 8,
+   "some": 15,
+   "none": 5,
+   "no_repo_evidence": 5
+  },
+  "Read-but-misread": {
+   "all": 35,
+   "some": 24,
+   "none": 3,
+   "no_repo_evidence": 7
+  },
+  "Unsupported": {
+   "all": 2,
+   "some": 14,
+   "none": 4,
+   "no_repo_evidence": 15
+  }
+ },
+ "crosstab_evidence_seen_before_totals": {
+  "all": 100,
+  "some": 98,
+  "none": 15,
+  "no_repo_evidence": 44
+ },
+ "agreement_A_vs_B": {
+  "n_overlap": 44,
+  "raw_agreement": 0.8182,
+  "raw_agreement_wilson95": [
+   0.680392,
+   0.904873
+  ],
+  "n_agree": 36,
+  "kappa_5_classes": 0.761,
+  "kappa_5_classes_boot95": [
+   0.587,
+   0.906
+  ],
+  "boot_reps_skipped_5": 0,
+  "memory_vs_not": {
+   "definition": "Recalled-other-version vs the other four classes",
+   "raw_agreement": 0.9545,
+   "kappa": 0.645,
+   "kappa_boot95": [
+    0.0,
+    1.0
+   ],
+   "boot_reps_skipped": 30,
+   "A_memory": 4,
+   "B_memory": 2,
+   "both_memory": 2
+  },
+  "A_classes_on_overlap": {
+   "Propagated": 14,
+   "Recalled-other-version": 4,
+   "Convention-guess": 5,
+   "Read-but-misread": 11,
+   "Unsupported": 10
+  },
+  "B_classes_on_overlap": {
+   "Propagated": 13,
+   "Recalled-other-version": 2,
+   "Convention-guess": 5,
+   "Read-but-misread": 11,
+   "Unsupported": 13
+  },
+  "confusion_A_rows_B_cols": {
+   "Propagated": {
+    "Propagated": 11,
+    "Recalled-other-version": 0,
+    "Convention-guess": 0,
+    "Read-but-misread": 2,
+    "Unsupported": 1
+   },
+   "Recalled-other-version": {
+    "Propagated": 1,
+    "Recalled-other-version": 2,
+    "Convention-guess": 1,
+    "Read-but-misread": 0,
+    "Unsupported": 0
+   },
+   "Convention-guess": {
+    "Propagated": 0,
+    "Recalled-other-version": 0,
+    "Convention-guess": 4,
+    "Read-but-misread": 0,
+    "Unsupported": 1
+   },
+   "Read-but-misread": {
+    "Propagated": 1,
+    "Recalled-other-version": 0,
+    "Convention-guess": 0,
+    "Read-but-misread": 9,
+    "Unsupported": 1
+   },
+   "Unsupported": {
+    "Propagated": 0,
+    "Recalled-other-version": 0,
+    "Convention-guess": 0,
+    "Read-but-misread": 0,
+    "Unsupported": 10
+   }
+  },
+  "flag_agreement": {
+   "contradicted_by_prior_output": 0.9545,
+   "named_before_seen": 1.0,
+   "hedged": 0.9773,
+   "uses_upstream_fix": 0.9773
+  },
+  "disagreements": [
+   {
+    "cid": "c00445",
+    "A": "Convention-guess",
+    "B": "Unsupported"
+   },
+   {
+    "cid": "c00446",
+    "A": "Recalled-other-version",
+    "B": "Propagated"
+   },
+   {
+    "cid": "c02740",
+    "A": "Read-but-misread",
+    "B": "Propagated"
+   },
+   {
+    "cid": "c03417",
+    "A": "Propagated",
+    "B": "Read-but-misread"
+   },
+   {
+    "cid": "c14276",
+    "A": "Read-but-misread",
+    "B": "Unsupported"
+   },
+   {
+    "cid": "c14353",
+    "A": "Recalled-other-version",
+    "B": "Convention-guess"
+   },
+   {
+    "cid": "c14486",
+    "A": "Propagated",
+    "B": "Read-but-misread"
+   },
+   {
+    "cid": "c19714",
+    "A": "Propagated",
+    "B": "Unsupported"
+   }
+  ]
+ }
+}
