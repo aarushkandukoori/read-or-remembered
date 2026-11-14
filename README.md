@@ -64,12 +64,15 @@ flag) consistently across the repo, tests and gold patch; a placebo makes an edi
 fact. Rules: the trap must look like a real refactoring, must matter for the task (the verbatim upstream fix fails in
 the trap and passes in the placebo), and must not be visible next to the edit. Design: `docs/trap-design.md`.
 
-- **Agent runs (DeepSeek V4 Flash, mini-swe-agent, `--network none`, squashed git history):** 4 traps, 1-6 runs per
-  arm. No trap run's final patch used the remembered fact; all 14 trap runs resolved the task. Agents copy usage
+- **Agent runs (DeepSeek V4 Flash, mini-swe-agent, `--network none`, squashed git history):** 5 traps, 1-20 runs
+  per arm. Only 1 of 31 targeted trap runs submitted the remembered fact. Agents copy usage
   from call sites they read. For the very common `transaction.atomic(using=...)` (renamed to `alias=`), memory still
   surfaces: the hidden reasoning noted the conflict in 6/6 trap runs (visible text 4/6), and 1 run hit the
   `TypeError` and fixed it. This matches You Wang's prediction that simple traps show up mid-trajectory, not in the
   final patch.
+- **Memory can override visible code:** in trap C the renamed keyword (`alias=`) sat on the exact line the fix edits,
+  yet 8 of 40 trap and placebo runs rewrote it back to the remembered `using=`. In the trap, 4 of those 5 runs hit the
+  `TypeError` and fixed it; 1 submitted it and failed (trap 19/20 resolved vs placebo 20/20).
 - **Network matters more than memory:** with network on, 6 of 9 pilot runs downloaded the upstream fix.
 - **Catalog:** 18 trap/placebo pairs of all 8 types on SWE-bench Verified (`traps/catalog/`); 14 of 17 checked pass a
   local validation (both default-value traps do not bite). Docker validation in the official images is pending.

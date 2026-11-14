@@ -231,10 +231,27 @@ def carried_own(iid, cond, own_patch):
         pat = re.compile(rf'({func}\()\s*([^,()]+(?:\([^()]*\))?[^,()]*?)\s*,\s*([^,()]+(?:\[[^\]]*\])?(?:\([^()]*\))?)\s*([,)])')
         undo = lambda l: pat.sub(r'\1\3, \2\4', l)
     else:
-        undo = lambda l: re.sub(rf'({func}\([^\n]*?)\b{cfg["newname"]}=', rf'\1{cfg["param"]}=', l)
-    memory = '\n'.join(undo(l) if cond == 'trap' and l.startswith('+') and not l.startswith('+++') else l
-                       for l in carried.split('\n'))
-    return carried, memory
+        undo = None
+    if undo is not None:
+        memory = '\n'.join(undo(l) if cond == 'trap' and l.startswith('+') and not l.startswith('+++') else l
+                           for l in carried.split('\n'))
+        return carried, memory
+    # kwrename: inside any added call to FUNC (it may span lines), put the old keyword back
+    out, depth = [], 0
+    for l in carried.split('\n'):
+        if cond == 'trap' and l.startswith('+') and not l.startswith('+++'):
+            body = l[1:]
+            start = body.find(f'{func}(')
+            if depth > 0 or start >= 0:
+                seg_from = 0 if depth > 0 else start
+                head, tail = body[:seg_from], body[seg_from:]
+                tail = re.sub(rf'\b{cfg["newname"]}=', f'{cfg["param"]}=', tail)
+                body = head + tail
+                depth += tail.count('(') - tail.count(')')
+                depth = max(depth, 0)
+            l = '+' + body
+        out.append(l)
+    return carried, '\n'.join(out)
 
 
 def validate(iid):

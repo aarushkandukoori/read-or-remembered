@@ -103,3 +103,28 @@ are regex based. The conflict counts come from keyword matching in the reasoning
 DeepSeek balance went from $2.00 to $0.98. This experiment used about $0.62 of that: baselines $0.22,
 trap/placebo/original runs $0.33 + $0.17, plus test calls. The earlier pilot runs used the rest. Every
 run cost $0.003 to $0.13.
+
+## 6. Trap C: django__django-12741, same `atomic(using=)` rename, keyword on the edited line (Nov 14)
+
+- Baseline (network off): DeepSeek solved it ($0.003). Its fix writes `transaction.atomic(using=self.connection.alias, ...)`
+  without opening the definition (5 other calls seen). Target confirmed.
+- Trap/placebo built with the same tools as Trap B (39 calls in 20 files; Django 3.1). Here the repo's own
+  line that the fix edits reads `transaction.atomic(alias=using, savepoint=...)`, so the new keyword is
+  visible exactly where the agent works.
+- Validation: in the trap, DeepSeek's own fix written with `using=` fails 0/2 F2P + 3 P2P; carried over
+  it passes 2/2, 67/67. Placebo clean. Gold passes everywhere.
+- Runs (network off):
+
+| version | n | resolved | ran or wrote `using=` | TypeError seen | final patch |
+|---|---|---|---|---|---|
+| original | 3 | 3 | 3 (correct there) | 0 | `using=` 3/3 |
+| trap | 20 | **19** | **5** | 4 | `alias=` 19, `using=` 1 (the one failure) |
+| placebo | 20 | 20 | 3 | 0 | `alias=` 18, `using=` 2 (works, alias accepted) |
+
+- So memory "corrected" visibly correct code in 8 of 40 trap/placebo runs (20%). In the trap that was
+  caught by the agent's own runs in 4 of 5 cases, and once it reached the final patch and failed the
+  task (trap 19/20 vs placebo 20/20). Hidden reasoning says things like "Wait transaction.atomic
+  signature uses using not alias!" and "Current uses alias=using incorrectly?".
+- The keyword-matching "conflict" count is not reported here: `self.connection.alias` is part of the fix,
+  so the word "alias" appears regardless.
+- Cost: about $0.10 for all 44 runs ($0.002 to $0.004 each). DeepSeek balance now $0.88.

@@ -224,9 +224,11 @@ def fig_traps():
          sum(1 for x in tg['django__django-15563'] if x['run'].startswith('trap') and any('original' in f for f in x['final_patch']))),
         ('django-16100  atomic(using=) -> alias=\nnetwork off (agent-targeted)', tg['django__django-16100'],
          sum(1 for x in tg['django__django-16100'] if x['run'].startswith('trap') and x['final_patch'] == 'using=')),
+        ('django-12741  atomic(using=) -> alias=,\nnew keyword on the edited line (targeted)',
+         json.load(open(ROOT / 'outputs/targeted/runs/django__django-12741/grades.json')), 1),
     ]
     arms = ['original', 'placebo', 'trap']
-    fig, ax = plt.subplots(figsize=(5.4, 2.4))
+    fig, ax = plt.subplots(figsize=(5.4, 2.8))
     cmap = plt.get_cmap('Greens')
     for i, (lab, grades, mem) in enumerate(exps):
         for j, arm in enumerate(arms):
