@@ -1,0 +1,370 @@
+dataset,model,measure,contrast,n_traj,mean_diff_traj_rate,ci_lo,ci_hi,n_traj_with_hit_in_hidden,share_of_those_with_hit_in_other_channel,n_traj_with_hit_in_visible
+deepswe,ALL,A,hidden reasoning minus visible message,1225,0.0112,0.0094,0.0131,342,0.1696,
+deepswe,ALL,A,hidden reasoning minus command,1225,0.0132,0.0114,0.0152,342,0.0175,
+deepswe,ALL,A,visible message minus command,1225,0.002,0.0013,0.0028,,0.1364,88
+deepswe,ALL,B,hidden reasoning minus visible message,1225,0.0019,0.0015,0.0023,153,0.0196,
+deepswe,ALL,B,hidden reasoning minus command,1225,0.0018,0.0015,0.0022,153,0.0261,
+deepswe,ALL,B,visible message minus command,1225,-0.0001,-0.0002,0.0001,,0.0909,11
+deepswe,ALL,any,hidden reasoning minus visible message,1225,0.0125,0.0106,0.0145,396,0.1616,
+deepswe,ALL,any,hidden reasoning minus command,1225,0.0144,0.0125,0.0164,396,0.0328,
+deepswe,ALL,any,visible message minus command,1225,0.0019,0.0012,0.0027,,0.1414,99
+deepswe,claude-opus-4-6,A,hidden reasoning minus visible message,80,0.0005,0.0,0.0014,2,0.0,
+deepswe,claude-opus-4-6,A,hidden reasoning minus command,80,-0.0002,-0.0017,0.0012,2,0.0,
+deepswe,claude-opus-4-6,A,visible message minus command,80,-0.0007,-0.002,0.0,,,0
+deepswe,claude-opus-4-6,B,hidden reasoning minus visible message,80,0.0004,-0.0003,0.0013,3,0.0,
+deepswe,claude-opus-4-6,B,hidden reasoning minus command,80,0.0003,0.0,0.0008,3,0.6667,
+deepswe,claude-opus-4-6,B,visible message minus command,80,-0.0001,-0.0008,0.0004,,0.0,1
+deepswe,claude-opus-4-6,any,hidden reasoning minus visible message,80,0.0009,-0.0001,0.0022,5,0.0,
+deepswe,claude-opus-4-6,any,hidden reasoning minus command,80,0.0001,-0.0014,0.0016,5,0.4,
+deepswe,claude-opus-4-6,any,visible message minus command,80,-0.0008,-0.0023,0.0002,,0.0,1
+deepswe,claude-opus-4-7,A,hidden reasoning minus visible message,108,0.0014,0.0002,0.003,7,0.4286,
+deepswe,claude-opus-4-7,A,hidden reasoning minus command,108,0.0017,0.0001,0.0038,7,0.2857,
+deepswe,claude-opus-4-7,A,visible message minus command,108,0.0003,-0.0002,0.0011,,0.2,5
+deepswe,claude-opus-4-7,B,hidden reasoning minus visible message,108,0.0001,-0.0002,0.0004,3,0.0,
+deepswe,claude-opus-4-7,B,hidden reasoning minus command,108,0.0002,0.0,0.0004,3,0.0,
+deepswe,claude-opus-4-7,B,visible message minus command,108,0.0001,0.0,0.0003,,0.0,1
+deepswe,claude-opus-4-7,any,hidden reasoning minus visible message,108,0.0015,0.0003,0.0031,10,0.3,
+deepswe,claude-opus-4-7,any,hidden reasoning minus command,108,0.0019,0.0003,0.004,10,0.2,
+deepswe,claude-opus-4-7,any,visible message minus command,108,0.0004,-0.0002,0.0012,,0.1667,6
+deepswe,claude-opus-4-8,A,hidden reasoning minus visible message,60,0.009,0.0037,0.0151,15,0.2667,
+deepswe,claude-opus-4-8,A,hidden reasoning minus command,60,0.0099,0.0043,0.0162,15,0.0,
+deepswe,claude-opus-4-8,A,visible message minus command,60,0.0008,0.0001,0.0017,,0.0,4
+deepswe,claude-opus-4-8,B,hidden reasoning minus visible message,60,0.0001,0.0,0.0004,1,0.0,
+deepswe,claude-opus-4-8,B,hidden reasoning minus command,60,0.0001,0.0,0.0004,1,0.0,
+deepswe,claude-opus-4-8,B,visible message minus command,60,0.0,0.0,0.0,,,0
+deepswe,claude-opus-4-8,any,hidden reasoning minus visible message,60,0.0092,0.0039,0.0152,16,0.25,
+deepswe,claude-opus-4-8,any,hidden reasoning minus command,60,0.01,0.0045,0.0163,16,0.0,
+deepswe,claude-opus-4-8,any,visible message minus command,60,0.0008,0.0001,0.0017,,0.0,4
+deepswe,claude-sonnet-4-6,A,hidden reasoning minus visible message,80,0.0005,-0.0003,0.0015,5,0.0,
+deepswe,claude-sonnet-4-6,A,hidden reasoning minus command,80,0.0002,-0.0008,0.0014,5,0.0,
+deepswe,claude-sonnet-4-6,A,visible message minus command,80,-0.0003,-0.0009,0.0,,1.0,1
+deepswe,claude-sonnet-4-6,B,hidden reasoning minus visible message,80,0.0013,0.0003,0.0025,7,0.1429,
+deepswe,claude-sonnet-4-6,B,hidden reasoning minus command,80,0.0011,0.0001,0.0021,7,0.1429,
+deepswe,claude-sonnet-4-6,B,visible message minus command,80,-0.0002,-0.0008,0.0002,,0.0,1
+deepswe,claude-sonnet-4-6,any,hidden reasoning minus visible message,80,0.0018,0.0005,0.0033,11,0.0909,
+deepswe,claude-sonnet-4-6,any,hidden reasoning minus command,80,0.0013,-0.0001,0.0028,11,0.0909,
+deepswe,claude-sonnet-4-6,any,visible message minus command,80,-0.0005,-0.0013,0.0001,,0.5,2
+deepswe,deepseek-v4-flash,A,hidden reasoning minus visible message,20,0.0596,0.0347,0.0901,18,0.1111,
+deepswe,deepseek-v4-flash,A,hidden reasoning minus command,20,0.0609,0.0355,0.0919,18,0.0,
+deepswe,deepseek-v4-flash,A,visible message minus command,20,0.0014,0.0,0.0033,,0.0,2
+deepswe,deepseek-v4-flash,B,hidden reasoning minus visible message,20,0.009,0.0045,0.0145,12,0.0833,
+deepswe,deepseek-v4-flash,B,hidden reasoning minus command,20,0.0095,0.0047,0.0153,12,0.0,
+deepswe,deepseek-v4-flash,B,visible message minus command,20,0.0004,0.0,0.0013,,0.0,1
+deepswe,deepseek-v4-flash,any,hidden reasoning minus visible message,20,0.0621,0.0371,0.0923,18,0.1667,
+deepswe,deepseek-v4-flash,any,hidden reasoning minus command,20,0.0639,0.0376,0.0953,18,0.0,
+deepswe,deepseek-v4-flash,any,visible message minus command,20,0.0018,0.0,0.0039,,0.0,3
+deepswe,deepseek-v4-pro,A,hidden reasoning minus visible message,20,0.0867,0.0481,0.1356,17,0.5294,
+deepswe,deepseek-v4-pro,A,hidden reasoning minus command,20,0.0913,0.0512,0.1423,17,0.0,
+deepswe,deepseek-v4-pro,A,visible message minus command,20,0.0047,0.0019,0.0079,,0.0,9
+deepswe,deepseek-v4-pro,B,hidden reasoning minus visible message,20,0.0067,0.0026,0.0119,9,0.0,
+deepswe,deepseek-v4-pro,B,hidden reasoning minus command,20,0.0067,0.0026,0.0119,9,0.0,
+deepswe,deepseek-v4-pro,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,deepseek-v4-pro,any,hidden reasoning minus visible message,20,0.0891,0.0497,0.1397,18,0.5,
+deepswe,deepseek-v4-pro,any,hidden reasoning minus command,20,0.0938,0.0531,0.1463,18,0.0,
+deepswe,deepseek-v4-pro,any,visible message minus command,20,0.0047,0.0019,0.0079,,0.0,9
+deepswe,gemini-3-1-pro-preview,A,hidden reasoning minus visible message,20,0.1065,0.0835,0.1337,20,0.0,
+deepswe,gemini-3-1-pro-preview,A,hidden reasoning minus command,20,0.1065,0.0835,0.1337,20,0.0,
+deepswe,gemini-3-1-pro-preview,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-1-pro-preview,B,hidden reasoning minus visible message,20,0.0041,0.0013,0.0077,5,0.0,
+deepswe,gemini-3-1-pro-preview,B,hidden reasoning minus command,20,0.0041,0.0013,0.0077,5,0.0,
+deepswe,gemini-3-1-pro-preview,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-1-pro-preview,any,hidden reasoning minus visible message,20,0.1089,0.086,0.136,20,0.0,
+deepswe,gemini-3-1-pro-preview,any,hidden reasoning minus command,20,0.1089,0.086,0.136,20,0.0,
+deepswe,gemini-3-1-pro-preview,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-5-flash,A,hidden reasoning minus visible message,20,0.0715,0.0576,0.0854,19,0.0,
+deepswe,gemini-3-5-flash,A,hidden reasoning minus command,20,0.0715,0.0576,0.0854,19,0.0,
+deepswe,gemini-3-5-flash,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-5-flash,B,hidden reasoning minus visible message,20,0.0039,0.0011,0.0074,6,0.0,
+deepswe,gemini-3-5-flash,B,hidden reasoning minus command,20,0.0039,0.0011,0.0074,6,0.0,
+deepswe,gemini-3-5-flash,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-5-flash,any,hidden reasoning minus visible message,20,0.0737,0.0592,0.088,19,0.0,
+deepswe,gemini-3-5-flash,any,hidden reasoning minus command,20,0.0737,0.0592,0.088,19,0.0,
+deepswe,gemini-3-5-flash,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-6-flash,A,hidden reasoning minus visible message,20,0.0343,0.0277,0.0414,20,0.0,
+deepswe,gemini-3-6-flash,A,hidden reasoning minus command,20,0.0343,0.0277,0.0414,20,0.0,
+deepswe,gemini-3-6-flash,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-6-flash,B,hidden reasoning minus visible message,20,0.0032,0.0008,0.0064,5,0.0,
+deepswe,gemini-3-6-flash,B,hidden reasoning minus command,20,0.0032,0.0008,0.0064,5,0.0,
+deepswe,gemini-3-6-flash,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-6-flash,any,hidden reasoning minus visible message,20,0.037,0.0295,0.0456,20,0.0,
+deepswe,gemini-3-6-flash,any,hidden reasoning minus command,20,0.037,0.0295,0.0456,20,0.0,
+deepswe,gemini-3-6-flash,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gemini-3-flash-preview,A,hidden reasoning minus visible message,17,0.0931,0.0671,0.1202,16,0.0,
+deepswe,gemini-3-flash-preview,A,hidden reasoning minus command,17,0.0931,0.0671,0.1202,16,0.0,
+deepswe,gemini-3-flash-preview,A,visible message minus command,17,0.0,0.0,0.0,,,0
+deepswe,gemini-3-flash-preview,B,hidden reasoning minus visible message,17,0.0024,0.0,0.0049,3,0.0,
+deepswe,gemini-3-flash-preview,B,hidden reasoning minus command,17,0.0024,0.0,0.0049,3,0.0,
+deepswe,gemini-3-flash-preview,B,visible message minus command,17,0.0,0.0,0.0,,,0
+deepswe,gemini-3-flash-preview,any,hidden reasoning minus visible message,17,0.0935,0.0672,0.1206,16,0.0,
+deepswe,gemini-3-flash-preview,any,hidden reasoning minus command,17,0.0935,0.0672,0.1206,16,0.0,
+deepswe,gemini-3-flash-preview,any,visible message minus command,17,0.0,0.0,0.0,,,0
+deepswe,glm-5-1,A,hidden reasoning minus visible message,20,0.0,0.0,0.0,1,1.0,
+deepswe,glm-5-1,A,hidden reasoning minus command,20,0.0002,0.0,0.0007,1,0.0,
+deepswe,glm-5-1,A,visible message minus command,20,0.0002,0.0,0.0007,,0.0,1
+deepswe,glm-5-1,B,hidden reasoning minus visible message,20,0.0013,0.0,0.0039,1,0.0,
+deepswe,glm-5-1,B,hidden reasoning minus command,20,0.0013,0.0,0.0039,1,0.0,
+deepswe,glm-5-1,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-1,any,hidden reasoning minus visible message,20,0.0013,0.0,0.0039,2,0.5,
+deepswe,glm-5-1,any,hidden reasoning minus command,20,0.0015,0.0,0.0042,2,0.0,
+deepswe,glm-5-1,any,visible message minus command,20,0.0002,0.0,0.0007,,0.0,1
+deepswe,glm-5-2,A,hidden reasoning minus visible message,24,0.0029,0.0003,0.0066,4,0.0,
+deepswe,glm-5-2,A,hidden reasoning minus command,24,0.0029,0.0003,0.0066,4,0.0,
+deepswe,glm-5-2,A,visible message minus command,24,0.0,0.0,0.0,,,0
+deepswe,glm-5-2,B,hidden reasoning minus visible message,24,0.0019,0.0,0.0041,3,0.0,
+deepswe,glm-5-2,B,hidden reasoning minus command,24,0.0019,0.0,0.0041,3,0.0,
+deepswe,glm-5-2,B,visible message minus command,24,0.0,0.0,0.0,,,0
+deepswe,glm-5-2,any,hidden reasoning minus visible message,24,0.0047,0.0017,0.0088,7,0.0,
+deepswe,glm-5-2,any,hidden reasoning minus command,24,0.0047,0.0017,0.0088,7,0.0,
+deepswe,glm-5-2,any,visible message minus command,24,0.0,0.0,0.0,,,0
+deepswe,glm-5-3,A,hidden reasoning minus visible message,20,0.0468,0.0307,0.065,18,0.0,
+deepswe,glm-5-3,A,hidden reasoning minus command,20,0.0468,0.0307,0.065,18,0.0,
+deepswe,glm-5-3,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-3,B,hidden reasoning minus visible message,20,0.0085,0.0034,0.0162,12,0.0,
+deepswe,glm-5-3,B,hidden reasoning minus command,20,0.0085,0.0034,0.0162,12,0.0,
+deepswe,glm-5-3,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-3,any,hidden reasoning minus visible message,20,0.0528,0.0366,0.0708,19,0.0,
+deepswe,glm-5-3,any,hidden reasoning minus command,20,0.0528,0.0366,0.0708,19,0.0,
+deepswe,glm-5-3,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-3-flash,A,hidden reasoning minus visible message,20,0.0428,0.0308,0.0546,18,0.0,
+deepswe,glm-5-3-flash,A,hidden reasoning minus command,20,0.0428,0.0308,0.0546,18,0.0,
+deepswe,glm-5-3-flash,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-3-flash,B,hidden reasoning minus visible message,20,0.0073,0.0023,0.014,8,0.0,
+deepswe,glm-5-3-flash,B,hidden reasoning minus command,20,0.0073,0.0023,0.014,8,0.0,
+deepswe,glm-5-3-flash,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,glm-5-3-flash,any,hidden reasoning minus visible message,20,0.0481,0.0374,0.0591,19,0.0,
+deepswe,glm-5-3-flash,any,hidden reasoning minus command,20,0.0481,0.0374,0.0591,19,0.0,
+deepswe,glm-5-3-flash,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,gpt-5-4,A,hidden reasoning minus visible message,80,0.0011,-0.0042,0.0054,14,0.1429,
+deepswe,gpt-5-4,A,hidden reasoning minus command,80,0.0057,0.0021,0.0099,14,0.0,
+deepswe,gpt-5-4,A,visible message minus command,80,0.0046,-0.0002,0.0118,,0.0,5
+deepswe,gpt-5-4,B,hidden reasoning minus visible message,80,0.0003,-0.0002,0.0011,2,0.0,
+deepswe,gpt-5-4,B,hidden reasoning minus command,80,0.0004,0.0,0.0012,2,0.0,
+deepswe,gpt-5-4,B,visible message minus command,80,0.0001,0.0,0.0003,,0.0,1
+deepswe,gpt-5-4,any,hidden reasoning minus visible message,80,0.001,-0.0044,0.0053,14,0.1429,
+deepswe,gpt-5-4,any,hidden reasoning minus command,80,0.0057,0.0021,0.0099,14,0.0,
+deepswe,gpt-5-4,any,visible message minus command,80,0.0048,-0.0,0.012,,0.0,6
+deepswe,gpt-5-4-mini,A,hidden reasoning minus visible message,80,0.0107,0.0068,0.015,31,0.0968,
+deepswe,gpt-5-4-mini,A,hidden reasoning minus command,80,0.0127,0.0075,0.0188,31,0.0,
+deepswe,gpt-5-4-mini,A,visible message minus command,80,0.0019,0.0001,0.0045,,0.0,4
+deepswe,gpt-5-4-mini,B,hidden reasoning minus visible message,80,0.003,0.0014,0.0047,14,0.0,
+deepswe,gpt-5-4-mini,B,hidden reasoning minus command,80,0.0031,0.0016,0.0048,14,0.0,
+deepswe,gpt-5-4-mini,B,visible message minus command,80,0.0001,0.0,0.0004,,0.0,1
+deepswe,gpt-5-4-mini,any,hidden reasoning minus visible message,80,0.013,0.0087,0.0175,38,0.0789,
+deepswe,gpt-5-4-mini,any,hidden reasoning minus command,80,0.015,0.0095,0.0213,38,0.0,
+deepswe,gpt-5-4-mini,any,visible message minus command,80,0.0021,0.0002,0.0046,,0.0,5
+deepswe,gpt-5-5,A,hidden reasoning minus visible message,108,-0.0007,-0.0039,0.0018,12,0.0833,
+deepswe,gpt-5-5,A,hidden reasoning minus command,108,0.0021,0.0001,0.0045,12,0.0,
+deepswe,gpt-5-5,A,visible message minus command,108,0.0028,0.0004,0.0062,,0.3333,6
+deepswe,gpt-5-5,B,hidden reasoning minus visible message,108,0.0009,0.0002,0.002,5,0.0,
+deepswe,gpt-5-5,B,hidden reasoning minus command,108,0.0009,0.0002,0.002,5,0.0,
+deepswe,gpt-5-5,B,visible message minus command,108,0.0,0.0,0.0,,,0
+deepswe,gpt-5-5,any,hidden reasoning minus visible message,108,0.0002,-0.0029,0.0028,16,0.0625,
+deepswe,gpt-5-5,any,hidden reasoning minus command,108,0.0031,0.0006,0.0063,16,0.0,
+deepswe,gpt-5-5,any,visible message minus command,108,0.0028,0.0004,0.0062,,0.3333,6
+deepswe,gpt-5-6-luna,A,hidden reasoning minus visible message,60,0.012,0.0058,0.0197,23,0.3043,
+deepswe,gpt-5-6-luna,A,hidden reasoning minus command,60,0.0154,0.0075,0.026,23,0.0,
+deepswe,gpt-5-6-luna,A,visible message minus command,60,0.0033,0.0008,0.0068,,0.0,8
+deepswe,gpt-5-6-luna,B,hidden reasoning minus visible message,60,0.0007,-0.0009,0.0028,2,0.0,
+deepswe,gpt-5-6-luna,B,hidden reasoning minus command,60,0.0008,-0.0006,0.0028,2,0.0,
+deepswe,gpt-5-6-luna,B,visible message minus command,60,0.0001,-0.001,0.0011,,0.0,1
+deepswe,gpt-5-6-luna,any,hidden reasoning minus visible message,60,0.0125,0.0057,0.0206,23,0.3043,
+deepswe,gpt-5-6-luna,any,hidden reasoning minus command,60,0.0159,0.0078,0.0268,23,0.0435,
+deepswe,gpt-5-6-luna,any,visible message minus command,60,0.0034,0.0007,0.007,,0.0,9
+deepswe,gpt-5-6-sol,A,hidden reasoning minus visible message,60,-0.0067,-0.0127,-0.0015,10,0.7,
+deepswe,gpt-5-6-sol,A,hidden reasoning minus command,60,0.0023,-0.0005,0.0055,10,0.1,
+deepswe,gpt-5-6-sol,A,visible message minus command,60,0.009,0.0041,0.0149,,0.2143,14
+deepswe,gpt-5-6-sol,B,hidden reasoning minus visible message,60,0.0004,-0.001,0.0018,3,0.0,
+deepswe,gpt-5-6-sol,B,hidden reasoning minus command,60,-0.0006,-0.0032,0.0014,3,0.0,
+deepswe,gpt-5-6-sol,B,visible message minus command,60,-0.001,-0.0034,0.0009,,0.0,1
+deepswe,gpt-5-6-sol,any,hidden reasoning minus visible message,60,-0.0069,-0.013,-0.0018,10,0.8,
+deepswe,gpt-5-6-sol,any,hidden reasoning minus command,60,0.0011,-0.0024,0.0048,10,0.1,
+deepswe,gpt-5-6-sol,any,visible message minus command,60,0.008,0.0024,0.0143,,0.2,15
+deepswe,gpt-5-6-terra,A,hidden reasoning minus visible message,60,-0.0053,-0.0116,0.0002,14,0.7857,
+deepswe,gpt-5-6-terra,A,hidden reasoning minus command,60,0.0044,0.0007,0.0083,14,0.2143,
+deepswe,gpt-5-6-terra,A,visible message minus command,60,0.0097,0.0045,0.0158,,0.2778,18
+deepswe,gpt-5-6-terra,B,hidden reasoning minus visible message,60,0.0007,-0.0019,0.003,4,0.0,
+deepswe,gpt-5-6-terra,B,hidden reasoning minus command,60,0.0007,-0.0009,0.0022,4,0.25,
+deepswe,gpt-5-6-terra,B,visible message minus command,60,-0.0001,-0.0021,0.0023,,0.0,1
+deepswe,gpt-5-6-terra,any,hidden reasoning minus visible message,60,-0.0046,-0.0113,0.0014,16,0.75,
+deepswe,gpt-5-6-terra,any,hidden reasoning minus command,60,0.0051,0.0016,0.0089,16,0.3125,
+deepswe,gpt-5-6-terra,any,visible message minus command,60,0.0097,0.0041,0.016,,0.3158,19
+deepswe,grok-4-5,A,hidden reasoning minus visible message,20,0.0,0.0,0.0,0,,
+deepswe,grok-4-5,A,hidden reasoning minus command,20,0.0,0.0,0.0,0,,
+deepswe,grok-4-5,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,grok-4-5,B,hidden reasoning minus visible message,20,0.0042,0.0008,0.0081,4,0.0,
+deepswe,grok-4-5,B,hidden reasoning minus command,20,0.0032,-0.0013,0.0077,4,0.0,
+deepswe,grok-4-5,B,visible message minus command,20,-0.001,-0.0031,0.0,,,0
+deepswe,grok-4-5,any,hidden reasoning minus visible message,20,0.0042,0.0008,0.0081,4,0.0,
+deepswe,grok-4-5,any,hidden reasoning minus command,20,0.0032,-0.0013,0.0077,4,0.0,
+deepswe,grok-4-5,any,visible message minus command,20,-0.001,-0.0031,0.0,,,0
+deepswe,grok-4-6,A,hidden reasoning minus visible message,48,0.0031,0.0008,0.0056,10,0.0,
+deepswe,grok-4-6,A,hidden reasoning minus command,48,0.0034,0.0014,0.0059,10,0.0,
+deepswe,grok-4-6,A,visible message minus command,48,0.0004,0.0,0.0011,,0.0,1
+deepswe,grok-4-6,B,hidden reasoning minus visible message,48,0.0022,0.0007,0.0039,7,0.0,
+deepswe,grok-4-6,B,hidden reasoning minus command,48,0.0018,0.0001,0.0037,7,0.0,
+deepswe,grok-4-6,B,visible message minus command,48,-0.0004,-0.0011,0.0,,,0
+deepswe,grok-4-6,any,hidden reasoning minus visible message,48,0.0053,0.0027,0.0082,15,0.0667,
+deepswe,grok-4-6,any,hidden reasoning minus command,48,0.0053,0.0027,0.0082,15,0.0667,
+deepswe,grok-4-6,any,visible message minus command,48,0.0,-0.0011,0.0011,,0.0,1
+deepswe,kimi-k2-6,A,hidden reasoning minus visible message,20,0.0014,0.0,0.0033,3,0.0,
+deepswe,kimi-k2-6,A,hidden reasoning minus command,20,0.0014,0.0,0.0033,3,0.0,
+deepswe,kimi-k2-6,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k2-6,B,hidden reasoning minus visible message,20,0.0052,0.0013,0.01,5,0.0,
+deepswe,kimi-k2-6,B,hidden reasoning minus command,20,0.0052,0.0013,0.01,5,0.0,
+deepswe,kimi-k2-6,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k2-6,any,hidden reasoning minus visible message,20,0.0066,0.0023,0.0114,7,0.0,
+deepswe,kimi-k2-6,any,hidden reasoning minus command,20,0.0066,0.0023,0.0114,7,0.0,
+deepswe,kimi-k2-6,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k2-7-code,A,hidden reasoning minus visible message,20,0.0026,0.001,0.0044,7,0.0,
+deepswe,kimi-k2-7-code,A,hidden reasoning minus command,20,0.0026,0.001,0.0044,7,0.0,
+deepswe,kimi-k2-7-code,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k2-7-code,B,hidden reasoning minus visible message,20,0.0003,0.0,0.001,1,0.0,
+deepswe,kimi-k2-7-code,B,hidden reasoning minus command,20,0.0003,0.0,0.001,1,0.0,
+deepswe,kimi-k2-7-code,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k2-7-code,any,hidden reasoning minus visible message,20,0.0029,0.0011,0.0049,7,0.0,
+deepswe,kimi-k2-7-code,any,hidden reasoning minus command,20,0.0029,0.0011,0.0049,7,0.0,
+deepswe,kimi-k2-7-code,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k3,A,hidden reasoning minus visible message,20,0.0277,0.0187,0.0375,17,0.2353,
+deepswe,kimi-k3,A,hidden reasoning minus command,20,0.0304,0.0208,0.0413,17,0.0,
+deepswe,kimi-k3,A,visible message minus command,20,0.0026,0.0003,0.0062,,0.0,4
+deepswe,kimi-k3,B,hidden reasoning minus visible message,20,0.0048,0.0023,0.0076,9,0.0,
+deepswe,kimi-k3,B,hidden reasoning minus command,20,0.0048,0.0023,0.0076,9,0.0,
+deepswe,kimi-k3,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,kimi-k3,any,hidden reasoning minus visible message,20,0.0304,0.0212,0.0399,17,0.2353,
+deepswe,kimi-k3,any,hidden reasoning minus command,20,0.033,0.0234,0.0439,17,0.0,
+deepswe,kimi-k3,any,visible message minus command,20,0.0026,0.0003,0.0062,,0.0,4
+deepswe,mimo-v2-5-pro,A,hidden reasoning minus visible message,20,0.0012,0.0,0.0037,1,0.0,
+deepswe,mimo-v2-5-pro,A,hidden reasoning minus command,20,0.0012,0.0,0.0037,1,0.0,
+deepswe,mimo-v2-5-pro,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,mimo-v2-5-pro,B,hidden reasoning minus visible message,20,0.0016,0.0,0.0048,1,0.0,
+deepswe,mimo-v2-5-pro,B,hidden reasoning minus command,20,0.0016,0.0,0.0048,1,0.0,
+deepswe,mimo-v2-5-pro,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,mimo-v2-5-pro,any,hidden reasoning minus visible message,20,0.0028,0.0,0.0068,2,0.0,
+deepswe,mimo-v2-5-pro,any,hidden reasoning minus command,20,0.0028,0.0,0.0068,2,0.0,
+deepswe,mimo-v2-5-pro,any,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,minimax-m2-7,A,hidden reasoning minus visible message,20,0.0003,0.0,0.0009,2,0.5,
+deepswe,minimax-m2-7,A,hidden reasoning minus command,20,0.0008,0.0,0.0022,2,0.0,
+deepswe,minimax-m2-7,A,visible message minus command,20,0.0005,0.0,0.0016,,0.0,1
+deepswe,minimax-m2-7,B,hidden reasoning minus visible message,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m2-7,B,hidden reasoning minus command,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m2-7,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,minimax-m2-7,any,hidden reasoning minus visible message,20,0.0003,0.0,0.0009,2,0.5,
+deepswe,minimax-m2-7,any,hidden reasoning minus command,20,0.0008,0.0,0.0022,2,0.0,
+deepswe,minimax-m2-7,any,visible message minus command,20,0.0005,0.0,0.0016,,0.0,1
+deepswe,minimax-m3,A,hidden reasoning minus visible message,20,-0.0023,-0.0068,0.0,0,,
+deepswe,minimax-m3,A,hidden reasoning minus command,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m3,A,visible message minus command,20,0.0023,0.0,0.0068,,0.0,2
+deepswe,minimax-m3,B,hidden reasoning minus visible message,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m3,B,hidden reasoning minus command,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m3,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,minimax-m3,any,hidden reasoning minus visible message,20,-0.0023,-0.0068,0.0,0,,
+deepswe,minimax-m3,any,hidden reasoning minus command,20,0.0,0.0,0.0,0,,
+deepswe,minimax-m3,any,visible message minus command,20,0.0023,0.0,0.0068,,0.0,2
+deepswe,qwen3-6-plus,A,hidden reasoning minus visible message,20,0.0015,0.0,0.0041,2,0.0,
+deepswe,qwen3-6-plus,A,hidden reasoning minus command,20,0.0015,0.0,0.0041,2,0.0,
+deepswe,qwen3-6-plus,A,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,qwen3-6-plus,B,hidden reasoning minus visible message,20,0.0004,-0.001,0.0023,1,0.0,
+deepswe,qwen3-6-plus,B,hidden reasoning minus command,20,0.0001,-0.002,0.0023,1,0.0,
+deepswe,qwen3-6-plus,B,visible message minus command,20,-0.0003,-0.001,0.0,,1.0,1
+deepswe,qwen3-6-plus,any,hidden reasoning minus visible message,20,0.002,-0.0003,0.0048,3,0.0,
+deepswe,qwen3-6-plus,any,hidden reasoning minus command,20,0.0016,-0.001,0.0046,3,0.0,
+deepswe,qwen3-6-plus,any,visible message minus command,20,-0.0003,-0.001,0.0,,1.0,1
+deepswe,qwen3-7-max,A,hidden reasoning minus visible message,20,0.0,0.0,0.0,0,,
+deepswe,qwen3-7-max,A,hidden reasoning minus command,20,-0.0013,-0.0039,0.0,0,,
+deepswe,qwen3-7-max,A,visible message minus command,20,-0.0013,-0.0039,0.0,,,0
+deepswe,qwen3-7-max,B,hidden reasoning minus visible message,20,0.0024,0.0,0.0055,3,0.0,
+deepswe,qwen3-7-max,B,hidden reasoning minus command,20,0.0024,0.0,0.0055,3,0.0,
+deepswe,qwen3-7-max,B,visible message minus command,20,0.0,0.0,0.0,,,0
+deepswe,qwen3-7-max,any,hidden reasoning minus visible message,20,0.0024,0.0,0.0055,3,0.0,
+deepswe,qwen3-7-max,any,hidden reasoning minus command,20,0.0011,-0.0027,0.0049,3,0.0,
+deepswe,qwen3-7-max,any,visible message minus command,20,-0.0013,-0.0039,0.0,,,0
+deepswe,qwen3-8-max,A,hidden reasoning minus visible message,20,0.0329,0.0222,0.0447,16,0.1875,
+deepswe,qwen3-8-max,A,hidden reasoning minus command,20,0.0342,0.0229,0.0467,16,0.0,
+deepswe,qwen3-8-max,A,visible message minus command,20,0.0013,0.0,0.003,,0.0,3
+deepswe,qwen3-8-max,B,hidden reasoning minus visible message,20,0.013,0.008,0.0186,14,0.0714,
+deepswe,qwen3-8-max,B,hidden reasoning minus command,20,0.0138,0.0082,0.0203,14,0.0,
+deepswe,qwen3-8-max,B,visible message minus command,20,0.0008,0.0,0.0025,,0.0,1
+deepswe,qwen3-8-max,any,hidden reasoning minus visible message,20,0.0382,0.0289,0.0485,19,0.2105,
+deepswe,qwen3-8-max,any,hidden reasoning minus command,20,0.0403,0.03,0.0516,19,0.0,
+deepswe,qwen3-8-max,any,visible message minus command,20,0.0022,0.0003,0.0045,,0.0,4
+faultyclaims,ALL,A,hidden reasoning minus visible message,400,0.1172,0.1028,0.1326,222,0.482,
+faultyclaims,ALL,A,hidden reasoning minus command,400,0.1281,0.1125,0.1445,222,0.0766,
+faultyclaims,ALL,A,visible message minus command,400,0.0109,0.0084,0.0135,,0.1215,107
+faultyclaims,ALL,B,hidden reasoning minus visible message,400,0.0202,0.0166,0.0241,177,0.0565,
+faultyclaims,ALL,B,hidden reasoning minus command,400,0.0204,0.0171,0.0243,177,0.0169,
+faultyclaims,ALL,B,visible message minus command,400,0.0002,-0.0005,0.0009,,0.0833,12
+faultyclaims,ALL,any,hidden reasoning minus visible message,400,0.1206,0.1062,0.1358,244,0.4467,
+faultyclaims,ALL,any,hidden reasoning minus command,400,0.1317,0.1161,0.1483,244,0.082,
+faultyclaims,ALL,any,visible message minus command,400,0.0111,0.0086,0.0139,,0.1364,110
+faultyclaims,DeepSeek-V3.2,A,hidden reasoning minus visible message,100,0.0031,0.0016,0.0049,17,0.0,
+faultyclaims,DeepSeek-V3.2,A,hidden reasoning minus command,100,0.0027,0.0013,0.0045,17,0.0588,
+faultyclaims,DeepSeek-V3.2,A,visible message minus command,100,-0.0004,-0.0011,0.0,,,0
+faultyclaims,DeepSeek-V3.2,B,hidden reasoning minus visible message,100,0.0058,0.0028,0.0096,20,0.0,
+faultyclaims,DeepSeek-V3.2,B,hidden reasoning minus command,100,0.0051,0.0027,0.008,20,0.05,
+faultyclaims,DeepSeek-V3.2,B,visible message minus command,100,-0.0008,-0.0023,0.0,,,0
+faultyclaims,DeepSeek-V3.2,any,hidden reasoning minus visible message,100,0.0088,0.0055,0.0128,34,0.0,
+faultyclaims,DeepSeek-V3.2,any,hidden reasoning minus command,100,0.0077,0.0048,0.0109,34,0.0588,
+faultyclaims,DeepSeek-V3.2,any,visible message minus command,100,-0.0012,-0.0028,-0.0001,,,0
+faultyclaims,DeepSeek-V4.1-Flash,A,hidden reasoning minus visible message,100,0.346,0.3252,0.3662,100,0.71,
+faultyclaims,DeepSeek-V4.1-Flash,A,hidden reasoning minus command,100,0.3719,0.3506,0.3932,100,0.03,
+faultyclaims,DeepSeek-V4.1-Flash,A,visible message minus command,100,0.0259,0.0208,0.0314,,0.0423,71
+faultyclaims,DeepSeek-V4.1-Flash,B,hidden reasoning minus visible message,100,0.0527,0.0424,0.0632,87,0.069,
+faultyclaims,DeepSeek-V4.1-Flash,B,hidden reasoning minus command,100,0.0543,0.0443,0.0642,87,0.0115,
+faultyclaims,DeepSeek-V4.1-Flash,B,visible message minus command,100,0.0016,0.0002,0.0034,,0.0,6
+faultyclaims,DeepSeek-V4.1-Flash,any,hidden reasoning minus visible message,100,0.3483,0.3277,0.3681,100,0.73,
+faultyclaims,DeepSeek-V4.1-Flash,any,hidden reasoning minus command,100,0.3757,0.3545,0.3964,100,0.04,
+faultyclaims,DeepSeek-V4.1-Flash,any,visible message minus command,100,0.0274,0.0223,0.0331,,0.0548,73
+faultyclaims,Qwen3.6-27B,A,hidden reasoning minus visible message,100,0.0011,0.0003,0.0021,6,0.0,
+faultyclaims,Qwen3.6-27B,A,hidden reasoning minus command,100,0.0007,0.0001,0.0014,6,0.3333,
+faultyclaims,Qwen3.6-27B,A,visible message minus command,100,-0.0004,-0.0011,0.0,,,0
+faultyclaims,Qwen3.6-27B,B,hidden reasoning minus visible message,100,0.0016,-0.0,0.0035,7,0.0,
+faultyclaims,Qwen3.6-27B,B,hidden reasoning minus command,100,0.002,0.0005,0.0037,7,0.0,
+faultyclaims,Qwen3.6-27B,B,visible message minus command,100,0.0003,0.0,0.001,,0.0,1
+faultyclaims,Qwen3.6-27B,any,hidden reasoning minus visible message,100,0.0028,0.0008,0.0049,11,0.0,
+faultyclaims,Qwen3.6-27B,any,hidden reasoning minus command,100,0.0027,0.0009,0.0047,11,0.1818,
+faultyclaims,Qwen3.6-27B,any,visible message minus command,100,-0.0001,-0.001,0.0009,,0.0,1
+faultyclaims,Qwen3.8-27B,A,hidden reasoning minus visible message,100,0.1187,0.1066,0.1309,99,0.3636,
+faultyclaims,Qwen3.8-27B,A,hidden reasoning minus command,100,0.1371,0.1219,0.1522,99,0.1111,
+faultyclaims,Qwen3.8-27B,A,visible message minus command,100,0.0184,0.0115,0.0262,,0.2778,36
+faultyclaims,Qwen3.8-27B,B,hidden reasoning minus visible message,100,0.0207,0.0153,0.0269,63,0.0635,
+faultyclaims,Qwen3.8-27B,B,hidden reasoning minus command,100,0.0205,0.0157,0.0255,63,0.0159,
+faultyclaims,Qwen3.8-27B,B,visible message minus command,100,-0.0002,-0.0025,0.0014,,0.2,5
+faultyclaims,Qwen3.8-27B,any,hidden reasoning minus visible message,100,0.1225,0.1102,0.1347,99,0.3636,
+faultyclaims,Qwen3.8-27B,any,hidden reasoning minus command,100,0.1406,0.1254,0.1555,99,0.1212,
+faultyclaims,Qwen3.8-27B,any,visible message minus command,100,0.0182,0.0112,0.0263,,0.3056,36
+swebv,ALL,A,hidden reasoning minus visible message,1500,0.0013,0.0009,0.0017,63,0.0159,
+swebv,ALL,A,hidden reasoning minus command,1500,0.0012,0.0008,0.0017,63,0.0159,
+swebv,ALL,A,visible message minus command,1500,-0.0,-0.0001,0.0,,1.0,2
+swebv,ALL,B,hidden reasoning minus visible message,1500,0.008,0.0067,0.0095,268,0.0522,
+swebv,ALL,B,hidden reasoning minus command,1500,0.0082,0.0068,0.0097,268,0.0448,
+swebv,ALL,B,visible message minus command,1500,0.0001,-0.0001,0.0004,,0.1765,17
+swebv,ALL,any,hidden reasoning minus visible message,1500,0.0092,0.0077,0.0108,307,0.0489,
+swebv,ALL,any,hidden reasoning minus command,1500,0.0093,0.0078,0.0109,307,0.0423,
+swebv,ALL,any,visible message minus command,1500,0.0001,-0.0002,0.0004,,0.2222,18
+swebv,DeepSeek-V3.2,A,hidden reasoning minus visible message,500,0.0034,0.0023,0.0046,54,0.0185,
+swebv,DeepSeek-V3.2,A,hidden reasoning minus command,500,0.0033,0.0022,0.0045,54,0.0185,
+swebv,DeepSeek-V3.2,A,visible message minus command,500,-0.0001,-0.0004,0.0,,1.0,2
+swebv,DeepSeek-V3.2,B,hidden reasoning minus visible message,500,0.0146,0.0111,0.0182,126,0.0397,
+swebv,DeepSeek-V3.2,B,hidden reasoning minus command,500,0.0147,0.0112,0.0183,126,0.0476,
+swebv,DeepSeek-V3.2,B,visible message minus command,500,0.0001,-0.0003,0.0005,,0.3333,6
+swebv,DeepSeek-V3.2,any,hidden reasoning minus visible message,500,0.0177,0.014,0.0216,160,0.0375,
+swebv,DeepSeek-V3.2,any,hidden reasoning minus command,500,0.0177,0.014,0.0215,160,0.0437,
+swebv,DeepSeek-V3.2,any,visible message minus command,500,-0.0,-0.0005,0.0004,,0.4286,7
+swebv,Kimi K2.5,A,hidden reasoning minus visible message,500,0.0003,0.0001,0.0006,5,0.0,
+swebv,Kimi K2.5,A,hidden reasoning minus command,500,0.0003,0.0001,0.0006,5,0.0,
+swebv,Kimi K2.5,A,visible message minus command,500,0.0,0.0,0.0,,,0
+swebv,Kimi K2.5,B,hidden reasoning minus visible message,500,0.004,0.0029,0.0053,59,0.0169,
+swebv,Kimi K2.5,B,hidden reasoning minus command,500,0.0038,0.0027,0.0052,59,0.0508,
+swebv,Kimi K2.5,B,visible message minus command,500,-0.0002,-0.0006,0.0002,,0.0,1
+swebv,Kimi K2.5,any,hidden reasoning minus visible message,500,0.0043,0.0031,0.0056,62,0.0161,
+swebv,Kimi K2.5,any,hidden reasoning minus command,500,0.0041,0.0029,0.0054,62,0.0484,
+swebv,Kimi K2.5,any,visible message minus command,500,-0.0002,-0.0006,0.0002,,0.0,1
+swebv,MiniMax M2.5,A,hidden reasoning minus visible message,500,0.0001,0.0,0.0002,4,0.0,
+swebv,MiniMax M2.5,A,hidden reasoning minus command,500,0.0001,0.0,0.0002,4,0.0,
+swebv,MiniMax M2.5,A,visible message minus command,500,0.0,0.0,0.0,,,0
+swebv,MiniMax M2.5,B,hidden reasoning minus visible message,500,0.0055,0.0042,0.007,83,0.0964,
+swebv,MiniMax M2.5,B,hidden reasoning minus command,500,0.006,0.0045,0.0078,83,0.0361,
+swebv,MiniMax M2.5,B,visible message minus command,500,0.0005,-0.0,0.0011,,0.1,10
+swebv,MiniMax M2.5,any,hidden reasoning minus visible message,500,0.0056,0.0042,0.0071,85,0.0941,
+swebv,MiniMax M2.5,any,hidden reasoning minus command,500,0.0061,0.0046,0.0079,85,0.0353,
+swebv,MiniMax M2.5,any,visible message minus command,500,0.0005,-0.0,0.0011,,0.1,10

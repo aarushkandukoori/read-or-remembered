@@ -1,0 +1,126 @@
+{
+ "instance_id": "sympy__sympy-14248",
+ "trap_id": "T3-_keep_coeff",
+ "type": "T3",
+ "type_title": "rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "sympy/core/mul.py",
+  "qualname": "_keep_coeff",
+  "all_definitions": [
+   [
+    "sympy/core/mul.py",
+    "_keep_coeff"
+   ]
+  ]
+ },
+ "target_qualname": "_keep_coeff",
+ "original_fact": "_keep_coeff is called _keep_coeff",
+ "trapped_fact": "_keep_coeff was renamed to _keep_coefficient everywhere (no alias)",
+ "placebo_kind": "the same rename everywhere, plus a one-line alias that keeps the old name working; files that imported the old name import both names",
+ "files_changed": [
+  "sympy/core/add.py",
+  "sympy/core/exprtools.py",
+  "sympy/core/mul.py",
+  "sympy/core/power.py",
+  "sympy/core/tests/test_exprtools.py",
+  "sympy/polys/polytools.py",
+  "sympy/polys/tests/test_polytools.py",
+  "sympy/printing/codeprinter.py",
+  "sympy/printing/julia.py",
+  "sympy/printing/octave.py",
+  "sympy/printing/str.py",
+  "sympy/simplify/powsimp.py",
+  "sympy/simplify/radsimp.py",
+  "sympy/simplify/tests/test_simplify.py"
+ ],
+ "files_changed_placebo": [
+  "sympy/core/add.py",
+  "sympy/core/exprtools.py",
+  "sympy/core/mul.py",
+  "sympy/core/power.py",
+  "sympy/core/tests/test_exprtools.py",
+  "sympy/polys/polytools.py",
+  "sympy/polys/tests/test_polytools.py",
+  "sympy/printing/codeprinter.py",
+  "sympy/printing/julia.py",
+  "sympy/printing/octave.py",
+  "sympy/printing/str.py",
+  "sympy/simplify/powsimp.py",
+  "sympy/simplify/radsimp.py",
+  "sympy/simplify/tests/test_simplify.py"
+ ],
+ "lines_changed_trap": 134,
+ "lines_changed_placebo": 135,
+ "sites_trap": {
+  "name": 66,
+  "string/comment": 1
+ },
+ "sites_placebo": {
+  "name": 66,
+  "import keeps old name": 12,
+  "string/comment": 1,
+  "alias": 1
+ },
+ "why_it_makes_sense": "A private helper renamed to its unabbreviated name everywhere, no alias.",
+ "why_it_matters_for_task": "The gold patch imports and calls _keep_coeff in three printers; from memory the import fails.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 4,
+  "nearest_trap_line_to_gold_hunk": 38,
+  "gold_files": [
+   "sympy/printing/latex.py",
+   "sympy/printing/pretty/pretty.py",
+   "sympy/printing/str.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T3",
+  "defs": [
+   [
+    "sympy/core/mul.py",
+    "_keep_coeff"
+   ]
+  ],
+  "init": {
+   "new_name": "_keep_coefficient"
+  },
+  "old_name": "_keep_coeff",
+  "new_name": "_keep_coefficient"
+ },
+ "task": {
+  "repo": "sympy/sympy",
+  "base_commit": "9986b38181cdd556a3f3411e553864f11912244e",
+  "version": "1.1",
+  "FAIL_TO_PASS": [
+   "test_MatrixElement_printing",
+   "test_MatrixSymbol_printing"
+  ],
+  "n_PASS_TO_PASS": 433
+ },
+ "notes": "loud",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build sympy__sympy-14248",
+ "build_seconds": 33.1
+}

@@ -1,0 +1,116 @@
+diff --git a/sympy/matrices/matrices.py b/sympy/matrices/matrices.py
+index 97cde62e26..d3719f049b 100644
+--- a/sympy/matrices/matrices.py
++++ b/sympy/matrices/matrices.py
+@@ -656,7 +656,7 @@ def cross_cancel(a, i, b, j):
+         swaps = []
+         # use a fraction free method to zero above and below each pivot
+         while piv_col < cols and piv_row < rows:
+-            pivot_offset, pivot_val, \
++            pivot_val, pivot_offset, \
+             assumed_nonzero, newly_determined = _find_reasonable_pivot(
+                 get_col(piv_col)[piv_row:], iszerofunc, simpfunc)
+ 
+@@ -3177,7 +3177,7 @@ def LUdecomposition_Simple(self,
+             iszeropivot = True
+             while pivot_col != self.cols and iszeropivot:
+                 sub_col = (lu[r, pivot_col] for r in range(pivot_row, self.rows))
+-                pivot_row_offset, pivot_value, is_assumed_non_zero, ind_simplified_pairs =\
++                pivot_value, pivot_row_offset, is_assumed_non_zero, ind_simplified_pairs =\
+                     _find_reasonable_pivot_naive(sub_col, iszerofunc, simpfunc)
+                 iszeropivot = pivot_value is None
+                 if iszeropivot:
+@@ -4099,7 +4099,7 @@ def _find_reasonable_pivot(col, iszerofunc=_iszero, simpfunc=_simplify):
+                 newly_determined = [(i, 0) for i, x in enumerate(col) if x != 0]
+             return (None, None, False, newly_determined)
+         index = col_abs.index(max_value)
+-        return (index, col[index], False, newly_determined)
++        return (col[index], index, False, newly_determined)
+ 
+     # PASS 1 (iszerofunc directly)
+     possible_zeros = []
+@@ -4110,7 +4110,7 @@ def _find_reasonable_pivot(col, iszerofunc=_iszero, simpfunc=_simplify):
+         # so use == for comparison instead of `is`
+         if is_zero == False:
+             # we found something that is definitely not zero
+-            return (i, x, False, newly_determined)
++            return (x, i, False, newly_determined)
+         possible_zeros.append(is_zero)
+ 
+     # by this point, we've found no certain non-zeros
+@@ -4132,7 +4132,7 @@ def _find_reasonable_pivot(col, iszerofunc=_iszero, simpfunc=_simplify):
+         if is_zero == True or is_zero == False:
+             newly_determined.append((i, simped))
+         if is_zero == False:
+-            return (i, simped, False, newly_determined)
++            return (simped, i, False, newly_determined)
+         possible_zeros[i] = is_zero
+ 
+     # after simplifying, some things that were recognized
+@@ -4165,7 +4165,7 @@ def _find_reasonable_pivot(col, iszerofunc=_iszero, simpfunc=_simplify):
+     # behavior, we'll assume that an illdetermined thing is
+     # non-zero.  We should probably raise a warning in this case
+     i = possible_zeros.index(None)
+-    return (i, col[i], True, newly_determined)
++    return (col[i], i, True, newly_determined)
+ 
+ def _find_reasonable_pivot_naive(col, iszerofunc=_iszero, simpfunc=None):
+     """
+@@ -4215,7 +4215,7 @@ def _find_reasonable_pivot_naive(col, iszerofunc=_iszero, simpfunc=None):
+         col_val_is_zero = iszerofunc(col_val)
+         if col_val_is_zero == False:
+             # This pivot candidate is non-zero.
+-            return i, col_val, False, []
++            return col_val, i, False, []
+         elif col_val_is_zero is None:
+             # The candidate pivot's comparison with zero
+             # is indeterminate.
+@@ -4231,7 +4231,7 @@ def _find_reasonable_pivot_naive(col, iszerofunc=_iszero, simpfunc=None):
+         # determine if an indeterminate pivot candidate is guaranteed
+         # to be nonzero, so assume the first indeterminate candidate
+         # is non-zero.
+-        return indeterminates[0][0], indeterminates[0][1], True, []
++        return indeterminates[0][1], indeterminates[0][0], True, []
+ 
+     # newly_determined holds index-value pairs of candidate pivots
+     # that were simplified during the search for a non-zero pivot.
+@@ -4243,6 +4243,6 @@ def _find_reasonable_pivot_naive(col, iszerofunc=_iszero, simpfunc=None):
+             newly_determined.append((i, tmp_col_val))
+             if iszerofunc(tmp_col_val) == False:
+                 # Candidate pivot simplified to a guaranteed non-zero value.
+-                return i, tmp_col_val, False, newly_determined
++                return tmp_col_val, i, False, newly_determined
+ 
+-    return indeterminates[0][0], indeterminates[0][1], True, newly_determined
++    return indeterminates[0][1], indeterminates[0][0], True, newly_determined
+diff --git a/sympy/matrices/tests/test_matrices.py b/sympy/matrices/tests/test_matrices.py
+index f4bc60c727..66e4825531 100644
+--- a/sympy/matrices/tests/test_matrices.py
++++ b/sympy/matrices/tests/test_matrices.py
+@@ -1817,7 +1817,7 @@ def test_find_reasonable_pivot_naive_finds_guaranteed_nonzero1():
+     # should be performed during the search.
+     x = Symbol('x')
+     column = Matrix(3, 1, [x, cos(x)**2 + sin(x)**2, Rational(1, 2)])
+-    pivot_offset, pivot_val, pivot_assumed_nonzero, simplified =\
++    pivot_val, pivot_offset, pivot_assumed_nonzero, simplified =\
+         _find_reasonable_pivot_naive(column)
+     assert pivot_val == Rational(1, 2)
+ 
+@@ -1832,7 +1832,7 @@ def test_find_reasonable_pivot_naive_finds_guaranteed_nonzero2():
+                     [x,
+                      cos(x)**2+sin(x)**2+x**2,
+                      cos(x)**2+sin(x)**2])
+-    pivot_offset, pivot_val, pivot_assumed_nonzero, simplified =\
++    pivot_val, pivot_offset, pivot_assumed_nonzero, simplified =\
+         _find_reasonable_pivot_naive(column, simpfunc=_simplify)
+     assert pivot_val == 1
+ 
+@@ -1845,7 +1845,7 @@ def test_find_reasonable_pivot_naive_simplifies():
+                     [x,
+                      cos(x)**2+sin(x)**2+x,
+                      cos(x)**2+sin(x)**2])
+-    pivot_offset, pivot_val, pivot_assumed_nonzero, simplified =\
++    pivot_val, pivot_offset, pivot_assumed_nonzero, simplified =\
+         _find_reasonable_pivot_naive(column, simpfunc=_simplify)
+ 
+     assert len(simplified) == 2

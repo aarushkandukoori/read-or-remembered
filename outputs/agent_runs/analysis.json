@@ -1,0 +1,44 @@
+[
+ {
+  "run": "original-1",
+  "steps": 27,
+  "cost": 0.0279,
+  "saw_definition_at": null,
+  "saw_call_site_at": 2,
+  "first_reasoning_order": [
+   8,
+   "action first"
+  ],
+  "patch_call_order": [
+   "action first"
+  ]
+ },
+ {
+  "run": "placebo-1",
+  "steps": 31,
+  "cost": 0.0313,
+  "saw_definition_at": null,
+  "saw_call_site_at": 2,
+  "first_reasoning_order": [
+   7,
+   "keywords"
+  ],
+  "patch_call_order": [
+   "action first"
+  ]
+ },
+ {
+  "run": "trap-1",
+  "steps": 38,
+  "cost": 0.0333,
+  "saw_definition_at": 25,
+  "saw_call_site_at": 3,
+  "first_reasoning_order": [
+   6,
+   "opts first"
+  ],
+  "patch_call_order": [
+   "opts first"
+  ]
+ }
+]

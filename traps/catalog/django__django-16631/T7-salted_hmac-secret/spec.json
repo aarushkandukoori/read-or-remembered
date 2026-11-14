@@ -1,0 +1,103 @@
+{
+ "instance_id": "django__django-16631",
+ "trap_id": "T7-salted_hmac-secret",
+ "type": "T7",
+ "type_title": "keyword rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/utils/crypto.py",
+  "qualname": "salted_hmac",
+  "all_definitions": [
+   [
+    "django/utils/crypto.py",
+    "salted_hmac"
+   ]
+  ]
+ },
+ "target_qualname": "salted_hmac",
+ "original_fact": "salted_hmac takes a keyword argument secret=",
+ "trapped_fact": "salted_hmac calls it secret_key= now; secret= raises TypeError",
+ "placebo_kind": "the same rename everywhere, but the function still accepts the old keyword",
+ "files_changed": [
+  "django/contrib/auth/tokens.py",
+  "django/utils/crypto.py"
+ ],
+ "files_changed_placebo": [
+  "django/contrib/auth/tokens.py",
+  "django/utils/crypto.py"
+ ],
+ "lines_changed_trap": 12,
+ "lines_changed_placebo": 14,
+ "sites_trap": {
+  "call": 1,
+  "definition": 1
+ },
+ "sites_placebo": {
+  "call": 1,
+  "definition": 1
+ },
+ "why_it_makes_sense": "Keyword renamed to match the setting it defaults to (settings.SECRET_KEY); every caller updated.",
+ "why_it_matters_for_task": "The gold patch passes secret=secret to salted_hmac in AbstractBaseUser._get_session_auth_hash; from memory this raises TypeError and session verification fails.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/contrib/auth/__init__.py",
+   "django/contrib/auth/base_user.py"
+  ]
+ },
+ "warnings": {
+  "trap": [
+   "tests/utils_tests/test_crypto.py: call with **kwargs: check secret is not inside: salted_hmac(*args, **kwargs)"
+  ],
+  "placebo": [
+   "tests/utils_tests/test_crypto.py: call with **kwargs: check secret is not inside: salted_hmac(*args, **kwargs)"
+  ]
+ },
+ "problems": [],
+ "transform": {
+  "type": "T7",
+  "defs": [
+   [
+    "django/utils/crypto.py",
+    "salted_hmac"
+   ]
+  ],
+  "init": {
+   "param": "secret",
+   "new_param": "secret_key"
+  },
+  "param": "secret",
+  "new_param": "secret_key"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "9b224579875e30203d079cc2fee83b116d98eb78",
+  "version": "5.0",
+  "FAIL_TO_PASS": [
+   "test_get_user_fallback_secret (auth_tests.test_basic.TestGetUser.test_get_user_fallback_secret)"
+  ],
+  "n_PASS_TO_PASS": 12
+ },
+ "notes": "loud",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-16631",
+ "build_seconds": 7.4
+}

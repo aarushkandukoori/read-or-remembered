@@ -1,0 +1,405 @@
+{
+ "django__django-16100": [
+  {
+   "run": "original-1",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 13,
+   "cost": 0.0127,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": true,
+   "first_old_kw_step": 5,
+   "first_new_kw_step": null,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 0,
+   "visible_steps_noting_conflict": 1,
+   "final_patch": "using="
+  },
+  {
+   "run": "original-2",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 37,
+   "cost": 0.014,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": true,
+   "first_old_kw_step": 8,
+   "first_new_kw_step": null,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 0,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "using="
+  },
+  {
+   "run": "original-3",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 8,
+   "cost": 0.0028,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": true,
+   "first_old_kw_step": 4,
+   "first_new_kw_step": null,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 0,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "using="
+  },
+  {
+   "run": "placebo-1",
+   "resolved": false,
+   "tests": "F2P 1/1 P2P 58/59",
+   "steps": 31,
+   "cost": 0.0166,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 7,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 6,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "placebo-2",
+   "resolved": false,
+   "tests": "F2P 1/1 P2P 58/59",
+   "steps": 15,
+   "cost": 0.0057,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 5,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 1,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "placebo-3",
+   "resolved": false,
+   "tests": "F2P 1/1 P2P 58/59",
+   "steps": 32,
+   "cost": 0.0193,
+   "searched_old_kw": true,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 13,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 8,
+   "visible_steps_noting_conflict": 1,
+   "final_patch": "alias="
+  },
+  {
+   "run": "placebo-4",
+   "resolved": false,
+   "tests": "F2P 1/1 P2P 58/59",
+   "steps": 22,
+   "cost": 0.0116,
+   "searched_old_kw": true,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 11,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 8,
+   "visible_steps_noting_conflict": 3,
+   "final_patch": "alias="
+  },
+  {
+   "run": "placebo-5",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 13,
+   "cost": 0.0052,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 6,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 3,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "placebo-6",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 13,
+   "cost": 0.0061,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 5,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 2,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-1",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 24,
+   "cost": 0.01,
+   "searched_old_kw": true,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 6,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 6,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-2",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 21,
+   "cost": 0.0095,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 10,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 5,
+   "visible_steps_noting_conflict": 2,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-3",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 38,
+   "cost": 0.0177,
+   "searched_old_kw": true,
+   "ran_or_wrote_old_kw": true,
+   "first_old_kw_step": 12,
+   "first_new_kw_step": 12,
+   "typeerror_seen": true,
+   "hidden_steps_noting_conflict": 14,
+   "visible_steps_noting_conflict": 0,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-4",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 13,
+   "cost": 0.0054,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 8,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 3,
+   "visible_steps_noting_conflict": 1,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-5",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 17,
+   "cost": 0.0075,
+   "searched_old_kw": false,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 5,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 1,
+   "visible_steps_noting_conflict": 1,
+   "final_patch": "alias="
+  },
+  {
+   "run": "trap-6",
+   "resolved": true,
+   "tests": "F2P 1/1 P2P 59/59",
+   "steps": 25,
+   "cost": 0.0112,
+   "searched_old_kw": true,
+   "ran_or_wrote_old_kw": false,
+   "first_old_kw_step": null,
+   "first_new_kw_step": 18,
+   "typeerror_seen": false,
+   "hidden_steps_noting_conflict": 8,
+   "visible_steps_noting_conflict": 1,
+   "final_patch": "alias="
+  }
+ ],
+ "django__django-15563": [
+  {
+   "run": "original-1",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 62,
+   "cost": 0.0646,
+   "call_forms_written": {
+    "lookup first (original order)": 4
+   },
+   "final_patch": [
+    "lookup first (original order)"
+   ]
+  },
+  {
+   "run": "original-2",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 31,
+   "cost": 0.0212,
+   "call_forms_written": {
+    "lookup first (original order)": 6
+   },
+   "final_patch": [
+    "lookup first (original order)"
+   ]
+  },
+  {
+   "run": "original-3",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 36,
+   "cost": 0.0163,
+   "call_forms_written": {
+    "lookup first (original order)": 4
+   },
+   "final_patch": [
+    "lookup first (original order)"
+   ]
+  },
+  {
+   "run": "placebo-1",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 48,
+   "cost": 0.0277,
+   "call_forms_written": {
+    "keywords": 3,
+    "other": 1
+   },
+   "final_patch": [
+    "other"
+   ]
+  },
+  {
+   "run": "placebo-2",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 63,
+   "cost": 0.0287,
+   "call_forms_written": {
+    "keywords": 5,
+    "other": 1
+   },
+   "final_patch": [
+    "other"
+   ]
+  },
+  {
+   "run": "placebo-3",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 35,
+   "cost": 0.0166,
+   "call_forms_written": {
+    "keywords": 3,
+    "other": 1
+   },
+   "final_patch": [
+    "other"
+   ]
+  },
+  {
+   "run": "placebo-4",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 56,
+   "cost": 0.0247,
+   "call_forms_written": {
+    "keywords": 3,
+    "other": 1
+   },
+   "final_patch": [
+    "other"
+   ]
+  },
+  {
+   "run": "placebo-5",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 52,
+   "cost": 0.0242,
+   "call_forms_written": {
+    "keywords": 3,
+    "other": 1
+   },
+   "final_patch": [
+    "other"
+   ]
+  },
+  {
+   "run": "trap-1",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 50,
+   "cost": 0.026,
+   "call_forms_written": {
+    "value first (trap order)": 4
+   },
+   "final_patch": [
+    "value first (trap order)"
+   ]
+  },
+  {
+   "run": "trap-2",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 33,
+   "cost": 0.018,
+   "call_forms_written": {
+    "value first (trap order)": 6
+   },
+   "final_patch": [
+    "value first (trap order)"
+   ]
+  },
+  {
+   "run": "trap-3",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 48,
+   "cost": 0.0217,
+   "call_forms_written": {
+    "value first (trap order)": 8
+   },
+   "final_patch": [
+    "value first (trap order)"
+   ]
+  },
+  {
+   "run": "trap-4",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 49,
+   "cost": 0.0304,
+   "call_forms_written": {
+    "value first (trap order)": 10
+   },
+   "final_patch": [
+    "value first (trap order)"
+   ]
+  },
+  {
+   "run": "trap-5",
+   "resolved": true,
+   "tests": "F2P 2/2 P2P 29/29",
+   "steps": 50,
+   "cost": 0.0242,
+   "call_forms_written": {
+    "value first (trap order)": 4
+   },
+   "final_patch": [
+    "value first (trap order)"
+   ]
+  }
+ ]
+}

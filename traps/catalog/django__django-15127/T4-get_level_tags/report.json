@@ -1,0 +1,152 @@
+{
+ "trap": {
+  "files": [
+   "django/contrib/messages/storage/base.py",
+   "django/contrib/messages/tags.py",
+   "django/contrib/messages/utils.py",
+   "tests/messages_tests/base.py"
+  ],
+  "n_sites": 6,
+  "sites_by_kind": {
+   "definition removed": 1,
+   "import": 2,
+   "attribute": 2,
+   "new module": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/messages/utils.py",
+    "kind": "definition removed",
+    "code": "get_level_tags moved out of django/contrib/messages/utils.py"
+   },
+   {
+    "file": "django/contrib/messages/storage/base.py",
+    "kind": "import",
+    "code": "from django.contrib.messages import tags as tags_module"
+   },
+   {
+    "file": "django/contrib/messages/storage/base.py",
+    "kind": "attribute",
+    "code": "tags_module.get_level_tags"
+   },
+   {
+    "file": "tests/messages_tests/base.py",
+    "kind": "import",
+    "code": "from django.contrib.messages import tags as tags_module"
+   },
+   {
+    "file": "tests/messages_tests/base.py",
+    "kind": "attribute",
+    "code": "tags_module.get_level_tags"
+   },
+   {
+    "file": "django/contrib/messages/tags.py",
+    "kind": "new module",
+    "code": "django/contrib/messages/tags.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "get_level_tags is defined in and importable from django.contrib.messages.utils",
+   "trapped_fact": "get_level_tags moved to django.contrib.messages.tags; django.contrib.messages.utils no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "django/contrib/messages/utils.py",
+     "get_level_tags"
+    ]
+   ],
+   "init": {
+    "new_file": "django/contrib/messages/tags.py",
+    "docstring": "Message level tags.",
+    "placebo_style": "alias"
+   },
+   "name": "get_level_tags",
+   "old_module": "django.contrib.messages.utils",
+   "new_module": "django.contrib.messages.tags",
+   "new_file": "django/contrib/messages/tags.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/contrib/messages/storage/base.py",
+   "django/contrib/messages/tags.py",
+   "django/contrib/messages/utils.py",
+   "tests/messages_tests/base.py"
+  ],
+  "n_sites": 7,
+  "sites_by_kind": {
+   "definition removed": 1,
+   "import": 2,
+   "attribute": 2,
+   "re-export": 1,
+   "new module": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/messages/utils.py",
+    "kind": "definition removed",
+    "code": "get_level_tags moved out of django/contrib/messages/utils.py"
+   },
+   {
+    "file": "django/contrib/messages/storage/base.py",
+    "kind": "import",
+    "code": "from django.contrib.messages import tags as tags_module"
+   },
+   {
+    "file": "django/contrib/messages/storage/base.py",
+    "kind": "attribute",
+    "code": "tags_module.get_level_tags"
+   },
+   {
+    "file": "tests/messages_tests/base.py",
+    "kind": "import",
+    "code": "from django.contrib.messages import tags as tags_module"
+   },
+   {
+    "file": "tests/messages_tests/base.py",
+    "kind": "attribute",
+    "code": "tags_module.get_level_tags"
+   },
+   {
+    "file": "django/contrib/messages/utils.py",
+    "kind": "re-export",
+    "code": "from django.contrib.messages.tags import get_level_tags"
+   },
+   {
+    "file": "django/contrib/messages/tags.py",
+    "kind": "new module",
+    "code": "django/contrib/messages/tags.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "get_level_tags is defined in and importable from django.contrib.messages.utils",
+   "trapped_fact": "get_level_tags moved to django.contrib.messages.tags; django.contrib.messages.utils no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "django/contrib/messages/utils.py",
+     "get_level_tags"
+    ]
+   ],
+   "init": {
+    "new_file": "django/contrib/messages/tags.py",
+    "docstring": "Message level tags.",
+    "placebo_style": "alias"
+   },
+   "name": "get_level_tags",
+   "old_module": "django.contrib.messages.utils",
+   "new_module": "django.contrib.messages.tags",
+   "new_file": "django/contrib/messages/tags.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

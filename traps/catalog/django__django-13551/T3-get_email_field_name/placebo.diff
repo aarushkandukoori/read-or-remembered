@@ -1,0 +1,89 @@
+diff --git a/django/contrib/auth/base_user.py b/django/contrib/auth/base_user.py
+index 3a4a64ee19..5fa2522b1b 100644
+--- a/django/contrib/auth/base_user.py
++++ b/django/contrib/auth/base_user.py
+@@ -141,11 +141,12 @@ class AbstractBaseUser(models.Model):
+         ).hexdigest()
+ 
+     @classmethod
+-    def get_email_field_name(cls):
++    def get_email_field(cls):
+         try:
+             return cls.EMAIL_FIELD
+         except AttributeError:
+             return 'email'
++    get_email_field_name = get_email_field  # old name, kept as an alias
+ 
+     @classmethod
+     def normalize_username(cls, username):
+diff --git a/django/contrib/auth/forms.py b/django/contrib/auth/forms.py
+index 4f33992028..58c703d174 100644
+--- a/django/contrib/auth/forms.py
++++ b/django/contrib/auth/forms.py
+@@ -279,7 +279,7 @@ class PasswordResetForm(forms.Form):
+         that prevent inactive users and users with unusable passwords from
+         resetting their password.
+         """
+-        email_field_name = UserModel.get_email_field_name()
++        email_field_name = UserModel.get_email_field()
+         active_users = UserModel._default_manager.filter(**{
+             '%s__iexact' % email_field_name: email,
+             'is_active': True,
+@@ -307,7 +307,7 @@ class PasswordResetForm(forms.Form):
+             domain = current_site.domain
+         else:
+             site_name = domain = domain_override
+-        email_field_name = UserModel.get_email_field_name()
++        email_field_name = UserModel.get_email_field()
+         for user in self.get_users(email):
+             user_email = getattr(user, email_field_name)
+             context = {
+diff --git a/docs/topics/auth/customizing.txt b/docs/topics/auth/customizing.txt
+index 6ab8305468..661d9847d2 100644
+--- a/docs/topics/auth/customizing.txt
++++ b/docs/topics/auth/customizing.txt
+@@ -564,7 +564,7 @@ password resets. You must then provide some key implementation details:
+ 
+         A string describing the name of the email field on the ``User`` model.
+         This value is returned by
+-        :meth:`~models.AbstractBaseUser.get_email_field_name`.
++        :meth:`~models.AbstractBaseUser.get_email_field`.
+ 
+     .. attribute:: REQUIRED_FIELDS
+ 
+@@ -635,7 +635,7 @@ The following attributes and methods are available on any subclass of
+         override this method, be sure to call ``super()`` to retain the
+         normalization.
+ 
+-    .. classmethod:: get_email_field_name()
++    .. classmethod:: get_email_field()
+ 
+        Returns the name of the email field specified by the
+        :attr:`~models.CustomUser.EMAIL_FIELD` attribute. Defaults to
+@@ -820,7 +820,7 @@ if those assumptions are met:
+ 
+ * :class:`~django.contrib.auth.forms.PasswordResetForm`: Assumes that the user
+   model has a field that stores the user's email address with the name returned
+-  by :meth:`~models.AbstractBaseUser.get_email_field_name` (``email`` by
++  by :meth:`~models.AbstractBaseUser.get_email_field` (``email`` by
+   default) that can be used to identify the user and a boolean field named
+   ``is_active`` to prevent password resets for inactive users.
+ 
+diff --git a/tests/auth_tests/test_models.py b/tests/auth_tests/test_models.py
+index 5a4c5cdecd..094e18f286 100644
+--- a/tests/auth_tests/test_models.py
++++ b/tests/auth_tests/test_models.py
+@@ -215,11 +215,11 @@ class AbstractBaseUserTests(SimpleTestCase):
+                 self.assertEqual(username, 'iamtheΩ')  # U+03A9 GREEK CAPITAL LETTER OMEGA
+ 
+     def test_default_email(self):
+-        self.assertEqual(AbstractBaseUser.get_email_field_name(), 'email')
++        self.assertEqual(AbstractBaseUser.get_email_field(), 'email')
+ 
+     def test_custom_email(self):
+         user = CustomEmailField()
+-        self.assertEqual(user.get_email_field_name(), 'email_address')
++        self.assertEqual(user.get_email_field(), 'email_address')
+ 
+ 
+ class AbstractUserTestCase(TestCase):

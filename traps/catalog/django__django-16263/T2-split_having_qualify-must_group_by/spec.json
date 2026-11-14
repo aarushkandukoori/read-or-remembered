@@ -1,0 +1,96 @@
+{
+ "instance_id": "django__django-16263",
+ "trap_id": "T2-split_having_qualify-must_group_by",
+ "type": "T2",
+ "type_title": "default value",
+ "loud_or_quiet": "quiet",
+ "target": {
+  "file": "django/db/models/sql/where.py",
+  "qualname": "WhereNode.split_having_qualify",
+  "all_definitions": [
+   [
+    "django/db/models/sql/where.py",
+    "WhereNode.split_having_qualify"
+   ]
+  ]
+ },
+ "target_qualname": "WhereNode.split_having_qualify",
+ "original_fact": "WhereNode.split_having_qualify: must_group_by defaults to False",
+ "trapped_fact": "WhereNode.split_having_qualify: must_group_by defaults to True; every call that relied on the old default now passes must_group_by=False",
+ "placebo_kind": "the same calls pass the old default explicitly; the default itself is unchanged",
+ "files_changed": [
+  "django/db/models/sql/where.py"
+ ],
+ "files_changed_placebo": [],
+ "lines_changed_trap": 2,
+ "lines_changed_placebo": 0,
+ "sites_trap": {
+  "definition": 1
+ },
+ "sites_placebo": {},
+ "why_it_makes_sense": "Flipping an internal keyword default and passing the old value explicitly at every call keeps the ORM's behavior; projects make such changes when the common case changes.",
+ "why_it_matters_for_task": "The gold patch adds any(self.where.split_having_qualify()[1:]) in get_aggregation and relies on must_group_by=False; with the new default the split treats filters differently.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 2,
+  "nearest_trap_line_to_gold_hunk": 188,
+  "gold_files": [
+   "django/db/models/expressions.py",
+   "django/db/models/query_utils.py",
+   "django/db/models/sql/query.py",
+   "django/db/models/sql/where.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T2",
+  "defs": [
+   [
+    "django/db/models/sql/where.py",
+    "WhereNode.split_having_qualify"
+   ]
+  ],
+  "init": {
+   "param": "must_group_by",
+   "new_default": "True"
+  },
+  "param": "must_group_by",
+  "old_default": "False",
+  "new_default": "True"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "321ecb40f4da842926e1bc07e11df4aabe53ca4b",
+  "version": "4.2",
+  "FAIL_TO_PASS": [
+   "test_non_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+   "test_unreferenced_aggregate_annotation_pruned (aggregation.tests.AggregateAnnotationPruningTests)",
+   "test_unused_aliased_aggregate_pruned (aggregation.tests.AggregateAnnotationPruningTests)"
+  ],
+  "n_PASS_TO_PASS": 100
+ },
+ "notes": "quiet; needs a test run to know whether the default matters on the tested path",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-16263",
+ "build_seconds": 9.2
+}

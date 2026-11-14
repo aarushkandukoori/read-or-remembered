@@ -1,0 +1,373 @@
+dataset,model,channel,pattern,family,steps_with_hit,unique_sentences_with_hit
+deepswe,claude-opus-4-6,command,lib_version_range,B,1,1
+deepswe,claude-opus-4-6,command,newer_versions,B,1,1
+deepswe,claude-opus-4-6,command,upstream,A,3,6
+deepswe,claude-opus-4-6,hidden reasoning,actual_pr_commit,A,1,1
+deepswe,claude-opus-4-6,hidden reasoning,from_memory,A,1,2
+deepswe,claude-opus-4-6,hidden reasoning,lib_version_range,B,4,4
+deepswe,claude-opus-4-6,visible message,newer_versions,B,1,1
+deepswe,claude-opus-4-7,command,memorized,A,1,1
+deepswe,claude-opus-4-7,command,upstream,A,4,12
+deepswe,claude-opus-4-7,hidden reasoning,actual_pr_commit,A,14,18
+deepswe,claude-opus-4-7,hidden reasoning,actual_project_fix,A,1,1
+deepswe,claude-opus-4-7,hidden reasoning,changed_in_version,B,1,1
+deepswe,claude-opus-4-7,hidden reasoning,modern_lib,B,1,1
+deepswe,claude-opus-4-7,hidden reasoning,my_memory,A,1,1
+deepswe,claude-opus-4-7,hidden reasoning,newer_versions,B,2,2
+deepswe,claude-opus-4-7,hidden reasoning,upstream,A,27,42
+deepswe,claude-opus-4-7,visible message,actual_pr_commit,A,5,5
+deepswe,claude-opus-4-7,visible message,newer_versions,B,1,1
+deepswe,claude-opus-4-7,visible message,upstream,A,7,7
+deepswe,claude-opus-4-8,hidden reasoning,actual_pr_commit,A,22,23
+deepswe,claude-opus-4-8,hidden reasoning,actual_project_fix,A,3,3
+deepswe,claude-opus-4-8,hidden reasoning,i_recall,A,3,3
+deepswe,claude-opus-4-8,hidden reasoning,newer_versions,B,1,1
+deepswe,claude-opus-4-8,hidden reasoning,upstream,A,42,48
+deepswe,claude-opus-4-8,visible message,actual_pr_commit,A,1,1
+deepswe,claude-opus-4-8,visible message,based_on_real,A,1,1
+deepswe,claude-opus-4-8,visible message,upstream,A,3,3
+deepswe,claude-sonnet-4-6,command,lib_version_range,B,3,3
+deepswe,claude-sonnet-4-6,command,newer_versions,B,1,1
+deepswe,claude-sonnet-4-6,command,upstream,A,2,3
+deepswe,claude-sonnet-4-6,hidden reasoning,actual_pr_commit,A,6,6
+deepswe,claude-sonnet-4-6,hidden reasoning,i_recall,A,1,1
+deepswe,claude-sonnet-4-6,hidden reasoning,lib_version_range,B,10,10
+deepswe,claude-sonnet-4-6,hidden reasoning,newer_versions,B,4,4
+deepswe,claude-sonnet-4-6,visible message,modern_lib,B,1,1
+deepswe,claude-sonnet-4-6,visible message,upstream,A,1,1
+deepswe,deepseek-v4-flash,hidden reasoning,actual_pr_commit,A,36,44
+deepswe,deepseek-v4-flash,hidden reasoning,actual_project_fix,A,8,8
+deepswe,deepseek-v4-flash,hidden reasoning,based_on_real,A,7,7
+deepswe,deepseek-v4-flash,hidden reasoning,changed_in_version,B,2,2
+deepswe,deepseek-v4-flash,hidden reasoning,from_memory,A,18,25
+deepswe,deepseek-v4-flash,hidden reasoning,i_recall,A,64,132
+deepswe,deepseek-v4-flash,hidden reasoning,if_i_recall,A,2,2
+deepswe,deepseek-v4-flash,hidden reasoning,lets_recall,A,41,74
+deepswe,deepseek-v4-flash,hidden reasoning,lib_version_range,B,4,4
+deepswe,deepseek-v4-flash,hidden reasoning,my_memory,A,28,42
+deepswe,deepseek-v4-flash,hidden reasoning,newer_versions,B,18,20
+deepswe,deepseek-v4-flash,hidden reasoning,search_memory,A,25,31
+deepswe,deepseek-v4-flash,hidden reasoning,upstream,A,123,432
+deepswe,deepseek-v4-flash,visible message,newer_versions,B,1,1
+deepswe,deepseek-v4-flash,visible message,upstream,A,2,2
+deepswe,deepseek-v4-pro,hidden reasoning,actual_pr_commit,A,8,8
+deepswe,deepseek-v4-pro,hidden reasoning,actual_project_fix,A,4,4
+deepswe,deepseek-v4-pro,hidden reasoning,based_on_real,A,4,4
+deepswe,deepseek-v4-pro,hidden reasoning,from_memory,A,34,40
+deepswe,deepseek-v4-pro,hidden reasoning,historically,B,5,5
+deepswe,deepseek-v4-pro,hidden reasoning,i_recall,A,44,64
+deepswe,deepseek-v4-pro,hidden reasoning,if_i_recall,A,1,1
+deepswe,deepseek-v4-pro,hidden reasoning,lets_recall,A,22,22
+deepswe,deepseek-v4-pro,hidden reasoning,lib_version_range,B,1,1
+deepswe,deepseek-v4-pro,hidden reasoning,modern_lib,B,2,2
+deepswe,deepseek-v4-pro,hidden reasoning,my_memory,A,4,4
+deepswe,deepseek-v4-pro,hidden reasoning,newer_versions,B,8,8
+deepswe,deepseek-v4-pro,hidden reasoning,search_memory,A,16,16
+deepswe,deepseek-v4-pro,hidden reasoning,upstream,A,225,423
+deepswe,deepseek-v4-pro,visible message,upstream,A,11,12
+deepswe,gemini-3-1-pro-preview,hidden reasoning,historically,B,1,1
+deepswe,gemini-3-1-pro-preview,hidden reasoning,i_recall,A,146,168
+deepswe,gemini-3-1-pro-preview,hidden reasoning,if_i_recall,A,10,10
+deepswe,gemini-3-1-pro-preview,hidden reasoning,lib_version_range,B,1,1
+deepswe,gemini-3-1-pro-preview,hidden reasoning,my_memory,A,10,10
+deepswe,gemini-3-1-pro-preview,hidden reasoning,newer_versions,B,3,3
+deepswe,gemini-3-1-pro-preview,hidden reasoning,upstream,A,3,3
+deepswe,gemini-3-5-flash,hidden reasoning,actual_pr_commit,A,1,1
+deepswe,gemini-3-5-flash,hidden reasoning,historically,B,1,1
+deepswe,gemini-3-5-flash,hidden reasoning,i_recall,A,141,155
+deepswe,gemini-3-5-flash,hidden reasoning,if_i_recall,A,4,4
+deepswe,gemini-3-5-flash,hidden reasoning,modern_lib,B,4,4
+deepswe,gemini-3-5-flash,hidden reasoning,my_memory,A,14,14
+deepswe,gemini-3-5-flash,hidden reasoning,newer_versions,B,6,6
+deepswe,gemini-3-5-flash,hidden reasoning,upstream,A,3,3
+deepswe,gemini-3-6-flash,hidden reasoning,actual_pr_commit,A,1,1
+deepswe,gemini-3-6-flash,hidden reasoning,from_memory,A,1,1
+deepswe,gemini-3-6-flash,hidden reasoning,historically,B,2,2
+deepswe,gemini-3-6-flash,hidden reasoning,i_recall,A,62,67
+deepswe,gemini-3-6-flash,hidden reasoning,if_i_recall,A,2,2
+deepswe,gemini-3-6-flash,hidden reasoning,modern_lib,B,2,2
+deepswe,gemini-3-6-flash,hidden reasoning,my_memory,A,10,10
+deepswe,gemini-3-6-flash,hidden reasoning,newer_versions,B,1,1
+deepswe,gemini-3-6-flash,hidden reasoning,upstream,A,1,1
+deepswe,gemini-3-flash-preview,hidden reasoning,changed_in_version,B,1,1
+deepswe,gemini-3-flash-preview,hidden reasoning,from_memory,A,1,1
+deepswe,gemini-3-flash-preview,hidden reasoning,historically,B,1,1
+deepswe,gemini-3-flash-preview,hidden reasoning,i_recall,A,103,111
+deepswe,gemini-3-flash-preview,hidden reasoning,if_i_recall,A,4,4
+deepswe,gemini-3-flash-preview,hidden reasoning,my_memory,A,7,8
+deepswe,gemini-3-flash-preview,hidden reasoning,newer_versions,B,2,2
+deepswe,gemini-3-flash-preview,hidden reasoning,upstream,A,1,1
+deepswe,glm-5-1,hidden reasoning,from_memory,A,1,1
+deepswe,glm-5-1,hidden reasoning,lib_version_range,B,3,3
+deepswe,glm-5-1,visible message,from_memory,A,1,1
+deepswe,glm-5-2,hidden reasoning,actual_pr_commit,A,1,1
+deepswe,glm-5-2,hidden reasoning,i_recall,A,7,7
+deepswe,glm-5-2,hidden reasoning,lets_recall,A,1,1
+deepswe,glm-5-2,hidden reasoning,lib_version_range,B,2,4
+deepswe,glm-5-2,hidden reasoning,modern_lib,B,2,2
+deepswe,glm-5-3,hidden reasoning,actual_pr_commit,A,43,50
+deepswe,glm-5-3,hidden reasoning,actual_project_fix,A,10,11
+deepswe,glm-5-3,hidden reasoning,based_on_real,A,16,17
+deepswe,glm-5-3,hidden reasoning,changed_in_version,B,2,2
+deepswe,glm-5-3,hidden reasoning,from_memory,A,1,1
+deepswe,glm-5-3,hidden reasoning,i_recall,A,34,41
+deepswe,glm-5-3,hidden reasoning,lets_recall,A,10,11
+deepswe,glm-5-3,hidden reasoning,lib_version_range,B,7,8
+deepswe,glm-5-3,hidden reasoning,modern_lib,B,1,1
+deepswe,glm-5-3,hidden reasoning,my_memory,A,6,8
+deepswe,glm-5-3,hidden reasoning,newer_versions,B,8,8
+deepswe,glm-5-3,hidden reasoning,search_memory,A,5,6
+deepswe,glm-5-3,hidden reasoning,upstream,A,94,220
+deepswe,glm-5-3-flash,hidden reasoning,actual_pr_commit,A,33,45
+deepswe,glm-5-3-flash,hidden reasoning,actual_project_fix,A,5,5
+deepswe,glm-5-3-flash,hidden reasoning,based_on_real,A,11,11
+deepswe,glm-5-3-flash,hidden reasoning,from_memory,A,1,1
+deepswe,glm-5-3-flash,hidden reasoning,i_recall,A,32,42
+deepswe,glm-5-3-flash,hidden reasoning,lets_recall,A,9,9
+deepswe,glm-5-3-flash,hidden reasoning,lib_version_range,B,6,7
+deepswe,glm-5-3-flash,hidden reasoning,modern_lib,B,1,1
+deepswe,glm-5-3-flash,hidden reasoning,my_memory,A,1,2
+deepswe,glm-5-3-flash,hidden reasoning,newer_versions,B,4,4
+deepswe,glm-5-3-flash,hidden reasoning,search_memory,A,2,2
+deepswe,glm-5-3-flash,hidden reasoning,upstream,A,77,159
+deepswe,gpt-5-4,command,upstream,A,1,1
+deepswe,gpt-5-4,hidden reasoning,actual_pr_commit,A,1,2
+deepswe,gpt-5-4,hidden reasoning,from_memory,A,1,1
+deepswe,gpt-5-4,hidden reasoning,i_recall,A,9,9
+deepswe,gpt-5-4,hidden reasoning,lets_recall,A,1,1
+deepswe,gpt-5-4,hidden reasoning,modern_lib,B,1,1
+deepswe,gpt-5-4,hidden reasoning,newer_versions,B,1,1
+deepswe,gpt-5-4,hidden reasoning,upstream,A,18,24
+deepswe,gpt-5-4,visible message,actual_pr_commit,A,1,1
+deepswe,gpt-5-4,visible message,historically,B,1,1
+deepswe,gpt-5-4,visible message,upstream,A,19,20
+deepswe,gpt-5-4-mini,hidden reasoning,actual_pr_commit,A,7,13
+deepswe,gpt-5-4-mini,hidden reasoning,actual_project_fix,A,2,2
+deepswe,gpt-5-4-mini,hidden reasoning,from_memory,A,4,4
+deepswe,gpt-5-4-mini,hidden reasoning,historically,B,1,1
+deepswe,gpt-5-4-mini,hidden reasoning,i_recall,A,29,32
+deepswe,gpt-5-4-mini,hidden reasoning,lib_version_range,B,4,4
+deepswe,gpt-5-4-mini,hidden reasoning,modern_lib,B,2,2
+deepswe,gpt-5-4-mini,hidden reasoning,my_memory,A,2,2
+deepswe,gpt-5-4-mini,hidden reasoning,newer_versions,B,10,11
+deepswe,gpt-5-4-mini,hidden reasoning,upstream,A,36,50
+deepswe,gpt-5-4-mini,visible message,modern_lib,B,1,1
+deepswe,gpt-5-4-mini,visible message,upstream,A,9,9
+deepswe,gpt-5-5,command,upstream,A,3,3
+deepswe,gpt-5-5,hidden reasoning,actual_pr_commit,A,2,2
+deepswe,gpt-5-5,hidden reasoning,changed_in_version,B,1,1
+deepswe,gpt-5-5,hidden reasoning,i_recall,A,9,9
+deepswe,gpt-5-5,hidden reasoning,if_i_recall,A,1,1
+deepswe,gpt-5-5,hidden reasoning,modern_lib,B,1,1
+deepswe,gpt-5-5,hidden reasoning,newer_versions,B,4,4
+deepswe,gpt-5-5,hidden reasoning,upstream,A,8,9
+deepswe,gpt-5-5,visible message,upstream,A,18,18
+deepswe,gpt-5-6-luna,command,historically,B,1,1
+deepswe,gpt-5-6-luna,hidden reasoning,actual_pr_commit,A,7,7
+deepswe,gpt-5-6-luna,hidden reasoning,based_on_real,A,1,1
+deepswe,gpt-5-6-luna,hidden reasoning,changed_in_version,B,1,1
+deepswe,gpt-5-6-luna,hidden reasoning,i_recall,A,5,5
+deepswe,gpt-5-6-luna,hidden reasoning,newer_versions,B,2,2
+deepswe,gpt-5-6-luna,hidden reasoning,upstream,A,28,30
+deepswe,gpt-5-6-luna,visible message,historically,B,1,1
+deepswe,gpt-5-6-luna,visible message,upstream,A,9,9
+deepswe,gpt-5-6-sol,command,historically,B,2,2
+deepswe,gpt-5-6-sol,command,upstream,A,4,4
+deepswe,gpt-5-6-sol,hidden reasoning,i_recall,A,1,1
+deepswe,gpt-5-6-sol,hidden reasoning,lib_version_range,B,1,1
+deepswe,gpt-5-6-sol,hidden reasoning,newer_versions,B,2,2
+deepswe,gpt-5-6-sol,hidden reasoning,upstream,A,9,9
+deepswe,gpt-5-6-sol,visible message,historically,B,1,1
+deepswe,gpt-5-6-sol,visible message,upstream,A,29,29
+deepswe,gpt-5-6-terra,command,historically,B,2,2
+deepswe,gpt-5-6-terra,command,upstream,A,6,8
+deepswe,gpt-5-6-terra,hidden reasoning,actual_project_fix,A,1,1
+deepswe,gpt-5-6-terra,hidden reasoning,i_recall,A,6,6
+deepswe,gpt-5-6-terra,hidden reasoning,if_i_recall,A,1,1
+deepswe,gpt-5-6-terra,hidden reasoning,lib_version_range,B,1,1
+deepswe,gpt-5-6-terra,hidden reasoning,newer_versions,B,3,3
+deepswe,gpt-5-6-terra,hidden reasoning,upstream,A,15,17
+deepswe,gpt-5-6-terra,visible message,historically,B,1,1
+deepswe,gpt-5-6-terra,visible message,upstream,A,34,36
+deepswe,grok-4-5,command,lib_version_range,B,2,2
+deepswe,grok-4-5,hidden reasoning,changed_in_version,B,1,1
+deepswe,grok-4-5,hidden reasoning,historically,B,1,1
+deepswe,grok-4-5,hidden reasoning,lib_version_range,B,2,2
+deepswe,grok-4-6,command,historically,B,1,1
+deepswe,grok-4-6,hidden reasoning,i_recall,A,9,9
+deepswe,grok-4-6,hidden reasoning,lets_recall,A,1,1
+deepswe,grok-4-6,hidden reasoning,lib_version_range,B,3,3
+deepswe,grok-4-6,hidden reasoning,my_memory,A,8,8
+deepswe,grok-4-6,hidden reasoning,newer_versions,B,4,4
+deepswe,grok-4-6,hidden reasoning,search_memory,A,1,1
+deepswe,grok-4-6,visible message,upstream,A,1,1
+deepswe,kimi-k2-6,hidden reasoning,from_memory,A,2,2
+deepswe,kimi-k2-6,hidden reasoning,lib_version_range,B,7,7
+deepswe,kimi-k2-6,hidden reasoning,modern_lib,B,2,2
+deepswe,kimi-k2-6,hidden reasoning,my_memory,A,2,2
+deepswe,kimi-k2-6,hidden reasoning,newer_versions,B,1,1
+deepswe,kimi-k2-7-code,hidden reasoning,from_memory,A,2,2
+deepswe,kimi-k2-7-code,hidden reasoning,i_recall,A,2,2
+deepswe,kimi-k2-7-code,hidden reasoning,lets_recall,A,3,4
+deepswe,kimi-k2-7-code,hidden reasoning,lib_version_range,B,1,1
+deepswe,kimi-k2-7-code,hidden reasoning,upstream,A,1,1
+deepswe,kimi-k3,hidden reasoning,actual_pr_commit,A,11,16
+deepswe,kimi-k3,hidden reasoning,actual_project_fix,A,2,2
+deepswe,kimi-k3,hidden reasoning,based_on_real,A,6,6
+deepswe,kimi-k3,hidden reasoning,from_memory,A,2,2
+deepswe,kimi-k3,hidden reasoning,historically,B,2,2
+deepswe,kimi-k3,hidden reasoning,i_recall,A,30,50
+deepswe,kimi-k3,hidden reasoning,lets_recall,A,6,6
+deepswe,kimi-k3,hidden reasoning,lib_version_range,B,3,3
+deepswe,kimi-k3,hidden reasoning,modern_lib,B,2,2
+deepswe,kimi-k3,hidden reasoning,my_memory,A,9,11
+deepswe,kimi-k3,hidden reasoning,newer_versions,B,3,3
+deepswe,kimi-k3,hidden reasoning,search_memory,A,7,7
+deepswe,kimi-k3,hidden reasoning,upstream,A,29,53
+deepswe,kimi-k3,visible message,upstream,A,4,4
+deepswe,mimo-v2-5-pro,hidden reasoning,from_memory,A,2,2
+deepswe,mimo-v2-5-pro,hidden reasoning,lib_version_range,B,2,3
+deepswe,minimax-m2-7,hidden reasoning,from_memory,A,1,1
+deepswe,minimax-m2-7,hidden reasoning,i_recall,A,2,2
+deepswe,minimax-m2-7,visible message,from_memory,A,1,1
+deepswe,minimax-m3,visible message,upstream,A,14,18
+deepswe,qwen3-6-plus,command,lib_version_range,B,2,2
+deepswe,qwen3-6-plus,hidden reasoning,from_memory,A,4,5
+deepswe,qwen3-6-plus,hidden reasoning,lib_version_range,B,1,1
+deepswe,qwen3-6-plus,visible message,lib_version_range,B,1,1
+deepswe,qwen3-7-max,command,from_memory,A,3,3
+deepswe,qwen3-7-max,hidden reasoning,changed_in_version,B,1,1
+deepswe,qwen3-7-max,hidden reasoning,modern_lib,B,2,2
+deepswe,qwen3-7-max,hidden reasoning,newer_versions,B,1,1
+deepswe,qwen3-8-max,hidden reasoning,actual_pr_commit,A,25,35
+deepswe,qwen3-8-max,hidden reasoning,actual_project_fix,A,10,12
+deepswe,qwen3-8-max,hidden reasoning,based_on_real,A,9,14
+deepswe,qwen3-8-max,hidden reasoning,changed_in_version,B,4,5
+deepswe,qwen3-8-max,hidden reasoning,from_memory,A,4,4
+deepswe,qwen3-8-max,hidden reasoning,historically,B,1,1
+deepswe,qwen3-8-max,hidden reasoning,i_recall,A,41,100
+deepswe,qwen3-8-max,hidden reasoning,if_i_recall,A,4,4
+deepswe,qwen3-8-max,hidden reasoning,lets_recall,A,16,29
+deepswe,qwen3-8-max,hidden reasoning,lib_version_range,B,10,12
+deepswe,qwen3-8-max,hidden reasoning,my_memory,A,12,17
+deepswe,qwen3-8-max,hidden reasoning,newer_versions,B,10,10
+deepswe,qwen3-8-max,hidden reasoning,search_memory,A,12,14
+deepswe,qwen3-8-max,hidden reasoning,upstream,A,61,163
+deepswe,qwen3-8-max,visible message,actual_pr_commit,A,1,1
+deepswe,qwen3-8-max,visible message,lib_version_range,B,1,1
+deepswe,qwen3-8-max,visible message,upstream,A,3,3
+faultyclaims,DeepSeek-V3.2,command,lib_version_range,B,1,1
+faultyclaims,DeepSeek-V3.2,command,newer_versions,B,5,6
+faultyclaims,DeepSeek-V3.2,command,upstream,A,4,6
+faultyclaims,DeepSeek-V3.2,hidden reasoning,from_memory,A,5,5
+faultyclaims,DeepSeek-V3.2,hidden reasoning,historically,B,1,1
+faultyclaims,DeepSeek-V3.2,hidden reasoning,i_recall,A,6,6
+faultyclaims,DeepSeek-V3.2,hidden reasoning,lib_version_range,B,12,13
+faultyclaims,DeepSeek-V3.2,hidden reasoning,modern_lib,B,9,9
+faultyclaims,DeepSeek-V3.2,hidden reasoning,newer_versions,B,20,31
+faultyclaims,DeepSeek-V3.2,hidden reasoning,upstream,A,14,15
+faultyclaims,DeepSeek-V4.1-Flash,command,modern_lib,B,1,1
+faultyclaims,DeepSeek-V4.1-Flash,command,upstream,A,6,11
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,actual_pr_commit,A,721,1282
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,actual_project_fix,A,475,569
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,based_on_real,A,72,76
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,changed_in_version,B,24,26
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,from_memory,A,457,545
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,historically,B,13,15
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,i_recall,A,978,1689
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,if_i_recall,A,50,55
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,lets_recall,A,674,996
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,lib_version_range,B,23,26
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,memorized,A,26,27
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,modern_lib,B,40,49
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,my_memory,A,682,1055
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,newer_versions,B,293,330
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,search_memory,A,444,536
+faultyclaims,DeepSeek-V4.1-Flash,hidden reasoning,upstream,A,2035,7164
+faultyclaims,DeepSeek-V4.1-Flash,visible message,actual_pr_commit,A,9,9
+faultyclaims,DeepSeek-V4.1-Flash,visible message,actual_project_fix,A,2,2
+faultyclaims,DeepSeek-V4.1-Flash,visible message,lib_version_range,B,1,1
+faultyclaims,DeepSeek-V4.1-Flash,visible message,newer_versions,B,6,6
+faultyclaims,DeepSeek-V4.1-Flash,visible message,upstream,A,145,145
+faultyclaims,Qwen3.6-27B,command,upstream,A,3,6
+faultyclaims,Qwen3.6-27B,hidden reasoning,actual_pr_commit,A,2,2
+faultyclaims,Qwen3.6-27B,hidden reasoning,lib_version_range,B,2,2
+faultyclaims,Qwen3.6-27B,hidden reasoning,modern_lib,B,1,1
+faultyclaims,Qwen3.6-27B,hidden reasoning,my_memory,A,1,1
+faultyclaims,Qwen3.6-27B,hidden reasoning,newer_versions,B,11,26
+faultyclaims,Qwen3.6-27B,hidden reasoning,upstream,A,4,4
+faultyclaims,Qwen3.6-27B,visible message,newer_versions,B,1,1
+faultyclaims,Qwen3.8-27B,command,newer_versions,B,5,13
+faultyclaims,Qwen3.8-27B,command,upstream,A,15,23
+faultyclaims,Qwen3.8-27B,hidden reasoning,actual_pr_commit,A,559,1132
+faultyclaims,Qwen3.8-27B,hidden reasoning,actual_project_fix,A,148,245
+faultyclaims,Qwen3.8-27B,hidden reasoning,based_on_real,A,51,57
+faultyclaims,Qwen3.8-27B,hidden reasoning,changed_in_version,B,12,15
+faultyclaims,Qwen3.8-27B,hidden reasoning,from_memory,A,74,85
+faultyclaims,Qwen3.8-27B,hidden reasoning,historically,B,2,2
+faultyclaims,Qwen3.8-27B,hidden reasoning,i_recall,A,547,1643
+faultyclaims,Qwen3.8-27B,hidden reasoning,if_i_recall,A,25,26
+faultyclaims,Qwen3.8-27B,hidden reasoning,lets_recall,A,428,848
+faultyclaims,Qwen3.8-27B,hidden reasoning,lib_version_range,B,18,19
+faultyclaims,Qwen3.8-27B,hidden reasoning,memorized,A,2,2
+faultyclaims,Qwen3.8-27B,hidden reasoning,modern_lib,B,15,19
+faultyclaims,Qwen3.8-27B,hidden reasoning,my_memory,A,332,554
+faultyclaims,Qwen3.8-27B,hidden reasoning,newer_versions,B,90,119
+faultyclaims,Qwen3.8-27B,hidden reasoning,search_memory,A,234,292
+faultyclaims,Qwen3.8-27B,hidden reasoning,upstream,A,463,1221
+faultyclaims,Qwen3.8-27B,visible message,actual_pr_commit,A,28,28
+faultyclaims,Qwen3.8-27B,visible message,actual_project_fix,A,8,8
+faultyclaims,Qwen3.8-27B,visible message,changed_in_version,B,1,1
+faultyclaims,Qwen3.8-27B,visible message,lib_version_range,B,2,2
+faultyclaims,Qwen3.8-27B,visible message,modern_lib,B,1,1
+faultyclaims,Qwen3.8-27B,visible message,newer_versions,B,1,1
+faultyclaims,Qwen3.8-27B,visible message,upstream,A,140,146
+swebv,DeepSeek-V3.2,command,actual_pr_commit,A,2,2
+swebv,DeepSeek-V3.2,command,from_memory,A,1,1
+swebv,DeepSeek-V3.2,command,i_recall,A,1,1
+swebv,DeepSeek-V3.2,command,lib_version_range,B,2,2
+swebv,DeepSeek-V3.2,command,newer_versions,B,7,7
+swebv,DeepSeek-V3.2,command,upstream,A,1,1
+swebv,DeepSeek-V3.2,hidden reasoning,actual_pr_commit,A,10,10
+swebv,DeepSeek-V3.2,hidden reasoning,actual_project_fix,A,3,4
+swebv,DeepSeek-V3.2,hidden reasoning,changed_in_version,B,28,35
+swebv,DeepSeek-V3.2,hidden reasoning,from_memory,A,4,4
+swebv,DeepSeek-V3.2,hidden reasoning,historically,B,4,4
+swebv,DeepSeek-V3.2,hidden reasoning,i_recall,A,52,52
+swebv,DeepSeek-V3.2,hidden reasoning,if_i_recall,A,1,1
+swebv,DeepSeek-V3.2,hidden reasoning,lets_recall,A,7,8
+swebv,DeepSeek-V3.2,hidden reasoning,lib_version_range,B,85,117
+swebv,DeepSeek-V3.2,hidden reasoning,modern_lib,B,66,86
+swebv,DeepSeek-V3.2,hidden reasoning,my_memory,A,1,1
+swebv,DeepSeek-V3.2,hidden reasoning,newer_versions,B,214,282
+swebv,DeepSeek-V3.2,hidden reasoning,upstream,A,2,2
+swebv,DeepSeek-V3.2,visible message,actual_pr_commit,A,2,2
+swebv,DeepSeek-V3.2,visible message,lib_version_range,B,3,3
+swebv,DeepSeek-V3.2,visible message,modern_lib,B,3,3
+swebv,DeepSeek-V3.2,visible message,newer_versions,B,2,2
+swebv,DeepSeek-V3.2,visible message,upstream,A,1,1
+swebv,Kimi K2.5,command,lib_version_range,B,3,3
+swebv,Kimi K2.5,command,newer_versions,B,3,3
+swebv,Kimi K2.5,hidden reasoning,actual_pr_commit,A,3,3
+swebv,Kimi K2.5,hidden reasoning,actual_project_fix,A,2,2
+swebv,Kimi K2.5,hidden reasoning,changed_in_version,B,18,18
+swebv,Kimi K2.5,hidden reasoning,lib_version_range,B,50,52
+swebv,Kimi K2.5,hidden reasoning,modern_lib,B,24,25
+swebv,Kimi K2.5,hidden reasoning,my_memory,A,1,1
+swebv,Kimi K2.5,hidden reasoning,newer_versions,B,29,30
+swebv,Kimi K2.5,visible message,lib_version_range,B,1,1
+swebv,MiniMax M2.5,command,changed_in_version,B,1,1
+swebv,MiniMax M2.5,command,lib_version_range,B,2,2
+swebv,MiniMax M2.5,command,modern_lib,B,3,3
+swebv,MiniMax M2.5,command,newer_versions,B,1,1
+swebv,MiniMax M2.5,hidden reasoning,actual_pr_commit,A,1,1
+swebv,MiniMax M2.5,hidden reasoning,changed_in_version,B,5,11
+swebv,MiniMax M2.5,hidden reasoning,i_recall,A,2,2
+swebv,MiniMax M2.5,hidden reasoning,if_i_recall,A,1,1
+swebv,MiniMax M2.5,hidden reasoning,lib_version_range,B,74,93
+swebv,MiniMax M2.5,hidden reasoning,modern_lib,B,57,61
+swebv,MiniMax M2.5,hidden reasoning,newer_versions,B,83,90
+swebv,MiniMax M2.5,visible message,changed_in_version,B,1,1
+swebv,MiniMax M2.5,visible message,lib_version_range,B,8,8
+swebv,MiniMax M2.5,visible message,modern_lib,B,2,2
+swebv,MiniMax M2.5,visible message,newer_versions,B,6,6

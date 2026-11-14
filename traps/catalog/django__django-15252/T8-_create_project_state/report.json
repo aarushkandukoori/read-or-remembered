@@ -1,0 +1,116 @@
+{
+ "trap": {
+  "files": [
+   "django/core/management/commands/migrate.py",
+   "django/db/migrations/executor.py"
+  ],
+  "n_sites": 4,
+  "sites_by_kind": {
+   "call": 3,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/core/management/commands/migrate.py",
+    "kind": "call",
+    "code": "executor._create_project_state(skip_applied_migrations=False)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "definition",
+    "code": "MigrationExecutor._create_project_state(..., skip_applied_migrations=True)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "call",
+    "code": "self._create_project_state(skip_applied_migrations=False)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "call",
+    "code": "self._create_project_state(skip_applied_migrations=False)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "MigrationExecutor._create_project_state has a flag with_applied_migrations=False",
+   "trapped_fact": "the flag is now skip_applied_migrations=True with the opposite meaning; callers pass the negated value"
+  },
+  "spec": {
+   "type": "T8",
+   "defs": [
+    [
+     "django/db/migrations/executor.py",
+     "MigrationExecutor._create_project_state"
+    ]
+   ],
+   "init": {
+    "param": "with_applied_migrations",
+    "new_param": "skip_applied_migrations"
+   },
+   "param": "with_applied_migrations",
+   "new_param": "skip_applied_migrations",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/core/management/commands/migrate.py",
+   "django/db/migrations/executor.py"
+  ],
+  "n_sites": 4,
+  "sites_by_kind": {
+   "call": 3,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/core/management/commands/migrate.py",
+    "kind": "call",
+    "code": "executor._create_project_state(skip_applied_migrations=False)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "definition",
+    "code": "MigrationExecutor._create_project_state(..., skip_applied_migrations=True)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "call",
+    "code": "self._create_project_state(skip_applied_migrations=False)"
+   },
+   {
+    "file": "django/db/migrations/executor.py",
+    "kind": "call",
+    "code": "self._create_project_state(skip_applied_migrations=False)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "MigrationExecutor._create_project_state has a flag with_applied_migrations=False",
+   "trapped_fact": "the flag is now skip_applied_migrations=True with the opposite meaning; callers pass the negated value"
+  },
+  "spec": {
+   "type": "T8",
+   "defs": [
+    [
+     "django/db/migrations/executor.py",
+     "MigrationExecutor._create_project_state"
+    ]
+   ],
+   "init": {
+    "param": "with_applied_migrations",
+    "new_param": "skip_applied_migrations"
+   },
+   "param": "with_applied_migrations",
+   "new_param": "skip_applied_migrations",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

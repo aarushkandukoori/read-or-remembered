@@ -1,0 +1,74 @@
+[
+ {
+  "run": "original-1",
+  "steps": 19,
+  "saw_definition_at": null,
+  "saw_other_call_at": null,
+  "first_wrote_call_at": null,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 3,
+  "memory_steps_visible": 0
+ },
+ {
+  "run": "original-2",
+  "steps": 26,
+  "saw_definition_at": null,
+  "saw_other_call_at": 15,
+  "first_wrote_call_at": 17,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 7,
+  "memory_steps_visible": 0
+ },
+ {
+  "run": "placebo-1",
+  "steps": 23,
+  "saw_definition_at": null,
+  "saw_other_call_at": null,
+  "first_wrote_call_at": 19,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 5,
+  "memory_steps_visible": 0
+ },
+ {
+  "run": "placebo-2",
+  "steps": 17,
+  "saw_definition_at": null,
+  "saw_other_call_at": 7,
+  "first_wrote_call_at": null,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 5,
+  "memory_steps_visible": 1
+ },
+ {
+  "run": "trap-1",
+  "steps": 24,
+  "saw_definition_at": 10,
+  "saw_other_call_at": 10,
+  "first_wrote_call_at": 15,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 12,
+  "memory_steps_visible": 8
+ },
+ {
+  "run": "trap-2",
+  "steps": 22,
+  "saw_definition_at": null,
+  "saw_other_call_at": null,
+  "first_wrote_call_at": null,
+  "patch_calls": [
+   "no call in patch"
+  ],
+  "memory_steps_hidden": 4,
+  "memory_steps_visible": 0
+ }
+]

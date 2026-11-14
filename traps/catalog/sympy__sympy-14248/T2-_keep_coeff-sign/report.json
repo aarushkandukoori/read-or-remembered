@@ -1,0 +1,618 @@
+{
+ "trap": {
+  "files": [
+   "sympy/core/add.py",
+   "sympy/core/exprtools.py",
+   "sympy/core/mul.py",
+   "sympy/core/power.py",
+   "sympy/core/tests/test_exprtools.py",
+   "sympy/polys/polytools.py",
+   "sympy/polys/tests/test_polytools.py",
+   "sympy/printing/codeprinter.py",
+   "sympy/printing/julia.py",
+   "sympy/printing/octave.py",
+   "sympy/printing/str.py",
+   "sympy/simplify/powsimp.py",
+   "sympy/simplify/tests/test_simplify.py"
+  ],
+  "n_sites": 52,
+  "sites_by_kind": {
+   "call": 47,
+   "definition": 1,
+   "doctest/string": 4
+  },
+  "sites": [
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(ncon, ni, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(dcon, d, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(ncon, n, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(dcon, d, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(p, q), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(1, exp.q), tail, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(1, exp.q), tail, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Integer(exp), e, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(exp, e, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, factors*numer/denom, clear=clear, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, Mul(*[gcd_terms(i, isprimitive, clear, fraction)     for i in args]), clear=clear, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g*l*new_mid*r, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, ok, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g*l*mid*r, sign=False)"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "call",
+    "code": "_keep_coeff(a, bi, sign=False)"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "definition",
+    "code": "_keep_coeff(..., sign=True)"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(ce, t + r/ce/ceh.q, sign=False)"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(ce, pe, sign=False)"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(m, t, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(9), 3**(2*x) + x*y + x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2)/3, x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, term*f.as_expr(), sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, f.as_expr(), clear=False, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, term*f, clear=False, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, _factors_product(factors), sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(-1), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1.0), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(-1.0), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1), 2*x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x/2, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), sin(x), sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(x, 1/x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(x + 1, S(2), sign=False)"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g, sign=False)"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "call",
+    "code": "_keep_coeff(cg, rg*Add(*[a/g for a in args]), sign=False)"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "call",
+    "code": "(_keep_coeff(S(2), (3*x + 1), sign=False))"
+   }
+  ],
+  "warnings": [
+   "sympy/core/add.py: cannot tell if sign is passed: _keep_coeff(*a.as_content_primitive(\n    radical=radical, clear=clear))",
+   "sympy/core/power.py: cannot tell if sign is passed: _keep_coeff(*b.as_content_primitive(radical=radical, clear=clear))"
+  ],
+  "describe": {
+   "original_fact": "_keep_coeff: sign defaults to False",
+   "trapped_fact": "_keep_coeff: sign defaults to True; every call that relied on the old default now passes sign=False"
+  },
+  "spec": {
+   "type": "T2",
+   "defs": [
+    [
+     "sympy/core/mul.py",
+     "_keep_coeff"
+    ]
+   ],
+   "init": {
+    "param": "sign",
+    "new_default": "True"
+   },
+   "param": "sign",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "sympy/core/add.py",
+   "sympy/core/exprtools.py",
+   "sympy/core/mul.py",
+   "sympy/core/power.py",
+   "sympy/core/tests/test_exprtools.py",
+   "sympy/polys/polytools.py",
+   "sympy/polys/tests/test_polytools.py",
+   "sympy/printing/codeprinter.py",
+   "sympy/printing/julia.py",
+   "sympy/printing/octave.py",
+   "sympy/printing/str.py",
+   "sympy/simplify/powsimp.py",
+   "sympy/simplify/tests/test_simplify.py"
+  ],
+  "n_sites": 51,
+  "sites_by_kind": {
+   "call": 47,
+   "doctest/string": 4
+  },
+  "sites": [
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(ncon, ni, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(dcon, d, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(ncon, n, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(dcon, d, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(p, q), term, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(1, exp.q), tail, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Rational(1, exp.q), tail, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(Integer(exp), e, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(exp, e, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, factors*numer/denom, clear=clear, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, Mul(*[gcd_terms(i, isprimitive, clear, fraction)     for i in args]), clear=clear, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g*l*new_mid*r, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, ok, sign=False)"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g*l*mid*r, sign=False)"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "call",
+    "code": "_keep_coeff(a, bi, sign=False)"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "doctest/string",
+    "code": "_keep_coeff(...) in text"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(ce, t + r/ce/ceh.q, sign=False)"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(ce, pe, sign=False)"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "call",
+    "code": "_keep_coeff(m, t, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(9), 3**(2*x) + x*y + x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2)/3, x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(3), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, term*f.as_expr(), sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, f.as_expr(), clear=False, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, term*f, clear=False, sign=False)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(coeff, _factors_product(factors), sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(-1), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1.0), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(-1.0), x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(1), 2*x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x/2, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), sin(x), sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(S(2), x + 1, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(x, 1/x, sign=False)"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "call",
+    "code": "_keep_coeff(x + 1, S(2), sign=False)"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "call",
+    "code": "_keep_coeff(-c, e, sign=False)"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "call",
+    "code": "_keep_coeff(c, g, sign=False)"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "call",
+    "code": "_keep_coeff(cg, rg*Add(*[a/g for a in args]), sign=False)"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "call",
+    "code": "(_keep_coeff(S(2), (3*x + 1), sign=False))"
+   }
+  ],
+  "warnings": [
+   "sympy/core/add.py: cannot tell if sign is passed: _keep_coeff(*a.as_content_primitive(\n    radical=radical, clear=clear))",
+   "sympy/core/power.py: cannot tell if sign is passed: _keep_coeff(*b.as_content_primitive(radical=radical, clear=clear))"
+  ],
+  "describe": {
+   "original_fact": "_keep_coeff: sign defaults to False",
+   "trapped_fact": "_keep_coeff: sign defaults to True; every call that relied on the old default now passes sign=False"
+  },
+  "spec": {
+   "type": "T2",
+   "defs": [
+    [
+     "sympy/core/mul.py",
+     "_keep_coeff"
+    ]
+   ],
+   "init": {
+    "param": "sign",
+    "new_default": "True"
+   },
+   "param": "sign",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

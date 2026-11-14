@@ -1,0 +1,11 @@
+data,subset,group1,group2,label,n_group1,n_group2,share_group1,share_group2,diff,ci_lo,ci_hi
+You Wang et al. claims (all 4 models),named before seen,refuted (wrong),supported (right),hedged,1321,5340,0.1347,0.0831,0.0516,0.0302,0.0735
+You Wang et al. claims (all 4 models),named before seen,refuted (wrong),supported (right),recall_A,1321,5340,0.0273,0.009,0.0183,0.009,0.0287
+You Wang et al. claims (all 4 models),named before seen,refuted (wrong),supported (right),flagged_any,1321,5340,0.159,0.0921,0.0668,0.0445,0.0908
+You Wang et al. claims (all 4 models),all names seen before,refuted (wrong),supported (right),hedged,5493,44789,0.1296,0.0659,0.0638,0.0525,0.0753
+You Wang et al. claims (all 4 models),all names seen before,refuted (wrong),supported (right),recall_A,5493,44789,0.0164,0.0051,0.0113,0.0074,0.0155
+You Wang et al. claims (all 4 models),all names seen before,refuted (wrong),supported (right),flagged_any,5493,44789,0.1435,0.0712,0.0722,0.0605,0.0843
+"pilot file paths named before seen, DeepSeek-V3.2 sentences",hidden or visible sentence,wrong: other version (stale/future),correct (exists at base commit),hedged,30,474,0.2,0.3143,-0.1143,-0.2597,0.0482
+"pilot file paths named before seen, DeepSeek-V3.2 sentences",hidden or visible sentence,wrong: other version (stale/future),correct (exists at base commit),flagged_any,30,474,0.2,0.3143,-0.1143,-0.2597,0.0482
+"pilot file paths named before seen, DeepSeek-V3.2 sentences",hidden or visible sentence,wrong: never existed,correct (exists at base commit),hedged,135,474,0.163,0.3143,-0.1514,-0.2284,-0.0701
+"pilot file paths named before seen, DeepSeek-V3.2 sentences",hidden or visible sentence,wrong: never existed,correct (exists at base commit),flagged_any,135,474,0.163,0.3143,-0.1514,-0.2284,-0.0701

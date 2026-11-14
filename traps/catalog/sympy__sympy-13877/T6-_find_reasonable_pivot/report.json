@@ -1,0 +1,224 @@
+{
+ "trap": {
+  "files": [
+   "sympy/matrices/matrices.py",
+   "sympy/matrices/tests/test_matrices.py"
+  ],
+  "n_sites": 18,
+  "sites_by_kind": {
+   "unpack": 5,
+   "return": 13
+  },
+  "sites": [
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "unpack",
+    "code": "pivot_val, pivot_offset, \\\n            assumed_nonzero, newly_determined"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "unpack",
+    "code": "pivot_value, pivot_row_offset, is_assumed_non_zero, ind_simplified_pairs"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(None, None, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(col[index], index, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(x, i, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(None, None, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(simped, i, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(None, None, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(None, None, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(col[i], i, True, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "col_val, i, False, []"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "None, None, False, []"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "indeterminates[0][1], indeterminates[0][0], True, []"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "tmp_col_val, i, False, newly_determined"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "indeterminates[0][1], indeterminates[0][0], True, newly_determined"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "pivot_val, pivot_offset, pivot_assumed_nonzero, simplified"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "pivot_val, pivot_offset, pivot_assumed_nonzero, simplified"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "pivot_val, pivot_offset, pivot_assumed_nonzero, simplified"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "_find_reasonable_pivot returns a 4-tuple with item 0 first",
+   "trapped_fact": "_find_reasonable_pivot returns the tuple with items 0 and 1 swapped; every caller unpacks it the new way"
+  },
+  "spec": {
+   "type": "T6",
+   "defs": [
+    [
+     "sympy/matrices/matrices.py",
+     "_find_reasonable_pivot"
+    ],
+    [
+     "sympy/matrices/matrices.py",
+     "_find_reasonable_pivot_naive"
+    ]
+   ],
+   "init": {
+    "size": 4,
+    "i": 0,
+    "j": 1
+   },
+   "size": 4,
+   "i": 0,
+   "j": 1
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "sympy/matrices/matrices.py",
+   "sympy/matrices/tests/test_matrices.py"
+  ],
+  "n_sites": 10,
+  "sites_by_kind": {
+   "unpack": 5,
+   "return": 5
+  },
+  "sites": [
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "unpack",
+    "code": "(pivot_offset, pivot_val, \\\n            assumed_nonzero, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "unpack",
+    "code": "(pivot_row_offset, pivot_value, is_assumed_non_zero, ind_simplified_pairs)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(i, col_val, False, [])"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(None, None, False, [])"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(indeterminates[0][0], indeterminates[0][1], True, [])"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(i, tmp_col_val, False, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "return",
+    "code": "(indeterminates[0][0], indeterminates[0][1], True, newly_determined)"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "(pivot_offset, pivot_val, pivot_assumed_nonzero, simplified)"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "(pivot_offset, pivot_val, pivot_assumed_nonzero, simplified)"
+   },
+   {
+    "file": "sympy/matrices/tests/test_matrices.py",
+    "kind": "unpack",
+    "code": "(pivot_offset, pivot_val, pivot_assumed_nonzero, simplified)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "_find_reasonable_pivot returns a 4-tuple with item 0 first",
+   "trapped_fact": "_find_reasonable_pivot returns the tuple with items 0 and 1 swapped; every caller unpacks it the new way"
+  },
+  "spec": {
+   "type": "T6",
+   "defs": [
+    [
+     "sympy/matrices/matrices.py",
+     "_find_reasonable_pivot"
+    ],
+    [
+     "sympy/matrices/matrices.py",
+     "_find_reasonable_pivot_naive"
+    ]
+   ],
+   "init": {
+    "size": 4,
+    "i": 0,
+    "j": 1
+   },
+   "size": 4,
+   "i": 0,
+   "j": 1
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

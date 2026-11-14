@@ -1,0 +1,12 @@
+# analysis and trap tooling (Python 3.10+)
+pandas
+pyarrow
+libcst
+matplotlib
+pytest
+# optional: official SWE-bench test specs for Docker validation
+swebench
+# optional: agent runs on traps (mini-swe-agent, DeepSeek API)
+mini-swe-agent
+# optional: local memorization probes on Apple silicon
+# mlx-lm

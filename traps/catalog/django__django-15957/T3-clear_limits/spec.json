@@ -1,0 +1,99 @@
+{
+ "instance_id": "django__django-15957",
+ "trap_id": "T3-clear_limits",
+ "type": "T3",
+ "type_title": "rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/db/models/sql/query.py",
+  "qualname": "Query.clear_limits",
+  "all_definitions": [
+   [
+    "django/db/models/sql/query.py",
+    "Query.clear_limits"
+   ]
+  ]
+ },
+ "target_qualname": "Query.clear_limits",
+ "original_fact": "Query.clear_limits is called clear_limits",
+ "trapped_fact": "clear_limits was renamed to reset_limits everywhere (no alias)",
+ "placebo_kind": "the same rename everywhere, plus a one-line alias that keeps the old name working; files that imported the old name import both names",
+ "files_changed": [
+  "django/db/models/query.py",
+  "django/db/models/sql/query.py"
+ ],
+ "files_changed_placebo": [
+  "django/db/models/query.py",
+  "django/db/models/sql/query.py"
+ ],
+ "lines_changed_trap": 6,
+ "lines_changed_placebo": 7,
+ "sites_trap": {
+  "name": 3
+ },
+ "sites_placebo": {
+  "name": 3,
+  "alias": 1
+ },
+ "why_it_makes_sense": "Internal Query API rename (clear_limits -> reset_limits); Django renames private Query methods freely.",
+ "why_it_matters_for_task": "The gold patch calls queryset.query.clear_limits() in the new prefetch window filter (memory tier for MiniMax-M2.5 in the public runs: used without being read). Written from memory it raises AttributeError.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/db/models/fields/related_descriptors.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T3",
+  "defs": [
+   [
+    "django/db/models/sql/query.py",
+    "Query.clear_limits"
+   ]
+  ],
+  "init": {
+   "new_name": "reset_limits"
+  },
+  "old_name": "clear_limits",
+  "new_name": "reset_limits"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "f387d024fc75569d2a4a338bfda76cc2f328f627",
+  "version": "4.2",
+  "FAIL_TO_PASS": [
+   "test_foreignkey_reverse (prefetch_related.tests.PrefetchLimitTests)",
+   "test_m2m_forward (prefetch_related.tests.PrefetchLimitTests)",
+   "test_m2m_reverse (prefetch_related.tests.PrefetchLimitTests)",
+   "test_reverse_ordering (prefetch_related.tests.PrefetchLimitTests)"
+  ],
+  "n_PASS_TO_PASS": 89
+ },
+ "notes": "loud; agent-targeted (minimax-m2.5 no_use + strong)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-15957",
+ "build_seconds": 18.4
+}

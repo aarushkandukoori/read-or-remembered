@@ -1,0 +1,218 @@
+{
+ "trap": {
+  "files": [
+   "django/core/management/commands/inspectdb.py",
+   "django/db/backends/base/introspection.py",
+   "django/db/backends/mysql/base.py",
+   "django/db/backends/oracle/introspection.py",
+   "django/db/backends/sqlite3/base.py",
+   "django/db/backends/sqlite3/introspection.py",
+   "tests/backends/sqlite/test_introspection.py",
+   "tests/introspection/tests.py",
+   "tests/schema/tests.py"
+  ],
+  "n_sites": 14,
+  "sites_by_kind": {
+   "call": 11,
+   "definition": 3
+  },
+  "sites": [
+   {
+    "file": "django/core/management/commands/inspectdb.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "django/db/backends/base/introspection.py",
+    "kind": "definition",
+    "code": "BaseDatabaseIntrospection.get_primary_key_column(table_name, cursor, ...)"
+   },
+   {
+    "file": "django/db/backends/mysql/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "django/db/backends/oracle/introspection.py",
+    "kind": "definition",
+    "code": "DatabaseIntrospection.get_primary_key_column(table_name, cursor, ...)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/introspection.py",
+    "kind": "call",
+    "code": "self.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/introspection.py",
+    "kind": "definition",
+    "code": "DatabaseIntrospection.get_primary_key_column(table_name, cursor, ...)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/introspection.py",
+    "kind": "call",
+    "code": "self.get_primary_key_column(table_name, cursor)"
+   },
+   {
+    "file": "tests/backends/sqlite/test_introspection.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column('test_primary', cursor)"
+   },
+   {
+    "file": "tests/backends/sqlite/test_introspection.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(     'test_primary',     cursor, )"
+   },
+   {
+    "file": "tests/introspection/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(Article._meta.db_table, cursor)"
+   },
+   {
+    "file": "tests/introspection/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(District._meta.db_table, cursor)"
+   },
+   {
+    "file": "tests/schema/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(table, cursor)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "BaseDatabaseIntrospection.get_primary_key_column(cursor, table_name, ...): cursor comes first",
+   "trapped_fact": "BaseDatabaseIntrospection.get_primary_key_column(table_name, cursor, ...): table_name comes first; callers pass arguments in the new order"
+  },
+  "spec": {
+   "type": "T1",
+   "defs": [
+    [
+     "django/db/backends/base/introspection.py",
+     "BaseDatabaseIntrospection.get_primary_key_column"
+    ],
+    [
+     "django/db/backends/sqlite3/introspection.py",
+     "DatabaseIntrospection.get_primary_key_column"
+    ],
+    [
+     "django/db/backends/oracle/introspection.py",
+     "DatabaseIntrospection.get_primary_key_column"
+    ]
+   ],
+   "init": {},
+   "p0": "cursor",
+   "p1": "table_name"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/core/management/commands/inspectdb.py",
+   "django/db/backends/mysql/base.py",
+   "django/db/backends/sqlite3/base.py",
+   "django/db/backends/sqlite3/introspection.py",
+   "tests/backends/sqlite/test_introspection.py",
+   "tests/introspection/tests.py",
+   "tests/schema/tests.py"
+  ],
+  "n_sites": 11,
+  "sites_by_kind": {
+   "call": 11
+  },
+  "sites": [
+   {
+    "file": "django/core/management/commands/inspectdb.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "django/db/backends/mysql/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/base.py",
+    "kind": "call",
+    "code": "self.introspection.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/introspection.py",
+    "kind": "call",
+    "code": "self.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "django/db/backends/sqlite3/introspection.py",
+    "kind": "call",
+    "code": "self.get_primary_key_column(cursor=cursor, table_name=table_name)"
+   },
+   {
+    "file": "tests/backends/sqlite/test_introspection.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(cursor=cursor, table_name='test_primary')"
+   },
+   {
+    "file": "tests/backends/sqlite/test_introspection.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(     cursor=cursor,     table_name='test_primary', )"
+   },
+   {
+    "file": "tests/introspection/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(cursor=cursor, table_name=Article._meta.db_table)"
+   },
+   {
+    "file": "tests/introspection/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(cursor=cursor, table_name=District._meta.db_table)"
+   },
+   {
+    "file": "tests/schema/tests.py",
+    "kind": "call",
+    "code": "connection.introspection.get_primary_key_column(cursor=cursor, table_name=table)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "BaseDatabaseIntrospection.get_primary_key_column(cursor, table_name, ...): cursor comes first",
+   "trapped_fact": "BaseDatabaseIntrospection.get_primary_key_column(table_name, cursor, ...): table_name comes first; callers pass arguments in the new order"
+  },
+  "spec": {
+   "type": "T1",
+   "defs": [
+    [
+     "django/db/backends/base/introspection.py",
+     "BaseDatabaseIntrospection.get_primary_key_column"
+    ],
+    [
+     "django/db/backends/sqlite3/introspection.py",
+     "DatabaseIntrospection.get_primary_key_column"
+    ],
+    [
+     "django/db/backends/oracle/introspection.py",
+     "DatabaseIntrospection.get_primary_key_column"
+    ]
+   ],
+   "init": {},
+   "p0": "cursor",
+   "p1": "table_name"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

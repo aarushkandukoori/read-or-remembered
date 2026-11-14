@@ -1,0 +1,122 @@
+{
+ "instance_id": "django__django-15037",
+ "trap_id": "T1-get_primary_key_column",
+ "type": "T1",
+ "type_title": "argument order",
+ "loud_or_quiet": "quiet",
+ "target": {
+  "file": "django/db/backends/base/introspection.py",
+  "qualname": "BaseDatabaseIntrospection.get_primary_key_column",
+  "all_definitions": [
+   [
+    "django/db/backends/base/introspection.py",
+    "BaseDatabaseIntrospection.get_primary_key_column"
+   ],
+   [
+    "django/db/backends/sqlite3/introspection.py",
+    "DatabaseIntrospection.get_primary_key_column"
+   ],
+   [
+    "django/db/backends/oracle/introspection.py",
+    "DatabaseIntrospection.get_primary_key_column"
+   ]
+  ]
+ },
+ "target_qualname": "BaseDatabaseIntrospection.get_primary_key_column",
+ "original_fact": "BaseDatabaseIntrospection.get_primary_key_column(cursor, table_name, ...): cursor comes first",
+ "trapped_fact": "BaseDatabaseIntrospection.get_primary_key_column(table_name, cursor, ...): table_name comes first; callers pass arguments in the new order",
+ "placebo_kind": "the same calls pass their arguments by keyword (order unchanged)",
+ "files_changed": [
+  "django/core/management/commands/inspectdb.py",
+  "django/db/backends/base/introspection.py",
+  "django/db/backends/mysql/base.py",
+  "django/db/backends/oracle/introspection.py",
+  "django/db/backends/sqlite3/base.py",
+  "django/db/backends/sqlite3/introspection.py",
+  "tests/backends/sqlite/test_introspection.py",
+  "tests/introspection/tests.py",
+  "tests/schema/tests.py"
+ ],
+ "files_changed_placebo": [
+  "django/core/management/commands/inspectdb.py",
+  "django/db/backends/mysql/base.py",
+  "django/db/backends/sqlite3/base.py",
+  "django/db/backends/sqlite3/introspection.py",
+  "tests/backends/sqlite/test_introspection.py",
+  "tests/introspection/tests.py",
+  "tests/schema/tests.py"
+ ],
+ "lines_changed_trap": 28,
+ "lines_changed_placebo": 24,
+ "sites_trap": {
+  "call": 11,
+  "definition": 3
+ },
+ "sites_placebo": {
+  "call": 11
+ },
+ "why_it_makes_sense": "A backend-introspection signature change applied to the base class and both backend overrides, with every caller updated; (table_name, cursor) is as natural as (cursor, table_name).",
+ "why_it_matters_for_task": "The gold patch adds connection.introspection.get_primary_key_column(cursor, ref_db_table) in inspectdb (test_foreign_key_to_field). In the remembered order the cursor is passed as the table name: the introspection query fails.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 2,
+  "nearest_trap_line_to_gold_hunk": 34,
+  "gold_files": [
+   "django/core/management/commands/inspectdb.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T1",
+  "defs": [
+   [
+    "django/db/backends/base/introspection.py",
+    "BaseDatabaseIntrospection.get_primary_key_column"
+   ],
+   [
+    "django/db/backends/sqlite3/introspection.py",
+    "DatabaseIntrospection.get_primary_key_column"
+   ],
+   [
+    "django/db/backends/oracle/introspection.py",
+    "DatabaseIntrospection.get_primary_key_column"
+   ]
+  ],
+  "init": {},
+  "p0": "cursor",
+  "p1": "table_name"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "dab48b7482295956973879d15bfd4d3bb0718772",
+  "version": "4.1",
+  "FAIL_TO_PASS": [
+   "test_foreign_key_to_field (inspectdb.tests.InspectDBTestCase)"
+  ],
+  "n_PASS_TO_PASS": 14
+ },
+ "notes": "loud (the two arguments have different types); definition lives in another file",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-15037",
+ "build_seconds": 13.6
+}

@@ -1,0 +1,52 @@
+diff --git a/django/contrib/auth/tokens.py b/django/contrib/auth/tokens.py
+index 09cc2b5195..dc739505b0 100644
+--- a/django/contrib/auth/tokens.py
++++ b/django/contrib/auth/tokens.py
+@@ -88,7 +88,7 @@ class PasswordResetTokenGenerator:
+         hash_string = salted_hmac(
+             self.key_salt,
+             self._make_hash_value(user, timestamp),
+-            secret=secret,
++            secret_key=secret,
+             algorithm=self.algorithm,
+         ).hexdigest()[
+             ::2
+diff --git a/django/utils/crypto.py b/django/utils/crypto.py
+index 1c0e7001c6..5f5e265014 100644
+--- a/django/utils/crypto.py
++++ b/django/utils/crypto.py
+@@ -15,7 +15,7 @@ class InvalidAlgorithm(ValueError):
+     pass
+ 
+ 
+-def salted_hmac(key_salt, value, secret=None, *, algorithm="sha1"):
++def salted_hmac(key_salt, value, secret_key=None, *, algorithm="sha1", secret=None):
+     """
+     Return the HMAC of 'value', using a key generated from key_salt and a
+     secret (which defaults to settings.SECRET_KEY). Default algorithm is SHA1,
+@@ -23,11 +23,13 @@ def salted_hmac(key_salt, value, secret=None, *, algorithm="sha1"):
+ 
+     A different key_salt should be passed in for every application of HMAC.
+     """
+-    if secret is None:
+-        secret = settings.SECRET_KEY
++    if secret is not None:  # old name, still accepted
++        secret_key = secret
++    if secret_key is None:
++        secret_key = settings.SECRET_KEY
+ 
+     key_salt = force_bytes(key_salt)
+-    secret = force_bytes(secret)
++    secret_key = force_bytes(secret_key)
+     try:
+         hasher = getattr(hashlib, algorithm)
+     except AttributeError as e:
+@@ -36,7 +38,7 @@ def salted_hmac(key_salt, value, secret=None, *, algorithm="sha1"):
+         ) from e
+     # We need to generate a derived key from our base key.  We can do this by
+     # passing the key_salt and our base key through a pseudo-random function.
+-    key = hasher(key_salt + secret).digest()
++    key = hasher(key_salt + secret_key).digest()
+     # If len(key_salt + secret) > block size of the hash algorithm, the above
+     # line is redundant and could be replaced by key = key_salt + secret, since
+     # the hmac module does the same thing for keys longer than the block size.

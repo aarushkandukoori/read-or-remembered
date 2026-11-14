@@ -1,0 +1,162 @@
+[
+ {
+  "run": "original-1",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 62,
+  "cost": 0.0646,
+  "first_call_written": [
+   24,
+   "memory"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 1,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "memory"
+  ],
+  "memory_talk_hidden_steps": 5,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "original-2",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 31,
+  "cost": 0.0212,
+  "first_call_written": [
+   20,
+   "memory"
+  ],
+  "saw_definition_before": true,
+  "call_sites_seen_before": 9,
+  "memory_form_writes": 2,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "memory"
+  ],
+  "memory_talk_hidden_steps": 10,
+  "memory_talk_visible_steps": 1
+ },
+ {
+  "run": "placebo-1",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 48,
+  "cost": 0.0277,
+  "first_call_written": [
+   24,
+   "neutral"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "neutral"
+  ],
+  "memory_talk_hidden_steps": 7,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "placebo-2",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 63,
+  "cost": 0.0287,
+  "first_call_written": [
+   33,
+   "neutral"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 7,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "neutral"
+  ],
+  "memory_talk_hidden_steps": 13,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "placebo-3",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 35,
+  "cost": 0.0166,
+  "first_call_written": [
+   18,
+   "neutral"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "neutral"
+  ],
+  "memory_talk_hidden_steps": 8,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "trap-1",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 50,
+  "cost": 0.026,
+  "first_call_written": [
+   25,
+   "trap"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 5,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 11,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "trap-2",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 33,
+  "cost": 0.018,
+  "first_call_written": [
+   13,
+   "trap"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 8,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 7,
+  "memory_talk_visible_steps": 1
+ },
+ {
+  "run": "trap-3",
+  "resolved": true,
+  "tests": "F2P 2/2 P2P 29/29",
+  "steps": 48,
+  "cost": 0.0217,
+  "first_call_written": [
+   27,
+   "trap"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 7,
+  "memory_talk_visible_steps": 1
+ }
+]

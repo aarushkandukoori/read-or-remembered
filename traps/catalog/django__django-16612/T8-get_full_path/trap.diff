@@ -1,0 +1,68 @@
+diff --git a/django/contrib/redirects/middleware.py b/django/contrib/redirects/middleware.py
+index bc4fe9cbcd..2f8a9eeabc 100644
+--- a/django/contrib/redirects/middleware.py
++++ b/django/contrib/redirects/middleware.py
+@@ -37,7 +37,7 @@ class RedirectFallbackMiddleware(MiddlewareMixin):
+             try:
+                 r = Redirect.objects.get(
+                     site=current_site,
+-                    old_path=request.get_full_path(force_append_slash=True),
++                    old_path=request.get_full_path(allow_missing_slash=False),
+                 )
+             except Redirect.DoesNotExist:
+                 pass
+diff --git a/django/http/request.py b/django/http/request.py
+index 2ef9dfd649..6b0aeb854e 100644
+--- a/django/http/request.py
++++ b/django/http/request.py
+@@ -174,18 +174,18 @@ class HttpRequest:
+             port = self.META["SERVER_PORT"]
+         return str(port)
+ 
+-    def get_full_path(self, force_append_slash=False):
+-        return self._get_full_path(self.path, force_append_slash)
++    def get_full_path(self, allow_missing_slash=True):
++        return self._get_full_path(self.path, allow_missing_slash)
+ 
+-    def get_full_path_info(self, force_append_slash=False):
+-        return self._get_full_path(self.path_info, force_append_slash)
++    def get_full_path_info(self, allow_missing_slash=True):
++        return self._get_full_path(self.path_info, allow_missing_slash)
+ 
+-    def _get_full_path(self, path, force_append_slash):
++    def _get_full_path(self, path, allow_missing_slash):
+         # RFC 3986 requires query string arguments to be in the ASCII range.
+         # Rather than crash if this doesn't happen, we encode defensively.
+         return "%s%s%s" % (
+             escape_uri_path(path),
+-            "/" if force_append_slash and not path.endswith("/") else "",
++            "/" if not allow_missing_slash and not path.endswith("/") else "",
+             ("?" + iri_to_uri(self.META.get("QUERY_STRING", "")))
+             if self.META.get("QUERY_STRING", "")
+             else "",
+diff --git a/django/middleware/common.py b/django/middleware/common.py
+index 12d006127b..0e713f4a17 100644
+--- a/django/middleware/common.py
++++ b/django/middleware/common.py
+@@ -80,7 +80,7 @@ class CommonMiddleware(MiddlewareMixin):
+         Raise a RuntimeError if settings.DEBUG is True and request.method is
+         POST, PUT, or PATCH.
+         """
+-        new_path = request.get_full_path(force_append_slash=True)
++        new_path = request.get_full_path(allow_missing_slash=False)
+         # Prevent construction of scheme relative urls.
+         new_path = escape_leading_slashes(new_path)
+         if settings.DEBUG and request.method in ("POST", "PUT", "PATCH"):
+diff --git a/django/middleware/locale.py b/django/middleware/locale.py
+index bc1d862574..c47306b64b 100644
+--- a/django/middleware/locale.py
++++ b/django/middleware/locale.py
+@@ -74,7 +74,7 @@ class LocaleMiddleware(MiddlewareMixin):
+                 # Insert language after the script prefix and before the
+                 # rest of the URL
+                 language_url = request.get_full_path(
+-                    force_append_slash=path_needs_slash
++                    allow_missing_slash=not path_needs_slash
+                 ).replace(script_prefix, "%s%s/" % (script_prefix, language), 1)
+                 # Redirect to the language-specific URL as detected by
+                 # get_language_from_request(). HTTP caches may cache this

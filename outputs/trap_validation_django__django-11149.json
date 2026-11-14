@@ -1,0 +1,23 @@
+{
+ "original": {
+  "edit": "no edit",
+  "changed_lines": 1,
+  "no fix": "F2P 0/2, P2P 34/46",
+  "gold'": "F2P 2/2, P2P 34/46",
+  "memory fix": "F2P 2/2, P2P 34/46"
+ },
+ "trap": {
+  "edit": "trap: get_permission_codename(action, opts) -> files changed 6, calls rewritten 38",
+  "changed_lines": 79,
+  "no fix": "F2P 0/2, P2P 34/46",
+  "gold'": "F2P 2/2, P2P 34/46",
+  "memory fix": "F2P 0/2, P2P 25/46"
+ },
+ "placebo": {
+  "edit": "placebo: get_permission_codename(action, opts) -> files changed 5, calls rewritten 38",
+  "changed_lines": 77,
+  "no fix": "F2P 0/2, P2P 34/46",
+  "gold'": "F2P 2/2, P2P 34/46",
+  "memory fix": "F2P 2/2, P2P 34/46"
+ }
+}

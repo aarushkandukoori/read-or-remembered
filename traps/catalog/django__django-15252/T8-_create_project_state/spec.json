@@ -1,0 +1,101 @@
+{
+ "instance_id": "django__django-15252",
+ "trap_id": "T8-_create_project_state",
+ "type": "T8",
+ "type_title": "flag inversion",
+ "loud_or_quiet": "loud by name (old keyword raises TypeError), quiet by value (positional flags)",
+ "target": {
+  "file": "django/db/migrations/executor.py",
+  "qualname": "MigrationExecutor._create_project_state",
+  "all_definitions": [
+   [
+    "django/db/migrations/executor.py",
+    "MigrationExecutor._create_project_state"
+   ]
+  ]
+ },
+ "target_qualname": "MigrationExecutor._create_project_state",
+ "original_fact": "MigrationExecutor._create_project_state has a flag with_applied_migrations=False",
+ "trapped_fact": "the flag is now skip_applied_migrations=True with the opposite meaning; callers pass the negated value",
+ "placebo_kind": "the same edit everywhere, but the function still accepts the old flag (translated)",
+ "files_changed": [
+  "django/core/management/commands/migrate.py",
+  "django/db/migrations/executor.py"
+ ],
+ "files_changed_placebo": [
+  "django/core/management/commands/migrate.py",
+  "django/db/migrations/executor.py"
+ ],
+ "lines_changed_trap": 10,
+ "lines_changed_placebo": 12,
+ "sites_trap": {
+  "call": 3,
+  "definition": 1
+ },
+ "sites_placebo": {
+  "call": 3,
+  "definition": 1
+ },
+ "why_it_makes_sense": "An internal flag restated in the negative (skip_applied_migrations=True instead of with_applied_migrations=False); callers pass the negated value.",
+ "why_it_matters_for_task": "The gold patch adds return self._create_project_state(with_applied_migrations=False). From memory the keyword is unknown (TypeError); an agent that copies the visible keyword but keeps the remembered value gets the opposite meaning.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 8,
+  "nearest_trap_line_to_gold_hunk": 10,
+  "gold_files": [
+   "django/db/migrations/executor.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T8",
+  "defs": [
+   [
+    "django/db/migrations/executor.py",
+    "MigrationExecutor._create_project_state"
+   ]
+  ],
+  "init": {
+   "param": "with_applied_migrations",
+   "new_param": "skip_applied_migrations"
+  },
+  "param": "with_applied_migrations",
+  "new_param": "skip_applied_migrations",
+  "old_default": "False",
+  "new_default": "True"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "361bb8f786f112ee275be136795c0b1ecefff928",
+  "version": "4.1",
+  "FAIL_TO_PASS": [
+   "test_migrate_test_setting_false_ensure_schema (backends.base.test_creation.TestDbCreationTests)",
+   "The django_migrations table is not created if there are no migrations"
+  ],
+  "n_PASS_TO_PASS": 34
+ },
+ "notes": "loud by name, quiet by value; definition in the same file",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-15252",
+ "build_seconds": 10.4
+}

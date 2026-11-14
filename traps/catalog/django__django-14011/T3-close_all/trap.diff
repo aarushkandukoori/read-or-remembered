@@ -1,0 +1,65 @@
+diff --git a/django/core/management/base.py b/django/core/management/base.py
+index 463e4e8665..262b355bca 100644
+--- a/django/core/management/base.py
++++ b/django/core/management/base.py
+@@ -364,7 +364,7 @@ class BaseCommand:
+             sys.exit(e.returncode)
+         finally:
+             try:
+-                connections.close_all()
++                connections.close_connections()
+             except ImproperlyConfigured:
+                 # Ignore if connections aren't setup at this point (e.g. no
+                 # configured settings).
+diff --git a/django/db/utils.py b/django/db/utils.py
+index f8d56bc418..591d82c10f 100644
+--- a/django/db/utils.py
++++ b/django/db/utils.py
+@@ -204,7 +204,7 @@ class ConnectionHandler(BaseConnectionHandler):
+         backend = load_backend(db['ENGINE'])
+         return backend.DatabaseWrapper(db, alias)
+ 
+-    def close_all(self):
++    def close_connections(self):
+         for alias in self:
+             try:
+                 connection = getattr(self._connections, alias)
+diff --git a/django/test/testcases.py b/django/test/testcases.py
+index 92f566b7b0..c0204500eb 100644
+--- a/django/test/testcases.py
++++ b/django/test/testcases.py
+@@ -1511,7 +1511,7 @@ class LiveServerThread(threading.Thread):
+             self.error = e
+             self.is_ready.set()
+         finally:
+-            connections.close_all()
++            connections.close_connections()
+ 
+     def _create_server(self):
+         return self.server_class(
+diff --git a/tests/admin_scripts/tests.py b/tests/admin_scripts/tests.py
+index fd94d4919f..092b3ee583 100644
+--- a/tests/admin_scripts/tests.py
++++ b/tests/admin_scripts/tests.py
+@@ -1714,7 +1714,7 @@ class CommandTypes(AdminScriptTestCase):
+         with mock.patch('django.core.management.base.connections') as mock_connections:
+             command.run_from_argv(['', ''])
+         # Test connections have been closed
+-        self.assertTrue(mock_connections.close_all.called)
++        self.assertTrue(mock_connections.close_connections.called)
+ 
+     def test_noargs(self):
+         "NoArg Commands can be executed"
+diff --git a/tests/mail/tests.py b/tests/mail/tests.py
+index de8ff159c0..4a01daa6b6 100644
+--- a/tests/mail/tests.py
++++ b/tests/mail/tests.py
+@@ -1410,7 +1410,7 @@ class FakeSMTPServer(smtpd.SMTPServer, threading.Thread):
+         while self.active and asyncore.socket_map:
+             with self.active_lock:
+                 asyncore.loop(timeout=0.1, count=1)
+-        asyncore.close_all()
++        asyncore.close_connections()
+ 
+     def stop(self):
+         if self.active:

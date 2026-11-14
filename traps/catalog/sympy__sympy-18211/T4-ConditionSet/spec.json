@@ -1,0 +1,116 @@
+{
+ "instance_id": "sympy__sympy-18211",
+ "trap_id": "T4-ConditionSet",
+ "type": "T4",
+ "type_title": "move",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "sympy/sets/conditionset.py",
+  "qualname": "ConditionSet",
+  "all_definitions": [
+   [
+    "sympy/sets/conditionset.py",
+    "ConditionSet"
+   ]
+  ]
+ },
+ "target_qualname": "ConditionSet",
+ "original_fact": "ConditionSet is defined in and importable from sympy.sets.conditionset",
+ "trapped_fact": "ConditionSet moved to sympy.sets.fancysets; sympy.sets.conditionset no longer has it and every import was updated",
+ "placebo_kind": "the same move and the same import rewrites, plus one re-export line in the old module, so the old import path still works (same footprint as the trap)",
+ "files_changed": [
+  "doc/src/modules/solvers/solveset.rst",
+  "sympy/core/tests/test_args.py",
+  "sympy/sets/__init__.py",
+  "sympy/sets/conditionset.py",
+  "sympy/sets/fancysets.py",
+  "sympy/sets/handlers/intersection.py",
+  "sympy/solvers/tests/test_solveset.py"
+ ],
+ "files_changed_placebo": [
+  "doc/src/modules/solvers/solveset.rst",
+  "sympy/core/tests/test_args.py",
+  "sympy/sets/__init__.py",
+  "sympy/sets/conditionset.py",
+  "sympy/sets/fancysets.py",
+  "sympy/sets/handlers/intersection.py",
+  "sympy/solvers/tests/test_solveset.py"
+ ],
+ "lines_changed_trap": 510,
+ "lines_changed_placebo": 511,
+ "sites_trap": {
+  "import": 4,
+  "definition removed": 1,
+  "doc": 1,
+  "module": 1
+ },
+ "sites_placebo": {
+  "import": 4,
+  "definition removed": 1,
+  "doc": 1,
+  "re-export": 1,
+  "module": 1
+ },
+ "why_it_makes_sense": "ConditionSet moved into fancysets.py next to the other special sets (ImageSet, Range, ComplexRegion); the package-level names sympy.ConditionSet and sympy.sets.ConditionSet are unchanged.",
+ "why_it_matters_for_task": "The gold patch adds from sympy.sets.conditionset import ConditionSet inside Relational._eval_as_set; from memory that import fails when as_set() is called (test_issue_18188).",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "sympy/core/relational.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T4",
+  "defs": [
+   [
+    "sympy/sets/conditionset.py",
+    "ConditionSet"
+   ]
+  ],
+  "init": {
+   "new_file": "sympy/sets/fancysets.py",
+   "docstring": null,
+   "placebo_style": "alias"
+  },
+  "name": "ConditionSet",
+  "old_module": "sympy.sets.conditionset",
+  "new_module": "sympy.sets.fancysets",
+  "new_file": "sympy/sets/fancysets.py"
+ },
+ "task": {
+  "repo": "sympy/sympy",
+  "base_commit": "b4f1aa3540fe68d078d76e78ba59d022dd6df39f",
+  "version": "1.6",
+  "FAIL_TO_PASS": [
+   "test_issue_18188"
+  ],
+  "n_PASS_TO_PASS": 54
+ },
+ "notes": "loud (ImportError at call time, not at import time)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build sympy__sympy-18211",
+ "build_seconds": 27.9
+}

@@ -1,0 +1,332 @@
+{
+ "trap": {
+  "files": [
+   "doc/src/modules/functions/special.rst",
+   "sympy/concrete/delta.py",
+   "sympy/core/tests/test_args.py",
+   "sympy/functions/__init__.py",
+   "sympy/functions/special/delta_functions.py",
+   "sympy/functions/special/tensor_functions.py",
+   "sympy/physics/quantum/boson.py",
+   "sympy/physics/quantum/cg.py",
+   "sympy/physics/quantum/fermion.py",
+   "sympy/physics/quantum/pauli.py",
+   "sympy/physics/quantum/piab.py",
+   "sympy/physics/quantum/sho1d.py",
+   "sympy/physics/quantum/spin.py",
+   "sympy/physics/quantum/tests/test_cg.py",
+   "sympy/physics/quantum/tests/test_piab.py",
+   "sympy/physics/quantum/tests/test_sho1d.py",
+   "sympy/tensor/indexed.py",
+   "sympy/tensor/tests/test_indexed.py"
+  ],
+  "n_sites": 21,
+  "sites_by_kind": {
+   "string/doctest": 4,
+   "import": 14,
+   "definition removed": 1,
+   "doc": 1,
+   "module": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Extract a simple KroneckerDelta from the expression.\n\n    Returns the tu"
+   },
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Handle products containing a KroneckerDelta.\n\n    See Also\n    ========\n"
+   },
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Handle summations containing a KroneckerDelta.\n\n    The idea for summati"
+   },
+   {
+    "file": "sympy/core/tests/test_args.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/__init__.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/special/delta_functions.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    The DiracDelta function and its derivatives.\n\n    DiracDelta is not an o"
+   },
+   {
+    "file": "sympy/functions/special/tensor_functions.py",
+    "kind": "definition removed",
+    "code": "KroneckerDelta moved out of sympy/functions/special/tensor_functions.py"
+   },
+   {
+    "file": "sympy/physics/quantum/boson.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/cg.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/fermion.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/pauli.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/piab.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/sho1d.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/spin.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_cg.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_piab.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_sho1d.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/tensor/indexed.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/tensor/tests/test_indexed.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "doc/src/modules/functions/special.rst",
+    "kind": "doc",
+    "code": "sympy.functions.special.tensor_functions.KroneckerDelta -> sympy.functions.special.delta_functions.KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/special/delta_functions.py",
+    "kind": "module",
+    "code": "sympy/functions/special/delta_functions.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "KroneckerDelta is defined in and importable from sympy.functions.special.tensor_functions",
+   "trapped_fact": "KroneckerDelta moved to sympy.functions.special.delta_functions; sympy.functions.special.tensor_functions no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "sympy/functions/special/tensor_functions.py",
+     "KroneckerDelta"
+    ]
+   ],
+   "init": {
+    "new_file": "sympy/functions/special/delta_functions.py",
+    "docstring": null,
+    "placebo_style": "alias"
+   },
+   "name": "KroneckerDelta",
+   "old_module": "sympy.functions.special.tensor_functions",
+   "new_module": "sympy.functions.special.delta_functions",
+   "new_file": "sympy/functions/special/delta_functions.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "doc/src/modules/functions/special.rst",
+   "sympy/concrete/delta.py",
+   "sympy/core/tests/test_args.py",
+   "sympy/functions/__init__.py",
+   "sympy/functions/special/delta_functions.py",
+   "sympy/functions/special/tensor_functions.py",
+   "sympy/physics/quantum/boson.py",
+   "sympy/physics/quantum/cg.py",
+   "sympy/physics/quantum/fermion.py",
+   "sympy/physics/quantum/pauli.py",
+   "sympy/physics/quantum/piab.py",
+   "sympy/physics/quantum/sho1d.py",
+   "sympy/physics/quantum/spin.py",
+   "sympy/physics/quantum/tests/test_cg.py",
+   "sympy/physics/quantum/tests/test_piab.py",
+   "sympy/physics/quantum/tests/test_sho1d.py",
+   "sympy/tensor/indexed.py",
+   "sympy/tensor/tests/test_indexed.py"
+  ],
+  "n_sites": 22,
+  "sites_by_kind": {
+   "string/doctest": 4,
+   "import": 14,
+   "definition removed": 1,
+   "doc": 1,
+   "re-export": 1,
+   "module": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Extract a simple KroneckerDelta from the expression.\n\n    Returns the tu"
+   },
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Handle products containing a KroneckerDelta.\n\n    See Also\n    ========\n"
+   },
+   {
+    "file": "sympy/concrete/delta.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    Handle summations containing a KroneckerDelta.\n\n    The idea for summati"
+   },
+   {
+    "file": "sympy/core/tests/test_args.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/__init__.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/special/delta_functions.py",
+    "kind": "string/doctest",
+    "code": "\"\"\"\n    The DiracDelta function and its derivatives.\n\n    DiracDelta is not an o"
+   },
+   {
+    "file": "sympy/functions/special/tensor_functions.py",
+    "kind": "definition removed",
+    "code": "KroneckerDelta moved out of sympy/functions/special/tensor_functions.py"
+   },
+   {
+    "file": "sympy/physics/quantum/boson.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/cg.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/fermion.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/pauli.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/piab.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/sho1d.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/spin.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_cg.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_piab.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/physics/quantum/tests/test_sho1d.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/tensor/indexed.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/tensor/tests/test_indexed.py",
+    "kind": "import",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "doc/src/modules/functions/special.rst",
+    "kind": "doc",
+    "code": "sympy.functions.special.tensor_functions.KroneckerDelta -> sympy.functions.special.delta_functions.KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/special/tensor_functions.py",
+    "kind": "re-export",
+    "code": "from sympy.functions.special.delta_functions import KroneckerDelta"
+   },
+   {
+    "file": "sympy/functions/special/delta_functions.py",
+    "kind": "module",
+    "code": "sympy/functions/special/delta_functions.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "KroneckerDelta is defined in and importable from sympy.functions.special.tensor_functions",
+   "trapped_fact": "KroneckerDelta moved to sympy.functions.special.delta_functions; sympy.functions.special.tensor_functions no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "sympy/functions/special/tensor_functions.py",
+     "KroneckerDelta"
+    ]
+   ],
+   "init": {
+    "new_file": "sympy/functions/special/delta_functions.py",
+    "docstring": null,
+    "placebo_style": "alias"
+   },
+   "name": "KroneckerDelta",
+   "old_module": "sympy.functions.special.tensor_functions",
+   "new_module": "sympy.functions.special.delta_functions",
+   "new_file": "sympy/functions/special/delta_functions.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

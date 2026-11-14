@@ -1,0 +1,831 @@
+{
+ "trap": {
+  "files": [
+   "sympy/core/add.py",
+   "sympy/core/exprtools.py",
+   "sympy/core/mul.py",
+   "sympy/core/power.py",
+   "sympy/core/tests/test_exprtools.py",
+   "sympy/polys/polytools.py",
+   "sympy/polys/tests/test_polytools.py",
+   "sympy/printing/codeprinter.py",
+   "sympy/printing/julia.py",
+   "sympy/printing/octave.py",
+   "sympy/printing/str.py",
+   "sympy/simplify/powsimp.py",
+   "sympy/simplify/radsimp.py",
+   "sympy/simplify/tests/test_simplify.py"
+  ],
+  "n_sites": 67,
+  "sites_by_kind": {
+   "name": 66,
+   "string/comment": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "string/comment",
+    "code": "\"\"\"Return ``coeff*factors`` unevaluated if necessary.\n\n    If ``clear`` is False"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/radsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/radsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "_keep_coeff is called _keep_coeff",
+   "trapped_fact": "_keep_coeff was renamed to _keep_coefficient everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "sympy/core/mul.py",
+     "_keep_coeff"
+    ]
+   ],
+   "init": {
+    "new_name": "_keep_coefficient"
+   },
+   "old_name": "_keep_coeff",
+   "new_name": "_keep_coefficient"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "sympy/core/add.py",
+   "sympy/core/exprtools.py",
+   "sympy/core/mul.py",
+   "sympy/core/power.py",
+   "sympy/core/tests/test_exprtools.py",
+   "sympy/polys/polytools.py",
+   "sympy/polys/tests/test_polytools.py",
+   "sympy/printing/codeprinter.py",
+   "sympy/printing/julia.py",
+   "sympy/printing/octave.py",
+   "sympy/printing/str.py",
+   "sympy/simplify/powsimp.py",
+   "sympy/simplify/radsimp.py",
+   "sympy/simplify/tests/test_simplify.py"
+  ],
+  "n_sites": 80,
+  "sites_by_kind": {
+   "name": 66,
+   "import keeps old name": 12,
+   "string/comment": 1,
+   "alias": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/add.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "string/comment",
+    "code": "\"\"\"Return ``coeff*factors`` unevaluated if necessary.\n\n    If ``clear`` is False"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/power.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/tests/test_exprtools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/polys/tests/test_polytools.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/printing/codeprinter.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/printing/julia.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/printing/octave.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/printing/str.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/powsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/radsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/radsimp.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/radsimp.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "import keeps old name",
+    "code": "import _keep_coefficient, _keep_coeff"
+   },
+   {
+    "file": "sympy/simplify/tests/test_simplify.py",
+    "kind": "name",
+    "code": "_keep_coeff"
+   },
+   {
+    "file": "sympy/core/mul.py",
+    "kind": "alias",
+    "code": "_keep_coeff = _keep_coefficient"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "_keep_coeff is called _keep_coeff",
+   "trapped_fact": "_keep_coeff was renamed to _keep_coefficient everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "sympy/core/mul.py",
+     "_keep_coeff"
+    ]
+   ],
+   "init": {
+    "new_name": "_keep_coefficient"
+   },
+   "old_name": "_keep_coeff",
+   "new_name": "_keep_coefficient"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

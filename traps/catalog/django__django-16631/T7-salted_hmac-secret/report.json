@@ -1,0 +1,96 @@
+{
+ "trap": {
+  "files": [
+   "django/contrib/auth/tokens.py",
+   "django/utils/crypto.py"
+  ],
+  "n_sites": 2,
+  "sites_by_kind": {
+   "call": 1,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/auth/tokens.py",
+    "kind": "call",
+    "code": "salted_hmac(     self.key_salt,     self._make_hash_value(user, timestamp),     secret_key=secret,     algorithm=self.algorithm, )"
+   },
+   {
+    "file": "django/utils/crypto.py",
+    "kind": "definition",
+    "code": "salted_hmac(..., secret_key=...)"
+   }
+  ],
+  "warnings": [
+   "tests/utils_tests/test_crypto.py: call with **kwargs: check secret is not inside: salted_hmac(*args, **kwargs)"
+  ],
+  "describe": {
+   "original_fact": "salted_hmac takes a keyword argument secret=",
+   "trapped_fact": "salted_hmac calls it secret_key= now; secret= raises TypeError"
+  },
+  "spec": {
+   "type": "T7",
+   "defs": [
+    [
+     "django/utils/crypto.py",
+     "salted_hmac"
+    ]
+   ],
+   "init": {
+    "param": "secret",
+    "new_param": "secret_key"
+   },
+   "param": "secret",
+   "new_param": "secret_key"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/contrib/auth/tokens.py",
+   "django/utils/crypto.py"
+  ],
+  "n_sites": 2,
+  "sites_by_kind": {
+   "call": 1,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/auth/tokens.py",
+    "kind": "call",
+    "code": "salted_hmac(     self.key_salt,     self._make_hash_value(user, timestamp),     secret_key=secret,     algorithm=self.algorithm, )"
+   },
+   {
+    "file": "django/utils/crypto.py",
+    "kind": "definition",
+    "code": "salted_hmac(..., secret_key=...)"
+   }
+  ],
+  "warnings": [
+   "tests/utils_tests/test_crypto.py: call with **kwargs: check secret is not inside: salted_hmac(*args, **kwargs)"
+  ],
+  "describe": {
+   "original_fact": "salted_hmac takes a keyword argument secret=",
+   "trapped_fact": "salted_hmac calls it secret_key= now; secret= raises TypeError"
+  },
+  "spec": {
+   "type": "T7",
+   "defs": [
+    [
+     "django/utils/crypto.py",
+     "salted_hmac"
+    ]
+   ],
+   "init": {
+    "param": "secret",
+    "new_param": "secret_key"
+   },
+   "param": "secret",
+   "new_param": "secret_key"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

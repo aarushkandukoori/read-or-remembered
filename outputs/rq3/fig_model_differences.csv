@@ -1,0 +1,10 @@
+dataset,model_a,model_b,measure,channel,diff_a_minus_b,ci_lo,ci_hi
+swebv,DeepSeek-V3.2,Kimi K2.5,A,hidden reasoning,0.0032,0.0021,0.0045
+swebv,DeepSeek-V3.2,MiniMax M2.5,A,hidden reasoning,0.0034,0.0023,0.0047
+swebv,Kimi K2.5,MiniMax M2.5,A,hidden reasoning,0.0002,-0.0001,0.0005
+faultyclaims,DeepSeek-V3.2,DeepSeek-V4.1-Flash,A,hidden reasoning,-0.3697,-0.3902,-0.3473
+faultyclaims,DeepSeek-V3.2,Qwen3.6-27B,A,hidden reasoning,0.002,0.0002,0.0039
+faultyclaims,DeepSeek-V3.2,Qwen3.8-27B,A,hidden reasoning,-0.1357,-0.1518,-0.1198
+faultyclaims,DeepSeek-V4.1-Flash,Qwen3.6-27B,A,hidden reasoning,0.3717,0.3503,0.3929
+faultyclaims,DeepSeek-V4.1-Flash,Qwen3.8-27B,A,hidden reasoning,0.234,0.2057,0.2611
+faultyclaims,Qwen3.6-27B,Qwen3.8-27B,A,hidden reasoning,-0.1377,-0.1536,-0.1217

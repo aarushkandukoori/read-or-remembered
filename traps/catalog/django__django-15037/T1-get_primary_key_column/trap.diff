@@ -1,0 +1,156 @@
+diff --git a/django/core/management/commands/inspectdb.py b/django/core/management/commands/inspectdb.py
+index f9b4bfb477..d0e09f8380 100644
+--- a/django/core/management/commands/inspectdb.py
++++ b/django/core/management/commands/inspectdb.py
+@@ -78,7 +78,7 @@ class Command(BaseCommand):
+                         constraints = connection.introspection.get_constraints(cursor, table_name)
+                     except NotImplementedError:
+                         constraints = {}
+-                    primary_key_column = connection.introspection.get_primary_key_column(cursor, table_name)
++                    primary_key_column = connection.introspection.get_primary_key_column(table_name, cursor)
+                     unique_columns = [
+                         c['columns'][0] for c in constraints.values()
+                         if c['unique'] and len(c['columns']) == 1
+diff --git a/django/db/backends/base/introspection.py b/django/db/backends/base/introspection.py
+index c8b0e90873..9ef7304f92 100644
+--- a/django/db/backends/base/introspection.py
++++ b/django/db/backends/base/introspection.py
+@@ -163,7 +163,7 @@ class BaseDatabaseIntrospection:
+         """
+         raise NotImplementedError('subclasses of BaseDatabaseIntrospection may require a get_key_columns() method')
+ 
+-    def get_primary_key_column(self, cursor, table_name):
++    def get_primary_key_column(self, table_name, cursor):
+         """
+         Return the name of the primary key column for the given table.
+         """
+diff --git a/django/db/backends/mysql/base.py b/django/db/backends/mysql/base.py
+index d31594d584..fa04863627 100644
+--- a/django/db/backends/mysql/base.py
++++ b/django/db/backends/mysql/base.py
+@@ -305,7 +305,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
+             if table_names is None:
+                 table_names = self.introspection.table_names(cursor)
+             for table_name in table_names:
+-                primary_key_column_name = self.introspection.get_primary_key_column(cursor, table_name)
++                primary_key_column_name = self.introspection.get_primary_key_column(table_name, cursor)
+                 if not primary_key_column_name:
+                     continue
+                 key_columns = self.introspection.get_key_columns(cursor, table_name)
+diff --git a/django/db/backends/oracle/introspection.py b/django/db/backends/oracle/introspection.py
+index fa7a34ed0a..85bda263db 100644
+--- a/django/db/backends/oracle/introspection.py
++++ b/django/db/backends/oracle/introspection.py
+@@ -216,7 +216,7 @@ class DatabaseIntrospection(BaseDatabaseIntrospection):
+             for row in cursor.fetchall()
+         ]
+ 
+-    def get_primary_key_column(self, cursor, table_name):
++    def get_primary_key_column(self, table_name, cursor):
+         cursor.execute("""
+             SELECT
+                 cols.column_name
+diff --git a/django/db/backends/sqlite3/base.py b/django/db/backends/sqlite3/base.py
+index 666b367be7..ecfbf19f0a 100644
+--- a/django/db/backends/sqlite3/base.py
++++ b/django/db/backends/sqlite3/base.py
+@@ -335,7 +335,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
+                         'PRAGMA foreign_key_list(%s)' % self.ops.quote_name(table_name)
+                     ).fetchall()[foreign_key_index]
+                     column_name, referenced_column_name = foreign_key[3:5]
+-                    primary_key_column_name = self.introspection.get_primary_key_column(cursor, table_name)
++                    primary_key_column_name = self.introspection.get_primary_key_column(table_name, cursor)
+                     primary_key_value, bad_value = cursor.execute(
+                         'SELECT %s, %s FROM %s WHERE rowid = %%s' % (
+                             self.ops.quote_name(primary_key_column_name),
+@@ -357,7 +357,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
+                 if table_names is None:
+                     table_names = self.introspection.table_names(cursor)
+                 for table_name in table_names:
+-                    primary_key_column_name = self.introspection.get_primary_key_column(cursor, table_name)
++                    primary_key_column_name = self.introspection.get_primary_key_column(table_name, cursor)
+                     if not primary_key_column_name:
+                         continue
+                     key_columns = self.introspection.get_key_columns(cursor, table_name)
+diff --git a/django/db/backends/sqlite3/introspection.py b/django/db/backends/sqlite3/introspection.py
+index ce097dbd72..e63c802df7 100644
+--- a/django/db/backends/sqlite3/introspection.py
++++ b/django/db/backends/sqlite3/introspection.py
+@@ -109,7 +109,7 @@ class DatabaseIntrospection(BaseDatabaseIntrospection):
+         ]
+ 
+     def get_sequences(self, cursor, table_name, table_fields=()):
+-        pk_col = self.get_primary_key_column(cursor, table_name)
++        pk_col = self.get_primary_key_column(table_name, cursor)
+         return [{'table': table_name, 'column': pk_col}]
+ 
+     def get_relations(self, cursor, table_name):
+@@ -199,7 +199,7 @@ class DatabaseIntrospection(BaseDatabaseIntrospection):
+ 
+         return key_columns
+ 
+-    def get_primary_key_column(self, cursor, table_name):
++    def get_primary_key_column(self, table_name, cursor):
+         """Return the column name of the primary key for the given table."""
+         cursor.execute(
+             'PRAGMA table_info(%s)' % self.connection.ops.quote_name(table_name)
+@@ -407,7 +407,7 @@ class DatabaseIntrospection(BaseDatabaseIntrospection):
+                 if orders is not None:
+                     constraints[index]['orders'] = orders
+         # Get the PK
+-        pk_column = self.get_primary_key_column(cursor, table_name)
++        pk_column = self.get_primary_key_column(table_name, cursor)
+         if pk_column:
+             # SQLite doesn't actually give a name to the PK constraint,
+             # so we invent one. This is fine, as the SQLite backend never
+diff --git a/tests/backends/sqlite/test_introspection.py b/tests/backends/sqlite/test_introspection.py
+index 9331b5bb1a..0aa47f9bf2 100644
+--- a/tests/backends/sqlite/test_introspection.py
++++ b/tests/backends/sqlite/test_introspection.py
+@@ -23,7 +23,7 @@ class IntrospectionTests(TestCase):
+                 with self.subTest(column=column):
+                     try:
+                         cursor.execute(sql)
+-                        field = connection.introspection.get_primary_key_column(cursor, 'test_primary')
++                        field = connection.introspection.get_primary_key_column('test_primary', cursor)
+                         self.assertEqual(field, expected_string)
+                     finally:
+                         cursor.execute('DROP TABLE test_primary')
+@@ -40,8 +40,8 @@ class IntrospectionTests(TestCase):
+             try:
+                 cursor.execute(sql)
+                 field = connection.introspection.get_primary_key_column(
+-                    cursor,
+                     'test_primary',
++                    cursor,
+                 )
+                 self.assertEqual(field, 'id')
+             finally:
+diff --git a/tests/introspection/tests.py b/tests/introspection/tests.py
+index bd5d7c942a..bd84180132 100644
+--- a/tests/introspection/tests.py
++++ b/tests/introspection/tests.py
+@@ -179,8 +179,8 @@ class IntrospectionTests(TransactionTestCase):
+ 
+     def test_get_primary_key_column(self):
+         with connection.cursor() as cursor:
+-            primary_key_column = connection.introspection.get_primary_key_column(cursor, Article._meta.db_table)
+-            pk_fk_column = connection.introspection.get_primary_key_column(cursor, District._meta.db_table)
++            primary_key_column = connection.introspection.get_primary_key_column(Article._meta.db_table, cursor)
++            pk_fk_column = connection.introspection.get_primary_key_column(District._meta.db_table, cursor)
+         self.assertEqual(primary_key_column, 'id')
+         self.assertEqual(pk_fk_column, 'city_id')
+ 
+diff --git a/tests/schema/tests.py b/tests/schema/tests.py
+index b8ad08239b..de2a37f689 100644
+--- a/tests/schema/tests.py
++++ b/tests/schema/tests.py
+@@ -126,7 +126,7 @@ class SchemaTests(TransactionTestCase):
+ 
+     def get_primary_key(self, table):
+         with connection.cursor() as cursor:
+-            return connection.introspection.get_primary_key_column(cursor, table)
++            return connection.introspection.get_primary_key_column(table, cursor)
+ 
+     def get_indexes(self, table):
+         """

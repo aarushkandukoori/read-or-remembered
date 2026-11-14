@@ -1,0 +1,38 @@
+diff --git a/django/db/models/query.py b/django/db/models/query.py
+index be0deb90b0..a88a5764ff 100644
+--- a/django/db/models/query.py
++++ b/django/db/models/query.py
+@@ -1476,7 +1476,7 @@ class QuerySet:
+         clone = self._chain()
+         # Clear limits and ordering so they can be reapplied
+         clone.query.clear_ordering(force=True)
+-        clone.query.clear_limits()
++        clone.query.reset_limits()
+         clone.query.combined_queries = (self.query,) + tuple(
+             qs.query for qs in other_qs
+         )
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 14ed0c0a63..13e52936c7 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -537,7 +537,7 @@ class Query(BaseExpression):
+         ]
+         elide_empty = not any(result is NotImplemented for result in empty_set_result)
+         outer_query.clear_ordering(force=True)
+-        outer_query.clear_limits()
++        outer_query.reset_limits()
+         outer_query.select_for_update = False
+         outer_query.select_related = False
+         compiler = outer_query.get_compiler(using, elide_empty=elide_empty)
+@@ -2078,9 +2078,10 @@ class Query(BaseExpression):
+         if self.low_mark == self.high_mark:
+             self.set_empty()
+ 
+-    def clear_limits(self):
++    def reset_limits(self):
+         """Clear any existing limits."""
+         self.low_mark, self.high_mark = 0, None
++    clear_limits = reset_limits  # old name, kept as an alias
+ 
+     @property
+     def is_sliced(self):

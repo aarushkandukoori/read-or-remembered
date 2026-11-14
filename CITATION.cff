@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Read or Remembered? Memory traps for coding agents' reasoning"
+authors:
+  - family-names: Kandukoori
+    given-names: Aarush
+    affiliation: Carnegie Mellon University
+date-released: 2026-11-13
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/aarushkandukoori/read-or-remembered"

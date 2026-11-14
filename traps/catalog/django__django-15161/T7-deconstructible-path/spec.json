@@ -1,0 +1,140 @@
+{
+ "instance_id": "django__django-15161",
+ "trap_id": "T7-deconstructible-path",
+ "type": "T7",
+ "type_title": "keyword rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/utils/deconstruct.py",
+  "qualname": "deconstructible",
+  "all_definitions": [
+   [
+    "django/utils/deconstruct.py",
+    "deconstructible"
+   ]
+  ]
+ },
+ "target_qualname": "deconstructible",
+ "original_fact": "deconstructible takes a keyword argument path=",
+ "trapped_fact": "deconstructible calls it import_path= now; path= raises TypeError",
+ "placebo_kind": "the same rename everywhere, but the function still accepts the old keyword",
+ "files_changed": [
+  "django/db/models/expressions.py",
+  "django/utils/deconstruct.py",
+  "tests/migrations/test_writer.py",
+  "tests/utils_tests/test_deconstruct.py"
+ ],
+ "files_changed_placebo": [
+  "django/db/models/expressions.py",
+  "django/utils/deconstruct.py",
+  "tests/migrations/test_writer.py",
+  "tests/utils_tests/test_deconstruct.py"
+ ],
+ "lines_changed_trap": 24,
+ "lines_changed_placebo": 26,
+ "sites_trap": {
+  "call": 6,
+  "definition": 1
+ },
+ "sites_placebo": {
+  "call": 6,
+  "definition": 1
+ },
+ "why_it_makes_sense": "The decorator's docstring already calls it \"the import path\"; the keyword is renamed to say so.",
+ "why_it_matters_for_task": "The gold patch adds @deconstructible(path='django.db.models.Func') and five more decorators; from memory each raises TypeError when expressions.py is imported.",
+ "gold_lines_changed_by_trap": 6,
+ "gold_lines_changed_by_placebo": 6,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 2,
+  "nearest_trap_line_to_gold_hunk": 69,
+  "gold_files": [
+   "django/db/models/expressions.py"
+  ]
+ },
+ "warnings": {
+  "trap": [
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/gis/geos/geometry.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/postgres/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/files/storage.py: non-call use of deconstructible (not rewritten)",
+   "django/db/models/expressions.py: non-call use of deconstructible (not rewritten)"
+  ],
+  "placebo": [
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/gis/geos/geometry.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/postgres/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/files/storage.py: non-call use of deconstructible (not rewritten)",
+   "django/db/models/expressions.py: non-call use of deconstructible (not rewritten)"
+  ]
+ },
+ "problems": [],
+ "transform": {
+  "type": "T7",
+  "defs": [
+   [
+    "django/utils/deconstruct.py",
+    "deconstructible"
+   ]
+  ],
+  "init": {
+   "param": "path",
+   "new_param": "import_path"
+  },
+  "param": "path",
+  "new_param": "import_path"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "96e7ff5e9ff6362d9a886545869ce4496ca4b0fb",
+  "version": "4.1",
+  "FAIL_TO_PASS": [
+   "test_deconstruct (expressions.tests.ValueTests)",
+   "test_deconstruct_output_field (expressions.tests.ValueTests)",
+   "test_serialize_complex_func_index (migrations.test_writer.WriterTests)"
+  ],
+  "n_PASS_TO_PASS": 208
+ },
+ "notes": "loud (import-time error); check visibility: F already uses the keyword in the same file",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-15161",
+ "build_seconds": 23.1
+}

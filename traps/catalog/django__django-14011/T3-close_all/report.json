@@ -1,0 +1,130 @@
+{
+ "trap": {
+  "files": [
+   "django/core/management/base.py",
+   "django/db/utils.py",
+   "django/test/testcases.py",
+   "tests/admin_scripts/tests.py",
+   "tests/mail/tests.py"
+  ],
+  "n_sites": 5,
+  "sites_by_kind": {
+   "name": 5
+  },
+  "sites": [
+   {
+    "file": "django/core/management/base.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "django/db/utils.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "django/test/testcases.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "tests/admin_scripts/tests.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "tests/mail/tests.py",
+    "kind": "name",
+    "code": "close_all"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "ConnectionHandler.close_all is called close_all",
+   "trapped_fact": "close_all was renamed to close_connections everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/db/utils.py",
+     "ConnectionHandler.close_all"
+    ]
+   ],
+   "init": {
+    "new_name": "close_connections"
+   },
+   "old_name": "close_all",
+   "new_name": "close_connections"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/core/management/base.py",
+   "django/db/utils.py",
+   "django/test/testcases.py",
+   "tests/admin_scripts/tests.py",
+   "tests/mail/tests.py"
+  ],
+  "n_sites": 6,
+  "sites_by_kind": {
+   "name": 5,
+   "alias": 1
+  },
+  "sites": [
+   {
+    "file": "django/core/management/base.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "django/db/utils.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "django/test/testcases.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "tests/admin_scripts/tests.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "tests/mail/tests.py",
+    "kind": "name",
+    "code": "close_all"
+   },
+   {
+    "file": "django/db/utils.py",
+    "kind": "alias",
+    "code": "close_all = close_connections"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "ConnectionHandler.close_all is called close_all",
+   "trapped_fact": "close_all was renamed to close_connections everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/db/utils.py",
+     "ConnectionHandler.close_all"
+    ]
+   ],
+   "init": {
+    "new_name": "close_connections"
+   },
+   "old_name": "close_all",
+   "new_name": "close_connections"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

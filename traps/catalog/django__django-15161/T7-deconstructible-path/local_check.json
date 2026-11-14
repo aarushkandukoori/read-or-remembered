@@ -1,0 +1,55 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "208/208 (of 208; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 230,
+   "n_failing": 0
+  },
+  "trap + tests' + gold'": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "208/208 (of 208; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 230,
+   "n_failing": 0
+  },
+  "trap + tests' + memory": {
+   "F2P": "0/3",
+   "F2P_ok": false,
+   "P2P": "0/0 (of 208; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 0,
+   "n_failing": 0,
+   "output_tail": "Http404\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/http/__init__.py\", line 5, in <module>\n    from django.http.response import (\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/http/response.py\", line 16, in <module>\n    from django.core.serializers.json import DjangoJSONEncoder\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/core/serializers/__init__.py\", line 23, in <module>\n    from django.core.serializers.base import SerializerDoesNotExist\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/core/serializers/base.py\", line 8, in <module>\n    from django.db import models\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/db/models/__init__.py\", line 3, in <module>\n    from django.db.models.aggregates import *  # NOQA\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/db/models/aggregates.py\", line 5, in <module>\n    from django.db.models.expressions import Case, Func, Star, When\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15161/wt/django/db/models/expressions.py\", line 654, in <module>\n    @deconstructible(path='django.db.models.Func')\nTypeError: deconstructible() got an unexpected keyword argument 'path'\n"
+  },
+  "placebo + tests' + gold'": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "208/208 (of 208; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 230,
+   "n_failing": 0
+  },
+  "placebo + tests' + memory": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "208/208 (of 208; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 230,
+   "n_failing": 0
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": true,
+  "memory_fails_in_trap_by": "tests",
+  "solvable_in_placebo": true,
+  "placebo_harmless": true,
+  "all_good": true
+ }
+}

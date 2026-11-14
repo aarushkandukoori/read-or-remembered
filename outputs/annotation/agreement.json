@@ -1,0 +1,119 @@
+{
+ "n_labeled": 1373,
+ "n_key": 1373,
+ "calibration": {
+  "n": 773,
+  "agreement": 0.7995,
+  "agreement_ci": [
+   0.7698,
+   0.8262
+  ],
+  "kappa": 0.693,
+  "kappa_ci": [
+   0.652,
+   0.734
+  ],
+  "confusion_rows_human_cols_llm": {
+   "Misreference": {
+    "Misreference": 80,
+    "Misstatement": 7,
+    "Omission": 0,
+    "Overgeneralization": 0
+   },
+   "Misstatement": {
+    "Misreference": 29,
+    "Misstatement": 338,
+    "Omission": 38,
+    "Overgeneralization": 7
+   },
+   "Omission": {
+    "Misreference": 0,
+    "Misstatement": 1,
+    "Omission": 80,
+    "Overgeneralization": 2
+   },
+   "Overgeneralization": {
+    "Misreference": 2,
+    "Misstatement": 44,
+    "Omission": 25,
+    "Overgeneralization": 120
+   }
+  },
+  "mm_vs_other_agreement": 0.881,
+  "mm_vs_other_kappa": 0.74,
+  "by_confidence": {
+   "high": {
+    "n": 264,
+    "agreement": 0.9583
+   },
+   "medium": {
+    "n": 330,
+    "agreement": 0.8091
+   },
+   "low": {
+    "n": 179,
+    "agreement": 0.5475
+   }
+  },
+  "verdict_doubt_rate": 0.0996,
+  "by_model": {
+   "deepseek-v32": {
+    "n": 178,
+    "agreement": 0.7978
+   },
+   "flash": {
+    "n": 241,
+    "agreement": 0.7635
+   },
+   "qwen36": {
+    "n": 117,
+    "agreement": 0.8205
+   },
+   "qwen38": {
+    "n": 237,
+    "agreement": 0.827
+   }
+  }
+ },
+ "new": {
+  "n": 600,
+  "distribution": {
+   "Misreference": 100,
+   "Misstatement": 266,
+   "Omission": 117,
+   "Overgeneralization": 117
+  },
+  "share": {
+   "Misreference": 0.1667,
+   "Misstatement": 0.4433,
+   "Omission": 0.195,
+   "Overgeneralization": 0.195
+  },
+  "mm_share": 0.61,
+  "mm_share_ci": [
+   0.5704,
+   0.6482
+  ],
+  "verdict_doubt_rate": 0.1683,
+  "by_model": {
+   "deepseek-v32": {
+    "Misreference": 49,
+    "Omission": 49,
+    "Misstatement": 143,
+    "Overgeneralization": 59
+   },
+   "flash": {
+    "Misreference": 51,
+    "Omission": 68,
+    "Misstatement": 123,
+    "Overgeneralization": 58
+   }
+  }
+ },
+ "human_share_deepseek_models": {
+  "Misreference": 0.0979,
+  "Misstatement": 0.5155,
+  "Omission": 0.1193,
+  "Overgeneralization": 0.2673
+ }
+}

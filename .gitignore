@@ -1,0 +1,38 @@
+# secrets
+.env
+*.key
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# large downloads (fetch scripts recreate them)
+data/raw/
+data/repos/
+data/meta/
+data/deepswe/
+data/faultyclaims/
+data/faultyclaims_paper/
+data/models/
+# docker worktrees and scratch
+work/
+outputs/logs/
+outputs/sanity/
+*.log
+# paper stays private until collaborators have seen it
+paper/
+# big derived tables ship in the GitHub release data bundle instead of git
+outputs/rq1/claims_features.jsonl
+outputs/rq1/facts_deepswe.jsonl
+outputs/rq1/facts_swebv.jsonl
+# trained model ships as a release asset
+models/
+# runtime markers
+traps/catalog/READY
+release/
+data/
+models/
+*.pdf.bak
+.claude/
+CLAUDE.md
+AGENTS.md

@@ -1,0 +1,55 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "25/25 (of 25; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 26,
+   "n_failing": 0
+  },
+  "trap + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "25/25 (of 25; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 26,
+   "n_failing": 0
+  },
+  "trap + tests' + memory": {
+   "F2P": "0/1",
+   "F2P_ok": false,
+   "P2P": "0/0 (of 25; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 0,
+   "n_failing": 0,
+   "output_tail": "alse)\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/utilities/decorator.py\", line 17, in threaded_factory\n    from sympy.matrices import MatrixBase\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/matrices/__init__.py\", line 21, in <module>\n    from .immutable import ImmutableMatrix, ImmutableDenseMatrix, ImmutableSparseMatrix\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/matrices/immutable.py\", line 9, in <module>\n    from sympy.matrices.expressions import MatrixExpr\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/matrices/expressions/__init__.py\", line 3, in <module>\n    from .slice import MatrixSlice\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/matrices/expressions/slice.py\", line 3, in <module>\n    from sympy.matrices.expressions.matexpr  import MatrixExpr\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/matrices/expressions/matexpr.py\", line 10, in <module>\n    from sympy.functions.special.tensor_functions import KroneckerDelta\nImportError: cannot import name 'KroneckerDelta' from 'sympy.functions.special.tensor_functions' (/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/sympy__sympy-12419/wt/sympy/functions/special/tensor_functions.py)\n"
+  },
+  "placebo + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "25/25 (of 25; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 26,
+   "n_failing": 0
+  },
+  "placebo + tests' + memory": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "25/25 (of 25; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 26,
+   "n_failing": 0
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": true,
+  "memory_fails_in_trap_by": "tests",
+  "solvable_in_placebo": true,
+  "placebo_harmless": true,
+  "all_good": true
+ }
+}

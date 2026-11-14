@@ -1,0 +1,106 @@
+{
+ "instance_id": "sympy__sympy-18199",
+ "trap_id": "T1-mod_inverse",
+ "type": "T1",
+ "type_title": "argument order",
+ "loud_or_quiet": "quiet",
+ "target": {
+  "file": "sympy/core/numbers.py",
+  "qualname": "mod_inverse",
+  "all_definitions": [
+   [
+    "sympy/core/numbers.py",
+    "mod_inverse"
+   ]
+  ]
+ },
+ "target_qualname": "mod_inverse",
+ "original_fact": "mod_inverse(a, m, ...): a comes first",
+ "trapped_fact": "mod_inverse(m, a, ...): m comes first; callers pass arguments in the new order",
+ "placebo_kind": "the same calls pass their arguments by keyword (order unchanged)",
+ "files_changed": [
+  "sympy/core/expr.py",
+  "sympy/core/numbers.py",
+  "sympy/core/tests/test_numbers.py",
+  "sympy/crypto/crypto.py",
+  "sympy/matrices/matrices.py",
+  "sympy/ntheory/residue_ntheory.py",
+  "sympy/polys/polytools.py"
+ ],
+ "files_changed_placebo": [
+  "sympy/core/expr.py",
+  "sympy/core/numbers.py",
+  "sympy/core/tests/test_numbers.py",
+  "sympy/crypto/crypto.py",
+  "sympy/matrices/matrices.py",
+  "sympy/ntheory/residue_ntheory.py",
+  "sympy/polys/polytools.py"
+ ],
+ "lines_changed_trap": 62,
+ "lines_changed_placebo": 60,
+ "sites_trap": {
+  "call": 26,
+  "definition": 1,
+  "doctest/string": 5
+ },
+ "sites_placebo": {
+  "call": 26,
+  "doctest/string": 5
+ },
+ "why_it_makes_sense": "Both parameters are integers and neither order is canonical (gmpy2 uses invert(x, m), other code modinv(m, x)); reordering a helper's parameters and every call is a routine signature change.",
+ "why_it_matters_for_task": "The gold patch adds root = (root - (rootn - a) * mod_inverse(diff, p)) % ppow in nthroot_mod's prime-power branch (test_solve_modular). Written in the remembered order, the call computes the inverse of p modulo diff instead: quiet, wrong roots or a ValueError.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 6,
+  "nearest_trap_line_to_gold_hunk": 314,
+  "gold_files": [
+   "sympy/ntheory/residue_ntheory.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T1",
+  "defs": [
+   [
+    "sympy/core/numbers.py",
+    "mod_inverse"
+   ]
+  ],
+  "init": {},
+  "p0": "a",
+  "p1": "m"
+ },
+ "task": {
+  "repo": "sympy/sympy",
+  "base_commit": "ba80d1e493f21431b4bf729b3e0452cd47eb9566",
+  "version": "1.6",
+  "FAIL_TO_PASS": [
+   "test_solve_modular"
+  ],
+  "n_PASS_TO_PASS": 113
+ },
+ "notes": "quiet trap; mod_inverse is also exported as sympy.mod_inverse",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build sympy__sympy-18199",
+ "build_seconds": 24.0
+}

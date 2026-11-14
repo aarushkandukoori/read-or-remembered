@@ -1,0 +1,121 @@
+{
+ "instance_id": "django__django-16612",
+ "trap_id": "T8-get_full_path",
+ "type": "T8",
+ "type_title": "flag inversion",
+ "loud_or_quiet": "loud by name (old keyword raises TypeError), quiet by value (positional flags)",
+ "target": {
+  "file": "django/http/request.py",
+  "qualname": "HttpRequest.get_full_path",
+  "all_definitions": [
+   [
+    "django/http/request.py",
+    "HttpRequest.get_full_path"
+   ],
+   [
+    "django/http/request.py",
+    "HttpRequest.get_full_path_info"
+   ],
+   [
+    "django/http/request.py",
+    "HttpRequest._get_full_path"
+   ]
+  ]
+ },
+ "target_qualname": "HttpRequest.get_full_path",
+ "original_fact": "HttpRequest.get_full_path has a flag force_append_slash=False",
+ "trapped_fact": "the flag is now allow_missing_slash=True with the opposite meaning; callers pass the negated value",
+ "placebo_kind": "the same edit everywhere, but the function still accepts the old flag (translated)",
+ "files_changed": [
+  "django/contrib/redirects/middleware.py",
+  "django/http/request.py",
+  "django/middleware/common.py",
+  "django/middleware/locale.py"
+ ],
+ "files_changed_placebo": [
+  "django/contrib/redirects/middleware.py",
+  "django/http/request.py",
+  "django/middleware/common.py",
+  "django/middleware/locale.py"
+ ],
+ "lines_changed_trap": 18,
+ "lines_changed_placebo": 28,
+ "sites_trap": {
+  "call": 5,
+  "definition": 3
+ },
+ "sites_placebo": {
+  "call": 5,
+  "definition": 3
+ },
+ "why_it_makes_sense": "The flag is restated the other way round (allow_missing_slash=True instead of force_append_slash=False) on both public getters and the shared helper; callers pass the negated value.",
+ "why_it_matters_for_task": "The gold patch adds request.get_full_path(force_append_slash=True) to AdminSite.catch_all_view; from memory this raises TypeError and the admin redirect tests fail.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/contrib/admin/sites.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T8",
+  "defs": [
+   [
+    "django/http/request.py",
+    "HttpRequest.get_full_path"
+   ],
+   [
+    "django/http/request.py",
+    "HttpRequest.get_full_path_info"
+   ],
+   [
+    "django/http/request.py",
+    "HttpRequest._get_full_path"
+   ]
+  ],
+  "init": {
+   "param": "force_append_slash",
+   "new_param": "allow_missing_slash"
+  },
+  "param": "force_append_slash",
+  "new_param": "allow_missing_slash",
+  "old_default": "False",
+  "new_default": "True"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "55bcbd8d172b689811fae17cde2f09218dd74e9c",
+  "version": "5.0",
+  "FAIL_TO_PASS": [
+   "test_missing_slash_append_slash_true_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_query_string)",
+   "test_missing_slash_append_slash_true_script_name_query_string (admin_views.tests.AdminSiteFinalCatchAllPatternTests.test_missing_slash_append_slash_true_script_name_query_string)"
+  ],
+  "n_PASS_TO_PASS": 335
+ },
+ "notes": "loud by name",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-16612",
+ "build_seconds": 14.3
+}

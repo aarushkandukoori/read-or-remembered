@@ -1,0 +1,99 @@
+diff --git a/django/db/models/expressions.py b/django/db/models/expressions.py
+index 8642e1f151..3fd3ebba35 100644
+--- a/django/db/models/expressions.py
++++ b/django/db/models/expressions.py
+@@ -578,7 +578,7 @@ class TemporalSubtraction(CombinedExpression):
+         return connection.ops.subtract_temporals(self.lhs.output_field.get_internal_type(), lhs, rhs)
+ 
+ 
+-@deconstructible(path='django.db.models.F')
++@deconstructible(import_path='django.db.models.F')
+ class F(Combinable):
+     """An object capable of resolving references to existing query objects."""
+ 
+diff --git a/django/utils/deconstruct.py b/django/utils/deconstruct.py
+index 9d073902f3..4dc823f043 100644
+--- a/django/utils/deconstruct.py
++++ b/django/utils/deconstruct.py
+@@ -3,12 +3,12 @@ from importlib import import_module
+ from django.utils.version import get_docs_version
+ 
+ 
+-def deconstructible(*args, path=None):
++def deconstructible(*args, import_path=None):
+     """
+     Class decorator that allows the decorated class to be serialized
+     by the migrations subsystem.
+ 
+-    The `path` kwarg specifies the import path.
++    The `import_path` kwarg specifies the import path.
+     """
+     def decorator(klass):
+         def __new__(cls, *args, **kwargs):
+@@ -23,8 +23,8 @@ def deconstructible(*args, path=None):
+             and keyword arguments.
+             """
+             # Fallback version
+-            if path and type(obj) is klass:
+-                module_name, _, name = path.rpartition('.')
++            if import_path and type(obj) is klass:
++                module_name, _, name = import_path.rpartition('.')
+             else:
+                 module_name = obj.__module__
+                 name = obj.__class__.__name__
+@@ -40,8 +40,8 @@ def deconstructible(*args, path=None):
+                     "https://docs.djangoproject.com/en/%s/topics/migrations/#serializing-values"
+                     % (name, module_name, get_docs_version()))
+             return (
+-                path
+-                if path and type(obj) is klass
++                import_path
++                if import_path and type(obj) is klass
+                 else f'{obj.__class__.__module__}.{name}',
+                 obj._constructor_args[0],
+                 obj._constructor_args[1],
+diff --git a/tests/migrations/test_writer.py b/tests/migrations/test_writer.py
+index f21c560208..6d6fc28afc 100644
+--- a/tests/migrations/test_writer.py
++++ b/tests/migrations/test_writer.py
+@@ -595,15 +595,15 @@ class WriterTests(SimpleTestCase):
+         self.assertEqual(string, "django.core.validators.EmailValidator(message='hello')")
+         self.serialize_round_trip(validator)
+ 
+-        validator = deconstructible(path="migrations.test_writer.EmailValidator")(EmailValidator)(message="hello")
++        validator = deconstructible(import_path="migrations.test_writer.EmailValidator")(EmailValidator)(message="hello")
+         string = MigrationWriter.serialize(validator)[0]
+         self.assertEqual(string, "migrations.test_writer.EmailValidator(message='hello')")
+ 
+-        validator = deconstructible(path="custom.EmailValidator")(EmailValidator)(message="hello")
++        validator = deconstructible(import_path="custom.EmailValidator")(EmailValidator)(message="hello")
+         with self.assertRaisesMessage(ImportError, "No module named 'custom'"):
+             MigrationWriter.serialize(validator)
+ 
+-        validator = deconstructible(path="django.core.validators.EmailValidator2")(EmailValidator)(message="hello")
++        validator = deconstructible(import_path="django.core.validators.EmailValidator2")(EmailValidator)(message="hello")
+         with self.assertRaisesMessage(ValueError, "Could not find object EmailValidator2 in django.core.validators."):
+             MigrationWriter.serialize(validator)
+ 
+diff --git a/tests/utils_tests/test_deconstruct.py b/tests/utils_tests/test_deconstruct.py
+index f384ab8288..65eeb71fbe 100644
+--- a/tests/utils_tests/test_deconstruct.py
++++ b/tests/utils_tests/test_deconstruct.py
+@@ -13,7 +13,7 @@ class DeconstructibleChildClass(DeconstructibleClass):
+ 
+ 
+ @deconstructible(
+-    path='utils_tests.deconstructible_classes.DeconstructibleWithPathClass'
++    import_path='utils_tests.deconstructible_classes.DeconstructibleWithPathClass'
+ )
+ class DeconstructibleWithPathClass:
+     pass
+@@ -24,7 +24,7 @@ class DeconstructibleWithPathChildClass(DeconstructibleWithPathClass):
+ 
+ 
+ @deconstructible(
+-    path='utils_tests.deconstructible_classes.DeconstructibleInvalidPathClass',
++    import_path='utils_tests.deconstructible_classes.DeconstructibleInvalidPathClass',
+ )
+ class DeconstructibleInvalidPathClass:
+     pass

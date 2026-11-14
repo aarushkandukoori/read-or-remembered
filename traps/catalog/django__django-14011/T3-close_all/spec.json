@@ -1,0 +1,119 @@
+{
+ "instance_id": "django__django-14011",
+ "trap_id": "T3-close_all",
+ "type": "T3",
+ "type_title": "rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/db/utils.py",
+  "qualname": "ConnectionHandler.close_all",
+  "all_definitions": [
+   [
+    "django/db/utils.py",
+    "ConnectionHandler.close_all"
+   ]
+  ]
+ },
+ "target_qualname": "ConnectionHandler.close_all",
+ "original_fact": "ConnectionHandler.close_all is called close_all",
+ "trapped_fact": "close_all was renamed to close_connections everywhere (no alias)",
+ "placebo_kind": "the same rename everywhere, plus a one-line alias that keeps the old name working; files that imported the old name import both names",
+ "files_changed": [
+  "django/core/management/base.py",
+  "django/db/utils.py",
+  "django/test/testcases.py",
+  "tests/admin_scripts/tests.py",
+  "tests/mail/tests.py"
+ ],
+ "files_changed_placebo": [
+  "django/core/management/base.py",
+  "django/db/utils.py",
+  "django/test/testcases.py",
+  "tests/admin_scripts/tests.py",
+  "tests/mail/tests.py"
+ ],
+ "lines_changed_trap": 10,
+ "lines_changed_placebo": 11,
+ "sites_trap": {
+  "name": 5
+ },
+ "sites_placebo": {
+  "name": 5,
+  "alias": 1
+ },
+ "why_it_makes_sense": "Rename of a handler method to say what it closes; every caller (servers, test framework) updated.",
+ "why_it_matters_for_task": "The gold patch adds connections.close_all() to ThreadedWSGIServer; from memory this raises AttributeError in the live-server thread and the live-server tests fail.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/core/servers/basehttp.py",
+   "django/db/backends/sqlite3/features.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T3",
+  "defs": [
+   [
+    "django/db/utils.py",
+    "ConnectionHandler.close_all"
+   ]
+  ],
+  "init": {
+   "new_name": "close_connections"
+  },
+  "old_name": "close_all",
+  "new_name": "close_connections"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "e4430f22c8e3d29ce5d9d0263fba57121938d06d",
+  "version": "4.0",
+  "FAIL_TO_PASS": [
+   "test_live_server_url_is_class_property (servers.tests.LiveServerAddress)",
+   "Data written to the database by a view can be read.",
+   "Fixtures are properly loaded and visible to the live server thread.",
+   "test_check_model_instance_from_subview (servers.tests.LiveServerThreadedTests)",
+   "test_view_calls_subview (servers.tests.LiveServerThreadedTests)",
+   "test_404 (servers.tests.LiveServerViews)",
+   "A HTTP 1.1 server is supposed to support keep-alive. Since our",
+   "test_environ (servers.tests.LiveServerViews)",
+   "test_keep_alive_connection_clears_previous_request_data (servers.tests.LiveServerViews)",
+   "See `test_closes_connection_without_content_length` for details. This",
+   "test_media_files (servers.tests.LiveServerViews)",
+   "LiveServerTestCase reports a 404 status code when HTTP client",
+   "Launched server serves with HTTP 1.1.",
+   "test_static_files (servers.tests.LiveServerViews)",
+   "test_view (servers.tests.LiveServerViews)",
+   "Each LiveServerTestCase binds to a unique port or fails to start a",
+   "LiveServerTestCase.port customizes the server's port."
+  ],
+  "n_PASS_TO_PASS": 2
+ },
+ "notes": "loud; Kimi and MiniMax relied on close_all without reading its definition (unseen, not memory tier)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-14011",
+ "build_seconds": 20.8
+}

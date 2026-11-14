@@ -1,0 +1,31 @@
+model,channel,status_group,sentence_kind,n,n_traj,share_recall_A,recall_A_ci_lo,recall_A_ci_hi,share_version_B,version_B_ci_lo,version_B_ci_hi,share_hedged,hedged_ci_lo,hedged_ci_hi,share_flagged_any,flagged_any_ci_lo,flagged_any_ci_hi,share_plain,plain_ci_lo,plain_ci_hi
+DeepSeek-V3.2,command,correct (exists at base commit),command only (no sentence),70,62,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+DeepSeek-V3.2,command,wrong: never existed,command only (no sentence),30,28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+DeepSeek-V3.2,command,wrong: other version (stale/future),command only (no sentence),6,6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+DeepSeek-V3.2,hidden reasoning,correct (exists at base commit),inside a code block,174,131,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+DeepSeek-V3.2,hidden reasoning,correct (exists at base commit),sentence,462,238,0.0,0.0,0.0,0.0,0.0,0.0,0.3139,0.2604,0.3684,0.3139,0.2604,0.3684,0.6861,0.6316,0.7396
+DeepSeek-V3.2,hidden reasoning,wrong: never existed,inside a code block,135,87,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+DeepSeek-V3.2,hidden reasoning,wrong: never existed,sentence,134,94,0.0,0.0,0.0,0.0,0.0,0.0,0.1642,0.1042,0.2344,0.1642,0.1042,0.2344,0.8358,0.7656,0.8958
+DeepSeek-V3.2,hidden reasoning,wrong: never existed,"sentence (pilot context, path not re-found)",1,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+DeepSeek-V3.2,hidden reasoning,wrong: other version (stale/future),inside a code block,17,17,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+DeepSeek-V3.2,hidden reasoning,wrong: other version (stale/future),sentence,30,29,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.0667,0.3448,0.2,0.0667,0.3448,0.8,0.6552,0.9333
+DeepSeek-V3.2,visible message,correct (exists at base commit),sentence,12,10,0.0,0.0,0.0,0.0,0.0,0.0,0.3333,0.0,0.6667,0.3333,0.0,0.6667,0.6667,0.3333,1.0
+DeepSeek-V3.2,visible message,wrong: never existed,sentence,1,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+Kimi K2.5,command,correct (exists at base commit),command only (no sentence),231,166,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kimi K2.5,command,wrong: never existed,command only (no sentence),45,37,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kimi K2.5,command,wrong: other version (stale/future),command only (no sentence),7,7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kimi K2.5,hidden reasoning,correct (exists at base commit),sentence,7,7,0.0,0.0,0.0,0.0,0.0,0.0,0.2857,0.0,0.5714,0.2857,0.0,0.5714,0.7143,0.4286,1.0
+Kimi K2.5,hidden reasoning,wrong: never existed,sentence,4,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+MiniMax M2.5,command,correct (exists at base commit),command only (no sentence),436,311,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+MiniMax M2.5,command,wrong: never existed,command only (no sentence),46,34,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+MiniMax M2.5,command,wrong: other version (stale/future),command only (no sentence),5,5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+MiniMax M2.5,hidden reasoning,correct (exists at base commit),sentence,5,5,0.0,0.0,0.0,0.0,0.0,0.0,0.6,0.2,1.0,0.6,0.2,1.0,0.4,0.0,0.8
+MiniMax M2.5,hidden reasoning,wrong: never existed,sentence,4,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+MiniMax M2.5,visible message,correct (exists at base commit),sentence,1,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+DeepSeek-V3.2,"hidden or visible text, plain sentences only",correct (exists at base commit),sentence,474,240,0.0,0.0,0.0,0.0,0.0,0.0,0.3143,0.2627,0.3692,0.3143,0.2627,0.3692,0.6857,0.6308,0.7373
+DeepSeek-V3.2,"hidden or visible text, plain sentences only",wrong: never existed,sentence,135,94,0.0,0.0,0.0,0.0,0.0,0.0,0.163,0.1029,0.2331,0.163,0.1029,0.2331,0.837,0.7669,0.8971
+DeepSeek-V3.2,"hidden or visible text, plain sentences only",wrong: other version (stale/future),sentence,30,29,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.0667,0.3448,0.2,0.0667,0.3448,0.8,0.6552,0.9333
+Kimi K2.5,"hidden or visible text, plain sentences only",correct (exists at base commit),sentence,7,7,0.0,0.0,0.0,0.0,0.0,0.0,0.2857,0.0,0.5714,0.2857,0.0,0.5714,0.7143,0.4286,1.0
+Kimi K2.5,"hidden or visible text, plain sentences only",wrong: never existed,sentence,4,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0
+MiniMax M2.5,"hidden or visible text, plain sentences only",correct (exists at base commit),sentence,6,6,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.1667,0.8333,0.5,0.1667,0.8333,0.5,0.1667,0.8333
+MiniMax M2.5,"hidden or visible text, plain sentences only",wrong: never existed,sentence,4,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0

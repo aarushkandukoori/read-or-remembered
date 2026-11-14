@@ -1,0 +1,176 @@
+{
+ "trap": {
+  "files": [
+   "django/contrib/redirects/middleware.py",
+   "django/http/request.py",
+   "django/middleware/common.py",
+   "django/middleware/locale.py"
+  ],
+  "n_sites": 8,
+  "sites_by_kind": {
+   "call": 5,
+   "definition": 3
+  },
+  "sites": [
+   {
+    "file": "django/contrib/redirects/middleware.py",
+    "kind": "call",
+    "code": "request.get_full_path(allow_missing_slash=False)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "call",
+    "code": "self._get_full_path(self.path, not force_append_slash)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest.get_full_path(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "call",
+    "code": "self._get_full_path(self.path_info, not force_append_slash)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest.get_full_path_info(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest._get_full_path(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/middleware/common.py",
+    "kind": "call",
+    "code": "request.get_full_path(allow_missing_slash=False)"
+   },
+   {
+    "file": "django/middleware/locale.py",
+    "kind": "call",
+    "code": "request.get_full_path(     allow_missing_slash=not path_needs_slash )"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "HttpRequest.get_full_path has a flag force_append_slash=False",
+   "trapped_fact": "the flag is now allow_missing_slash=True with the opposite meaning; callers pass the negated value"
+  },
+  "spec": {
+   "type": "T8",
+   "defs": [
+    [
+     "django/http/request.py",
+     "HttpRequest.get_full_path"
+    ],
+    [
+     "django/http/request.py",
+     "HttpRequest.get_full_path_info"
+    ],
+    [
+     "django/http/request.py",
+     "HttpRequest._get_full_path"
+    ]
+   ],
+   "init": {
+    "param": "force_append_slash",
+    "new_param": "allow_missing_slash"
+   },
+   "param": "force_append_slash",
+   "new_param": "allow_missing_slash",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/contrib/redirects/middleware.py",
+   "django/http/request.py",
+   "django/middleware/common.py",
+   "django/middleware/locale.py"
+  ],
+  "n_sites": 8,
+  "sites_by_kind": {
+   "call": 5,
+   "definition": 3
+  },
+  "sites": [
+   {
+    "file": "django/contrib/redirects/middleware.py",
+    "kind": "call",
+    "code": "request.get_full_path(allow_missing_slash=False)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "call",
+    "code": "self._get_full_path(self.path, not force_append_slash)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest.get_full_path(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "call",
+    "code": "self._get_full_path(self.path_info, not force_append_slash)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest.get_full_path_info(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/http/request.py",
+    "kind": "definition",
+    "code": "HttpRequest._get_full_path(..., allow_missing_slash=True)"
+   },
+   {
+    "file": "django/middleware/common.py",
+    "kind": "call",
+    "code": "request.get_full_path(allow_missing_slash=False)"
+   },
+   {
+    "file": "django/middleware/locale.py",
+    "kind": "call",
+    "code": "request.get_full_path(     allow_missing_slash=not path_needs_slash )"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "HttpRequest.get_full_path has a flag force_append_slash=False",
+   "trapped_fact": "the flag is now allow_missing_slash=True with the opposite meaning; callers pass the negated value"
+  },
+  "spec": {
+   "type": "T8",
+   "defs": [
+    [
+     "django/http/request.py",
+     "HttpRequest.get_full_path"
+    ],
+    [
+     "django/http/request.py",
+     "HttpRequest.get_full_path_info"
+    ],
+    [
+     "django/http/request.py",
+     "HttpRequest._get_full_path"
+    ]
+   ],
+   "init": {
+    "param": "force_append_slash",
+    "new_param": "allow_missing_slash"
+   },
+   "param": "force_append_slash",
+   "new_param": "allow_missing_slash",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "trap": {
+  "files": [
+   "django/db/models/query.py",
+   "django/db/models/sql/query.py"
+  ],
+  "n_sites": 3,
+  "sites_by_kind": {
+   "name": 3
+  },
+  "sites": [
+   {
+    "file": "django/db/models/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   },
+   {
+    "file": "django/db/models/sql/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   },
+   {
+    "file": "django/db/models/sql/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "Query.clear_limits is called clear_limits",
+   "trapped_fact": "clear_limits was renamed to reset_limits everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/db/models/sql/query.py",
+     "Query.clear_limits"
+    ]
+   ],
+   "init": {
+    "new_name": "reset_limits"
+   },
+   "old_name": "clear_limits",
+   "new_name": "reset_limits"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/db/models/query.py",
+   "django/db/models/sql/query.py"
+  ],
+  "n_sites": 4,
+  "sites_by_kind": {
+   "name": 3,
+   "alias": 1
+  },
+  "sites": [
+   {
+    "file": "django/db/models/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   },
+   {
+    "file": "django/db/models/sql/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   },
+   {
+    "file": "django/db/models/sql/query.py",
+    "kind": "name",
+    "code": "clear_limits"
+   },
+   {
+    "file": "django/db/models/sql/query.py",
+    "kind": "alias",
+    "code": "clear_limits = reset_limits"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "Query.clear_limits is called clear_limits",
+   "trapped_fact": "clear_limits was renamed to reset_limits everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/db/models/sql/query.py",
+     "Query.clear_limits"
+    ]
+   ],
+   "init": {
+    "new_name": "reset_limits"
+   },
+   "old_name": "clear_limits",
+   "new_name": "reset_limits"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

@@ -1,0 +1,191 @@
+diff --git a/sympy/core/expr.py b/sympy/core/expr.py
+index 2e833c6aef..0f3f136c86 100644
+--- a/sympy/core/expr.py
++++ b/sympy/core/expr.py
+@@ -216,7 +216,7 @@ def __pow__(self, other, mod=None):
+                 return pow(_self, other, mod)
+             else:
+                 from sympy.core.numbers import mod_inverse
+-                return mod_inverse(pow(_self, -other, mod), mod)
++                return mod_inverse(a=pow(_self, -other, mod), m=mod)
+         except ValueError:
+             power = self._pow(other)
+             try:
+@@ -3606,7 +3606,7 @@ def invert(self, g, *gens, **args):
+         from sympy.polys.polytools import invert
+         from sympy.core.numbers import mod_inverse
+         if self.is_number and getattr(g, 'is_number', True):
+-            return mod_inverse(self, g)
++            return mod_inverse(a=self, m=g)
+         return invert(self, g, *gens, **args)
+ 
+     def round(self, n=None):
+diff --git a/sympy/core/numbers.py b/sympy/core/numbers.py
+index 6b18fd7998..9f30bfbc85 100644
+--- a/sympy/core/numbers.py
++++ b/sympy/core/numbers.py
+@@ -506,20 +506,20 @@ def mod_inverse(a, m):
+     this congruence is 4. Because 3 * 4 = 12 and 12 = 1 (mod 11).
+     This is the value returned by mod_inverse:
+ 
+-    >>> mod_inverse(3, 11)
++    >>> mod_inverse(a=3, m=11)
+     4
+-    >>> mod_inverse(-3, 11)
++    >>> mod_inverse(a=-3, m=11)
+     7
+ 
+     When there is a common factor between the numerators of
+     ``a`` and ``m`` the inverse does not exist:
+ 
+-    >>> mod_inverse(2, 4)
++    >>> mod_inverse(a=2, m=4)
+     Traceback (most recent call last):
+     ...
+     ValueError: inverse of 2 mod 4 does not exist
+ 
+-    >>> mod_inverse(S(2)/7, S(5)/2)
++    >>> mod_inverse(a=S(2)/7, m=S(5)/2)
+     7/2
+ 
+     References
+@@ -620,7 +620,7 @@ def __new__(cls, *obj):
+     def invert(self, other, *gens, **args):
+         from sympy.polys.polytools import invert
+         if getattr(other, 'is_number', True):
+-            return mod_inverse(self, other)
++            return mod_inverse(a=self, m=other)
+         return invert(self, other, *gens, **args)
+ 
+     def __divmod__(self, other):
+diff --git a/sympy/core/tests/test_numbers.py b/sympy/core/tests/test_numbers.py
+index 55a90d6e69..ddd0bee463 100644
+--- a/sympy/core/tests/test_numbers.py
++++ b/sympy/core/tests/test_numbers.py
+@@ -1857,23 +1857,23 @@ def test_invert_numbers():
+ 
+ 
+ def test_mod_inverse():
+-    assert mod_inverse(3, 11) == 4
+-    assert mod_inverse(5, 11) == 9
+-    assert mod_inverse(21124921, 521512) == 7713
+-    assert mod_inverse(124215421, 5125) == 2981
+-    assert mod_inverse(214, 12515) == 1579
+-    assert mod_inverse(5823991, 3299) == 1442
+-    assert mod_inverse(123, 44) == 39
+-    assert mod_inverse(2, 5) == 3
+-    assert mod_inverse(-2, 5) == 2
+-    assert mod_inverse(2, -5) == -2
+-    assert mod_inverse(-2, -5) == -3
+-    assert mod_inverse(-3, -7) == -5
++    assert mod_inverse(a=3, m=11) == 4
++    assert mod_inverse(a=5, m=11) == 9
++    assert mod_inverse(a=21124921, m=521512) == 7713
++    assert mod_inverse(a=124215421, m=5125) == 2981
++    assert mod_inverse(a=214, m=12515) == 1579
++    assert mod_inverse(a=5823991, m=3299) == 1442
++    assert mod_inverse(a=123, m=44) == 39
++    assert mod_inverse(a=2, m=5) == 3
++    assert mod_inverse(a=-2, m=5) == 2
++    assert mod_inverse(a=2, m=-5) == -2
++    assert mod_inverse(a=-2, m=-5) == -3
++    assert mod_inverse(a=-3, m=-7) == -5
+     x = Symbol('x')
+     assert S(2).invert(x) == S.Half
+-    raises(TypeError, lambda: mod_inverse(2, x))
+-    raises(ValueError, lambda: mod_inverse(2, S.Half))
+-    raises(ValueError, lambda: mod_inverse(2, cos(1)**2 + sin(1)**2))
++    raises(TypeError, lambda: mod_inverse(a=2, m=x))
++    raises(ValueError, lambda: mod_inverse(a=2, m=S.Half))
++    raises(ValueError, lambda: mod_inverse(a=2, m=cos(1)**2 + sin(1)**2))
+ 
+ 
+ def test_golden_ratio_rewrite_as_sqrt():
+diff --git a/sympy/crypto/crypto.py b/sympy/crypto/crypto.py
+index db8ca3acad..26b34a83da 100644
+--- a/sympy/crypto/crypto.py
++++ b/sympy/crypto/crypto.py
+@@ -426,7 +426,7 @@ def encipher_affine(msg, key, symbols=None, _inverse=False):
+     a, b = key
+     assert gcd(a, N) == 1
+     if _inverse:
+-        c = mod_inverse(a, N)
++        c = mod_inverse(a=a, m=N)
+         d = -b*c
+         a, b = c, d
+     B = ''.join([A[(a*i + b) % N] for i in range(N)])
+@@ -1568,7 +1568,7 @@ def _rsa_key(*args, **kwargs):
+             return n, e
+ 
+         if private and not public:
+-            d = mod_inverse(e, phi)
++            d = mod_inverse(a=e, m=phi)
+             if isinstance(index, int):
+                 d += index * phi
+             return n, d
+@@ -3311,7 +3311,7 @@ def decipher_bg(message, key):
+     r_p = pow(int(y), int(p_t), int(p))
+     r_q = pow(int(y), int(q_t), int(q))
+ 
+-    x = (q * mod_inverse(q, p) * r_p + p * mod_inverse(p, q) * r_q) % public_key
++    x = (q * mod_inverse(a=q, m=p) * r_p + p * mod_inverse(a=p, m=q) * r_q) % public_key
+ 
+     orig_bits = []
+     for _ in range(L):
+diff --git a/sympy/matrices/matrices.py b/sympy/matrices/matrices.py
+index 287b8516ed..a7088dbfb2 100644
+--- a/sympy/matrices/matrices.py
++++ b/sympy/matrices/matrices.py
+@@ -3733,7 +3733,7 @@ def inv_mod(self, m):
+         det_inv = None
+ 
+         try:
+-            det_inv = mod_inverse(det_K, m)
++            det_inv = mod_inverse(a=det_K, m=m)
+         except ValueError:
+             raise NonInvertibleMatrixError('Matrix is not invertible (mod %d)' % m)
+ 
+diff --git a/sympy/ntheory/residue_ntheory.py b/sympy/ntheory/residue_ntheory.py
+index 9a3052d4c3..7776788464 100644
+--- a/sympy/ntheory/residue_ntheory.py
++++ b/sympy/ntheory/residue_ntheory.py
+@@ -1092,7 +1092,7 @@ def _discrete_log_shanks_steps(n, a, b, order=None):
+     for i in range(m):
+         T[x] = i
+         x = x * b % n
+-    z = mod_inverse(b, n)
++    z = mod_inverse(a=b, m=n)
+     z = pow(z, m, n)
+     x = a
+     for i in range(m):
+@@ -1196,7 +1196,7 @@ def _discrete_log_pollard_rho(n, a, b, order=None, retries=10, rseed=None):
+             if xa == xb:
+                 r = (ba - bb) % order
+                 try:
+-                    e = mod_inverse(r, order) * (ab - aa) % order
++                    e = mod_inverse(a=r, m=order) * (ab - aa) % order
+                     if (pow(b, e, n) - a) % n == 0:
+                         return e
+                 except ValueError:
+@@ -1245,7 +1245,7 @@ def _discrete_log_pohlig_hellman(n, a, b, order=None):
+     for i, (pi, ri) in enumerate(f.items()):
+         for j in range(ri):
+             gj = pow(b, l[i], n)
+-            aj = pow(a * mod_inverse(gj, n), order // pi**(j + 1), n)
++            aj = pow(a * mod_inverse(a=gj, m=n), order // pi**(j + 1), n)
+             bj = pow(b, order // pi, n)
+             cj = discrete_log(n, aj, bj, pi, True)
+             l[i] += cj * pi**j
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+index b806d366b9..6b1a52b700 100644
+--- a/sympy/polys/polytools.py
++++ b/sympy/polys/polytools.py
+@@ -4994,7 +4994,7 @@ def invert(f, g, *gens, **args):
+     For more efficient inversion of Rationals,
+     use the :obj:`~.mod_inverse` function:
+ 
+-    >>> mod_inverse(3, 5)
++    >>> mod_inverse(a=3, m=5)
+     2
+     >>> (S(2)/5).invert(S(7)/3)
+     5/2

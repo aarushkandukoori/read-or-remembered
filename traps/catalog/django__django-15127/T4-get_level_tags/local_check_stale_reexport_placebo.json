@@ -1,0 +1,55 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "1/1 (of 1; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 2,
+   "n_failing": 0
+  },
+  "trap + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "1/1 (of 1; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 2,
+   "n_failing": 0
+  },
+  "trap + tests' + memory": {
+   "F2P": "0/1",
+   "F2P_ok": false,
+   "P2P": "0/0 (of 1; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 0,
+   "n_failing": 0,
+   "output_tail": "it__.py\", line 24, in setup\n    apps.populate(settings.INSTALLED_APPS)\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15127/wt/django/apps/registry.py\", line 91, in populate\n    app_config = AppConfig.create(entry)\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15127/wt/django/apps/config.py\", line 120, in create\n    mod = import_module(mod_path)\n  File \"/Users/aarushkandukoori/.local/share/uv/python/cpython-3.8-macos-aarch64-none/lib/python3.8/importlib/__init__.py\", line 127, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"<frozen importlib._bootstrap>\", line 1014, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 991, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 975, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 671, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 843, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\n  File \"/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15127/wt/django/contrib/messages/apps.py\", line 3, in <module>\n    from django.contrib.messages.utils import get_level_tags\nImportError: cannot import name 'get_level_tags' from 'django.contrib.messages.utils' (/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/django__django-15127/wt/django/contrib/messages/utils.py)\n"
+  },
+  "placebo + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "1/1 (of 1; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 2,
+   "n_failing": 0
+  },
+  "placebo + tests' + memory": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "1/1 (of 1; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 2,
+   "n_failing": 0
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": true,
+  "memory_fails_in_trap_by": "tests",
+  "solvable_in_placebo": true,
+  "placebo_harmless": true,
+  "all_good": true
+ }
+}

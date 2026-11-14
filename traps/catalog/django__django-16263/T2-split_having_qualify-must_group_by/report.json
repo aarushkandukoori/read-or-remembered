@@ -1,0 +1,70 @@
+{
+ "trap": {
+  "files": [
+   "django/db/models/sql/where.py"
+  ],
+  "n_sites": 1,
+  "sites_by_kind": {
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/db/models/sql/where.py",
+    "kind": "definition",
+    "code": "WhereNode.split_having_qualify(..., must_group_by=True)"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "WhereNode.split_having_qualify: must_group_by defaults to False",
+   "trapped_fact": "WhereNode.split_having_qualify: must_group_by defaults to True; every call that relied on the old default now passes must_group_by=False"
+  },
+  "spec": {
+   "type": "T2",
+   "defs": [
+    [
+     "django/db/models/sql/where.py",
+     "WhereNode.split_having_qualify"
+    ]
+   ],
+   "init": {
+    "param": "must_group_by",
+    "new_default": "True"
+   },
+   "param": "must_group_by",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [],
+  "n_sites": 0,
+  "sites_by_kind": {},
+  "sites": [],
+  "warnings": [],
+  "describe": {
+   "original_fact": "WhereNode.split_having_qualify: must_group_by defaults to False",
+   "trapped_fact": "WhereNode.split_having_qualify: must_group_by defaults to True; every call that relied on the old default now passes must_group_by=False"
+  },
+  "spec": {
+   "type": "T2",
+   "defs": [
+    [
+     "django/db/models/sql/where.py",
+     "WhereNode.split_having_qualify"
+    ]
+   ],
+   "init": {
+    "param": "must_group_by",
+    "new_default": "True"
+   },
+   "param": "must_group_by",
+   "old_default": "False",
+   "new_default": "True"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

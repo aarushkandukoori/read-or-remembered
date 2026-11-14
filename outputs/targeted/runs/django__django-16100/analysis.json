@@ -1,0 +1,162 @@
+[
+ {
+  "run": "original-1",
+  "resolved": true,
+  "tests": "F2P 1/1 P2P 59/59",
+  "steps": 13,
+  "cost": 0.0127,
+  "first_call_written": [
+   5,
+   "memory"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 1,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "memory"
+  ],
+  "memory_talk_hidden_steps": 5,
+  "memory_talk_visible_steps": 1
+ },
+ {
+  "run": "original-2",
+  "resolved": true,
+  "tests": "F2P 1/1 P2P 59/59",
+  "steps": 37,
+  "cost": 0.014,
+  "first_call_written": [
+   8,
+   "memory"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 3,
+  "memory_form_writes": 2,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "memory"
+  ],
+  "memory_talk_hidden_steps": 11,
+  "memory_talk_visible_steps": 1
+ },
+ {
+  "run": "placebo-1",
+  "resolved": false,
+  "tests": "F2P 1/1 P2P 58/59",
+  "steps": 31,
+  "cost": 0.0166,
+  "first_call_written": [
+   7,
+   "trap"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 4,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 15,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "placebo-2",
+  "resolved": false,
+  "tests": "F2P 1/1 P2P 58/59",
+  "steps": 15,
+  "cost": 0.0057,
+  "first_call_written": [
+   5,
+   "trap"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 6,
+  "memory_form_writes": 0,
+  "error_after_memory_form": false,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 5,
+  "memory_talk_visible_steps": 1
+ },
+ {
+  "run": "placebo-3",
+  "resolved": false,
+  "tests": "F2P 1/1 P2P 58/59",
+  "steps": 32,
+  "cost": 0.0193,
+  "first_call_written": [
+   6,
+   "memory"
+  ],
+  "saw_definition_before": false,
+  "call_sites_seen_before": 13,
+  "memory_form_writes": 1,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 14,
+  "memory_talk_visible_steps": 2
+ },
+ {
+  "run": "trap-1",
+  "resolved": true,
+  "tests": "F2P 1/1 P2P 59/59",
+  "steps": 24,
+  "cost": 0.01,
+  "first_call_written": [
+   5,
+   "memory"
+  ],
+  "saw_definition_before": true,
+  "call_sites_seen_before": 10,
+  "memory_form_writes": 2,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 7,
+  "memory_talk_visible_steps": 0
+ },
+ {
+  "run": "trap-2",
+  "resolved": true,
+  "tests": "F2P 1/1 P2P 59/59",
+  "steps": 21,
+  "cost": 0.0095,
+  "first_call_written": [
+   6,
+   "memory"
+  ],
+  "saw_definition_before": true,
+  "call_sites_seen_before": 10,
+  "memory_form_writes": 1,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 7,
+  "memory_talk_visible_steps": 4
+ },
+ {
+  "run": "trap-3",
+  "resolved": true,
+  "tests": "F2P 1/1 P2P 59/59",
+  "steps": 38,
+  "cost": 0.0177,
+  "first_call_written": [
+   11,
+   "memory"
+  ],
+  "saw_definition_before": true,
+  "call_sites_seen_before": 17,
+  "memory_form_writes": 2,
+  "error_after_memory_form": true,
+  "final_patch_forms": [
+   "trap"
+  ],
+  "memory_talk_hidden_steps": 17,
+  "memory_talk_visible_steps": 0
+ }
+]

@@ -1,0 +1,46 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "100/100 (of 100; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 117,
+   "n_failing": 0
+  },
+  "trap + tests' + gold'": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "100/100 (of 100; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 117,
+   "n_failing": 0
+  },
+  "trap + tests' + memory": {
+   "F2P": "3/3",
+   "F2P_ok": true,
+   "P2P": "100/100 (of 100; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 117,
+   "n_failing": 0
+  },
+  "placebo + tests' + gold'": {
+   "result": "patch did not apply",
+   "error": "error: No valid patches in input (allow with \"--allow-empty\")"
+  },
+  "placebo + tests' + memory": {
+   "result": "patch did not apply",
+   "error": "error: No valid patches in input (allow with \"--allow-empty\")"
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": false,
+  "memory_fails_in_trap_by": null,
+  "solvable_in_placebo": null,
+  "placebo_harmless": null,
+  "all_good": false
+ }
+}

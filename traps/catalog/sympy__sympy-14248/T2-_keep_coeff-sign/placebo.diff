@@ -1,0 +1,339 @@
+diff --git a/sympy/core/add.py b/sympy/core/add.py
+index 28ba358180..aa3c77b43a 100644
+--- a/sympy/core/add.py
++++ b/sympy/core/add.py
+@@ -456,7 +456,7 @@ def as_numer_denom(self):
+         if len(nd) == 1:
+             d, n = nd.popitem()
+             return self.func(
+-                *[_keep_coeff(ncon, ni) for ni in n]), _keep_coeff(dcon, d)
++                *[_keep_coeff(ncon, ni, sign=False) for ni in n]), _keep_coeff(dcon, d, sign=False)
+ 
+         # sum up the terms having a common denominator
+         for d, n in nd.items():
+@@ -470,7 +470,7 @@ def as_numer_denom(self):
+         n, d = self.func(*[Mul(*(denoms[:i] + [numers[i]] + denoms[i + 1:]))
+                    for i in range(len(numers))]), Mul(*denoms)
+ 
+-        return _keep_coeff(ncon, n), _keep_coeff(dcon, d)
++        return _keep_coeff(ncon, n, sign=False), _keep_coeff(dcon, d, sign=False)
+ 
+     def _eval_is_polynomial(self, syms):
+         return all(term._eval_is_polynomial(syms) for term in self.args)
+@@ -931,13 +931,13 @@ def primitive(self):
+             return S.One, self
+         if not inf:
+             for i, (p, q, term) in enumerate(terms):
+-                terms[i] = _keep_coeff(Rational((p//ngcd)*(dlcm//q)), term)
++                terms[i] = _keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)
+         else:
+             for i, (p, q, term) in enumerate(terms):
+                 if q:
+-                    terms[i] = _keep_coeff(Rational((p//ngcd)*(dlcm//q)), term)
++                    terms[i] = _keep_coeff(Rational((p//ngcd)*(dlcm//q)), term, sign=False)
+                 else:
+-                    terms[i] = _keep_coeff(Rational(p, q), term)
++                    terms[i] = _keep_coeff(Rational(p, q), term, sign=False)
+ 
+         # we don't need a complete re-flattening since no new terms will join
+         # so we just use the same sort as is used in Add.flatten. When the
+diff --git a/sympy/core/exprtools.py b/sympy/core/exprtools.py
+index 4e0de9ec18..6eb5023234 100644
+--- a/sympy/core/exprtools.py
++++ b/sympy/core/exprtools.py
+@@ -252,7 +252,7 @@ def decompose_power(expr):
+         if exp is S.NegativeOne:
+             base, exp = Pow(base, tail), -1
+         elif exp is not S.One:
+-            tail = _keep_coeff(Rational(1, exp.q), tail)
++            tail = _keep_coeff(Rational(1, exp.q), tail, sign=False)
+             base, exp = Pow(base, tail), exp.p
+         else:
+             base, exp = expr, 1
+@@ -276,7 +276,7 @@ def decompose_power_rat(expr):
+         if exp is S.NegativeOne:
+             base, exp = Pow(base, tail), -1
+         elif exp is not S.One:
+-            tail = _keep_coeff(Rational(1, exp.q), tail)
++            tail = _keep_coeff(Rational(1, exp.q), tail, sign=False)
+             base, exp = Pow(base, tail), exp.p
+         else:
+             base, exp = expr, 1
+@@ -444,9 +444,9 @@ def as_expr(self):  # Factors
+             if exp != 1:
+                 b, e = factor.as_base_exp()
+                 if isinstance(exp, int):
+-                    e = _keep_coeff(Integer(exp), e)
++                    e = _keep_coeff(Integer(exp), e, sign=False)
+                 elif isinstance(exp, Rational):
+-                    e = _keep_coeff(exp, e)
++                    e = _keep_coeff(exp, e, sign=False)
+                 else:
+                     e *= exp
+                 args.append(b**e)
+@@ -1072,7 +1072,7 @@ def mask(terms):
+                         for a in _numer.args):
+                     numer = _numer
+                     coeff = n*_coeff
+-        return _keep_coeff(coeff, factors*numer/denom, clear=clear)
++        return _keep_coeff(coeff, factors*numer/denom, clear=clear, sign=False)
+ 
+     if not isinstance(terms, Basic):
+         return terms
+@@ -1083,7 +1083,7 @@ def mask(terms):
+     if terms.is_Mul:
+         c, args = terms.as_coeff_mul()
+         return _keep_coeff(c, Mul(*[gcd_terms(i, isprimitive, clear, fraction)
+-            for i in args]), clear=clear)
++            for i in args]), clear=clear, sign=False)
+ 
+     def handle(a):
+         # don't treat internal args like terms of an Add
+@@ -1485,7 +1485,7 @@ def _pemexpand(expr):
+         new_mid = new_mid.subs(r2).subs(unrep1)
+ 
+         if new_mid.is_Pow:
+-            return _keep_coeff(c, g*l*new_mid*r)
++            return _keep_coeff(c, g*l*new_mid*r, sign=False)
+ 
+         if new_mid.is_Mul:
+             # XXX TODO there should be a way to inspect what order the terms
+@@ -1507,7 +1507,7 @@ def _pemexpand(expr):
+             for s in variations(ncfac, len(ncfac)):
+                 ok = pre_mid*Mul(*s)*r
+                 if _pemexpand(ok) == target:
+-                    return _keep_coeff(c, ok)
++                    return _keep_coeff(c, ok, sign=False)
+ 
+         # mid was an Add that didn't factor successfully
+-        return _keep_coeff(c, g*l*mid*r)
++        return _keep_coeff(c, g*l*mid*r, sign=False)
+diff --git a/sympy/core/mul.py b/sympy/core/mul.py
+index c3a7e5d06e..a01be97d17 100644
+--- a/sympy/core/mul.py
++++ b/sympy/core/mul.py
+@@ -189,7 +189,7 @@ def flatten(cls, seq):
+                         rv = [cls(a*r, b, evaluate=False)], [], None
+                     elif global_distribute[0] and b.is_commutative:
+                         r, b = b.as_coeff_Add()
+-                        bargs = [_keep_coeff(a, bi) for bi in Add.make_args(b)]
++                        bargs = [_keep_coeff(a, bi, sign=False) for bi in Add.make_args(b)]
+                         _addsort(bargs)
+                         ar = a*r
+                         if ar:
+@@ -1762,13 +1762,13 @@ def _keep_coeff(coeff, factors, clear=True, sign=False):
+     >>> from sympy.abc import x, y
+     >>> from sympy import S
+ 
+-    >>> _keep_coeff(S.Half, x + 2)
++    >>> _keep_coeff(S.Half, x + 2, sign=False)
+     (x + 2)/2
+-    >>> _keep_coeff(S.Half, x + 2, clear=False)
++    >>> _keep_coeff(S.Half, x + 2, clear=False, sign=False)
+     x/2 + 1
+-    >>> _keep_coeff(S.Half, (x + 2)*y, clear=False)
++    >>> _keep_coeff(S.Half, (x + 2)*y, clear=False, sign=False)
+     y*(x + 2)/2
+-    >>> _keep_coeff(S(-1), x + y)
++    >>> _keep_coeff(S(-1), x + y, sign=False)
+     -x - y
+     >>> _keep_coeff(S(-1), x + y, sign=True)
+     -(x + y)
+diff --git a/sympy/core/power.py b/sympy/core/power.py
+index 02ec6480cb..0d886d2852 100644
+--- a/sympy/core/power.py
++++ b/sympy/core/power.py
+@@ -1591,8 +1591,8 @@ def as_content_primitive(self, radical=False, clear=True):
+                 if not c.is_Rational:
+                     iceh, r = divmod(ceh.p, ceh.q)
+                     c = self.func(b, iceh)
+-                return c, self.func(b, _keep_coeff(ce, t + r/ce/ceh.q))
+-        e = _keep_coeff(ce, pe)
++                return c, self.func(b, _keep_coeff(ce, t + r/ce/ceh.q, sign=False))
++        e = _keep_coeff(ce, pe, sign=False)
+         # b**e = (h*t)**e = h**e*t**e = c*m*t**e
+         if e.is_Rational and b.is_Mul:
+             h, t = b.as_content_primitive(radical=radical, clear=clear)  # h is positive
+@@ -1604,7 +1604,7 @@ def as_content_primitive(self, radical=False, clear=True):
+                 # decide what to do by using the unevaluated Mul, e.g
+                 # should it stay as sqrt(2 + 2*sqrt(5)) or become
+                 # sqrt(2)*sqrt(1 + sqrt(5))
+-                return c, self.func(_keep_coeff(m, t), e)
++                return c, self.func(_keep_coeff(m, t, sign=False), e)
+         return S.One, self.func(b, e)
+ 
+     def is_constant(self, *wrt, **flags):
+diff --git a/sympy/core/tests/test_exprtools.py b/sympy/core/tests/test_exprtools.py
+index 69b1b09420..d5af998cea 100644
+--- a/sympy/core/tests/test_exprtools.py
++++ b/sympy/core/tests/test_exprtools.py
+@@ -229,9 +229,9 @@ def test_gcd_terms():
+ def test_factor_terms():
+     A = Symbol('A', commutative=False)
+     assert factor_terms(9*(x + x*y + 1) + (3*x + 3)**(2 + 2*x)) == \
+-        9*x*y + 9*x + _keep_coeff(S(3), x + 1)**_keep_coeff(S(2), x + 1) + 9
++        9*x*y + 9*x + _keep_coeff(S(3), x + 1, sign=False)**_keep_coeff(S(2), x + 1, sign=False) + 9
+     assert factor_terms(9*(x + x*y + 1) + (3)**(2 + 2*x)) == \
+-        _keep_coeff(S(9), 3**(2*x) + x*y + x + 1)
++        _keep_coeff(S(9), 3**(2*x) + x*y + x + 1, sign=False)
+     assert factor_terms(3**(2 + 2*x) + a*3**(2 + 2*x)) == \
+         9*3**(2*x)*(a + 1)
+     assert factor_terms(x + x*A) == \
+@@ -239,9 +239,9 @@ def test_factor_terms():
+     assert factor_terms(sin(x + x*A)) == \
+         sin(x*(1 + A))
+     assert factor_terms((3*x + 3)**((2 + 2*x)/3)) == \
+-        _keep_coeff(S(3), x + 1)**_keep_coeff(S(2)/3, x + 1)
++        _keep_coeff(S(3), x + 1, sign=False)**_keep_coeff(S(2)/3, x + 1, sign=False)
+     assert factor_terms(x + (x*y + x)**(3*x + 3)) == \
+-        x + (x*(y + 1))**_keep_coeff(S(3), x + 1)
++        x + (x*(y + 1))**_keep_coeff(S(3), x + 1, sign=False)
+     assert factor_terms(a*(x + x*y) + b*(x*2 + y*x*2)) == \
+         x*(a + 2*b)*(y + 1)
+     i = Integral(x, (x, 0, oo))
+diff --git a/sympy/polys/polytools.py b/sympy/polys/polytools.py
+index d5ac051f63..fcc92a99ee 100644
+--- a/sympy/polys/polytools.py
++++ b/sympy/polys/polytools.py
+@@ -5492,11 +5492,11 @@ def terms_gcd(f, *gens, **args):
+             return orig
+ 
+     if clear:
+-        return _keep_coeff(coeff, term*f.as_expr())
++        return _keep_coeff(coeff, term*f.as_expr(), sign=False)
+     # base the clearing on the form of the original expression, not
+     # the (perhaps) Mul that we have now
+-    coeff, f = _keep_coeff(coeff, f.as_expr(), clear=False).as_coeff_Mul()
+-    return _keep_coeff(coeff, term*f, clear=False)
++    coeff, f = _keep_coeff(coeff, f.as_expr(), clear=False, sign=False).as_coeff_Mul()
++    return _keep_coeff(coeff, term*f, clear=False, sign=False)
+ 
+ 
+ @public
+@@ -5922,7 +5922,7 @@ def _symbolic_factor(expr, opt, method):
+         if hasattr(expr,'_eval_factor'):
+             return expr._eval_factor()
+         coeff, factors = _symbolic_factor_list(together(expr), opt, method)
+-        return _keep_coeff(coeff, _factors_product(factors))
++        return _keep_coeff(coeff, _factors_product(factors), sign=False)
+     elif hasattr(expr, 'args'):
+         return expr.func(*[_symbolic_factor(arg, opt, method) for arg in expr.args])
+     elif hasattr(expr, '__iter__'):
+diff --git a/sympy/polys/tests/test_polytools.py b/sympy/polys/tests/test_polytools.py
+index 1f889e9f18..e1721e26b9 100644
+--- a/sympy/polys/tests/test_polytools.py
++++ b/sympy/polys/tests/test_polytools.py
+@@ -3183,16 +3183,16 @@ def test_poly():
+ 
+ def test_keep_coeff():
+     u = Mul(2, x + 1, evaluate=False)
+-    assert _keep_coeff(S(1), x) == x
+-    assert _keep_coeff(S(-1), x) == -x
+-    assert _keep_coeff(S(1.0), x) == 1.0*x
+-    assert _keep_coeff(S(-1.0), x) == -1.0*x
+-    assert _keep_coeff(S(1), 2*x) == 2*x
+-    assert _keep_coeff(S(2), x/2) == x
+-    assert _keep_coeff(S(2), sin(x)) == 2*sin(x)
+-    assert _keep_coeff(S(2), x + 1) == u
+-    assert _keep_coeff(x, 1/x) == 1
+-    assert _keep_coeff(x + 1, S(2)) == u
++    assert _keep_coeff(S(1), x, sign=False) == x
++    assert _keep_coeff(S(-1), x, sign=False) == -x
++    assert _keep_coeff(S(1.0), x, sign=False) == 1.0*x
++    assert _keep_coeff(S(-1.0), x, sign=False) == -1.0*x
++    assert _keep_coeff(S(1), 2*x, sign=False) == 2*x
++    assert _keep_coeff(S(2), x/2, sign=False) == x
++    assert _keep_coeff(S(2), sin(x), sign=False) == 2*sin(x)
++    assert _keep_coeff(S(2), x + 1, sign=False) == u
++    assert _keep_coeff(x, 1/x, sign=False) == 1
++    assert _keep_coeff(x + 1, S(2), sign=False) == u
+ 
+ 
+ @XFAIL
+diff --git a/sympy/printing/codeprinter.py b/sympy/printing/codeprinter.py
+index 89677d1be6..7d84e9ef7e 100644
+--- a/sympy/printing/codeprinter.py
++++ b/sympy/printing/codeprinter.py
+@@ -412,7 +412,7 @@ def _print_Mul(self, expr):
+ 
+         c, e = expr.as_coeff_Mul()
+         if c < 0:
+-            expr = _keep_coeff(-c, e)
++            expr = _keep_coeff(-c, e, sign=False)
+             sign = "-"
+         else:
+             sign = ""
+diff --git a/sympy/printing/julia.py b/sympy/printing/julia.py
+index f973b5f96b..e1632b296e 100644
+--- a/sympy/printing/julia.py
++++ b/sympy/printing/julia.py
+@@ -126,7 +126,7 @@ def _print_Mul(self, expr):
+ 
+         c, e = expr.as_coeff_Mul()
+         if c < 0:
+-            expr = _keep_coeff(-c, e)
++            expr = _keep_coeff(-c, e, sign=False)
+             sign = "-"
+         else:
+             sign = ""
+diff --git a/sympy/printing/octave.py b/sympy/printing/octave.py
+index 91ba9e4fdf..b5055a8db0 100644
+--- a/sympy/printing/octave.py
++++ b/sympy/printing/octave.py
+@@ -138,7 +138,7 @@ def _print_Mul(self, expr):
+ 
+         c, e = expr.as_coeff_Mul()
+         if c < 0:
+-            expr = _keep_coeff(-c, e)
++            expr = _keep_coeff(-c, e, sign=False)
+             sign = "-"
+         else:
+             sign = ""
+diff --git a/sympy/printing/str.py b/sympy/printing/str.py
+index 0baefe0f7f..1ecef3b38e 100644
+--- a/sympy/printing/str.py
++++ b/sympy/printing/str.py
+@@ -262,7 +262,7 @@ def _print_Mul(self, expr):
+ 
+         c, e = expr.as_coeff_Mul()
+         if c < 0:
+-            expr = _keep_coeff(-c, e)
++            expr = _keep_coeff(-c, e, sign=False)
+             sign = "-"
+         else:
+             sign = ""
+diff --git a/sympy/simplify/powsimp.py b/sympy/simplify/powsimp.py
+index a7fd30e118..b31c810dd3 100644
+--- a/sympy/simplify/powsimp.py
++++ b/sympy/simplify/powsimp.py
+@@ -663,7 +663,7 @@ def nc_gcd(aa, bb):
+         a, b = [i.as_coeff_Mul() for i in [aa, bb]]
+         c = gcd(a[0], b[0]).as_numer_denom()[0]
+         g = Mul(*(a[1].args_cnc(cset=True)[0] & b[1].args_cnc(cset=True)[0]))
+-        return _keep_coeff(c, g)
++        return _keep_coeff(c, g, sign=False)
+ 
+     glogb = expand_log(log(b))
+     if glogb.is_Add:
+@@ -671,7 +671,7 @@ def nc_gcd(aa, bb):
+         g = reduce(nc_gcd, args)
+         if g != 1:
+             cg, rg = g.as_coeff_Mul()
+-            glogb = _keep_coeff(cg, rg*Add(*[a/g for a in args]))
++            glogb = _keep_coeff(cg, rg*Add(*[a/g for a in args]), sign=False)
+ 
+     # now put the log back together again
+     if isinstance(glogb, log) or not glogb.is_Mul:
+diff --git a/sympy/simplify/tests/test_simplify.py b/sympy/simplify/tests/test_simplify.py
+index a243339f0f..e1adfaa9f2 100644
+--- a/sympy/simplify/tests/test_simplify.py
++++ b/sympy/simplify/tests/test_simplify.py
+@@ -535,7 +535,7 @@ def test_as_content_primitive():
+     assert ((2 + 6*x)**2).as_content_primitive() == \
+         (4, (3*x + 1)**2)
+     assert ((2 + 6*x)**(2*y)).as_content_primitive() == \
+-        (1, (_keep_coeff(S(2), (3*x + 1)))**(2*y))
++        (1, (_keep_coeff(S(2), (3*x + 1), sign=False))**(2*y))
+     assert (5 + 10*x + 2*y*(3 + 3*y)).as_content_primitive() == \
+         (1, 10*x + 6*y*(y + 1) + 5)
+     assert ((5*(x*(1 + y)) + 2*x*(3 + 3*y))).as_content_primitive() == \

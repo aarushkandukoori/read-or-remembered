@@ -1,0 +1,392 @@
+{
+ "trap": {
+  "files": [
+   "sympy/core/expr.py",
+   "sympy/core/numbers.py",
+   "sympy/core/tests/test_numbers.py",
+   "sympy/crypto/crypto.py",
+   "sympy/matrices/matrices.py",
+   "sympy/ntheory/residue_ntheory.py",
+   "sympy/polys/polytools.py"
+  ],
+  "n_sites": 32,
+  "sites_by_kind": {
+   "call": 26,
+   "definition": 1,
+   "doctest/string": 5
+  },
+  "sites": [
+   {
+    "file": "sympy/core/expr.py",
+    "kind": "call",
+    "code": "mod_inverse(mod, pow(_self, -other, mod))"
+   },
+   {
+    "file": "sympy/core/expr.py",
+    "kind": "call",
+    "code": "mod_inverse(g, self)"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "definition",
+    "code": "mod_inverse(m, a, ...)"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(other, self)"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(11, 3)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(11, 5)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(521512, 21124921)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(5125, 124215421)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(12515, 214)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(3299, 5823991)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(44, 123)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(5, 2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(5, -2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(-5, 2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(-5, -2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(-7, -3)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(x, 2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(S.Half, 2)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(cos(1)**2 + sin(1)**2, 2)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(N, a)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(phi, e)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(p, q)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(q, p)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "call",
+    "code": "mod_inverse(m, det_K)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(n, b)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(order, r)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(n, gj)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "mod_inverse(a, m, ...): a comes first",
+   "trapped_fact": "mod_inverse(m, a, ...): m comes first; callers pass arguments in the new order"
+  },
+  "spec": {
+   "type": "T1",
+   "defs": [
+    [
+     "sympy/core/numbers.py",
+     "mod_inverse"
+    ]
+   ],
+   "init": {},
+   "p0": "a",
+   "p1": "m"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "sympy/core/expr.py",
+   "sympy/core/numbers.py",
+   "sympy/core/tests/test_numbers.py",
+   "sympy/crypto/crypto.py",
+   "sympy/matrices/matrices.py",
+   "sympy/ntheory/residue_ntheory.py",
+   "sympy/polys/polytools.py"
+  ],
+  "n_sites": 31,
+  "sites_by_kind": {
+   "call": 26,
+   "doctest/string": 5
+  },
+  "sites": [
+   {
+    "file": "sympy/core/expr.py",
+    "kind": "call",
+    "code": "mod_inverse(a=pow(_self, -other, mod), m=mod)"
+   },
+   {
+    "file": "sympy/core/expr.py",
+    "kind": "call",
+    "code": "mod_inverse(a=self, m=g)"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=self, m=other)"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/numbers.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=3, m=11)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=5, m=11)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=21124921, m=521512)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=124215421, m=5125)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=214, m=12515)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=5823991, m=3299)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=123, m=44)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=2, m=5)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=-2, m=5)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=2, m=-5)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=-2, m=-5)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=-3, m=-7)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=2, m=x)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=2, m=S.Half)"
+   },
+   {
+    "file": "sympy/core/tests/test_numbers.py",
+    "kind": "call",
+    "code": "mod_inverse(a=2, m=cos(1)**2 + sin(1)**2)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(a=a, m=N)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(a=e, m=phi)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(a=q, m=p)"
+   },
+   {
+    "file": "sympy/crypto/crypto.py",
+    "kind": "call",
+    "code": "mod_inverse(a=p, m=q)"
+   },
+   {
+    "file": "sympy/matrices/matrices.py",
+    "kind": "call",
+    "code": "mod_inverse(a=det_K, m=m)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(a=b, m=n)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(a=r, m=order)"
+   },
+   {
+    "file": "sympy/ntheory/residue_ntheory.py",
+    "kind": "call",
+    "code": "mod_inverse(a=gj, m=n)"
+   },
+   {
+    "file": "sympy/polys/polytools.py",
+    "kind": "doctest/string",
+    "code": "mod_inverse(...) in text"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "mod_inverse(a, m, ...): a comes first",
+   "trapped_fact": "mod_inverse(m, a, ...): m comes first; callers pass arguments in the new order"
+  },
+  "spec": {
+   "type": "T1",
+   "defs": [
+    [
+     "sympy/core/numbers.py",
+     "mod_inverse"
+    ]
+   ],
+   "init": {},
+   "p0": "a",
+   "p1": "m"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

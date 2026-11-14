@@ -1,0 +1,110 @@
+{
+ "instance_id": "django__django-15127",
+ "trap_id": "T4-get_level_tags",
+ "type": "T4",
+ "type_title": "move",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/contrib/messages/utils.py",
+  "qualname": "get_level_tags",
+  "all_definitions": [
+   [
+    "django/contrib/messages/utils.py",
+    "get_level_tags"
+   ]
+  ]
+ },
+ "target_qualname": "get_level_tags",
+ "original_fact": "get_level_tags is defined in and importable from django.contrib.messages.utils",
+ "trapped_fact": "get_level_tags moved to django.contrib.messages.tags; django.contrib.messages.utils no longer has it and every import was updated",
+ "placebo_kind": "the same move and the same import rewrites, plus one re-export line in the old module, so the old import path still works (same footprint as the trap)",
+ "files_changed": [
+  "django/contrib/messages/storage/base.py",
+  "django/contrib/messages/tags.py",
+  "django/contrib/messages/utils.py",
+  "tests/messages_tests/base.py"
+ ],
+ "files_changed_placebo": [
+  "django/contrib/messages/storage/base.py",
+  "django/contrib/messages/tags.py",
+  "django/contrib/messages/utils.py",
+  "tests/messages_tests/base.py"
+ ],
+ "lines_changed_trap": 29,
+ "lines_changed_placebo": 30,
+ "sites_trap": {
+  "definition removed": 1,
+  "import": 2,
+  "attribute": 2,
+  "new module": 1
+ },
+ "sites_placebo": {
+  "definition removed": 1,
+  "import": 2,
+  "attribute": 2,
+  "re-export": 1,
+  "new module": 1
+ },
+ "why_it_makes_sense": "A small helper moved from a grab-bag utils module into a module named after what it returns; all imports updated, no re-export (as in a major-version cleanup).",
+ "why_it_matters_for_task": "The gold patch adds from django.contrib.messages.utils import get_level_tags to messages/apps.py. From memory this import fails, so the messages app cannot load.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/contrib/messages/apps.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T4",
+  "defs": [
+   [
+    "django/contrib/messages/utils.py",
+    "get_level_tags"
+   ]
+  ],
+  "init": {
+   "new_file": "django/contrib/messages/tags.py",
+   "docstring": "Message level tags.",
+   "placebo_style": "alias"
+  },
+  "name": "get_level_tags",
+  "old_module": "django.contrib.messages.utils",
+  "new_module": "django.contrib.messages.tags",
+  "new_file": "django/contrib/messages/tags.py"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "9a6e2df3a8f01ea761529bec48e5a8dc0ea9575b",
+  "version": "4.1",
+  "FAIL_TO_PASS": [
+   "test_override_settings_level_tags (messages_tests.tests.TestLevelTags)"
+  ],
+  "n_PASS_TO_PASS": 1
+ },
+ "notes": "loud (ImportError at app loading)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-15127",
+ "build_seconds": 8.0
+}

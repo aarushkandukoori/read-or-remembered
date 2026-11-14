@@ -1,0 +1,103 @@
+{
+ "instance_id": "django__django-13551",
+ "trap_id": "T3-get_email_field_name",
+ "type": "T3",
+ "type_title": "rename",
+ "loud_or_quiet": "loud",
+ "target": {
+  "file": "django/contrib/auth/base_user.py",
+  "qualname": "AbstractBaseUser.get_email_field_name",
+  "all_definitions": [
+   [
+    "django/contrib/auth/base_user.py",
+    "AbstractBaseUser.get_email_field_name"
+   ]
+  ]
+ },
+ "target_qualname": "AbstractBaseUser.get_email_field_name",
+ "original_fact": "AbstractBaseUser.get_email_field_name is called get_email_field_name",
+ "trapped_fact": "get_email_field_name was renamed to get_email_field everywhere (no alias)",
+ "placebo_kind": "the same rename everywhere, plus a one-line alias that keeps the old name working; files that imported the old name import both names",
+ "files_changed": [
+  "django/contrib/auth/base_user.py",
+  "django/contrib/auth/forms.py",
+  "docs/topics/auth/customizing.txt",
+  "tests/auth_tests/test_models.py"
+ ],
+ "files_changed_placebo": [
+  "django/contrib/auth/base_user.py",
+  "django/contrib/auth/forms.py",
+  "docs/topics/auth/customizing.txt",
+  "tests/auth_tests/test_models.py"
+ ],
+ "lines_changed_trap": 16,
+ "lines_changed_placebo": 17,
+ "sites_trap": {
+  "name": 5,
+  "doc": 1
+ },
+ "sites_placebo": {
+  "name": 5,
+  "doc": 1,
+  "alias": 1
+ },
+ "why_it_makes_sense": "A classmethod that returns the email field's name renamed to a shorter name, everywhere, without a deprecation alias.",
+ "why_it_matters_for_task": "The gold patch adds email_field = user.get_email_field_name() to PasswordResetTokenGenerator. Written from memory the call raises AttributeError, so every token test fails.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "django/contrib/auth/tokens.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T3",
+  "defs": [
+   [
+    "django/contrib/auth/base_user.py",
+    "AbstractBaseUser.get_email_field_name"
+   ]
+  ],
+  "init": {
+   "new_name": "get_email_field"
+  },
+  "old_name": "get_email_field_name",
+  "new_name": "get_email_field"
+ },
+ "task": {
+  "repo": "django/django",
+  "base_commit": "7f9e4524d6b23424cf44fbe1bf1f4e70f6bb066e",
+  "version": "3.2",
+  "FAIL_TO_PASS": [
+   "Updating the user email address invalidates the token.",
+   "test_token_with_different_secret (auth_tests.test_tokens.TokenGeneratorTest)"
+  ],
+  "n_PASS_TO_PASS": 56
+ },
+ "notes": "loud; definition in another file (base_user.py) than the edit (tokens.py)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build django__django-13551",
+ "build_seconds": 13.7
+}

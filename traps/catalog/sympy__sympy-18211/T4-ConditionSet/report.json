@@ -1,0 +1,168 @@
+{
+ "trap": {
+  "files": [
+   "doc/src/modules/solvers/solveset.rst",
+   "sympy/core/tests/test_args.py",
+   "sympy/sets/__init__.py",
+   "sympy/sets/conditionset.py",
+   "sympy/sets/fancysets.py",
+   "sympy/sets/handlers/intersection.py",
+   "sympy/solvers/tests/test_solveset.py"
+  ],
+  "n_sites": 7,
+  "sites_by_kind": {
+   "import": 4,
+   "definition removed": 1,
+   "doc": 1,
+   "module": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/core/tests/test_args.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/sets/__init__.py",
+    "kind": "import",
+    "code": "from .fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/sets/conditionset.py",
+    "kind": "definition removed",
+    "code": "ConditionSet moved out of sympy/sets/conditionset.py"
+   },
+   {
+    "file": "sympy/sets/handlers/intersection.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/solvers/tests/test_solveset.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "doc/src/modules/solvers/solveset.rst",
+    "kind": "doc",
+    "code": "sympy.sets.conditionset.ConditionSet -> sympy.sets.fancysets.ConditionSet"
+   },
+   {
+    "file": "sympy/sets/fancysets.py",
+    "kind": "module",
+    "code": "sympy/sets/fancysets.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "ConditionSet is defined in and importable from sympy.sets.conditionset",
+   "trapped_fact": "ConditionSet moved to sympy.sets.fancysets; sympy.sets.conditionset no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "sympy/sets/conditionset.py",
+     "ConditionSet"
+    ]
+   ],
+   "init": {
+    "new_file": "sympy/sets/fancysets.py",
+    "docstring": null,
+    "placebo_style": "alias"
+   },
+   "name": "ConditionSet",
+   "old_module": "sympy.sets.conditionset",
+   "new_module": "sympy.sets.fancysets",
+   "new_file": "sympy/sets/fancysets.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "doc/src/modules/solvers/solveset.rst",
+   "sympy/core/tests/test_args.py",
+   "sympy/sets/__init__.py",
+   "sympy/sets/conditionset.py",
+   "sympy/sets/fancysets.py",
+   "sympy/sets/handlers/intersection.py",
+   "sympy/solvers/tests/test_solveset.py"
+  ],
+  "n_sites": 8,
+  "sites_by_kind": {
+   "import": 4,
+   "definition removed": 1,
+   "doc": 1,
+   "re-export": 1,
+   "module": 1
+  },
+  "sites": [
+   {
+    "file": "sympy/core/tests/test_args.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/sets/__init__.py",
+    "kind": "import",
+    "code": "from .fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/sets/conditionset.py",
+    "kind": "definition removed",
+    "code": "ConditionSet moved out of sympy/sets/conditionset.py"
+   },
+   {
+    "file": "sympy/sets/handlers/intersection.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/solvers/tests/test_solveset.py",
+    "kind": "import",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "doc/src/modules/solvers/solveset.rst",
+    "kind": "doc",
+    "code": "sympy.sets.conditionset.ConditionSet -> sympy.sets.fancysets.ConditionSet"
+   },
+   {
+    "file": "sympy/sets/conditionset.py",
+    "kind": "re-export",
+    "code": "from sympy.sets.fancysets import ConditionSet"
+   },
+   {
+    "file": "sympy/sets/fancysets.py",
+    "kind": "module",
+    "code": "sympy/sets/fancysets.py"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "ConditionSet is defined in and importable from sympy.sets.conditionset",
+   "trapped_fact": "ConditionSet moved to sympy.sets.fancysets; sympy.sets.conditionset no longer has it and every import was updated"
+  },
+  "spec": {
+   "type": "T4",
+   "defs": [
+    [
+     "sympy/sets/conditionset.py",
+     "ConditionSet"
+    ]
+   ],
+   "init": {
+    "new_file": "sympy/sets/fancysets.py",
+    "docstring": null,
+    "placebo_style": "alias"
+   },
+   "name": "ConditionSet",
+   "old_module": "sympy.sets.conditionset",
+   "new_module": "sympy.sets.fancysets",
+   "new_file": "sympy/sets/fancysets.py"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

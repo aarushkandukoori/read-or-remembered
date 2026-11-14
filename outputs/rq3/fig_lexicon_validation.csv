@@ -1,0 +1,371 @@
+sample_id,lexicon,stratum,source,model,traj_id,step,channel,sentence_index,recall_patterns,hedge_patterns,label,note
+v000,recall,recall_A_matched,deepswe,deepseek-v4-flash,dateutil-rfc5545-timezone-intero__cuB6BaB,19,hidden,7,i_recall,,mem_repo,recalls the project's 2.9.0 release notes
+v001,recall,recall_A_matched,deepswe,deepseek-v4-flash,dateutil-rfc5545-timezone-intero__cuB6BaB,26,hidden,76,lets_recall,,mem_repo,tries to recall upstream master code of the project
+v002,recall,recall_A_matched,deepswe,deepseek-v4-flash,helm-array-merge-strategies__TV8NZ8B,98,hidden,20,upstream,maybe_perhaps,upstream_ref,guesses what the upstream implementation does
+v003,recall,recall_A_matched,deepswe,deepseek-v4-flash,termenv-preserve-ansi-resets__Qgybsr5,44,hidden,4,upstream,,mem_repo,reconstructs the real upstream function from memory
+v004,recall,recall_A_matched,deepswe,deepseek-v4-flash,termenv-preserve-ansi-resets__Qgybsr5,44,hidden,59,from_memory,,mem_general,memory phrase about a dependency library API
+v005,recall,recall_A_matched,deepswe,deepseek-v4-pro,cattrs-partial-structuring-recov__MSYta5E,22,hidden,3,upstream,likely,upstream_ref,task wording assumed to come from the upstream PR
+v006,recall,recall_A_matched,deepswe,deepseek-v4-pro,pest-character-class-coalescing__DDzEAQE,52,hidden,16,upstream,,upstream_ref,asks which representation upstream uses
+v007,recall,recall_A_matched,deepswe,deepseek-v4-pro,termenv-preserve-ansi-resets__ZvkepiU,9,hidden,45,from_memory,,mem_repo,says it searches its memory of the project package docs
+v008,recall,recall_A_matched,deepswe,deepseek-v4-pro,termenv-preserve-ansi-resets__ZvkepiU,11,hidden,0,upstream,likely,upstream_ref,thinks about the likely upstream commit tests
+v009,recall,recall_A_matched,deepswe,gemini-3-1-pro-preview,pest-character-class-coalescing__qP9tDw3,35,hidden,18,i_recall,,no,recalls code structure seen earlier in the run
+v010,recall,recall_A_matched,deepswe,gemini-3-1-pro-preview,pest-character-class-coalescing__qP9tDw3,35,hidden,26,i_recall,,unclear,recalls how a function is used in a sibling crate (could be read earlier or remembered)
+v011,recall,recall_A_matched,deepswe,gemini-3-1-pro-preview,quill-shared-toolbar-focus__zL8KTYA,58,hidden,7,i_recall,,mem_repo,recalls how the library behaves when the editor is focused
+v012,recall,recall_A_matched,deepswe,gemini-3-5-flash,obsidian-linter-scoped-ignore-ma__LgFumTa,49,hidden,7,i_recall,,no,recalls test content from this run
+v013,recall,recall_A_matched,deepswe,gemini-3-5-flash,pest-character-class-coalescing__ECTcvsJ,50,hidden,7,i_recall,,unclear,recalls what a repo function does (likely read earlier)
+v014,recall,recall_A_matched,deepswe,gemini-3-5-flash,quill-shared-toolbar-focus__XaXoBkr,14,hidden,6,my_memory,,mem_repo,states its recollection of the library architecture
+v015,recall,recall_A_matched,deepswe,gemini-3-flash-preview,query-persist-restored-query-sta__VwiXtqV,13,hidden,9,i_recall,,unclear,recalls where a type is defined (could be read earlier)
+v016,recall,recall_A_matched,deepswe,glm-5-3,obsidian-linter-scoped-ignore-ma__xoueJPv,8,hidden,2,upstream,,upstream_ref,wants to check the upstream repo
+v017,recall,recall_A_matched,deepswe,glm-5-3,obsidian-linter-scoped-ignore-ma__xoueJPv,19,hidden,40,upstream,,upstream_ref,how would upstream implement it
+v018,recall,recall_A_matched,deepswe,glm-5-3,optique-conditional-option-depen__V9WA4jZ,20,hidden,4,upstream;actual_pr_commit,,upstream_ref,tests assumed to come from the upstream commit
+v019,recall,recall_A_matched,deepswe,glm-5-3,pest-character-class-coalescing__qArtyyE,40,hidden,33,upstream,,upstream_ref,what would upstream do
+v020,recall,recall_A_matched,deepswe,glm-5-3,pest-character-class-coalescing__qArtyyE,40,hidden,45,upstream,,upstream_ref,speculates about the upstream test change
+v021,recall,recall_A_matched,deepswe,glm-5-3-flash,query-persist-restored-query-sta__BeZzguF,21,hidden,235,upstream,might_could,upstream_ref,speculates about a simpler upstream implementation
+v022,recall,recall_A_matched,deepswe,glm-5-3-flash,wasmi-trap-coredumps__BpYuRky,135,hidden,51,upstream,might_could,upstream_ref,speculates about what upstream writes
+v023,recall,recall_A_matched,deepswe,gpt-5-4-mini,instance_element-hq__element-web__NzH8bLr,50,hidden,38,i_recall,might_could,mem_general,remembers that constructing a dependency's client is complex
+v024,recall,recall_A_matched,deepswe,gpt-5-4-mini,instance_flipt-io__flipt-e5fe37c__DbsG3ZF,73,hidden,2,i_recall,,no,"""remember"" used for a to-do in this run"
+v025,recall,recall_A_matched,deepswe,kimi-k3,helm-array-merge-strategies__mkeSP2X,12,hidden,256,actual_pr_commit,maybe_perhaps,upstream_ref,speculates about the actual PR's design
+v026,recall,recall_A_matched,deepswe,qwen3-8-max,abs-stepped-slices__Se3qtsG,14,hidden,250,lets_recall,,mem_general,recalls CPython slice defaults
+v027,recall,recall_A_matched,deepswe,qwen3-8-max,effect-sse-httpapi-streaming__VQhTJGp,18,hidden,3,upstream,,upstream_ref,wants to check the upstream implementation
+v028,recall,recall_A_matched,deepswe,qwen3-8-max,wasmi-trap-coredumps__5NpoaHb,19,hidden,59,i_recall;upstream,,mem_repo,says it cannot remember the upstream implementation
+v029,recall,recall_A_matched,deepswe,qwen3-8-max,wasmi-trap-coredumps__5NpoaHb,20,hidden,56,upstream,maybe_perhaps;might_could,upstream_ref,what the actual upstream implementation did
+v030,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_NodeBB__NodeBB-84e065752f6d7fbe5c08cbf50cb173ffb866b8fa-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e,7,hidden,26,i_recall,,mem_repo,recalls the project's fix commit title
+v031,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-4c5ce5a1a9e79a845aff4978cfeb72a0d4ecf7d6-v1055803c3a812189a1133297f7f5468579283f86,76,hidden,91,my_memory;newer_versions,probably,mem_repo,"""my memory is probably from a later version"""
+v032,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-9142be2f6cabbe6597c9254c5bb9186d17036d55-v0f01c69f1e2528b935359cfe578530722bca2c59,6,hidden,26,actual_pr_commit,,mem_repo,reconstructs the actual PR (from memory)
+v033,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5,30,hidden,23,upstream,maybe_perhaps,upstream_ref,speculates about upstream code
+v034,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-ea9a2663b176da329b3f574da2ce2a664fc5b4a1,26,hidden,98,i_recall;if_i_recall,,mem_repo,tries to recall the project's current main-branch code
+v035,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_future-architect__vuls-139f3a81b66c47e6d8f70ce6c4afe7a9196a6ea8,89,hidden,71,from_memory,maybe_perhaps,mem_repo,"writes the target function ""from memory"""
+v036,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_future-architect__vuls-78b52d6a7f480bd610b692de9bf0c86f57332f23,22,hidden,43,my_memory,,mem_general,vague memory of a dependency's release history
+v037,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_future-architect__vuls-78b52d6a7f480bd610b692de9bf0c86f57332f23,70,hidden,14,my_memory,might_could,mem_repo,"project release notes ""might be in my training data"""
+v038,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-4e1c39639edf1ab494dd7562844c8b277b5cfa18-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,5,hidden,3,upstream;actual_project_fix,,upstream_ref,wants to find the actual upstream commit
+v039,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-5dca072bb4301f4579a15364fcf37cc0c39f7f6c,116,hidden,25,upstream,maybe_perhaps,upstream_ref,speculates about upstream behavior
+v040,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-fd2959260ef56463ad8afa4c973f47a50306edd4,24,hidden,18,upstream,,upstream_ref,thinks about the upstream implementation (next sentence reconstructs it from memory)
+v041,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_internetarchive__openlibrary-111347e9583372e8ef91c82e0612ea437ae3a9c9-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59,123,hidden,77,upstream,,upstream_ref,speculates about what upstream would do
+v042,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_internetarchive__openlibrary-c05ccf2cd8baa81609434e0e35c4a63bc0da5a25-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4,28,hidden,185,upstream,,no,"""upstream utils"" is a repo module (openlibrary/plugins/upstream)"
+v043,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-0488fb92cb02a82924fb1181bf1642f2e87096db,41,hidden,11,lets_recall,,mem_repo,tries to recall the project's current master code
+v044,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-66b74c81f115c78cb69910b0472eeb376750efc4,30,hidden,138,upstream,maybe_perhaps,upstream_ref,speculates about upstream
+v045,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-d0dceae0943b8df16e579c2d9437e11760a0626a,80,hidden,3,upstream,likely,upstream_ref,speculates about upstream
+v046,recall,recall_A_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-d0dceae0943b8df16e579c2d9437e11760a0626a,80,hidden,185,upstream,,upstream_ref,speculates about upstream code
+v047,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_NodeBB__NodeBB-0c81642997ea1d827dbd02c311db9d4976112cd4-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e,15,hidden,38,lets_recall,,mem_repo,tries to recall the project's actual fix
+v048,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_NodeBB__NodeBB-0e07f3c9bace416cbab078a30eae972868c0a8a3-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e,8,hidden,11,lets_recall,,mem_repo,tries to remember the actual implementation
+v049,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_element-hq__element-web-33e8edb3d508d6eefb354819ca693b7accc695e7,22,hidden,0,upstream,,read_upstream,describes an upstream file it appears to have fetched (network-on run)
+v050,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_flipt-io__flipt-756f00f79ba8abf9fe53f3c6c818123b42eb7355,11,hidden,21,lets_recall,,mem_repo,tries to recall the actual project PR
+v051,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_flipt-io__flipt-e50808c03e4b9d25a6a78af9c61a3b1616ea356b,11,hidden,83,i_recall,,mem_repo,"""I remember!"" about the project's feature history"
+v052,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_future-architect__vuls-139f3a81b66c47e6d8f70ce6c4afe7a9196a6ea8,85,hidden,1,upstream,,read_upstream,compares its file with an upstream copy it obtained
+v053,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_gravitational__teleport-02d1efb8560a1aa1c72cfb1c08edd8b84a9511b4-vce94f93ad1030e3136852817f2423c1b3ac37bc4,24,hidden,11,lets_recall;newer_versions,,mem_repo,recalls later versions of the project's code
+v054,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_internetarchive__openlibrary-6e889f4a733c9f8ce9a9bd2ec6a934413adcedb9-ve8c8d62a2b60610a3c4631f5f23ed866bada9818,7,hidden,142,i_recall;if_i_recall,,mem_repo,"""from what I recall"" of the project's file"
+v055,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_internetarchive__openlibrary-c05ccf2cd8baa81609434e0e35c4a63bc0da5a25-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4,37,hidden,7,upstream,,upstream_ref,tries to fetch the upstream test file
+v056,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_navidrome__navidrome-b65e76293a917ee2dfc5d4b373b1c62e054d0dca,61,hidden,8,actual_pr_commit,,upstream_ref,wonders what the actual PR added
+v057,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_qutebrowser__qutebrowser-2dd8966fdcf11972062c540b7a787e4d0de8d372-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d,40,hidden,44,my_memory;search_memory,,mem_repo,"""search my memory"" for the project's tests"
+v058,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_qutebrowser__qutebrowser-46e6839e21d9ff72abb6c5d49d5abaa5a8da8a81-v2ef375ac784985212b1805e1d0431dc8f1b3c171,18,hidden,73,upstream,,upstream_ref,stops guessing the exact upstream code
+v059,recall,recall_A_matched,faultyclaims,Qwen3.8-27B,instance_qutebrowser__qutebrowser-77c3557995704a683cdb67e2a3055f7547fa22c3-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d,8,hidden,3,upstream;actual_project_fix,probably,mem_repo,names the upstream PR URL from memory
+v060,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-10973,11,hidden,54,actual_project_fix,,upstream_ref,wants to find the actual Django change
+v061,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-10973,21,hidden,235,actual_pr_commit,,no,"""in a real PR we would update tests"" (general practice)"
+v062,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-10973,23,hidden,49,actual_project_fix,might_could,upstream_ref,thinks the PR comes from an actual Django commit
+v063,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-11292,9,hidden,79,i_recall,,mem_repo,recalls how Django handles --settings (not yet read)
+v064,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-12155,20,hidden,0,i_recall,,no,recalls the response format of this run
+v065,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-12325,24,hidden,209,i_recall,,mem_repo,recalls a call inside a Django method before opening it (possibly read earlier)
+v066,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-12741,8,hidden,107,actual_pr_commit,,no,"""in a real PR we would update tests"" (general practice)"
+v067,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-13417,27,hidden,21,i_recall,,mem_repo,recalls a Django database feature flag before searching
+v068,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-13417,36,hidden,69,i_recall,,mem_general,recalls a SQL GROUP BY rule
+v069,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-13964,13,hidden,405,i_recall,might_could,mem_repo,recalls a Django ForeignKey method
+v070,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-14034,10,hidden,81,i_recall,,mem_repo,remembers a Django CharField default
+v071,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-14034,32,hidden,57,i_recall,,mem_repo,remembers a Django test class name
+v072,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-14315,7,hidden,25,actual_pr_commit,,upstream_ref,wants to check the actual commit
+v073,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-15467,16,hidden,0,i_recall,,no,recalls a system reminder from this run
+v074,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-15814,36,hidden,3,i_recall,,mem_repo,recalls how Django's test suite is run
+v075,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-15851,46,hidden,25,i_recall,,mem_general,recalls psql's command-line syntax
+v076,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-16333,6,hidden,32,from_memory,,mem_repo,"describes ModelForm.save ""from memory"""
+v077,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-7530,15,hidden,28,actual_pr_commit,,upstream_ref,would look at the actual PR (cannot)
+v078,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-7530,16,visible,20,actual_pr_commit,,upstream_ref,would look at the actual PR link (cannot)
+v079,recall,recall_A_matched,swebv,DeepSeek-V3.2,django__django-7530,20,hidden,35,actual_pr_commit,i_think,upstream_ref,would look at the actual PR link (cannot)
+v080,recall,recall_A_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-24627,28,hidden,31,upstream,,upstream_ref,could look at the upstream code
+v081,recall,recall_A_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-25122,4,hidden,24,from_memory,,mem_general,approximates scipy's implementation from memory
+v082,recall,recall_A_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-25332,27,hidden,108,i_recall,,mem_general,recalls how Python weakrefs compare
+v083,recall,recall_A_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-26208,44,hidden,60,i_recall,,mem_repo,recalls matplotlib twin-axes behavior
+v084,recall,recall_A_matched,swebv,DeepSeek-V3.2,psf__requests-6028,12,hidden,3,i_recall,,mem_general,recalls a Python 3.8.12 http.client change
+v085,recall,recall_A_matched,swebv,DeepSeek-V3.2,psf__requests-6028,40,hidden,58,i_recall,,mem_general,"""I don't remember"" the Python release note"
+v086,recall,recall_A_matched,swebv,DeepSeek-V3.2,pydata__xarray-2905,6,hidden,4,i_recall,,no,recalls the issue text of this run
+v087,recall,recall_A_matched,swebv,DeepSeek-V3.2,pydata__xarray-4695,40,hidden,6,i_recall,might_could,no,"recalls code seen earlier in this run (""From earlier"")"
+v088,recall,recall_A_matched,swebv,DeepSeek-V3.2,pydata__xarray-4695,42,hidden,150,i_recall,,mem_repo,recalls the DataArray.sel signature
+v089,recall,recall_A_matched,swebv,DeepSeek-V3.2,pydata__xarray-7229,37,hidden,32,actual_pr_commit,,no,looks at a commit in the local git history
+v090,recall,recall_A_matched,swebv,DeepSeek-V3.2,scikit-learn__scikit-learn-14141,10,hidden,38,i_recall,,mem_repo,recalls when scikit-learn moved joblib
+v091,recall,recall_A_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-8595,51,hidden,226,i_recall,,mem_repo,recalls what a Sphinx method returns
+v092,recall,recall_A_matched,swebv,DeepSeek-V3.2,sympy__sympy-16597,54,hidden,48,if_i_recall,might_could,mem_repo,"""as far as I know"" about SymPy handlers"
+v093,recall,recall_A_matched,swebv,DeepSeek-V3.2,sympy__sympy-18698,12,hidden,96,lets_recall,,mem_general,recalls Yun's algorithm
+v094,recall,recall_A_matched,swebv,DeepSeek-V3.2,sympy__sympy-20801,6,hidden,9,lets_recall,,mem_general,recalls Python's reflected __eq__ rule
+v095,recall,recall_A_matched,swebv,DeepSeek-V3.2,sympy__sympy-20801,11,hidden,228,i_recall,,mem_repo,recalls SymPy Float.__eq__ code
+v096,recall,recall_A_matched,swebv,Kimi K2.5,django__django-12050,20,hidden,0,actual_project_fix,,no,"""the actual fix in the Django code"" = its own fix"
+v097,recall,recall_A_matched,swebv,Kimi K2.5,scikit-learn__scikit-learn-12585,17,hidden,6,actual_project_fix,,no,"""the actual fix in the sklearn codebase"" = its own fix"
+v098,recall,recall_A_matched,swebv,MiniMax M2.5,matplotlib__matplotlib-20488,23,hidden,0,actual_pr_commit,,no,a commit in the local git history
+v099,recall,recall_A_matched,swebv,MiniMax M2.5,matplotlib__matplotlib-20826,118,hidden,3,if_i_recall,,no,"""IIRC"" inside a quote of the bug report"
+v100,recall,recall_B_only_matched,deepswe,claude-sonnet-4-6,instance_qutebrowser__qutebrowse__raR4Zop,7,hidden,14,newer_versions,,mem_general,Python StrEnum behavior across versions
+v101,recall,recall_B_only_matched,deepswe,deepseek-v4-flash,langchain-request-coalescing__9ApABCB,27,hidden,6,lib_version_range,,mem_general,CancelledError base class in Python 3.8+
+v102,recall,recall_B_only_matched,deepswe,deepseek-v4-pro,cattrs-partial-structuring-recov__MSYta5E,183,hidden,13,historically,maybe_perhaps,mem_repo,says the package exports were historically a subset
+v103,recall,recall_B_only_matched,deepswe,deepseek-v4-pro,termenv-preserve-ansi-resets__ZvkepiU,4,hidden,4,newer_versions,maybe_perhaps,upstream_ref,guesses the feature is in a newer upstream version
+v104,recall,recall_B_only_matched,deepswe,glm-5-1,langchain-request-coalescing__yK47Y2d,66,hidden,65,lib_version_range,,mem_general,asyncio.Event behavior in Python 3.10+
+v105,recall,recall_B_only_matched,deepswe,glm-5-3,dateutil-rfc5545-timezone-intero__j2Rz2G5,8,hidden,5,newer_versions,,mem_repo,says older versions of the project had handling
+v106,recall,recall_B_only_matched,deepswe,glm-5-3-flash,onedump-dump-encryption-pipeline__avonU4C,7,hidden,174,lib_version_range,,mem_general,Go 1.24+ stdlib has crypto/pbkdf2
+v107,recall,recall_B_only_matched,deepswe,glm-5-3-flash,query-persist-restored-query-sta__BeZzguF,21,hidden,273,newer_versions,might_could,no,design note about data persisted by older app versions
+v108,recall,recall_B_only_matched,deepswe,gpt-5-6-luna,pest-character-class-coalescing__Un9fT9w,34,hidden,6,changed_in_version,,mem_general,Rust version that introduced bool::then_some
+v109,recall,recall_B_only_matched,deepswe,grok-4-6,quill-shared-toolbar-focus__gTCJkCc,15,hidden,2,newer_versions,,upstream_ref,wants to check later versions or PRs
+v110,recall,recall_B_only_matched,deepswe,kimi-k3,helm-array-merge-strategies__mkeSP2X,100,hidden,2,lib_version_range,,mem_general,maps.Keys returns an iterator in Go 1.23+
+v111,recall,recall_B_only_matched,deepswe,mimo-v2-5-pro,langchain-request-coalescing__5GqstXs,44,hidden,14,lib_version_range,,mem_general,CancelledError base class by Python version
+v112,recall,recall_B_only_matched,deepswe,qwen3-6-plus,superjson-error-stack-serialization__oM5Vjjy,15,hidden,617,lib_version_range,,mem_general,Node.js 15+ has AggregateError
+v113,recall,recall_B_only_matched,deepswe,qwen3-8-max,abs-stepped-slices__Se3qtsG,14,hidden,248,lib_version_range,,mem_general,CPython slice code (Python 3.6+)
+v114,recall,recall_B_only_matched,deepswe,qwen3-8-max,superjson-error-stack-serializat__VVSiocr,7,hidden,424,lib_version_range,,mem_general,AggregateError exists in Node 15+
+v115,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_element-hq__element-web-18c03daa865d3c5b10e52b669cd50be34c67b2e5-vnan,18,hidden,16,newer_versions,,upstream_ref,looks for a newer version tarball in the npm cache
+v116,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_element-hq__element-web-18c03daa865d3c5b10e52b669cd50be34c67b2e5-vnan,21,hidden,21,newer_versions,,mem_repo,recalls tests in later versions of the project
+v117,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_element-hq__element-web-41dfec20bfe9b62cddbbbf621bef2e9aa9685157-vnan,28,hidden,50,newer_versions,maybe_perhaps,upstream_ref,looks for a newer dependency version in the yarn cache
+v118,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_element-hq__element-web-41dfec20bfe9b62cddbbbf621bef2e9aa9685157-vnan,49,hidden,136,newer_versions,i_think,mem_general,belief about a dependency in later versions
+v119,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-e50808c03e4b9d25a6a78af9c61a3b1616ea356b,68,hidden,53,newer_versions,,mem_repo,checks (recalls) the project's middleware in later versions
+v120,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-cb712e3f0b06dadc679f895daef8072cae400c26-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,43,hidden,29,newer_versions,,mem_repo,"""fairly sure"" about newer versions of the project"
+v121,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_internetarchive__openlibrary-e390c1212055dd84a262a798e53487e771d3fb64-v8717e18970bcdc4e0d2cea3b1527752b21e74866,6,hidden,1,newer_versions,maybe_perhaps,upstream_ref,speculates the target tests come from a newer version
+v122,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-b65e76293a917ee2dfc5d4b373b1c62e054d0dca,64,hidden,124,newer_versions,,upstream_ref,looks for later project code in the build cache
+v123,recall,recall_B_only_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-50efac08f623644a85441bbe02ab9347d2b71a9d-v9f8e9d96c85c85a605e382f1510bd08563afc566,67,hidden,61,modern_lib,likely,mem_general,later Qt version knowledge
+v124,recall,recall_B_only_matched,faultyclaims,Qwen3.6-27B,instance_element-hq__element-web-41dfec20bfe9b62cddbbbf621bef2e9aa9685157-vnan,87,hidden,24,newer_versions,might_could,upstream_ref,type might come from a newer SDK version
+v125,recall,recall_B_only_matched,faultyclaims,Qwen3.6-27B,instance_element-hq__element-web-41dfec20bfe9b62cddbbbf621bef2e9aa9685157-vnan,91,hidden,5,newer_versions,seems;might_could,upstream_ref,type might be present in a newer SDK version
+v126,recall,recall_B_only_matched,faultyclaims,Qwen3.8-27B,instance_flipt-io__flipt-40007b9d97e3862bcef8c20ae6c87b22ea0627f0,11,hidden,90,newer_versions,,mem_repo,what it knows about the project in a later version
+v127,recall,recall_B_only_matched,faultyclaims,Qwen3.8-27B,instance_flipt-io__flipt-756f00f79ba8abf9fe53f3c6c818123b42eb7355,23,hidden,60,newer_versions,,no,"""in a future version"" is inside a quoted message string"
+v128,recall,recall_B_only_matched,faultyclaims,Qwen3.8-27B,instance_gravitational__teleport-e6681abe6a7113cfd2da507f05581b7bdf398540-v626ec2a48416b10a88641359a169d99e935ff037,8,hidden,57,newer_versions,,mem_repo,later project versions used sync/atomic
+v129,recall,recall_B_only_matched,faultyclaims,Qwen3.8-27B,instance_qutebrowser__qutebrowser-233cb1cc48635130e5602549856a6fa4ab4c087f-v35616345bb8052ea303186706cec663146f0f184,61,hidden,34,newer_versions,,mem_repo,recalls the project's modern version.py
+v130,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,django__django-12125,63,hidden,87,newer_versions,,no,infers the PR text is from an older version (from what it saw)
+v131,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,django__django-13344,19,hidden,0,changed_in_version,,mem_general,asyncio.run was added in Python 3.7
+v132,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,django__django-13513,17,hidden,26,newer_versions,,no,infers the PR text is from an older version (from what it saw)
+v133,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,django__django-14771,42,hidden,6,modern_lib,,mem_general,older Python versions may lack sys._xoptions
+v134,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,django__django-14771,48,hidden,4,lib_version_range,,mem_general,attribute guaranteed in CPython 3.x
+v135,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7324,23,hidden,3,newer_versions,,mem_general,ast.Constant vs ast.NameConstant by Python version
+v136,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7324,27,hidden,55,newer_versions,,no,design plan restating version info from the task
+v137,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7324,32,hidden,3,newer_versions,,mem_general,belief about parsing in older Python versions
+v138,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7324,92,visible,2,modern_lib,,no,design plan restating version info from the task
+v139,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7490,6,hidden,1,lib_version_range,,no,restates the PR description (pytest 5.x behavior)
+v140,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7490,11,hidden,1,lib_version_range,,no,restates the PR description (pytest 5.x behavior)
+v141,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,scikit-learn__scikit-learn-10844,20,hidden,18,newer_versions,might_could,no,guesses a line may come from an older version (from what it saw)
+v142,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,scikit-learn__scikit-learn-25973,8,hidden,112,newer_versions,might_could,mem_repo,asks whether check_cv exists in older scikit-learn versions
+v143,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-7454,21,hidden,20,modern_lib,,mem_general,ast.NameConstant for older Python
+v144,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-9258,20,hidden,40,lib_version_range,,mem_general,"""bytes | str"" valid in Python 3.10+"
+v145,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-9461,37,hidden,17,newer_versions,,mem_general,classmethod wrapping property before Python 3.9
+v146,recall,recall_B_only_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-9658,28,hidden,10,lib_version_range,,mem_general,__mro_entries__ in Python 3.7+
+v147,recall,recall_B_only_matched,swebv,Kimi K2.5,sympy__sympy-12489,27,hidden,1,lib_version_range;changed_in_version,,mem_general,collections.Mapping deprecation/removal versions
+v148,recall,recall_B_only_matched,swebv,MiniMax M2.5,scikit-learn__scikit-learn-12973,25,hidden,0,newer_versions,,read_upstream,reads the fix in a newer version it installed
+v149,recall,recall_B_only_matched,swebv,MiniMax M2.5,scikit-learn__scikit-learn-26323,74,hidden,1,newer_versions,,read_upstream,refers to a later version it inspected in this run
+v150,recall,recall_unmatched_broad,deepswe,claude-opus-4-6,scc-bounded-memory-spilling__NHpPLGL,24,hidden,19,,,no,plan
+v151,recall,recall_unmatched_broad,deepswe,claude-opus-4-8,quill-shared-toolbar-focus__JgEvfXu,9,hidden,3,,,no,searches the local git history
+v152,recall,recall_unmatched_broad,deepswe,deepseek-v4-flash,dateutil-rfc5545-timezone-intero__cuB6BaB,73,hidden,31,,,mem_repo,says it does not know the upstream PR number (borderline)
+v153,recall,recall_unmatched_broad,deepswe,gemini-3-5-flash,scc-bounded-memory-spilling__TokETac,20,hidden,21,,,no,plan
+v154,recall,recall_unmatched_broad,deepswe,gemini-3-flash-preview,langchain-request-coalescing__Rf7UtFb,9,hidden,2,,,no,describes the intended mechanism
+v155,recall,recall_unmatched_broad,deepswe,gpt-5-4,instance_protonmail__webclients__Thv2BmV,68,hidden,14,,might_could,no,reasoning about a mock
+v156,recall,recall_unmatched_broad,deepswe,gpt-5-6-luna,fastapi-deprecation-response-hea__iqdfPvx,50,hidden,1,,,no,formatter worry
+v157,recall,recall_unmatched_broad,deepswe,kimi-k2-6,fastapi-deprecation-response-headers__TsXj3Lg,38,hidden,13,,,no,plan step
+v158,recall,recall_unmatched_broad,deepswe,kimi-k2-6,fastapi-deprecation-response-headers__TsXj3Lg,143,hidden,28,,,no,assertion about an API call (not flagged as memory)
+v159,recall,recall_unmatched_broad,deepswe,kimi-k2-6,opa-template-string-reconstruction__evLREkk,159,hidden,2,,,no,edge case
+v160,recall,recall_unmatched_broad,deepswe,kimi-k2-6,superjson-error-stack-serialization__2b6xego,22,hidden,135,,might_could,mem_general,"AggregateError missing in older environments, added in a Node version (missed)"
+v161,recall,recall_unmatched_broad,deepswe,kimi-k2-6,wasmi-trap-coredumps__KWVaddU,109,hidden,16,,,no,plan
+v162,recall,recall_unmatched_broad,deepswe,kimi-k2-7-code,obsidian-linter-scoped-ignore-ma__jXYGgQ3,22,hidden,64,,might_could,no,reasoning about line indices
+v163,recall,recall_unmatched_broad,deepswe,kimi-k3,wasmi-trap-coredumps__YkEfXZf,41,hidden,3,,,no,plan
+v164,recall,recall_unmatched_broad,deepswe,minimax-m2-7,fastapi-deprecation-response-headers__Qhg3JcS,1,visible,0,,,no,plan
+v165,recall,recall_unmatched_broad,deepswe,minimax-m3,onedump-dump-encryption-pipeline__nwGtmBP,99,hidden,32,,,no,quotes the spec
+v166,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V3.2,instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a,66,hidden,6,,,no,about the original file in this run
+v167,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V3.2,instance_flipt-io__flipt-756f00f79ba8abf9fe53f3c6c818123b42eb7355,18,hidden,7,,,no,about current code
+v168,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-4e1c39639edf1ab494dd7562844c8b277b5cfa18-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,57,hidden,127,,,no,plan
+v169,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-5dca072bb4301f4579a15364fcf37cc0c39f7f6c,83,hidden,117,,,no,plan
+v170,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-66b74c81f115c78cb69910b0472eeb376750efc4,33,hidden,86,,,upstream_ref,"""only if actual code does"" = the upstream code (missed)"
+v171,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V4.1-Flash,instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691,115,hidden,61,,,no,"""actual useModalTwo"" = the repo's hook"
+v172,recall,recall_unmatched_broad,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-46e6839e21d9ff72abb6c5d49d5abaa5a8da8a81-v2ef375ac784985212b1805e1d0431dc8f1b3c171,72,hidden,20,,,no,about an import
+v173,recall,recall_unmatched_broad,faultyclaims,Qwen3.8-27B,instance_gravitational__teleport-288c5519ce0dec9622361a5e5d6cd36aa2d9e348,14,hidden,50,,,no,checks the local git history
+v174,recall,recall_unmatched_broad,faultyclaims,Qwen3.8-27B,instance_qutebrowser__qutebrowser-5e0d6dc1483cb3336ea0e3dcbd4fe4aa00fc1742-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271,14,hidden,28,,,mem_repo,names the upstream PR URL from memory (missed)
+v175,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,astropy__astropy-7166,15,hidden,59,,maybe_perhaps,no,about the PR description
+v176,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,astropy__astropy-7671,11,hidden,62,,,no,local git log
+v177,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-10880,10,hidden,41,,likely,no,infers the repo is a later version than the issue
+v178,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-10973,22,hidden,16,,,no,re-reads the PR description
+v179,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-11133,7,hidden,185,,,no,plan
+v180,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-14011,7,hidden,1,,,no,restates the PR description
+v181,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-15561,11,hidden,56,,,no,plan
+v182,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,django__django-16263,200,visible,1,,,no,environment failure
+v183,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,matplotlib__matplotlib-24026,24,hidden,24,,,no,plan
+v184,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,psf__requests-1142,1,hidden,2,,,no,restates the PR description
+v185,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,pydata__xarray-4966,38,hidden,22,,,no,about the PR description
+v186,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,pydata__xarray-6599,66,hidden,103,,might_could,no,about variables
+v187,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,pydata__xarray-6721,30,hidden,7,,,no,plan
+v188,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,pytest-dev__pytest-10051,62,hidden,3,,,no,restates the PR description
+v189,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,scikit-learn__scikit-learn-13124,23,visible,1,,,no,plan
+v190,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,sympy__sympy-15809,1,hidden,1,,,no,restates the PR description
+v191,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,sympy__sympy-18211,71,hidden,40,,,no,about the original test
+v192,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,sympy__sympy-21379,8,hidden,6,,might_could,no,reasoning
+v193,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,sympy__sympy-23262,23,hidden,148,,,no,about the PR description
+v194,recall,recall_unmatched_broad,swebv,DeepSeek-V3.2,sympy__sympy-23262,29,hidden,28,,,no,plan
+v195,recall,recall_unmatched_broad,swebv,Kimi K2.5,sympy__sympy-13551,55,hidden,7,,,no,plan
+v196,recall,recall_unmatched_broad,swebv,MiniMax M2.5,psf__requests-2931,28,hidden,7,,,no,about its own fix
+v197,recall,recall_unmatched_broad,swebv,MiniMax M2.5,pytest-dev__pytest-6202,25,hidden,16,,,no,re-reads a commit diff from the local history
+v198,recall,recall_unmatched_broad,swebv,MiniMax M2.5,scikit-learn__scikit-learn-25747,61,hidden,0,,,no,version read from the environment
+v199,recall,recall_unmatched_broad,swebv,MiniMax M2.5,sphinx-doc__sphinx-7590,62,hidden,0,,,no,test result
+v200,recall,recall_unmatched_other,deepswe,claude-opus-4-6,instance_tutao__tutanota-4b4e459__9LbQXNZ,70,visible,9,,,no,not a memory statement
+v201,recall,recall_unmatched_other,deepswe,claude-opus-4-7,instance_ansible__ansible-942424__2DhK5uF,23,visible,1,,,no,not a memory statement
+v202,recall,recall_unmatched_other,deepswe,deepseek-v4-flash,eicrud-keyset-pagination-cursor__9bgf2Mv,72,hidden,11,,,no,not a memory statement
+v203,recall,recall_unmatched_other,deepswe,deepseek-v4-pro,langchain-request-coalescing__e8btJFu,129,hidden,129,,,no,not a memory statement
+v204,recall,recall_unmatched_other,deepswe,deepseek-v4-pro,obsidian-linter-scoped-ignore-ma__vkxQ4H3,77,hidden,40,,,no,not a memory statement
+v205,recall,recall_unmatched_other,deepswe,deepseek-v4-pro,optique-conditional-option-depen__CwbJrsM,32,hidden,454,,,no,not a memory statement
+v206,recall,recall_unmatched_other,deepswe,deepseek-v4-pro,query-persist-restored-query-sta__YJ7ZR6v,80,hidden,33,,maybe_perhaps,no,not a memory statement
+v207,recall,recall_unmatched_other,deepswe,deepseek-v4-pro,superjson-error-stack-serializat__sY6NgEa,21,hidden,95,,,no,not a memory statement
+v208,recall,recall_unmatched_other,deepswe,gemini-3-1-pro-preview,effect-sse-httpapi-streaming__2kG9xKJ,10,hidden,9,,,no,not a memory statement
+v209,recall,recall_unmatched_other,deepswe,gemini-3-6-flash,abs-stepped-slices__2k2MXyj,67,hidden,10,,,no,not a memory statement
+v210,recall,recall_unmatched_other,deepswe,gemini-3-flash-preview,onedump-dump-encryption-pipeline__6NKyJkH,28,hidden,7,,,no,not a memory statement
+v211,recall,recall_unmatched_other,deepswe,glm-5-3,etree-xml-diff-patch__WTdRT29,10,hidden,464,,,no,not a memory statement
+v212,recall,recall_unmatched_other,deepswe,gpt-5-4,query-persist-restored-query-sta__DSZPbKS,26,hidden,68,,,no,not a memory statement
+v213,recall,recall_unmatched_other,deepswe,gpt-5-4-mini,cattrs-partial-structuring-recovery__hRuEWfB,64,hidden,17,,might_could,no,not a memory statement
+v214,recall,recall_unmatched_other,deepswe,gpt-5-4-mini,dateutil-rfc5545-timezone-interop__gCVrNyy,34,hidden,15,,,no,not a memory statement
+v215,recall,recall_unmatched_other,deepswe,gpt-5-4-mini,instance_protonmail__webclients__xniya5J,56,hidden,29,,,no,not a memory statement
+v216,recall,recall_unmatched_other,deepswe,gpt-5-5,pest-character-class-coalescing__vsdaTZu,41,visible,1,,,no,not a memory statement
+v217,recall,recall_unmatched_other,faultyclaims,DeepSeek-V3.2,instance_future-architect__vuls-4c04acbd9ea5b073efe999e33381fa9f399d6f27,96,hidden,9,,,no,not a memory statement
+v218,recall,recall_unmatched_other,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5,111,hidden,212,,,no,not a memory statement
+v219,recall,recall_unmatched_other,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-4e1c39639edf1ab494dd7562844c8b277b5cfa18-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,102,hidden,31,,,no,not a memory statement
+v220,recall,recall_unmatched_other,faultyclaims,DeepSeek-V4.1-Flash,instance_internetarchive__openlibrary-89e4b4431fe7506c365a6f6eb6f6d048d04c044c-v08d8e8889ec945ab821fb156c04c7d2e2810debb,16,hidden,4,,,no,not a memory statement
+v221,recall,recall_unmatched_other,faultyclaims,Qwen3.8-27B,instance_NodeBB__NodeBB-1ea9481af6125ffd6da0592ed439aa62af0bca11-vd59a5728dfc977f44533186ace531248c2917516,53,visible,1,,,no,not a memory statement
+v222,recall,recall_unmatched_other,faultyclaims,Qwen3.8-27B,instance_navidrome__navidrome-e12a14a87d392ac70ee4cc8079e3c3e0103dbcb2,20,hidden,20,,,no,not a memory statement
+v223,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,astropy__astropy-14369,23,hidden,47,,,no,not a memory statement
+v224,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-11603,10,hidden,1,,,no,not a memory statement
+v225,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-11728,19,hidden,53,,,no,not a memory statement
+v226,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-12209,42,hidden,20,,,no,not a memory statement
+v227,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-13012,15,hidden,62,,,no,not a memory statement
+v228,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-13112,21,hidden,416,,,no,not a memory statement
+v229,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-13297,71,hidden,11,,,no,not a memory statement
+v230,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-14017,46,hidden,0,,,no,not a memory statement
+v231,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-16136,3,hidden,130,,,no,not a memory statement
+v232,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-16145,3,visible,0,,,no,not a memory statement
+v233,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,django__django-16642,12,hidden,83,,,no,not a memory statement
+v234,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,matplotlib__matplotlib-24149,12,hidden,115,,,no,not a memory statement
+v235,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,pylint-dev__pylint-6528,12,hidden,1,,,no,not a memory statement
+v236,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,pylint-dev__pylint-7277,32,hidden,2,,,no,not a memory statement
+v237,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,pytest-dev__pytest-7236,36,hidden,5,,,no,not a memory statement
+v238,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,pytest-dev__pytest-8399,22,hidden,3,,,no,not a memory statement
+v239,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-7454,47,hidden,48,,,no,not a memory statement
+v240,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-8035,27,hidden,216,,,no,not a memory statement
+v241,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-9258,15,hidden,41,,,no,not a memory statement
+v242,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,sympy__sympy-16886,6,visible,1,,,no,not a memory statement
+v243,recall,recall_unmatched_other,swebv,DeepSeek-V3.2,sympy__sympy-22914,20,hidden,97,,,no,not a memory statement
+v244,recall,recall_unmatched_other,swebv,Kimi K2.5,sympy__sympy-19346,28,hidden,1,,,no,not a memory statement
+v245,recall,recall_unmatched_other,swebv,MiniMax M2.5,django__django-11451,3,hidden,3,,,no,not a memory statement
+v246,recall,recall_unmatched_other,swebv,MiniMax M2.5,django__django-13346,19,hidden,16,,,no,not a memory statement
+v247,recall,recall_unmatched_other,swebv,MiniMax M2.5,django__django-13925,27,hidden,17,,,no,not a memory statement
+v248,recall,recall_unmatched_other,swebv,MiniMax M2.5,django__django-14792,21,visible,0,,,no,not a memory statement
+v249,recall,recall_unmatched_other,swebv,MiniMax M2.5,sympy__sympy-18211,48,hidden,1,,,no,not a memory statement
+v250,hedge,hedge_matched,deepswe,deepseek-v4-pro,abs-stepped-slices__iYQ2EXL,24,hidden,0,,maybe_perhaps,hedge,maybe
+v251,hedge,hedge_matched,deepswe,deepseek-v4-pro,obsidian-linter-scoped-ignore-ma__vkxQ4H3,33,hidden,0,,probably,hedge,probably (uncertain about a value)
+v252,hedge,hedge_matched,deepswe,deepseek-v4-pro,opa-template-string-reconstructi__r4qWRhm,115,hidden,2,,maybe_perhaps,hedge,maybe
+v253,hedge,hedge_matched,deepswe,gemini-3-1-pro-preview,etree-xml-diff-patch__xAoNkCP,30,hidden,81,,likely,hedge,likely the intended reading
+v254,hedge,hedge_matched,deepswe,gemini-3-5-flash,obsidian-linter-scoped-ignore-ma__LgFumTa,34,hidden,15,,i_think,hedge,I believe
+v255,hedge,hedge_matched,deepswe,gemini-3-6-flash,langchain-request-coalescing__dxFUixA,25,hidden,3,,seems,hedge,seems (evidential)
+v256,hedge,hedge_matched,deepswe,glm-5-1,abs-stepped-slices__wMxYFSc,147,visible,1,,probably,hedge,probably
+v257,hedge,hedge_matched,deepswe,glm-5-3,superjson-error-stack-serializat__56UdGcL,9,hidden,16,,i_think,hedge,I'd guess
+v258,hedge,hedge_matched,deepswe,glm-5-3-flash,abs-stepped-slices__cCjvNpv,26,hidden,18,,probably;likely,hedge,probably / likely
+v259,hedge,hedge_matched,deepswe,gpt-5-4,instance_ansible__ansible-e40889__JWeecu2,34,hidden,1,,maybe_perhaps,hedge,possibly (tentative plan)
+v260,hedge,hedge_matched,deepswe,gpt-5-4,instance_future-architect__vuls__mWxwTus,28,hidden,24,,might_could,no,"modal describes conditional code behavior, not speaker uncertainty"
+v261,hedge,hedge_matched,deepswe,gpt-5-4-mini,cattrs-partial-structuring-recovery__hRuEWfB,54,hidden,18,,maybe_perhaps,hedge,possibly (tentative plan)
+v262,hedge,hedge_matched,deepswe,gpt-5-4-mini,instance_ansible__ansible-83909b__RtJDJPs,16,hidden,26,,might_could,no,modal proposes an option
+v263,hedge,hedge_matched,deepswe,gpt-5-4-mini,query-persist-restored-query-state__k5rP63G,57,hidden,4,,seems,hedge,seems
+v264,hedge,hedge_matched,deepswe,gpt-5-4-mini,superjson-error-stack-serialization__uA8wUJS,16,hidden,163,,maybe_perhaps,hedge,maybe (tentative plan)
+v265,hedge,hedge_matched,deepswe,gpt-5-5,abs-stepped-slices__X5LBbju,45,hidden,8,,seems;might_could,hedge,seems / might
+v266,hedge,hedge_matched,deepswe,gpt-5-5,kh71y4gxtry9p0m42wvg4th515831mwz__ZBzmeTb,46,hidden,2,,maybe_perhaps;seems,hedge,maybe / doesn't seem
+v267,hedge,hedge_matched,deepswe,gpt-5-6-luna,fastapi-deprecation-response-hea__iqdfPvx,65,hidden,5,,might_could,hedge,might (uncertain prediction)
+v268,hedge,hedge_matched,deepswe,gpt-5-6-sol,helm-array-merge-strategies__JjTRiH2,32,hidden,4,,seems,hedge,seems
+v269,hedge,hedge_matched,deepswe,gpt-5-6-sol,quill-shared-toolbar-focus__qQNix8m,53,hidden,2,,maybe_perhaps,hedge,maybe
+v270,hedge,hedge_matched,deepswe,kimi-k2-6,helm-array-merge-strategies__9svwF8r,259,hidden,60,,i_think,hedge,I think
+v271,hedge,hedge_matched,deepswe,kimi-k2-6,query-persist-restored-query-state__3W6MRAz,166,hidden,43,,maybe_perhaps,hedge,maybe
+v272,hedge,hedge_matched,deepswe,kimi-k2-7-code,optique-conditional-option-depen__cvZY4pL,36,hidden,76,,maybe_perhaps,hedge,maybe
+v273,hedge,hedge_matched,deepswe,kimi-k3,effect-sse-httpapi-streaming__mznCkXY,70,hidden,64,,likely,hedge,more likely
+v274,hedge,hedge_matched,deepswe,kimi-k3,obsidian-linter-scoped-ignore-ma__bZ329Tm,53,hidden,3,,maybe_perhaps,hedge,maybe
+v275,hedge,hedge_matched,deepswe,qwen3-8-max,obsidian-linter-scoped-ignore-ma__vUr7o9u,22,hidden,43,,likely,hedge,unlikely / more likely
+v276,hedge,hedge_matched,deepswe,qwen3-8-max,opa-template-string-reconstructi__TQ9AznQ,63,hidden,165,,might_could,hedge,might (uncertain what happened)
+v277,hedge,hedge_matched,deepswe,qwen3-8-max,optique-conditional-option-depen__G4hnftS,23,hidden,37,,i_think,hedge,I think
+v278,hedge,hedge_matched,faultyclaims,DeepSeek-V3.2,instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5,4,hidden,0,,probably,hedge,probably
+v279,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-4c5ce5a1a9e79a845aff4978cfeb72a0d4ecf7d6-v1055803c3a812189a1133297f7f5468579283f86,38,hidden,88,,probably,hedge,probably
+v280,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5,49,hidden,4,,maybe_perhaps,hedge,maybe (tentative plan)
+v281,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f,27,hidden,116,,might_could,hedge,might
+v282,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f,51,hidden,214,,might_could,hedge,might
+v283,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-c154dd1a3590954dfd3b901555fc6267f646a289,25,hidden,13,,maybe_perhaps,hedge,maybe
+v284,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-e91615cf07966da41756017a7d571f9fc0fdbe80,40,hidden,2,,might_could,hedge,might
+v285,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_flipt-io__flipt-ea9a2663b176da329b3f574da2ce2a664fc5b4a1,26,hidden,86,,maybe_perhaps,hedge,maybe
+v286,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_future-architect__vuls-139f3a81b66c47e6d8f70ce6c4afe7a9196a6ea8,52,hidden,65,,maybe_perhaps,hedge,perhaps
+v287,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_future-architect__vuls-83bcca6e669ba2e4102f26c4a2b52f78c7861f1a,67,hidden,230,,maybe_perhaps,hedge,maybe
+v288,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-1a77b7945a022ab86858029d30ac7ad0d5239d00-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,27,hidden,97,,likely,hedge,which is more likely
+v289,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_internetarchive__openlibrary-c05ccf2cd8baa81609434e0e35c4a63bc0da5a25-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4,36,hidden,45,,might_could,no,"""could be stale"" = conditional code behavior"
+v290,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-b65e76293a917ee2dfc5d4b373b1c62e054d0dca,14,hidden,95,,maybe_perhaps,hedge,maybe
+v291,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_navidrome__navidrome-de90152a7173039677ac808f5bfb1e644d761336,22,hidden,238,,might_could,hedge,might (unsure whether BeforeEach resets)
+v292,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_protonmail__webclients-d494a66038112b239a381f49b3914caf8d2ef3b4,38,hidden,44,,might_could,hedge,might not render (uncertain prediction)
+v293,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-46e6839e21d9ff72abb6c5d49d5abaa5a8da8a81-v2ef375ac784985212b1805e1d0431dc8f1b3c171,105,hidden,13,,likely,hedge,unlikely
+v294,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-52708364b5f91e198defb022d1a5b4b3ebd9b563-v2ef375ac784985212b1805e1d0431dc8f1b3c171,27,hidden,4,,might_could,hedge,might be (guessing a commit title)
+v295,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-cf06f4e3708f886032d4d2a30108c2fddb042d81-v2ef375ac784985212b1805e1d0431dc8f1b3c171,28,hidden,43,,maybe_perhaps,hedge,maybe
+v296,hedge,hedge_matched,faultyclaims,DeepSeek-V4.1-Flash,instance_qutebrowser__qutebrowser-ef5ba1a0360b39f9eff027fbdc57f363597c3c3b-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d,35,hidden,265,my_memory,maybe_perhaps,hedge,maybe
+v297,hedge,hedge_matched,faultyclaims,Qwen3.8-27B,instance_NodeBB__NodeBB-0e07f3c9bace416cbab078a30eae972868c0a8a3-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e,77,hidden,43,,maybe_perhaps,hedge,presumably
+v298,hedge,hedge_matched,faultyclaims,Qwen3.8-27B,instance_element-hq__element-web-53a9b6447bd7e6110ee4a63e2ec0322c250f08d1-vnan,28,hidden,105,,maybe_perhaps,hedge,maybe
+v299,hedge,hedge_matched,swebv,DeepSeek-V3.2,astropy__astropy-13977,28,hidden,51,,likely,hedge,unlikely
+v300,hedge,hedge_matched,swebv,DeepSeek-V3.2,astropy__astropy-8872,17,hidden,2,,might_could,hedge,might be the issue
+v301,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-11141,6,hidden,28,,might_could,no,"""may be None"" = fact about namespace packages, not speaker uncertainty"
+v302,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-12406,22,hidden,315,,might_could,no,"""might be a class"" = possible input"
+v303,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-12663,23,hidden,231,,might_could,hedge,might fail (uncertain prediction)
+v304,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-13297,26,visible,2,,seems,hedge,seems
+v305,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-13417,39,hidden,2,,might_could,hedge,might be specific
+v306,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-13449,36,hidden,19,,might_could,hedge,might also call (uncertain)
+v307,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-13569,20,hidden,110,,maybe_perhaps,hedge,maybe
+v308,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-13807,57,hidden,50,,might_could,hedge,might not match (uncertain)
+v309,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-14311,42,hidden,137,,maybe_perhaps,hedge,maybe
+v310,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-14500,19,hidden,291,,might_could,hedge,might be a no-op (uncertain)
+v311,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-14999,6,hidden,94,,might_could,no,"""might be set"" = possible edge case"
+v312,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-15037,26,hidden,19,,might_could,no,"""might be referenced"" = possible case"
+v313,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-15252,9,hidden,146,,might_could,hedge,might want to (tentative plan)
+v314,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-16145,26,hidden,93,,might_could,no,"""might have passed"" = possible user input"
+v315,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-16255,11,hidden,7,,might_could,hedge,might be large (uncertain estimate)
+v316,hedge,hedge_matched,swebv,DeepSeek-V3.2,django__django-16263,36,hidden,251,,might_could,hedge,might need to (tentative plan)
+v317,hedge,hedge_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-24177,25,hidden,69,,might_could,hedge,might be the cause
+v318,hedge,hedge_matched,swebv,DeepSeek-V3.2,matplotlib__matplotlib-26291,10,hidden,5,,likely,hedge,likely
+v319,hedge,hedge_matched,swebv,DeepSeek-V3.2,pydata__xarray-7229,32,hidden,40,,maybe_perhaps,hedge,perhaps
+v320,hedge,hedge_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-10356,13,hidden,68,,might_could,no,"""might call ... if it is a property"" = conditional code behavior"
+v321,hedge,hedge_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7236,17,hidden,173,,might_could,no,"""might be called for other reasons"" = possible case"
+v322,hedge,hedge_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7236,25,hidden,208,,might_could,hedge,might be caught (uncertain prediction)
+v323,hedge,hedge_matched,swebv,DeepSeek-V3.2,pytest-dev__pytest-7324,23,hidden,38,,might_could,hedge,might be incorrect
+v324,hedge,hedge_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-11445,9,visible,4,,seems,hedge,seems
+v325,hedge,hedge_matched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-9711,50,hidden,25,,i_think;might_could,hedge,I think / might
+v326,hedge,hedge_matched,swebv,DeepSeek-V3.2,sympy__sympy-21930,7,hidden,10,,maybe_perhaps,hedge,possibly (tentative plan)
+v327,hedge,hedge_matched,swebv,DeepSeek-V3.2,sympy__sympy-22456,36,hidden,5,,might_could,hedge,might have been
+v328,hedge,hedge_matched,swebv,Kimi K2.5,scikit-learn__scikit-learn-10908,48,hidden,5,,might_could,hedge,might need
+v329,hedge,hedge_matched,swebv,MiniMax M2.5,django__django-15252,13,hidden,35,,might_could,no,"""might have been allowed"" = possible scenario"
+v330,hedge,hedge_unmatched,deepswe,claude-opus-4-7,kh727w7pxd9cv476t3cxptxcg182e1e5__xXJCUTm,198,visible,4,,,no,heading
+v331,hedge,hedge_unmatched,deepswe,claude-opus-4-8,effect-sse-httpapi-streaming__6vxmePz,172,visible,0,,,no,statement
+v332,hedge,hedge_unmatched,deepswe,claude-opus-4-8,helm-array-merge-strategies__Yx6J4FM,97,hidden,0,,,no,plan
+v333,hedge,hedge_unmatched,deepswe,deepseek-v4-flash,eicrud-keyset-pagination-cursor__9bgf2Mv,132,hidden,20,,,no,assertion
+v334,hedge,hedge_unmatched,deepswe,deepseek-v4-flash,obsidian-linter-scoped-ignore-ma__Qi64uyS,29,hidden,13,,,hedge,"a ""not necessarily"" construction (missed by the lexicon)"
+v335,hedge,hedge_unmatched,deepswe,deepseek-v4-flash,query-persist-restored-query-sta__M2Lz4if,148,hidden,15,,,no,assertion
+v336,hedge,hedge_unmatched,deepswe,gemini-3-flash-preview,eicrud-keyset-pagination-cursor__cXhWGrK,20,hidden,10,,,no,modal proposes an option
+v337,hedge,hedge_unmatched,deepswe,glm-5-2,abs-stepped-slices__JbLw7dD,50,hidden,0,,,no,assertion
+v338,hedge,hedge_unmatched,deepswe,glm-5-2,obsidian-linter-scoped-ignore-ma__BHgyGGZ,22,hidden,227,,,no,one-word note
+v339,hedge,hedge_unmatched,deepswe,gpt-5-4,kh734ehfw2s3bztf7pzc9xf3x18212bs__FceTTJU,14,hidden,2,,,no,description of current code
+v340,hedge,hedge_unmatched,deepswe,kimi-k2-7-code,quill-shared-toolbar-focus__gcWgwtL,65,hidden,4,,,no,plan
+v341,hedge,hedge_unmatched,deepswe,kimi-k3,pest-character-class-coalescing__vyPULZq,18,hidden,192,,,no,"self-question, no hedge word"
+v342,hedge,hedge_unmatched,deepswe,minimax-m3,quill-shared-toolbar-focus__HPEMUx4,57,visible,16,,,no,list item
+v343,hedge,hedge_unmatched,faultyclaims,DeepSeek-V3.2,instance_NodeBB__NodeBB-445b70deda20201b7d9a68f7224da751b3db728c-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed,41,hidden,4,,,no,assertion
+v344,hedge,hedge_unmatched,faultyclaims,DeepSeek-V3.2,instance_flipt-io__flipt-9f8127f225a86245fa35dca4885c2daef824ee55,20,hidden,5,,,no,plan
+v345,hedge,hedge_unmatched,faultyclaims,DeepSeek-V4.1-Flash,instance_NodeBB__NodeBB-82562bec444940608052f3e4149e0c61ec80bf3f-vd59a5728dfc977f44533186ace531248c2917516,49,hidden,97,,,no,reasoning
+v346,hedge,hedge_unmatched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-4e1c39639edf1ab494dd7562844c8b277b5cfa18-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,73,hidden,35,,,no,plan
+v347,hedge,hedge_unmatched,faultyclaims,DeepSeek-V4.1-Flash,instance_gravitational__teleport-4e1c39639edf1ab494dd7562844c8b277b5cfa18-vee9b09fb20c43af7e520f57e9239bbcf46b7113d,88,hidden,266,,,no,plan
+v348,hedge,hedge_unmatched,faultyclaims,DeepSeek-V4.1-Flash,instance_tutao__tutanota-12a6cbaa4f8b43c2f85caca0787ab55501539955-vc4e41fd0029957297843cb9dec4a25c7c756f029,26,hidden,134,,,no,list item
+v349,hedge,hedge_unmatched,faultyclaims,Qwen3.8-27B,instance_future-architect__vuls-407407d306e9431d6aa0ab566baa6e44e5ba2904,36,hidden,0,,,no,statement
+v350,hedge,hedge_unmatched,faultyclaims,Qwen3.8-27B,instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371,52,hidden,0,,,no,statement
+v351,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,astropy__astropy-13579,17,hidden,107,,,no,"question, no hedge word"
+v352,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,astropy__astropy-14369,29,hidden,121,,,no,statement
+v353,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-10973,24,hidden,81,,,no,"question, no hedge word"
+v354,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-11138,33,hidden,177,,,no,restates the PR
+v355,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-11820,25,hidden,45,,,no,question
+v356,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-13112,44,hidden,16,,,no,assertion
+v357,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-13343,9,hidden,169,,,no,"question, no hedge word"
+v358,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-13343,12,hidden,75,,,no,decision
+v359,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-15629,160,hidden,29,,,no,assertion
+v360,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-15916,16,hidden,11,,,no,assertion
+v361,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,django__django-16661,15,hidden,112,,,no,description
+v362,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,pydata__xarray-6721,25,hidden,53,,,no,code line
+v363,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,scikit-learn__scikit-learn-12682,16,hidden,105,,,no,option
+v364,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,sphinx-doc__sphinx-8475,19,hidden,31,,,no,statement
+v365,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,sympy__sympy-15599,5,hidden,0,,,no,statement
+v366,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,sympy__sympy-16450,46,hidden,4,,,no,plan
+v367,hedge,hedge_unmatched,swebv,DeepSeek-V3.2,sympy__sympy-19040,60,hidden,192,,,no,code comment
+v368,hedge,hedge_unmatched,swebv,MiniMax M2.5,django__django-11734,67,hidden,19,,,no,plan
+v369,hedge,hedge_unmatched,swebv,MiniMax M2.5,psf__requests-2931,43,visible,1,,,no,statement

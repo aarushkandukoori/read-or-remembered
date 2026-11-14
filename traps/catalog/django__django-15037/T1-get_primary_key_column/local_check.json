@@ -1,0 +1,58 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "14/14 (of 14; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 33,
+   "n_failing": 2
+  },
+  "trap + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "14/14 (of 14; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 33,
+   "n_failing": 2
+  },
+  "trap + tests' + memory": {
+   "F2P": "0/1",
+   "F2P_ok": false,
+   "P2P": "11/14 (of 14; only the modules run)",
+   "P2P_failing": [
+    "test_attribute_name_not_python_keyword (inspectdb.tests.InspectDBTestCase)",
+    "test_stealth_table_name_filter_option (inspectdb.tests.InspectDBTestCase)",
+    "inspectdb can inspect a subset of tables by passing the table names as"
+   ],
+   "n_tests_seen": 33,
+   "n_failing": 7
+  },
+  "placebo + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "14/14 (of 14; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 33,
+   "n_failing": 2
+  },
+  "placebo + tests' + memory": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "14/14 (of 14; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 33,
+   "n_failing": 2
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": true,
+  "memory_fails_in_trap_by": "tests",
+  "solvable_in_placebo": true,
+  "placebo_harmless": true,
+  "all_good": true
+ }
+}

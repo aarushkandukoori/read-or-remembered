@@ -1,0 +1,220 @@
+{
+ "trap": {
+  "files": [
+   "sympy/calculus/tests/test_util.py",
+   "sympy/solvers/inequalities.py",
+   "sympy/solvers/solveset.py"
+  ],
+  "n_sites": 10,
+  "sites_by_kind": {
+   "test assertion": 1,
+   "raise": 5,
+   "except": 1,
+   "new class": 1,
+   "import": 2
+  },
+  "sites": [
+   {
+    "file": "sympy/calculus/tests/test_util.py",
+    "kind": "test assertion",
+    "code": "raises((NotImplementedError, UnsolvableInequality), lambda: is_convex(log(x), x, a))"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/solveset.py",
+    "kind": "except",
+    "code": "except (NotImplementedError, UnsolvableInequality):     pass"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "new class",
+    "code": "class UnsolvableInequality(ValueError)"
+   },
+   {
+    "file": "sympy/calculus/tests/test_util.py",
+    "kind": "import",
+    "code": "import UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/solveset.py",
+    "kind": "import",
+    "code": "import UnsolvableInequality"
+   }
+  ],
+  "warnings": [
+   "sympy/solvers/inequalities.py: closure (7 names): ['_eval_as_set', '_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']",
+   "sympy/calculus/tests/test_util.py: could not find where to import UnsolvableInequality; added a top-level import"
+  ],
+  "describe": {
+   "original_fact": "solve_univariate_inequality raises NotImplementedError",
+   "trapped_fact": "solve_univariate_inequality raises UnsolvableInequality (a new ValueError subclass, not a NotImplementedError); excepts and tests around it also accept UnsolvableInequality"
+  },
+  "spec": {
+   "type": "T5",
+   "defs": [
+    [
+     "sympy/solvers/inequalities.py",
+     "solve_univariate_inequality"
+    ]
+   ],
+   "init": {
+    "old_exc": "NotImplementedError",
+    "new_exc": "UnsolvableInequality",
+    "new_base": "ValueError",
+    "exc_file": "sympy/solvers/inequalities.py",
+    "closure_depth": 1,
+    "doc": "Raised by solve_univariate_inequality() when it cannot solve the inequality."
+   },
+   "old_exc": "NotImplementedError",
+   "new_exc": "UnsolvableInequality",
+   "new_base": "ValueError",
+   "exc_file": "sympy/solvers/inequalities.py",
+   "closure": [
+    "_eval_as_set",
+    "_solve_abs",
+    "_solve_inequality",
+    "continuous_domain",
+    "is_convex",
+    "reduce_rational_inequalities",
+    "solve_univariate_inequality"
+   ]
+  },
+  "gold_warnings": [
+   "sympy/solvers/inequalities.py: closure (6 names): ['_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']"
+  ],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "sympy/calculus/tests/test_util.py",
+   "sympy/solvers/inequalities.py",
+   "sympy/solvers/solveset.py"
+  ],
+  "n_sites": 10,
+  "sites_by_kind": {
+   "test assertion": 1,
+   "raise": 5,
+   "except": 1,
+   "new class": 1,
+   "import": 2
+  },
+  "sites": [
+   {
+    "file": "sympy/calculus/tests/test_util.py",
+    "kind": "test assertion",
+    "code": "raises((NotImplementedError, UnsolvableInequality), lambda: is_convex(log(x), x, a))"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "raise",
+    "code": "raise UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/solveset.py",
+    "kind": "except",
+    "code": "except (NotImplementedError, UnsolvableInequality):     pass"
+   },
+   {
+    "file": "sympy/solvers/inequalities.py",
+    "kind": "new class",
+    "code": "class UnsolvableInequality(ValueError, NotImplementedError)"
+   },
+   {
+    "file": "sympy/calculus/tests/test_util.py",
+    "kind": "import",
+    "code": "import UnsolvableInequality"
+   },
+   {
+    "file": "sympy/solvers/solveset.py",
+    "kind": "import",
+    "code": "import UnsolvableInequality"
+   }
+  ],
+  "warnings": [
+   "sympy/solvers/inequalities.py: closure (7 names): ['_eval_as_set', '_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']",
+   "sympy/calculus/tests/test_util.py: could not find where to import UnsolvableInequality; added a top-level import"
+  ],
+  "describe": {
+   "original_fact": "solve_univariate_inequality raises NotImplementedError",
+   "trapped_fact": "solve_univariate_inequality raises UnsolvableInequality (a new ValueError subclass, not a NotImplementedError); excepts and tests around it also accept UnsolvableInequality"
+  },
+  "spec": {
+   "type": "T5",
+   "defs": [
+    [
+     "sympy/solvers/inequalities.py",
+     "solve_univariate_inequality"
+    ]
+   ],
+   "init": {
+    "old_exc": "NotImplementedError",
+    "new_exc": "UnsolvableInequality",
+    "new_base": "ValueError",
+    "exc_file": "sympy/solvers/inequalities.py",
+    "closure_depth": 1,
+    "doc": "Raised by solve_univariate_inequality() when it cannot solve the inequality."
+   },
+   "old_exc": "NotImplementedError",
+   "new_exc": "UnsolvableInequality",
+   "new_base": "ValueError",
+   "exc_file": "sympy/solvers/inequalities.py",
+   "closure": [
+    "_eval_as_set",
+    "_solve_abs",
+    "_solve_inequality",
+    "continuous_domain",
+    "is_convex",
+    "reduce_rational_inequalities",
+    "solve_univariate_inequality"
+   ]
+  },
+  "gold_warnings": [
+   "sympy/solvers/inequalities.py: closure (6 names): ['_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']"
+  ],
+  "tests_warnings": []
+ }
+}

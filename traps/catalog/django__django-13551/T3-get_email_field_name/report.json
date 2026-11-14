@@ -1,0 +1,140 @@
+{
+ "trap": {
+  "files": [
+   "django/contrib/auth/base_user.py",
+   "django/contrib/auth/forms.py",
+   "docs/topics/auth/customizing.txt",
+   "tests/auth_tests/test_models.py"
+  ],
+  "n_sites": 6,
+  "sites_by_kind": {
+   "name": 5,
+   "doc": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/auth/base_user.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "django/contrib/auth/forms.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "django/contrib/auth/forms.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "tests/auth_tests/test_models.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "tests/auth_tests/test_models.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "docs/topics/auth/customizing.txt",
+    "kind": "doc",
+    "code": "get_email_field_name -> get_email_field"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "AbstractBaseUser.get_email_field_name is called get_email_field_name",
+   "trapped_fact": "get_email_field_name was renamed to get_email_field everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/contrib/auth/base_user.py",
+     "AbstractBaseUser.get_email_field_name"
+    ]
+   ],
+   "init": {
+    "new_name": "get_email_field"
+   },
+   "old_name": "get_email_field_name",
+   "new_name": "get_email_field"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/contrib/auth/base_user.py",
+   "django/contrib/auth/forms.py",
+   "docs/topics/auth/customizing.txt",
+   "tests/auth_tests/test_models.py"
+  ],
+  "n_sites": 7,
+  "sites_by_kind": {
+   "name": 5,
+   "doc": 1,
+   "alias": 1
+  },
+  "sites": [
+   {
+    "file": "django/contrib/auth/base_user.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "django/contrib/auth/forms.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "django/contrib/auth/forms.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "tests/auth_tests/test_models.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "tests/auth_tests/test_models.py",
+    "kind": "name",
+    "code": "get_email_field_name"
+   },
+   {
+    "file": "docs/topics/auth/customizing.txt",
+    "kind": "doc",
+    "code": "get_email_field_name -> get_email_field"
+   },
+   {
+    "file": "django/contrib/auth/base_user.py",
+    "kind": "alias",
+    "code": "get_email_field_name = get_email_field"
+   }
+  ],
+  "warnings": [],
+  "describe": {
+   "original_fact": "AbstractBaseUser.get_email_field_name is called get_email_field_name",
+   "trapped_fact": "get_email_field_name was renamed to get_email_field everywhere (no alias)"
+  },
+  "spec": {
+   "type": "T3",
+   "defs": [
+    [
+     "django/contrib/auth/base_user.py",
+     "AbstractBaseUser.get_email_field_name"
+    ]
+   ],
+   "init": {
+    "new_name": "get_email_field"
+   },
+   "old_name": "get_email_field_name",
+   "new_name": "get_email_field"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

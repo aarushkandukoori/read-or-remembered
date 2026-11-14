@@ -1,0 +1,54 @@
+{
+ "python": "/Users/aarushkandukoori/Projects/read-or-remembered/work/catalog/venvs/py38/bin/python",
+ "configs": {
+  "original + tests + gold": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "113/113 (of 113; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 127,
+   "n_failing": 2
+  },
+  "trap + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "113/113 (of 113; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 127,
+   "n_failing": 2
+  },
+  "trap + tests' + memory": {
+   "F2P": "0/1",
+   "F2P_ok": false,
+   "P2P": "113/113 (of 113; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 127,
+   "n_failing": 3
+  },
+  "placebo + tests' + gold'": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "113/113 (of 113; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 127,
+   "n_failing": 2
+  },
+  "placebo + tests' + memory": {
+   "F2P": "1/1",
+   "F2P_ok": true,
+   "P2P": "113/113 (of 113; only the modules run)",
+   "P2P_failing": [],
+   "n_tests_seen": 127,
+   "n_failing": 2
+  }
+ },
+ "summary": {
+  "env_ok": true,
+  "solvable_in_trap": true,
+  "trap_bites": true,
+  "memory_fails_in_trap_by": "tests",
+  "solvable_in_placebo": true,
+  "placebo_harmless": true,
+  "all_good": true
+ }
+}

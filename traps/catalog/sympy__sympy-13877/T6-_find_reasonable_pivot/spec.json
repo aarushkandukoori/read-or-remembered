@@ -1,0 +1,109 @@
+{
+ "instance_id": "sympy__sympy-13877",
+ "trap_id": "T6-_find_reasonable_pivot",
+ "type": "T6",
+ "type_title": "return convention",
+ "loud_or_quiet": "quiet",
+ "target": {
+  "file": "sympy/matrices/matrices.py",
+  "qualname": "_find_reasonable_pivot",
+  "all_definitions": [
+   [
+    "sympy/matrices/matrices.py",
+    "_find_reasonable_pivot"
+   ],
+   [
+    "sympy/matrices/matrices.py",
+    "_find_reasonable_pivot_naive"
+   ]
+  ]
+ },
+ "target_qualname": "_find_reasonable_pivot",
+ "original_fact": "_find_reasonable_pivot returns a 4-tuple with item 0 first",
+ "trapped_fact": "_find_reasonable_pivot returns the tuple with items 0 and 1 swapped; every caller unpacks it the new way",
+ "placebo_kind": "the same return statements and unpacking lines, only wrapped in parentheses",
+ "files_changed": [
+  "sympy/matrices/matrices.py",
+  "sympy/matrices/tests/test_matrices.py"
+ ],
+ "files_changed_placebo": [
+  "sympy/matrices/matrices.py",
+  "sympy/matrices/tests/test_matrices.py"
+ ],
+ "lines_changed_trap": 26,
+ "lines_changed_placebo": 22,
+ "sites_trap": {
+  "unpack": 5,
+  "return": 13
+ },
+ "sites_placebo": {
+  "unpack": 5,
+  "return": 5
+ },
+ "why_it_makes_sense": "Both private pivot helpers return (value, position, ...) instead of (position, value, ...); the order of the two items is arbitrary and every caller unpacks it the new way.",
+ "why_it_matters_for_task": "The gold patch adds pivot_pos, pivot_val, _, _ = _find_reasonable_pivot(...) to the Bareiss determinant. Unpacked in the remembered order, the pivot value is used as an index.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 20,
+  "nearest_trap_line_to_gold_hunk": 462,
+  "gold_files": [
+   "sympy/matrices/matrices.py",
+   "sympy/utilities/randtest.py"
+  ]
+ },
+ "warnings": {
+  "trap": [],
+  "placebo": []
+ },
+ "problems": [],
+ "transform": {
+  "type": "T6",
+  "defs": [
+   [
+    "sympy/matrices/matrices.py",
+    "_find_reasonable_pivot"
+   ],
+   [
+    "sympy/matrices/matrices.py",
+    "_find_reasonable_pivot_naive"
+   ]
+  ],
+  "init": {
+   "size": 4,
+   "i": 0,
+   "j": 1
+  },
+  "size": 4,
+  "i": 0,
+  "j": 1
+ },
+ "task": {
+  "repo": "sympy/sympy",
+  "base_commit": "1659712001810f5fc563a443949f8e3bb38af4bd",
+  "version": "1.1",
+  "FAIL_TO_PASS": [
+   "test_determinant"
+  ],
+  "n_PASS_TO_PASS": 110
+ },
+ "notes": "quiet; docstring prose also updated (prose edits listed in spec.transform.init)",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build sympy__sympy-13877",
+ "build_seconds": 33.1
+}

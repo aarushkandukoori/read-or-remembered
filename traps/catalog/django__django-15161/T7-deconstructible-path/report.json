@@ -1,0 +1,182 @@
+{
+ "trap": {
+  "files": [
+   "django/db/models/expressions.py",
+   "django/utils/deconstruct.py",
+   "tests/migrations/test_writer.py",
+   "tests/utils_tests/test_deconstruct.py"
+  ],
+  "n_sites": 7,
+  "sites_by_kind": {
+   "call": 6,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/db/models/expressions.py",
+    "kind": "call",
+    "code": "deconstructible(import_path='django.db.models.F')"
+   },
+   {
+    "file": "django/utils/deconstruct.py",
+    "kind": "definition",
+    "code": "deconstructible(..., import_path=...)"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"migrations.test_writer.EmailValidator\")"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"custom.EmailValidator\")"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"django.core.validators.EmailValidator2\")"
+   },
+   {
+    "file": "tests/utils_tests/test_deconstruct.py",
+    "kind": "call",
+    "code": "deconstructible(     import_path='utils_tests.deconstructible_classes.DeconstructibleWithPathClass' )"
+   },
+   {
+    "file": "tests/utils_tests/test_deconstruct.py",
+    "kind": "call",
+    "code": "deconstructible(     import_path='utils_tests.deconstructible_classes.DeconstructibleInvalidPathClass', )"
+   }
+  ],
+  "warnings": [
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/gis/geos/geometry.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/postgres/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/files/storage.py: non-call use of deconstructible (not rewritten)",
+   "django/db/models/expressions.py: non-call use of deconstructible (not rewritten)"
+  ],
+  "describe": {
+   "original_fact": "deconstructible takes a keyword argument path=",
+   "trapped_fact": "deconstructible calls it import_path= now; path= raises TypeError"
+  },
+  "spec": {
+   "type": "T7",
+   "defs": [
+    [
+     "django/utils/deconstruct.py",
+     "deconstructible"
+    ]
+   ],
+   "init": {
+    "param": "path",
+    "new_param": "import_path"
+   },
+   "param": "path",
+   "new_param": "import_path"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ },
+ "placebo": {
+  "files": [
+   "django/db/models/expressions.py",
+   "django/utils/deconstruct.py",
+   "tests/migrations/test_writer.py",
+   "tests/utils_tests/test_deconstruct.py"
+  ],
+  "n_sites": 7,
+  "sites_by_kind": {
+   "call": 6,
+   "definition": 1
+  },
+  "sites": [
+   {
+    "file": "django/db/models/expressions.py",
+    "kind": "call",
+    "code": "deconstructible(import_path='django.db.models.F')"
+   },
+   {
+    "file": "django/utils/deconstruct.py",
+    "kind": "definition",
+    "code": "deconstructible(..., import_path=...)"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"migrations.test_writer.EmailValidator\")"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"custom.EmailValidator\")"
+   },
+   {
+    "file": "tests/migrations/test_writer.py",
+    "kind": "call",
+    "code": "deconstructible(import_path=\"django.core.validators.EmailValidator2\")"
+   },
+   {
+    "file": "tests/utils_tests/test_deconstruct.py",
+    "kind": "call",
+    "code": "deconstructible(     import_path='utils_tests.deconstructible_classes.DeconstructibleWithPathClass' )"
+   },
+   {
+    "file": "tests/utils_tests/test_deconstruct.py",
+    "kind": "call",
+    "code": "deconstructible(     import_path='utils_tests.deconstructible_classes.DeconstructibleInvalidPathClass', )"
+   }
+  ],
+  "warnings": [
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/auth/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/gis/geos/geometry.py: non-call use of deconstructible (not rewritten)",
+   "django/contrib/postgres/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/validators.py: non-call use of deconstructible (not rewritten)",
+   "django/core/files/storage.py: non-call use of deconstructible (not rewritten)",
+   "django/db/models/expressions.py: non-call use of deconstructible (not rewritten)"
+  ],
+  "describe": {
+   "original_fact": "deconstructible takes a keyword argument path=",
+   "trapped_fact": "deconstructible calls it import_path= now; path= raises TypeError"
+  },
+  "spec": {
+   "type": "T7",
+   "defs": [
+    [
+     "django/utils/deconstruct.py",
+     "deconstructible"
+    ]
+   ],
+   "init": {
+    "param": "path",
+    "new_param": "import_path"
+   },
+   "param": "path",
+   "new_param": "import_path"
+  },
+  "gold_warnings": [],
+  "tests_warnings": []
+ }
+}

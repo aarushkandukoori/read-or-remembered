@@ -1,0 +1,127 @@
+{
+ "instance_id": "sympy__sympy-18211",
+ "trap_id": "T5-solve_univariate_inequality",
+ "type": "T5",
+ "type_title": "exception swap",
+ "loud_or_quiet": "quiet",
+ "target": {
+  "file": "sympy/solvers/inequalities.py",
+  "qualname": "solve_univariate_inequality",
+  "all_definitions": [
+   [
+    "sympy/solvers/inequalities.py",
+    "solve_univariate_inequality"
+   ]
+  ]
+ },
+ "target_qualname": "solve_univariate_inequality",
+ "original_fact": "solve_univariate_inequality raises NotImplementedError",
+ "trapped_fact": "solve_univariate_inequality raises UnsolvableInequality (a new ValueError subclass, not a NotImplementedError); excepts and tests around it also accept UnsolvableInequality",
+ "placebo_kind": "the same edit, but the new exception class also subclasses the old one",
+ "files_changed": [
+  "sympy/calculus/tests/test_util.py",
+  "sympy/solvers/inequalities.py",
+  "sympy/solvers/solveset.py"
+ ],
+ "files_changed_placebo": [
+  "sympy/calculus/tests/test_util.py",
+  "sympy/solvers/inequalities.py",
+  "sympy/solvers/solveset.py"
+ ],
+ "lines_changed_trap": 22,
+ "lines_changed_placebo": 22,
+ "sites_trap": {
+  "test assertion": 1,
+  "raise": 5,
+  "except": 1,
+  "new class": 1,
+  "import": 2
+ },
+ "sites_placebo": {
+  "test assertion": 1,
+  "raise": 5,
+  "except": 1,
+  "new class": 1,
+  "import": 2
+ },
+ "why_it_makes_sense": "Replacing a generic NotImplementedError with a dedicated exception class is a common clean-up; the callers that caught NotImplementedError were updated to catch the new class too.",
+ "why_it_matters_for_task": "The gold patch wraps solve_univariate_inequality(...) in try/except NotImplementedError and returns a ConditionSet (test_issue_18188). From memory the except clause does not catch the new exception.",
+ "gold_lines_changed_by_trap": 1,
+ "gold_lines_changed_by_placebo": 1,
+ "checks": {
+  "trap": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  },
+  "placebo": {
+   "memory_applies": true,
+   "memory_apply_error": null,
+   "carried_applies": true,
+   "carried_apply_error": null,
+   "memory_syntax_errors": []
+  }
+ },
+ "visibility": {
+  "trap_lines_in_gold_files": 0,
+  "nearest_trap_line_to_gold_hunk": null,
+  "gold_files": [
+   "sympy/core/relational.py"
+  ]
+ },
+ "warnings": {
+  "trap": [
+   "sympy/solvers/inequalities.py: closure (7 names): ['_eval_as_set', '_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']",
+   "sympy/calculus/tests/test_util.py: could not find where to import UnsolvableInequality; added a top-level import"
+  ],
+  "placebo": [
+   "sympy/solvers/inequalities.py: closure (7 names): ['_eval_as_set', '_solve_abs', '_solve_inequality', 'continuous_domain', 'is_convex', 'reduce_rational_inequalities', 'solve_univariate_inequality']",
+   "sympy/calculus/tests/test_util.py: could not find where to import UnsolvableInequality; added a top-level import"
+  ]
+ },
+ "problems": [],
+ "transform": {
+  "type": "T5",
+  "defs": [
+   [
+    "sympy/solvers/inequalities.py",
+    "solve_univariate_inequality"
+   ]
+  ],
+  "init": {
+   "old_exc": "NotImplementedError",
+   "new_exc": "UnsolvableInequality",
+   "new_base": "ValueError",
+   "exc_file": "sympy/solvers/inequalities.py",
+   "closure_depth": 1,
+   "doc": "Raised by solve_univariate_inequality() when it cannot solve the inequality."
+  },
+  "old_exc": "NotImplementedError",
+  "new_exc": "UnsolvableInequality",
+  "new_base": "ValueError",
+  "exc_file": "sympy/solvers/inequalities.py",
+  "closure": [
+   "_eval_as_set",
+   "_solve_abs",
+   "_solve_inequality",
+   "continuous_domain",
+   "is_convex",
+   "reduce_rational_inequalities",
+   "solve_univariate_inequality"
+  ]
+ },
+ "task": {
+  "repo": "sympy/sympy",
+  "base_commit": "b4f1aa3540fe68d078d76e78ba59d022dd6df39f",
+  "version": "1.6",
+  "FAIL_TO_PASS": [
+   "test_issue_18188"
+  ],
+  "n_PASS_TO_PASS": 54
+ },
+ "notes": "quiet",
+ "built_with": ".venv/bin/python -I scripts/build_trap_catalog.py build sympy__sympy-18211",
+ "build_seconds": 208.1
+}

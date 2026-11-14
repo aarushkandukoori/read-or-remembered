@@ -1,0 +1,121 @@
+diff --git a/sympy/assumptions/handlers/matrices.py b/sympy/assumptions/handlers/matrices.py
+index 55b007a306..9f06609b0e 100644
+--- a/sympy/assumptions/handlers/matrices.py
++++ b/sympy/assumptions/handlers/matrices.py
+@@ -35,7 +35,7 @@ class AskSymmetricHandler(CommonHandler):
+ 
+     @staticmethod
+     def MatMul(expr, assumptions):
+-        factor, mmul = expr.as_coeff_mmul()
++        (factor, mmul) = expr.as_coeff_mmul()
+         if all(ask(Q.symmetric(arg), assumptions) for arg in mmul.args):
+             return True
+         # TODO: implement sathandlers system for the matrices.
+@@ -93,7 +93,7 @@ class AskInvertibleHandler(CommonHandler):
+ 
+     @staticmethod
+     def MatMul(expr, assumptions):
+-        factor, mmul = expr.as_coeff_mmul()
++        (factor, mmul) = expr.as_coeff_mmul()
+         if all(ask(Q.invertible(arg), assumptions) for arg in mmul.args):
+             return True
+         if any(ask(Q.invertible(arg), assumptions) is False
+@@ -134,7 +134,7 @@ class AskOrthogonalHandler(CommonHandler):
+ 
+     @staticmethod
+     def MatMul(expr, assumptions):
+-        factor, mmul = expr.as_coeff_mmul()
++        (factor, mmul) = expr.as_coeff_mmul()
+         if (all(ask(Q.orthogonal(arg), assumptions) for arg in mmul.args) and
+                 factor == 1):
+             return True
+@@ -182,7 +182,7 @@ class AskUnitaryHandler(CommonHandler):
+ 
+     @staticmethod
+     def MatMul(expr, assumptions):
+-        factor, mmul = expr.as_coeff_mmul()
++        (factor, mmul) = expr.as_coeff_mmul()
+         if (all(ask(Q.unitary(arg), assumptions) for arg in mmul.args) and
+                 abs(factor) == 1):
+             return True
+@@ -252,7 +252,7 @@ class AskPositiveDefiniteHandler(CommonHandler):
+ 
+     @staticmethod
+     def MatMul(expr, assumptions):
+-        factor, mmul = expr.as_coeff_mmul()
++        (factor, mmul) = expr.as_coeff_mmul()
+         if (all(ask(Q.positive_definite(arg), assumptions)
+                 for arg in mmul.args) and factor > 0):
+             return True
+diff --git a/sympy/matrices/expressions/blockmatrix.py b/sympy/matrices/expressions/blockmatrix.py
+index 76390dc14c..10c9c4c0d3 100644
+--- a/sympy/matrices/expressions/blockmatrix.py
++++ b/sympy/matrices/expressions/blockmatrix.py
+@@ -334,7 +334,7 @@ def bc_block_plus_ident(expr):
+ 
+ def bc_dist(expr):
+     """ Turn  a*[X, Y] into [a*X, a*Y] """
+-    factor, mat = expr.as_coeff_mmul()
++    (factor, mat) = expr.as_coeff_mmul()
+     if factor != 1 and isinstance(unpack(mat), BlockMatrix):
+         B = unpack(mat).blocks
+         return BlockMatrix([[factor * B[i, j] for j in range(B.cols)]
+diff --git a/sympy/matrices/expressions/matadd.py b/sympy/matrices/expressions/matadd.py
+index bef8e1e9ea..4e1a683712 100644
+--- a/sympy/matrices/expressions/matadd.py
++++ b/sympy/matrices/expressions/matadd.py
+@@ -71,8 +71,8 @@ def validate(*args):
+         if A.shape != B.shape:
+             raise ShapeError("Matrices %s and %s are not aligned"%(A, B))
+ 
+-factor_of = lambda arg: arg.as_coeff_mmul()[0]
+-matrix_of = lambda arg: unpack(arg.as_coeff_mmul()[1])
++factor_of = lambda arg: (arg.as_coeff_mmul())[0]
++matrix_of = lambda arg: unpack((arg.as_coeff_mmul())[1])
+ def combine(cnt, mat):
+     if cnt == 1:
+         return mat
+diff --git a/sympy/matrices/expressions/matexpr.py b/sympy/matrices/expressions/matexpr.py
+index 07dd23549b..8749f8d45a 100644
+--- a/sympy/matrices/expressions/matexpr.py
++++ b/sympy/matrices/expressions/matexpr.py
+@@ -387,7 +387,7 @@ def canonicalize(self):
+         return self
+ 
+     def as_coeff_mmul(self):
+-        return 1, MatMul(self)
++        return (1, MatMul(self))
+ 
+     @staticmethod
+     def from_index_summation(expr, first_index=None, last_index=None):
+diff --git a/sympy/matrices/expressions/matmul.py b/sympy/matrices/expressions/matmul.py
+index 083c5eba4c..b57ab4b7f0 100644
+--- a/sympy/matrices/expressions/matmul.py
++++ b/sympy/matrices/expressions/matmul.py
+@@ -84,7 +84,7 @@ def as_coeff_matrices(self):
+ 
+     def as_coeff_mmul(self):
+         coeff, matrices = self.as_coeff_matrices()
+-        return coeff, MatMul(*matrices)
++        return (coeff, MatMul(*matrices))
+ 
+     def _eval_transpose(self):
+         return MatMul(*[transpose(arg) for arg in self.args[::-1]]).doit()
+@@ -93,7 +93,7 @@ def _eval_adjoint(self):
+         return MatMul(*[adjoint(arg) for arg in self.args[::-1]]).doit()
+ 
+     def _eval_trace(self):
+-        factor, mmul = self.as_coeff_mmul()
++        (factor, mmul) = self.as_coeff_mmul()
+         if factor != 1:
+             from .trace import trace
+             return factor * trace(mmul.doit())
+@@ -222,7 +222,7 @@ def remove_ids(mul):
+         sympy.strategies.rm_id
+     """
+     # Separate Exprs from MatrixExprs in args
+-    factor, mmul = mul.as_coeff_mmul()
++    (factor, mmul) = mul.as_coeff_mmul()
+     # Apply standard rm_id for MatMuls
+     result = rm_id(lambda x: x.is_Identity is True)(mmul)
+     if result != mmul:

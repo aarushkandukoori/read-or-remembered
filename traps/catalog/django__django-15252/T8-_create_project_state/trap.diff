@@ -1,0 +1,51 @@
+diff --git a/django/core/management/commands/migrate.py b/django/core/management/commands/migrate.py
+index 34fcb9bc58..edc310568d 100644
+--- a/django/core/management/commands/migrate.py
++++ b/django/core/management/commands/migrate.py
+@@ -207,7 +207,7 @@ class Command(BaseCommand):
+                         % (targets[0][1], targets[0][0])
+                     )
+ 
+-        pre_migrate_state = executor._create_project_state(with_applied_migrations=True)
++        pre_migrate_state = executor._create_project_state(skip_applied_migrations=False)
+         pre_migrate_apps = pre_migrate_state.apps
+         emit_pre_migrate_signal(
+             self.verbosity, self.interactive, connection.alias, stdout=self.stdout, apps=pre_migrate_apps, plan=plan,
+diff --git a/django/db/migrations/executor.py b/django/db/migrations/executor.py
+index aa2fe0883b..e28a55265c 100644
+--- a/django/db/migrations/executor.py
++++ b/django/db/migrations/executor.py
+@@ -70,13 +70,13 @@ class MigrationExecutor:
+                         applied[migration] = self.loader.graph.nodes[migration]
+         return plan
+ 
+-    def _create_project_state(self, with_applied_migrations=False):
++    def _create_project_state(self, skip_applied_migrations=True):
+         """
+         Create a project state including all the applications without
+         migrations and applied migrations if with_applied_migrations=True.
+         """
+         state = ProjectState(real_apps=self.loader.unmigrated_apps)
+-        if with_applied_migrations:
++        if not skip_applied_migrations:
+             # Create the forwards plan Django would follow on an empty database
+             full_plan = self.migration_plan(self.loader.graph.leaf_nodes(), clean_start=True)
+             applied_migrations = {
+@@ -110,7 +110,7 @@ class MigrationExecutor:
+         if not plan:
+             if state is None:
+                 # The resulting state should include applied migrations.
+-                state = self._create_project_state(with_applied_migrations=True)
++                state = self._create_project_state(skip_applied_migrations=False)
+         elif all_forwards == all_backwards:
+             # This should only happen if there's a mixed plan
+             raise InvalidMigrationPlan(
+@@ -122,7 +122,7 @@ class MigrationExecutor:
+         elif all_forwards:
+             if state is None:
+                 # The resulting state should still include applied migrations.
+-                state = self._create_project_state(with_applied_migrations=True)
++                state = self._create_project_state(skip_applied_migrations=False)
+             state = self._migrate_all_forwards(state, plan, full_plan, fake=fake, fake_initial=fake_initial)
+         else:
+             # No need to check for `elif all_backwards` here, as that condition
